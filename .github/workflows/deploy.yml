@@ -1,0 +1,28 @@
+name: Deploy Jupyter Book
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          pip install jupyter-book ghp-import
+
+      - name: Build Jupyter Book
+        run: jupyter-book build .
+
+      - name: Publish to GitHub Pages
+        run: ghp-import -n -p -f _build/html
+
