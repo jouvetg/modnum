@@ -1,6 +1,6 @@
 # Jupyter Book Table of Contents
 format: jb-book
-root: README
+root: syllabus
 
 chapters:
   - file: 00_intro_python/00_intro_python.ipynb
