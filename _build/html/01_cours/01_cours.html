@@ -1,0 +1,1107 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Cours 1 &#8212; Modelisation Numerique</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01_cours/01_cours';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercices 1" href="../01_exercice/01_exercice.html" />
+    <link rel="prev" title="Introduction à Python" href="../00_intro_python/00_intro_python.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Modelisation Numerique</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Syllabus
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 1</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02_exercice/02_exercice.html">Exercices 2</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../03_cours/03_cours.html">Cours 3</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../04_exercice/04_exercice.html">Exercices 4</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05_cours/05_cours.html">Cours 5</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06_exercice/06_exercice.html">Exercices 6</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../07_cours/07_cours.html">Cours 7</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08_exercice/08_exercice.html">Exercices 8</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09_cours/09_cours.html">Cours 9</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10_exercice/10_exercice.html">Exercices 10</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../11_cours/11_cours.html">Cours 11</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../11_exercice/11_exercice.html">Exercices 11</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/01_cours/01_cours.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cours 1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-de-ce-cours">Objectifs de ce cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#du-processus-a-la-resolution-numerique">Du processus à la résolution numérique</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-1-le-mouvement-des-glaciers">Exemple 1 : Le mouvement des glaciers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-2-rupture-d-iceberg-avec-tsunami">Exemple 2 : Rupture d’iceberg avec tsunami</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-avalanche-de-neige">Example 3 : Avalanche de neige</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-modeles-climatiques">Example 4: Modèles climatiques</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-tectonique-des-plaques">Example 5: Tectonique des plaques</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-evolution-du-paysage">Example 6: Evolution du paysage</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-vs-code-notebook-cest-quoi">Python, VS Code, notebook : c’est quoi ?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#document-introdution-a-python">Document “introdution à python”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code">VS Code</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-pour-vs-code">Tips pour VS Code</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook-p-e-monnotebook-ipynb">Jupyter notebook (p.e. monNotebook.ipynb)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#series-de-bloc-code-et-texte-a-executer">Séries de bloc “code” et “texte” à exécuter</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#format-mardown">Format “mardown”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notions-fondamentales-en-python-pour-ce-cours">Notions fondamentales en Python pour ce cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-de-libraires">Import de libraires</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation-pour-les-boucles-et-clauses-condit">Indentation pour les boucles et clauses condit.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indexation-en-python">Indexation en python</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#assignement">Assignement</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-exemples">Quelques exemples</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-graphique">Illustration graphique</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-et-modification-d-elements">Sélection et modification d’éléments</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#incrementation">Incrémentation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisation-et-regle-de-mise-a-jour">Initialisation et règle de mise à jour</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tous-les-modeles-de-ce-cours-se-formalisent-par">Tous les modèles de ce cours se formalisent par</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tous-les-modeles-de-ce-cours-s-implementent">Tous les modèles de ce cours s’implémentent</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-analytique-versus-numerique">Solution analytique versus numérique</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="cours-1">
+<h1>Cours 1<a class="headerlink" href="#cours-1" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/illu_mod_num_s.png" /></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="objectifs-de-ce-cours">
+<h1>Objectifs de ce cours<a class="headerlink" href="#objectifs-de-ce-cours" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Qu’est-ce qu’un modèle numérique ? Exemples issus de la recherche</p></li>
+<li><p>Présentation des outils : Python, VS Code, notebooks</p></li>
+<li><p>Notions fondamentales pour ce cours en Python</p></li>
+<li><p>Initialisation et règle de mise à jour</p></li>
+<li><p>Solution analytique versus solution numérique</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="du-processus-a-la-resolution-numerique">
+<h1>Du processus à la résolution numérique<a class="headerlink" href="#du-processus-a-la-resolution-numerique" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/framework.png" /></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="exemple-1-le-mouvement-des-glaciers">
+<h1>Exemple 1 : Le mouvement des glaciers<a class="headerlink" href="#exemple-1-le-mouvement-des-glaciers" title="Link to this heading">#</a></h1>
+<p>Le mouvement de la glace ressemble à celui d’un <strong>fluide</strong> (très) visqueux.</p>
+<p>La modélisation des glaciers fait donc appel à la <strong>mécanique des fluides</strong>.</p>
+<p><img alt="" src="../_images/steps_s1.png" /></p>
+<p>Voir des modélisations sur <a class="reference external" href="https://jouvetg.github.io/the-aletsch-glacier-module/">https://jouvetg.github.io/the-aletsch-glacier-module/</a></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="exemple-2-rupture-d-iceberg-avec-tsunami">
+<h1>Exemple 2 : Rupture d’iceberg avec tsunami<a class="headerlink" href="#exemple-2-rupture-d-iceberg-avec-tsunami" title="Link to this heading">#</a></h1>
+<p><img alt="height:250px" src="../_images/ex_velage_s1.jpg" /> <img alt="height:250px" src="../_images/ex_velage2_s1.png" /></p>
+<p>Source: J. Gaume, animation: <a class="reference external" href="https://youtu.be/7IC_ehdH7ZM">https://youtu.be/7IC_ehdH7ZM</a></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="example-3-avalanche-de-neige">
+<h1>Example 3 : Avalanche de neige<a class="headerlink" href="#example-3-avalanche-de-neige" title="Link to this heading">#</a></h1>
+<p><img alt="height:350px" src="../_images/ex_avalanche_s1.png" /></p>
+<p>Source: J. Gaume, animation: <a class="reference external" href="https://youtu.be/YQ7e06-MZec">https://youtu.be/YQ7e06-MZec</a></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="example-4-modeles-climatiques">
+<h1>Example 4: Modèles climatiques<a class="headerlink" href="#example-4-modeles-climatiques" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/ex_mod_climatique_s1.png" />
+Source: <a class="reference external" href="http://www.windy.com/">http://www.windy.com/</a></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="example-5-tectonique-des-plaques">
+<h1>Example 5: Tectonique des plaques<a class="headerlink" href="#example-5-tectonique-des-plaques" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/subduction_s3.png" />
+Source: Candioti and al., 2022 (UNIL/FGSE)</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="example-6-evolution-du-paysage">
+<h1>Example 6: Evolution du paysage<a class="headerlink" href="#example-6-evolution-du-paysage" title="Link to this heading">#</a></h1>
+<p><img alt="height:350px" src="../_images/evol_paysage_s3.png" /></p>
+<p>La formation des paysages inclut i) la tectonique des plaque ii) l’érosion fluviale iii) hillslope process iv) l’érosion glaciaire v) le transport de sédiments</p>
+<p>Source: Campforts and al., 2017, Esurf</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="python-vs-code-notebook-cest-quoi">
+<h1>Python, VS Code, notebook : c’est quoi ?<a class="headerlink" href="#python-vs-code-notebook-cest-quoi" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Python, l’interpreteur le language
+<img alt="width:250px" src="../_images/python_s1.png" /></p></li>
+<li><p>Visual Studio code l’éditeur
+<img alt="width:250px" src="../_images/VScode_s1.png" /></p></li>
+<li><p>Jupyter notebook, le type de format</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="document-introdution-a-python">
+<h1>Document “introdution à python”<a class="headerlink" href="#document-introdution-a-python" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/doc_intro_s1.png" /></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="vs-code">
+<h1>VS Code<a class="headerlink" href="#vs-code" title="Link to this heading">#</a></h1>
+<p><img alt="bg" src="../_images/screen_VScode_s1.png" /></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="tips-pour-vs-code">
+<h1>Tips pour VS Code<a class="headerlink" href="#tips-pour-vs-code" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>À l’ouverture de VS Code, un dossier <code class="docutils literal notranslate"><span class="pre">Code</span></code> sur le bureau vous permet d’accéder à vos notebooks. Ce dossier est sauvegardé.</p></li>
+<li><p>L’éditeur peut être séparé en deux pour voir les données (à gauche) et le code (à droite).</p></li>
+<li><p>Veuillez charger un “kernel” Python comme interpréteur.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="jupyter-notebook-p-e-monnotebook-ipynb">
+<h1>Jupyter notebook (p.e. monNotebook.ipynb)<a class="headerlink" href="#jupyter-notebook-p-e-monnotebook-ipynb" title="Link to this heading">#</a></h1>
+<p>Les exercices du cours sont donnés sous forme de “Jupyter Notebooks”.</p>
+<ul class="simple">
+<li><p><strong>Qu’est-ce qu’un Jupyter Notebook ?</strong></p>
+<ul>
+<li><p>Un environnement interactif pour écrire et exécuter du code Python.</p></li>
+<li><p>Très utilisé pour le calcul scientifique, l’analyse de données, etc.</p></li>
+</ul>
+</li>
+<li><p><strong>Fonctionnalités :</strong></p>
+<ul>
+<li><p>Les cellules de code peuvent être exécutées indépend. (Shift + Enter).</p></li>
+<li><p>Possibilité d’ajouter des explications en Markdown.</p></li>
+<li><p>Visualisation de graphiques et résultats directement dans le notebook.</p></li>
+</ul>
+</li>
+</ul>
+<p>Pour faire les exercices, suivez les instructions, notamment en créant un bloc de code Python ou une réponse Markdown lorsque vous voyez “✅ <strong>À vous de faire !</strong>”</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="series-de-bloc-code-et-texte-a-executer">
+<h1>Séries de bloc “code” et “texte” à exécuter<a class="headerlink" href="#series-de-bloc-code-et-texte-a-executer" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/ex_notebook_s1.png" /></p>
+<ul class="simple">
+<li><p>Vous pouvez exécuter chaque cellule individuellement avec le bouton de lecture (ou Shift + Enter)</p></li>
+<li><p>Les résultats sont affichés immédiatement sous la cellule de code.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="format-mardown">
+<h1>Format “mardown”<a class="headerlink" href="#format-mardown" title="Link to this heading">#</a></h1>
+<p>Le Markdown est un langage trés léger qui permet de formater du texte simplement (titres, listes, liens, images, etc.) avec des symboles faciles à utiliser, tout en étant lisible même sans conversion.</p>
+<p>Comme un code il s’excecute (Shift + Enter). Voila un example :</p>
+<p><img alt="" src="../_images/ex_markdown_s1.png" /></p>
+<p>On peut aussi écrire du texte, afficher une image, des équations …</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="notions-fondamentales-en-python-pour-ce-cours">
+<h1>Notions fondamentales en Python pour ce cours<a class="headerlink" href="#notions-fondamentales-en-python-pour-ce-cours" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Import de libraires</p></li>
+<li><p>Indentation</p></li>
+<li><p>Indexation</p></li>
+<li><p>Incrémentation</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="import-de-libraires">
+<h1>Import de libraires<a class="headerlink" href="#import-de-libraires" title="Link to this heading">#</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span> 
+</pre></div>
+</div>
+<p>Cela permet d’appeler la librairie mais aussi de lui donner un nom court (‘alias’).</p>
+<p>Nous utiliserons dans ce cours principalement ces 3 librairies : <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, et <code class="docutils literal notranslate"><span class="pre">IPython</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="indentation-pour-les-boucles-et-clauses-condit">
+<h1>Indentation pour les boucles et clauses condit.<a class="headerlink" href="#indentation-pour-les-boucles-et-clauses-condit" title="Link to this heading">#</a></h1>
+<p>L’alignement depuis le début de ligne détermine ce qui est inclus dans la boucle. En effet, chaque ligne indentée indique qu’elle fait partie du même bloc de code, ce qui permet à Python de comprendre la structure logique de votre programme.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">I</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>                    <span class="c1"># Ne pas oublier “:”</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>                           <span class="c1"># Ne pas oublier l’identation</span>
+
+<span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="err">‘</span><span class="n">i</span> <span class="n">est</span> <span class="n">egal</span> <span class="n">a</span> <span class="n">zero</span><span class="err">’</span><span class="p">)</span>
+
+<span class="n">I</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="n">I</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p><strong>Attention :</strong> une fois que le nombre d’espaces pour l’indentation est défini, il doit être respecté tout au long de votre bloc d’instruction.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="indexation-en-python">
+<h1>Indexation en python<a class="headerlink" href="#indexation-en-python" title="Link to this heading">#</a></h1>
+<p>Si nous avons un liste (ou un vecteur <code class="docutils literal notranslate"><span class="pre">numpy</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>alors, on peut accéder à chaque élément à partir du début ou de la fin:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">colors[0]</span></code> retrounera <code class="docutils literal notranslate"><span class="pre">'green'</span></code>,  <code class="docutils literal notranslate"><span class="pre">colors[1]</span></code> retrounera <code class="docutils literal notranslate"><span class="pre">'red'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colors[-1]</span></code> retournera <code class="docutils literal notranslate"><span class="pre">'black'</span></code>, <code class="docutils literal notranslate"><span class="pre">colors[-2]</span></code> retournera <code class="docutils literal notranslate"><span class="pre">'white'</span></code></p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Index (postive)</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Index (negative)</p></td>
+<td><p>-6</p></td>
+<td><p>-5</p></td>
+<td><p>-4</p></td>
+<td><p>-3</p></td>
+<td><p>-2</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Valeur</p></td>
+<td><p>‘red’</p></td>
+<td><p>‘green’</p></td>
+<td><p>‘blue’</p></td>
+<td><p>‘yellow’</p></td>
+<td><p>‘white’</p></td>
+<td><p>‘black’</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Attention: Python compte à partir de 0!</strong></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="assignement">
+<h1>Assignement<a class="headerlink" href="#assignement" title="Link to this heading">#</a></h1>
+<p>Si nous avons un liste (ou un vecteur <code class="docutils literal notranslate"><span class="pre">numpy</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">basket</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bread&#39;</span><span class="p">,</span> <span class="s1">&#39;butter&#39;</span><span class="p">,</span> <span class="s1">&#39;milk&#39;</span><span class="p">]</span> <span class="c1"># definition</span>
+<span class="n">basket</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cake&#39;</span> <span class="c1"># changement du premier élément</span>
+</pre></div>
+</div>
+<p>Aprés ces instructions, <code class="docutils literal notranslate"><span class="pre">basket</span></code> retournera <code class="docutils literal notranslate"><span class="pre">['cake',</span> <span class="pre">'butter',</span> <span class="pre">'milk']</span></code>.</p>
+<p>Ensuite si l’on effectue</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">basket</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;water&#39;</span>
+</pre></div>
+</div>
+<p>alors, <code class="docutils literal notranslate"><span class="pre">basket</span></code> retournera <code class="docutils literal notranslate"><span class="pre">['cake',</span> <span class="pre">'butter',</span> <span class="pre">'water']</span></code></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="slicing">
+<h1>Slicing<a class="headerlink" href="#slicing" title="Link to this heading">#</a></h1>
+<p>Si nous avons un liste (ou un vecteur <code class="docutils literal notranslate"><span class="pre">numpy</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span> 
+
+<span class="o">|</span> <span class="n">Index</span>          <span class="o">|</span> <span class="mi">0</span>    <span class="o">|</span> <span class="mi">1</span>    <span class="o">|</span> <span class="mi">2</span>    <span class="o">|</span> <span class="mi">3</span>    <span class="o">|</span> <span class="mi">4</span>    <span class="o">|</span> <span class="mi">5</span>    <span class="o">|</span> <span class="mi">6</span>    <span class="o">|</span> <span class="mi">7</span>    <span class="o">|</span> <span class="mi">8</span>    <span class="o">|</span>
+<span class="o">|----------------|------|------|------|------|------|------|------|------|------|</span>
+<span class="o">|</span> <span class="n">nums</span>           <span class="o">|</span> <span class="mi">10</span>   <span class="o">|</span> <span class="mi">20</span>   <span class="o">|</span> <span class="mi">30</span>   <span class="o">|</span> <span class="mi">40</span>   <span class="o">|</span> <span class="mi">50</span>   <span class="o">|</span> <span class="mi">60</span>   <span class="o">|</span> <span class="mi">70</span>   <span class="o">|</span> <span class="mi">80</span>   <span class="o">|</span> <span class="mi">90</span>   <span class="o">|</span>
+<span class="o">|</span> <span class="n">nums</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>      <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span> <span class="o">.</span>    <span class="o">|</span>  <span class="o">.</span>   <span class="o">|</span> <span class="o">.</span>    <span class="o">|</span> <span class="o">.</span>    <span class="o">|</span>  <span class="o">.</span>   <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>
+<span class="o">|</span> <span class="n">Sliced</span> <span class="n">values</span>  <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span> <span class="mi">30</span>   <span class="o">|</span> <span class="mi">40</span>   <span class="o">|</span> <span class="mi">50</span>   <span class="o">|</span> <span class="mi">60</span>   <span class="o">|</span> <span class="mi">70</span>   <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>
+
+<span class="n">nums</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span> <span class="err">→</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
+
+<span class="n">some_nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
+
+<span class="o">|</span> <span class="n">Index</span>          <span class="o">|</span> <span class="mi">0</span>    <span class="o">|</span> <span class="mi">1</span>    <span class="o">|</span> <span class="mi">2</span>    <span class="o">|</span> <span class="mi">3</span>    <span class="o">|</span> <span class="mi">4</span>    <span class="o">|</span>
+<span class="o">|----------------|------|------|------|------|------|</span>
+<span class="o">|</span> <span class="n">some_nums</span>      <span class="o">|</span> <span class="mi">30</span>   <span class="o">|</span> <span class="mi">40</span>   <span class="o">|</span> <span class="mi">50</span>   <span class="o">|</span> <span class="mi">60</span>   <span class="o">|</span> <span class="mi">70</span>   <span class="o">|</span>
+</pre></div>
+</div>
+<p><strong>Attention 2 est inclus, 7 est exclus!</strong></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="quelques-exemples">
+<h1>Quelques exemples<a class="headerlink" href="#quelques-exemples" title="Link to this heading">#</a></h1>
+<p>Voici quelques exemples supplémentaires qui permettent de comprendre les opérations sur les listes ou les vecteurs <code class="docutils literal notranslate"><span class="pre">numpy</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>          <span class="c1"># les 5 premiers elements</span>
+<span class="go">[10, 20, 30, 40, 50]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>         <span class="c1"># les 3 derniers elements</span>
+<span class="go">[70, 80, 90]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>         <span class="c1"># tous sauf les n dernier elements</span>
+<span class="go">[10, 20, 30, 40, 50, 60, 70]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>         <span class="c1"># on prend chaque 2 éléments</span>
+<span class="go">[10, 30, 50, 70, 90]</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="illustration-graphique">
+<h1>Illustration graphique<a class="headerlink" href="#illustration-graphique" title="Link to this heading">#</a></h1>
+<p>Si l’on a un vecteur de taille 9:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                   <span class="o">|-----|-----|-----|-----|-----|-----|-----|-----|</span> 
+</pre></div>
+</div>
+<p>alors nous obtenons les sous-vecteur suivants:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                     <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>                                 <span class="o">|-----|-----|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>                                <span class="o">|-----|</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>                                <span class="o">|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>              <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>              <span class="o">|-----|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>              <span class="o">|-----------|-----------|-----------|-----------|</span>
+<span class="n">x</span><span class="p">[::</span><span class="mi">4</span><span class="p">]</span>              <span class="o">|-----------------------|-----------------------|</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="selection-et-modification-d-elements">
+<h1>Sélection et modification d’éléments<a class="headerlink" href="#selection-et-modification-d-elements" title="Link to this heading">#</a></h1>
+<p>Voila encore d’autres exemples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">vecteur</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span> <span class="c1"># Créer un tableau NumPy</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">vecteur</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="n">elements_selectionnes</span> <span class="o">=</span> <span class="n">vecteur</span><span class="p">[</span><span class="n">vecteur</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span> <span class="c1"># Sélectionne les élts &gt; à 5</span>
+ 
+<span class="nb">print</span><span class="p">(</span><span class="n">elements_selectionnes</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="n">vecteur</span><span class="p">[</span><span class="n">vecteur</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Assigne 1 aux éléments supérieurs à 5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">vecteur</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="incrementation">
+<h1>Incrémentation<a class="headerlink" href="#incrementation" title="Link to this heading">#</a></h1>
+<p>Dans ce cours, il sera souvent question de mettre à jour des variables modélisées. Pour cela, il sera commode d’utiliser l’opérateur d’<strong>incrémentation</strong>, qui permet d’ajouter ou d’enlever quelque chose à une variable. Par exemple :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">+=</span> <span class="mi">1</span>     <span class="c1"># est équivalent à I = I + 1</span>
+</pre></div>
+</div>
+<p>Cela fonctionne aussi :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">-=</span> <span class="mi">1</span>     <span class="c1"># est équivalent à I = I - 1</span>
+<span class="n">I</span> <span class="o">*=</span> <span class="mi">10</span>    <span class="c1"># est équivalent à I = I * 10</span>
+<span class="n">I</span> <span class="o">/=</span> <span class="mi">2</span>     <span class="c1"># est équivalent à I = I / 2</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="initialisation-et-regle-de-mise-a-jour">
+<h1>Initialisation et règle de mise à jour<a class="headerlink" href="#initialisation-et-regle-de-mise-a-jour" title="Link to this heading">#</a></h1>
+<p>L’objectif de ce cours est d’implémenter l’évolution de phénomènes physiques. Nous serons donc amenés à <strong>initialiser</strong> et <strong>mettre à jour</strong> des variables. Dans l’exemple simple suivant, nous <strong>initialisons</strong> le temps à zéro. À chaque pas de temps, nous <strong>mettons à jour</strong> le temps en l’incrémentant du pas de temps <code class="docutils literal notranslate"><span class="pre">dt</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># seconde</span>
+<span class="n">dt</span>   <span class="o">=</span> <span class="mi">1</span> <span class="c1"># seconde</span>
+<span class="n">nt</span>   <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span> <span class="c1"># Fait une boucle qui itére 1000 fois</span>
+  <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Iteration </span><span class="si">{</span><span class="n">it</span><span class="si">}</span><span class="s2">: The time is </span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="tous-les-modeles-de-ce-cours-se-formalisent-par">
+<h1>Tous les modèles de ce cours se formalisent par<a class="headerlink" href="#tous-les-modeles-de-ce-cours-se-formalisent-par" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial f}{\partial t} = {\rm qlq \; chose} \]</div>
+<p>Par exemple:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+\frac{\partial F}{\partial t} &amp; = {\rm Salaire} - {\rm Depenses} &amp; \textrm{(Equation de la &quot;fortune&quot; F)} \\
+ \frac{\partial X}{\partial t} &amp; = {\rm Vitesse} &amp; \textrm{(Equation de la &quot;position&quot; X )} \\
+ \frac{\partial C}{\partial x} &amp; = \frac{\partial^2 C}{\partial^2 x}  &amp; \textrm{(Equation de diffusion pour la &quot;concentration&quot; C)} \\
+ \frac{\partial T}{\partial t} &amp; =  \frac{\partial^2 C}{\partial^2 x} - V \frac{\partial T}{\partial x}  &amp;\textrm{(Equation de diffusion-advection  pour la &quot;temperature&quot; T)}
+\end{align}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="tous-les-modeles-de-ce-cours-s-implementent">
+<h1>Tous les modèles de ce cours s’implémentent<a class="headerlink" href="#tous-les-modeles-de-ce-cours-s-implementent" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[ f_{new} = f_{old} + dt \times {\rm qlq \; chose} \]</div>
+<p>Un exemple en python (qui utilise l’incrémentation <code class="docutils literal notranslate"><span class="pre">+=</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span>    <span class="o">=</span> <span class="mi">2025</span>  <span class="c1"># années, initialisation</span>
+<span class="n">dt</span>      <span class="o">=</span> <span class="mi">1</span>     <span class="c1"># mois</span>
+<span class="n">fortune</span> <span class="o">=</span> <span class="mi">10000</span> <span class="c1"># CHF, initialisation</span>
+<span class="n">salaire</span> <span class="o">=</span> <span class="mi">3500</span>  <span class="c1"># CHF/mois</span>
+<span class="n">depense</span> <span class="o">=</span> <span class="mi">3000</span>  <span class="c1"># CHF/mois</span>
+<span class="n">nt</span>      <span class="o">=</span> <span class="mi">36</span>    <span class="c1"># 36 pas de temps (période de modélisation : 3 ans)</span>
+
+<span class="c1"># Boucle temporelle</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
+  <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>                               <span class="c1"># Mise à jour du temps</span>
+  <span class="n">fortune</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">salaire</span> <span class="o">-</span> <span class="n">depense</span><span class="p">)</span>      <span class="c1"># Mise à jour de la fortune</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ma fortune au temps </span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2"> est de </span><span class="si">{</span><span class="n">fortune</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="solution-analytique-versus-numerique">
+<h1>Solution analytique versus numérique<a class="headerlink" href="#solution-analytique-versus-numerique" title="Link to this heading">#</a></h1>
+<p>Il existe deux manières de résoudre un modèle :</p>
+<p><strong>1. Analytiquement</strong> : lorsque l’on peut trouver une solution exacte (c’est-à-dire une formule), ce qui est rarement le cas en pratique.</p>
+<p><strong>2. Numériquement</strong> : lorsque l’on peut implémenter un algorithme qui approchera la solution à l’aide d’une méthode numérique itérative, ce qui est moins précis mais beaucoup plus général.</p>
+<p>L’objectif principal du cours de modélisation numérique est d’apprendre à calculer des solutions <strong>numériques</strong> pour des problèmes inspirés de la physique.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./01_cours"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../00_intro_python/00_intro_python.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction à Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../01_exercice/01_exercice.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercices 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-de-ce-cours">Objectifs de ce cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#du-processus-a-la-resolution-numerique">Du processus à la résolution numérique</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-1-le-mouvement-des-glaciers">Exemple 1 : Le mouvement des glaciers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-2-rupture-d-iceberg-avec-tsunami">Exemple 2 : Rupture d’iceberg avec tsunami</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-avalanche-de-neige">Example 3 : Avalanche de neige</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-modeles-climatiques">Example 4: Modèles climatiques</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-tectonique-des-plaques">Example 5: Tectonique des plaques</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6-evolution-du-paysage">Example 6: Evolution du paysage</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-vs-code-notebook-cest-quoi">Python, VS Code, notebook : c’est quoi ?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#document-introdution-a-python">Document “introdution à python”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code">VS Code</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-pour-vs-code">Tips pour VS Code</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook-p-e-monnotebook-ipynb">Jupyter notebook (p.e. monNotebook.ipynb)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#series-de-bloc-code-et-texte-a-executer">Séries de bloc “code” et “texte” à exécuter</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#format-mardown">Format “mardown”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notions-fondamentales-en-python-pour-ce-cours">Notions fondamentales en Python pour ce cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-de-libraires">Import de libraires</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation-pour-les-boucles-et-clauses-condit">Indentation pour les boucles et clauses condit.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indexation-en-python">Indexation en python</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#assignement">Assignement</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-exemples">Quelques exemples</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-graphique">Illustration graphique</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-et-modification-d-elements">Sélection et modification d’éléments</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#incrementation">Incrémentation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisation-et-regle-de-mise-a-jour">Initialisation et règle de mise à jour</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tous-les-modeles-de-ce-cours-se-formalisent-par">Tous les modèles de ce cours se formalisent par</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tous-les-modeles-de-ce-cours-s-implementent">Tous les modèles de ce cours s’implémentent</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-analytique-versus-numerique">Solution analytique versus numérique</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Les auteurs du cours de Modelisation Numerique
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

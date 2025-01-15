@@ -1,0 +1,40 @@
+# Jupyter Book Table of Contents
+format: jb-book
+root: README
+
+chapters:
+  - file: 00_intro_python/00_intro_python.ipynb
+
+  - file: 01_cours/01_cours
+  - file: 01_exercice/01_exercice
+
+  - file: 02_cours/02_cours
+  - file: 02_exercice/02_exercice
+
+  - file: 03_cours/03_cours
+  - file: 03_exercice/03_exercice
+
+  - file: 04_cours/04_cours
+  - file: 04_exercice/04_exercice
+
+  - file: 05_cours/05_cours
+  - file: 05_exercice/05_exercice
+
+  - file: 06_cours/06_cours
+  - file: 06_exercice/06_exercice
+
+  - file: 07_cours/07_cours
+  - file: 07_exercice/07_exercice
+
+  - file: 08_cours/08_cours
+  - file: 08_exercice/08_exercice
+
+  - file: 09_cours/09_cours
+  - file: 09_exercice/09_exercice
+
+  - file: 10_cours/10_cours
+  - file: 10_exercice/10_exercice
+
+  - file: 11_cours/11_cours
+  - file: 11_exercice/11_exercice
+
