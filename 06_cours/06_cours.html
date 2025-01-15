@@ -1,0 +1,903 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Cours 6 &#8212; Modelisation Numerique</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06_cours/06_cours';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercices 6" href="../06_exercice/06_exercice.html" />
+    <link rel="prev" title="Exercices 5" href="../05_exercice/05_exercice.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Modelisation Numerique</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Syllabus
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../01_cours/01_cours.html">Cours 1</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02_exercice/02_exercice.html">Exercices 2</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../03_cours/03_cours.html">Cours 3</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../04_exercice/04_exercice.html">Exercices 4</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05_cours/05_cours.html">Cours 5</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 6</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06_exercice/06_exercice.html">Exercices 6</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../07_cours/07_cours.html">Cours 7</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08_exercice/08_exercice.html">Exercices 8</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09_cours/09_cours.html">Cours 9</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10_exercice/10_exercice.html">Exercices 10</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../11_cours/11_cours.html">Cours 11</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../11_exercice/11_exercice.html">Exercices 11</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/06_cours/06_cours.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cours 6</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 6</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#diffusion-advection-example">Diffusion-advection: example</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#advection-mise-en-equation">Advection : Mise en équation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-mise-en-equation">Reaction : Mise en équation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-dadvection-diffusion-reaction">Equation d’Advection-Diffusion-Reaction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-polluant-dans-une-riviere">Example : Polluant dans une rivière</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-de-splitting-1-2">Méthode de “splitting” (1/2)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-de-splitting-2-2">Méthode de “splitting” (2/2)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-d-advection">Discrétisation du terme d’advection</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-upwind">Methode “upwind”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dans-le-cas-v-0">Dans le cas v&gt;0</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Dans le cas v&lt;0</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-de-reaction">Discrétisation du terme de réaction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sauvergarde-des-resultats">Sauvergarde des résultats</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="cours-6">
+<h1>Cours 6<a class="headerlink" href="#cours-6" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/illu_mod_num_s.png" /></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="objectifs-du-cours">
+<h1>Objectifs du cours<a class="headerlink" href="#objectifs-du-cours" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Modèle 1D de diffusion-advection-reaction</p></li>
+<li><p>Méthode de splitting</p></li>
+<li><p>Discrétisation upwind de l’advection</p></li>
+<li><p>Conditions de stabilité</p></li>
+<li><p>Sauvegarde des résultats</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="diffusion-advection-example">
+<h1>Diffusion-advection: example<a class="headerlink" href="#diffusion-advection-example" title="Link to this heading">#</a></h1>
+<p><img alt="width:750" src="https://volcanoes.usgs.gov/vsc/images/image_mngr/3100-3199/img3190_900w_543h.jpg" /></p>
+<p>Source : <a class="reference external" href="https://volcanoes.usgs.gov/volcanic_ash/ash_gas.html">https://volcanoes.usgs.gov/volcanic_ash/ash_gas.html</a></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="advection-mise-en-equation">
+<h1>Advection : Mise en équation<a class="headerlink" href="#advection-mise-en-equation" title="Link to this heading">#</a></h1>
+<p>Si l’on suit une <strong>particule <span class="math notranslate nohighlight">\(x(t)\)</span> mouvante</strong> avec le temps (p.e. dans une rivière) avec une vitesse <span class="math notranslate nohighlight">\(v=x'(t)\)</span>, la <strong>concentration</strong> d’un produit <span class="math notranslate nohighlight">\(C(t, x)\)</span> autour de cette particule <strong>ne varie pas</strong> dans le temps:
+$<span class="math notranslate nohighlight">\(\frac{d}{dt} \big(C(t, x(t))\big) = 0,\)</span>$</p>
+<p>ce qui se <strong>réécrit</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C}{\partial t} + v \frac{\partial C}{\partial x} = 0\]</div>
+<p>ou
+$<span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = - v \frac{\partial C}{\partial x}.\)</span>$</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="reaction-mise-en-equation">
+<h1>Reaction : Mise en équation<a class="headerlink" href="#reaction-mise-en-equation" title="Link to this heading">#</a></h1>
+<p>Nous pouvons modéliser la diminution (dégradation) d’un polluant assez simplement en utilisant l’équation suivante, qui dit que la décroissance de la pollution (la dérivée de <span class="math notranslate nohighlight">\(C\)</span> par rapport à <span class="math notranslate nohighlight">\(t\)</span>) est proportionnelle à la concentration (plus la concentration est grande, plus elle se dégrade), ce qui donne :</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C}{\partial t} = - \gamma C.\]</div>
+<p>→ Nous appellerons l’équation ci-dessus une équation de <strong>réaction</strong>.</p>
+<p>Noton que l’équation ci-dessus peut se résoudre analytiquement: <span class="math notranslate nohighlight">\(C(t) = e^{-\gamma t}\)</span>. Ainsi, dans ce cas, le polluant se dégrade exponentiellement.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="equation-dadvection-diffusion-reaction">
+<h1>Equation d’Advection-Diffusion-Reaction<a class="headerlink" href="#equation-dadvection-diffusion-reaction" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Equation d’advection : <span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = - v \frac{\partial C}{\partial x}.\)</span></p></li>
+<li><p>Equation de diffusion : <span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = - \frac{\partial q}{\partial x}, \qquad q=-D \frac{\partial C}{\partial x}.\)</span></p></li>
+<li><p>Equation de réaction : <span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = - \gamma C.\)</span></p></li>
+</ul>
+<p>→ <strong>L’équation d’advection-diffusion-reaction</strong> combine les trois:
+$<span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t}=-\frac{\partial q}{\partial x}-v\frac{\partial C}{\partial x} - \gamma C, \qquad q=-D\frac{\partial C}{\partial x}.\)</span>$</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="example-polluant-dans-une-riviere">
+<h1>Example : Polluant dans une rivière<a class="headerlink" href="#example-polluant-dans-une-riviere" title="Link to this heading">#</a></h1>
+<p>Imaginons qu’un polluant est déversé dans une rivière à un endroit, celui-ci:</p>
+<ul class="simple">
+<li><p>se <strong>diffuse</strong> dans l’eau (→ diffusion),</p></li>
+<li><p>se <strong>déplace</strong> avec le courant (→ advection),</p></li>
+<li><p>se <strong>degrade</strong> naturellemet (→ réaction),</p></li>
+</ul>
+<p><img alt="width:450" src="../_images/advection_riviere_s9.png" /></p>
+<p>→ Pour décrire cela, il nous faut bien un modèle <strong>d’Advection-Diffusion-Réaction</strong>.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="methode-de-splitting-1-2">
+<h1>Méthode de “splitting” (1/2)<a class="headerlink" href="#methode-de-splitting-1-2" title="Link to this heading">#</a></h1>
+<p>Dans ce cours, nous résoudrons bon nombre d’équations de la forme:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial F}{\partial t} =  a + b + c. \]</div>
+<p>Pour cela, on sait que l’on met à jour <span class="math notranslate nohighlight">\(F\)</span> avec la formule:</p>
+<div class="math notranslate nohighlight">
+\[ F^{n+1} = F^{n} + (a + b + c) \times dt \]</div>
+<p>Pour cela, il est commode de traiter chaque terme (a, b et c) independement et de résoudre séquentiellment:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+F^{n+1/3} &amp; = F^{n} &amp; + a \times dt \\
+F^{n+2/3}  &amp; = F^{n+1/3} &amp; + b \times dt \\
+F^{n+1} &amp; = F^{n+2/3} &amp; + c \times dt 
+\end{align} 
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="methode-de-splitting-2-2">
+<h1>Méthode de “splitting” (2/2)<a class="headerlink" href="#methode-de-splitting-2-2" title="Link to this heading">#</a></h1>
+<p>Appliqué à l’équation d’advection-diffusion</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C}{\partial t}=-\frac{\partial q}{\partial x}-v\frac{\partial C}{\partial x}, \]</div>
+<p>cela revient à mettre à jour d’abord <span class="math notranslate nohighlight">\(C\)</span> pour la diffusion, puis pour l’advection:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+C^{n+1/3}  &amp; = C^{n} &amp; - \left( \frac{\partial q}{\partial x} \right)^n \times dt \\
+C^{n+2/3}  &amp; = C^{n+1/3} &amp; - \left( v\frac{\partial C}{\partial x} \right)^n  \times dt  \\
+C^{n+1}  &amp; = C^{n+2/3} &amp; - \left( \gamma C \right)^n  \times dt  \\
+\end{align} 
+\end{split}\]</div>
+<p>Le “splitting” permet de découpler le traitement des termes de l’équation (diffus., advect. et réaction), et de résoudre les problèmes d’incompatibilité de taille.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="discretisation-du-terme-d-advection">
+<h1>Discrétisation du terme d’advection<a class="headerlink" href="#discretisation-du-terme-d-advection" title="Link to this heading">#</a></h1>
+<p>Le terme de droite de l’equation d’advection</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C}{\partial t} = -v\frac{\partial C}{\partial x}, \]</div>
+<p>se discrétise avec</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dCdt</span> <span class="o">=</span> <span class="o">-</span> <span class="n">v</span> <span class="o">*</span> <span class="p">(</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
+</pre></div>
+</div>
+<p>La règle de mise à jour est différente de celle utilisée pour un terme de diffusion, car elle n’implique qu’une seule dérivée (donc <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> est de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>). Rappelons que le terme de diffusion fait intervenir une dérivée seconde, et <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> est de taille <code class="docutils literal notranslate"><span class="pre">nx-2</span></code> puisque l’on perd une cellule par dérivation.</p>
+<p>Pour mettre à jour <code class="docutils literal notranslate"><span class="pre">C</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx</span></code> avec le terme d’advection <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>, il y a deux options : décaler à gauche ou à droite. Pour faire le “bon” choix, nous utiliserons la méthode “upwind”.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="methode-upwind">
+<h1>Methode “upwind”<a class="headerlink" href="#methode-upwind" title="Link to this heading">#</a></h1>
+<p>Avec deux choix possibles pour la dérivée, l’idée de la méthode “upwind” est d’aller chercher l’information “dans le sens du vent”. Ainsi, nous prenons celle qui est en amont dans la direction donnée par le champ d’advection <span class="math notranslate nohighlight">\(v\)</span>:</p>
+<p>On approche la concentration <span class="math notranslate nohighlight">\(C_i^n\)</span> au <span class="math notranslate nohighlight">\(i\)</span>-ème point <span class="math notranslate nohighlight">\(i \cdot dx\)</span> au <span class="math notranslate nohighlight">\(n\)</span>-ème temps avec:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{C_i^{n+1} - C_i^n}{dt} = 
+\begin{cases} 
+-v \frac{C_i^n - C_{i-1}^n}{dx} &amp; \text{si } v &gt; 0, \\
+-v \frac{C_{i+1}^n - C_i^n}{dx} &amp; \text{sinon.}
+\end{cases}
+\end{split}\]</div>
+<p><img alt="width:750" src="../_images/advection_v_s9.png" /></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="dans-le-cas-v-0">
+<h1>Dans le cas v&gt;0<a class="headerlink" href="#dans-le-cas-v-0" title="Link to this heading">#</a></h1>
+<p>Nous avons la situation suivante</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                              <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>   <span class="o">...</span>  <span class="n">Taille</span>
+<span class="n">C</span>                             <span class="o">|-----|-----|-----|-----|-----|----...</span>    <span class="n">nx</span>
+                                 <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">dCdt_a</span><span class="o">=-</span><span class="n">v</span><span class="o">*</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>      <span class="o">|-----|-----|-----|-----|-----|-...</span>   <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
+                                    <span class="mi">1</span>          <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>   
+<span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                               <span class="o">|-----|-----|-----|-----|----...</span>   <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Ainsi, la mise à jour de l’advection se code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dCdt_a</span> <span class="o">=</span> <span class="o">-</span> <span class="n">v</span> <span class="o">*</span> <span class="p">(</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
+<span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="n">dCdt_a</span>
+</pre></div>
+</div>
+<p>→ La mise à jour agit sur les indices <code class="docutils literal notranslate"><span class="pre">1:</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Dans le cas v&lt;0<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>Nous avons la situation suivante</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                              <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>   <span class="o">...</span>  <span class="n">Taille</span>
+<span class="n">C</span>                             <span class="o">|-----|-----|-----|-----|-----|----...</span>    <span class="n">nx</span>
+                                 <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">dCdt_a</span><span class="o">=-</span><span class="n">v</span><span class="o">*</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>      <span class="o">|-----|-----|-----|-----|-----|-...</span>   <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
+                              <span class="mi">0</span>     <span class="mi">1</span>          <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>   
+<span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>                        <span class="o">|-----|-----|-----|-----|----...</span>         <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Ainsi, la mise à jour de l’advection se code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dCdt_a</span> <span class="o">=</span> <span class="o">-</span> <span class="n">v</span> <span class="o">*</span> <span class="p">(</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
+<span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="n">dCdt_a</span>
+</pre></div>
+</div>
+<p>→ La mise à jour agit sur les indices <code class="docutils literal notranslate"><span class="pre">:-1</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="discretisation-du-terme-de-reaction">
+<h1>Discrétisation du terme de réaction<a class="headerlink" href="#discretisation-du-terme-de-reaction" title="Link to this heading">#</a></h1>
+<p>Le terme de réaction ne pose aucun problème quant à lui, puisqu’il ne fait intervenir aucune dérivée :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dCdt_r</span> <span class="o">=</span> <span class="o">-</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">C</span>
+<span class="n">C</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="n">dCdt_r</span>
+</pre></div>
+</div>
+<p>Ainsi, pour le terme de réaction, la mise à jour s’applique sur tout le vecteur, il n’y a pas de problème de dimensions.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="condition-de-stabilite">
+<h1>Condition de stabilité<a class="headerlink" href="#condition-de-stabilite" title="Link to this heading">#</a></h1>
+<p>Prendre un pas de temps <code class="docutils literal notranslate"><span class="pre">dt</span></code> suffisement petit permet la stabilité de la méthode.</p>
+<p>Pour le problème de <strong>diffusion</strong>, nous avons vu que l’on peut choisir:</p>
+<div class="math notranslate nohighlight">
+\[ dt = \frac{dx^2}{2.1 \times D} \]</div>
+<p>Pour le problème d’<strong>advection</strong>, le pas de temps suivant est stable:</p>
+<div class="math notranslate nohighlight">
+\[ dt = 0.1 \times \frac{dx}{|v|} \]</div>
+<p>Ainsi pour un problème <strong>d’advection-diffusion</strong>, nous pouvons prendre:</p>
+<div class="math notranslate nohighlight">
+\[ dt = \min \left( \frac{dx^2}{2.1 \times D}, 0.1 \times \frac{dx}{|v|} \right).\]</div>
+<p><strong>Note:</strong> ce pas de temps fonctionne également si l’on a un terme de réaction.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="sauvergarde-des-resultats">
+<h1>Sauvergarde des résultats<a class="headerlink" href="#sauvergarde-des-resultats" title="Link to this heading">#</a></h1>
+<p>Jusqu’à présent, nous mettions à jour le résultat en remplaçant la solution à chaque fois :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># initialisation</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
+    <span class="n">C</span><span class="o">+=</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Toutefois, nous pouvons avoir intérêt à sauvegarder ce résultat dans une grande matrice, par exemple si nous voulons afficher les résultats à la fin sous une autre forme. Dans ce cas, il nous faut stocker notre variable dans une grande matrice :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span><span class="n">nx</span><span class="p">)</span>
+<span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># initialisation</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nt</span><span class="p">):</span>
+    <span class="n">C</span><span class="p">[</span><span class="n">it</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="n">it</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">+</span> <span class="o">...</span>
+</pre></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./06_cours"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../05_exercice/05_exercice.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exercices 5</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../06_exercice/06_exercice.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercices 6</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 6</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#diffusion-advection-example">Diffusion-advection: example</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#advection-mise-en-equation">Advection : Mise en équation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-mise-en-equation">Reaction : Mise en équation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-dadvection-diffusion-reaction">Equation d’Advection-Diffusion-Reaction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-polluant-dans-une-riviere">Example : Polluant dans une rivière</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-de-splitting-1-2">Méthode de “splitting” (1/2)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-de-splitting-2-2">Méthode de “splitting” (2/2)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-d-advection">Discrétisation du terme d’advection</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-upwind">Methode “upwind”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dans-le-cas-v-0">Dans le cas v&gt;0</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Dans le cas v&lt;0</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-de-reaction">Discrétisation du terme de réaction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sauvergarde-des-resultats">Sauvergarde des résultats</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Les auteurs du cours de Modelisation Numerique
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

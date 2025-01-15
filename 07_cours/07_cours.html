@@ -1,0 +1,879 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Cours 7 &#8212; Modelisation Numerique</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '07_cours/07_cours';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercices 7" href="../07_exercice/07_exercice.html" />
+    <link rel="prev" title="Exercices 6" href="../06_exercice/06_exercice.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Modelisation Numerique</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Syllabus
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../01_cours/01_cours.html">Cours 1</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02_exercice/02_exercice.html">Exercices 2</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../03_cours/03_cours.html">Cours 3</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../04_exercice/04_exercice.html">Exercices 4</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05_cours/05_cours.html">Cours 5</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06_exercice/06_exercice.html">Exercices 6</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 7</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../08_exercice/08_exercice.html">Exercices 8</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../09_cours/09_cours.html">Cours 9</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10_exercice/10_exercice.html">Exercices 10</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../11_cours/11_cours.html">Cours 11</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../11_exercice/11_exercice.html">Exercices 11</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/07_cours/07_cours.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cours 7</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 7</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-modeliser-en-2d">Pourquoi modéliser en 2D?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-d-un-domaine-rectangulaire">Discrétisation d’un domaine rectangulaire</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-representant-un-champs-2d-t-ou-c">Matrice représentant un champs 2D (<span class="math notranslate nohighlight">\(T\)</span> ou <span class="math notranslate nohighlight">\(C\)</span>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-diffusion-en-2d">Equation de diffusion en 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-des-derivees-partielles-en-2d">Approximation des dérivées partielles en 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-des-flux-q-x-et-q-y">Discrétisation des flux <span class="math notranslate nohighlight">\(q_x\)</span> et <span class="math notranslate nohighlight">\(q_y\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-graphique">Illustration graphique</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#troncature-pour-assurer-la-compatibilite">Troncature pour assurer la compatibilité</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bords-de-dirichlet">Conditions de bords de Dirichlet</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#affichage-interactif-en-2d-1-2">Affichage interactif en 2D (1/2)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-d-affichage-obtenu-avec-imshow">Exemple d’affichage obtenu avec <code class="docutils literal notranslate"><span class="pre">imshow</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#affichage-interactif-en-2d-2-2">Affichage interactif en 2D (2/2)</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="cours-7">
+<h1>Cours 7<a class="headerlink" href="#cours-7" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/illu_mod_num_s.png" /></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="objectifs-du-cours">
+<h1>Objectifs du cours<a class="headerlink" href="#objectifs-du-cours" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Discrétiser un espace en 2D</p></li>
+<li><p>Modéliser un problème de diffusion en 2D</p></li>
+<li><p>Discrétiser les équations en 2D</p></li>
+<li><p>Implémenter de la diffusion en Python</p></li>
+<li><p>Conditions aux bords de Dirichlet</p></li>
+<li><p>Conditions de stabilité</p></li>
+<li><p>Visualisation interactive en 2D</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="pourquoi-modeliser-en-2d">
+<h1>Pourquoi modéliser en 2D?<a class="headerlink" href="#pourquoi-modeliser-en-2d" title="Link to this heading">#</a></h1>
+<p>Bien que nous vivions dans un monde en 3D, certains problèmes peuvent se modéliser dans un espace plus petit. Par exemple, une rivière peut être décrite comme un espace 1D.</p>
+<p>Toutefois, si l’on veut modéliser des phénomènes un peu plus complexes, le 1D ne suffira pas. Par exemple, la propagation d’un polluant dans un lac nécessitera une dimension supplémentaire (donc 2D). Si l’on souhaite également prendre en compte la profondeur, il faudrait le faire en 3D.</p>
+<p>Plus la dimension est grande, plus le problème devient complexe, coûteux à calculer pour un processeur, et demandant en espace mémoire qui doit être représenté dans les éléments d’un vecteur.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="discretisation-d-un-domaine-rectangulaire">
+<h1>Discrétisation d’un domaine rectangulaire<a class="headerlink" href="#discretisation-d-un-domaine-rectangulaire" title="Link to this heading">#</a></h1>
+<p>Tous les modélisations 2D dans ce cours se font dans un domaine rectangulaire :</p>
+<div class="math notranslate nohighlight">
+\[[0,Lx] \times [0,Ly].\]</div>
+<p>Comme dans le cas 1D, nous pouvons définir la discrétisation spatiale selon x et y:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="n">Lx</span> <span class="o">/</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># pas d&#39;espace en x</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="n">Ly</span> <span class="o">/</span> <span class="p">(</span><span class="n">ny</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># pas d&#39;espace en y</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span> <span class="c1"># vecteur coordonnées en x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span> <span class="c1"># vecteur coordonnées en y</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span><span class="n">nx</span><span class="p">))</span> <span class="o">*</span> <span class="n">Tinit</span> <span class="c1"># initialisation dûne temperature constante</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="matrice-representant-un-champs-2d-t-ou-c">
+<h1>Matrice représentant un champs 2D (<span class="math notranslate nohighlight">\(T\)</span> ou <span class="math notranslate nohighlight">\(C\)</span>)<a class="headerlink" href="#matrice-representant-un-champs-2d-t-ou-c" title="Link to this heading">#</a></h1>
+<p><img alt="width:450" src="../_images/convention2d.png" /></p>
+<p><strong>Conventions:</strong></p>
+<ol class="arabic simple">
+<li><p>Nous travaillerons ds un repère dont l’origine est le coin Sud-West.</p></li>
+<li><p>Les lignes (colonnes) varient selon l’axe 0 d’ordonné y (1 d’absisse x).</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="equation-de-diffusion-en-2d">
+<h1>Equation de diffusion en 2D<a class="headerlink" href="#equation-de-diffusion-en-2d" title="Link to this heading">#</a></h1>
+<p>Le modèle de diffusion en 1D se généralise en 2D (ici pour la diffusion thermique):</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial T}{\partial t} = - \left( \frac{\partial q_x}{\partial x} + \frac{\partial q_y}{\partial y} \right),\]</div>
+<div class="math notranslate nohighlight">
+\[q_x = -D \frac{\partial T}{\partial x}, \qquad q_y = -D \frac{\partial T}{\partial y}.\]</div>
+<p>À l’instar du modèle 1D, le modèle 2D fait intervenir les dérivées par rapport à <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> des flux dans les directions <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>, respectivement, obtenues en dérivant par rapport à ces deux directions.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="approximation-des-derivees-partielles-en-2d">
+<h1>Approximation des dérivées partielles en 2D<a class="headerlink" href="#approximation-des-derivees-partielles-en-2d" title="Link to this heading">#</a></h1>
+<p>Dans l’équation de diffusion 2D, il y a 2 types de dérivées partielles selon que l’on dérive par rapport à <span class="math notranslate nohighlight">\(y\)</span> (l’axe 0) ou à <span class="math notranslate nohighlight">\(x\)</span> (l’axe 1) :</p>
+<ul class="simple">
+<li><p>On peut dériver selon x, et approcher <span class="math notranslate nohighlight">\(\frac{\partial T}{\partial x}\)</span> ainsi</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dTdx</span> <span class="o">=</span> <span class="p">(</span> <span class="n">T</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">T</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
+</pre></div>
+</div>
+<p>la matrice résultante <code class="docutils literal notranslate"><span class="pre">dTdx</span></code> aura la dimension <code class="docutils literal notranslate"><span class="pre">(ny,nx-1)</span></code>.</p>
+<ul class="simple">
+<li><p>On peut dériver selon y, et approcher <span class="math notranslate nohighlight">\(\frac{\partial T}{\partial y}\)</span> ainsi</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dTdy</span> <span class="o">=</span> <span class="p">(</span> <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">T</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dy</span>
+</pre></div>
+</div>
+<p>la matrice résultante <code class="docutils literal notranslate"><span class="pre">dTdy</span></code> aura la dimension <code class="docutils literal notranslate"><span class="pre">(ny-1,nx)</span></code>.</p>
+<p><strong>Notons</strong> la différence des dimensions selon le type de dérivation.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="discretisation-des-flux-q-x-et-q-y">
+<h1>Discrétisation des flux <span class="math notranslate nohighlight">\(q_x\)</span> et <span class="math notranslate nohighlight">\(q_y\)</span><a class="headerlink" href="#discretisation-des-flux-q-x-et-q-y" title="Link to this heading">#</a></h1>
+<p>→ Avec 2 flux en 2D (contre 1 en 1D), le point crucial sera de gérer les dimensions des tableaux dans le directions <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> afin qu’elles soient compatibles:
+<code class="docutils literal notranslate"><span class="pre">qx</span></code> et <code class="docutils literal notranslate"><span class="pre">qy</span></code> sont de dimensions <code class="docutils literal notranslate"><span class="pre">(ny,nx-1)</span></code> et <code class="docutils literal notranslate"><span class="pre">(n-1,nx)</span></code>.</p>
+<p>→ Dériver une fois encore les flux fait perdre deux cellules dans la direction de la dérivation. Les matrices résultantes n’ont alors pas les même tailles:
+<code class="docutils literal notranslate"><span class="pre">dqxdx</span></code> et <code class="docutils literal notranslate"><span class="pre">dqydy</span></code> sont de dimensions <code class="docutils literal notranslate"><span class="pre">(ny,nx-2)</span></code> et <code class="docutils literal notranslate"><span class="pre">(n-2,nx)</span></code>.</p>
+<p>Pour s’assurer que les tailles des matrices soient compatibles, il faut ignorer les première et dernière lignes ou colonnes pour obtenir la dimension <code class="docutils literal notranslate"><span class="pre">(n-2,nx-2)</span></code>.</p>
+<p>→ Une unique matrice de changement de taille <code class="docutils literal notranslate"><span class="pre">(n-2,nx-2)</span></code> peut ainsi être assemblée et utilisée pour la règle de mise à jour.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="illustration-graphique">
+<h1>Illustration graphique<a class="headerlink" href="#illustration-graphique" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/taille_matrice_s9.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">qx</span> <span class="o">=</span> <span class="o">-</span><span class="n">D</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>         <span class="n">qy</span> <span class="o">=</span> <span class="o">-</span><span class="n">D</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span> <span class="o">/</span> <span class="n">dy</span>
+<span class="n">dqxdx</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">qx</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">qx</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>        <span class="n">dqydy</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">qy</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">qy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span> <span class="o">/</span> <span class="n">dy</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">taille</span>        <span class="p">(</span><span class="n">ny</span><span class="p">,</span><span class="n">nx</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>                               <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">nx</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="troncature-pour-assurer-la-compatibilite">
+<h1>Troncature pour assurer la compatibilité<a class="headerlink" href="#troncature-pour-assurer-la-compatibilite" title="Link to this heading">#</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">qx</span> <span class="o">=</span> <span class="o">-</span><span class="n">D</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>          <span class="n">qy</span> <span class="o">=</span> <span class="o">-</span><span class="n">D</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span> <span class="o">/</span> <span class="n">dy</span>
+<span class="n">dqxdx</span> <span class="o">=</span> <span class="p">(</span><span class="n">qx</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">qx</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>          <span class="n">dqydy</span> <span class="o">=</span> <span class="p">(</span><span class="n">qy</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">qy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span> <span class="o">/</span> <span class="n">dy</span>
+
+<span class="n">taille</span>        <span class="p">(</span><span class="n">ny</span><span class="p">,</span><span class="n">nx</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>                               <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">nx</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="width:450" src="../_images/taille_matrice_sol_s9.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">dqxdx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">+</span> <span class="n">dqydy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>  <span class="c1"># mise à jour</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="condition-de-stabilite">
+<h1>Condition de stabilité<a class="headerlink" href="#condition-de-stabilite" title="Link to this heading">#</a></h1>
+<p>La méthode numérique est stable seulement si le pas de temps est assez petit.</p>
+<p>D’aprés la théorie, définir le pas de temps</p>
+<div class="math notranslate nohighlight">
+\[ dt = \frac{\min(dx,dy)^2}{4.1 \times D} \]</div>
+<p>assure la stabilité de la méthode.</p>
+<p>Notons que plus le pas d’espace est petit, plus le pas de temps devra l’etre aussi.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="conditions-de-bords-de-dirichlet">
+<h1>Conditions de bords de Dirichlet<a class="headerlink" href="#conditions-de-bords-de-dirichlet" title="Link to this heading">#</a></h1>
+<p>Comme en 1D, il est nécessaire d’implémenter les conditions de bord.
+En 2D, nous modélisons un rectangle, ce qui implique de prendre en compte les quatre côtés.</p>
+<p>Le code suivant applique des conditions de Dirichlet aux quatre bords (Bas, Haut, Gauche et Droit), qui ont été définis auparavant.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>  <span class="o">=</span> <span class="n">Tbas</span>     <span class="c1"># 1er ligne</span>
+<span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">Thaut</span>    <span class="c1"># derniere ligne</span>
+<span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="n">Tgauche</span>  <span class="c1"># 1er colonne</span>
+<span class="n">T</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Tdroit</span>   <span class="c1"># derniere colonne</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="affichage-interactif-en-2d-1-2">
+<h1>Affichage interactif en 2D (1/2)<a class="headerlink" href="#affichage-interactif-en-2d-1-2" title="Link to this heading">#</a></h1>
+<p>Comme en 1D, nous souhaitons afficher nos résultats de manière interactive en temps réel. Il est pratique d’afficher le champ modélisé à l’aide de la fonction <code class="docutils literal notranslate"><span class="pre">imshow</span></code> de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, en utilisant une “colorbar”. Pour cela, nous commençons par définir la figure comme suit avant la boucle temporelle:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># definit fig et ax</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> 
+
+<span class="c1"># affiche la temperature initiale</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span> 
+
+<span class="c1"># definit la &quot;colorbar&quot; pour qu&#39;elle soit fixe lors de l&#39;affichage interactif</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> 
+
+<span class="c1"># Affiche un titre a la colorbar</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Temperature (°C)&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">)</span> 
+
+<span class="c1"># fixe les valeurs limite de la temperature dans la colorbar</span>
+<span class="n">s</span><span class="o">.</span><span class="n">set_clim</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span> 
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="exemple-d-affichage-obtenu-avec-imshow">
+<h1>Exemple d’affichage obtenu avec <code class="docutils literal notranslate"><span class="pre">imshow</span></code><a class="headerlink" href="#exemple-d-affichage-obtenu-avec-imshow" title="Link to this heading">#</a></h1>
+<p><img alt="width:600" src="../_images/modele_elementaire_s9.png" /></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="affichage-interactif-en-2d-2-2">
+<h1>Affichage interactif en 2D (2/2)<a class="headerlink" href="#affichage-interactif-en-2d-2-2" title="Link to this heading">#</a></h1>
+<p>Ensuite, il faudra mettre à jour l’affichage de la température dans la boucle temporelle comme auparavant entre les commandes <code class="docutils literal notranslate"><span class="pre">clear_output(wait=True)</span> <span class="pre">;</span> <span class="pre">ax.cla()</span></code> et <code class="docutils literal notranslate"><span class="pre">display(fig)</span></code> ensuite. Voila un exemple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># boucle temporelle</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nt</span><span class="p">):</span>
+    <span class="o">...</span> 
+    <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="n">nout</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
+        <span class="n">ax</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span> 
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Temperature at &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; yr&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Horizontal distance in x (m)&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Horizontal distance in y (m)&#39;</span><span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./07_cours"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../06_exercice/06_exercice.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exercices 6</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../07_exercice/07_exercice.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercices 7</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 7</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-modeliser-en-2d">Pourquoi modéliser en 2D?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-d-un-domaine-rectangulaire">Discrétisation d’un domaine rectangulaire</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-representant-un-champs-2d-t-ou-c">Matrice représentant un champs 2D (<span class="math notranslate nohighlight">\(T\)</span> ou <span class="math notranslate nohighlight">\(C\)</span>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-diffusion-en-2d">Equation de diffusion en 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-des-derivees-partielles-en-2d">Approximation des dérivées partielles en 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-des-flux-q-x-et-q-y">Discrétisation des flux <span class="math notranslate nohighlight">\(q_x\)</span> et <span class="math notranslate nohighlight">\(q_y\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-graphique">Illustration graphique</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#troncature-pour-assurer-la-compatibilite">Troncature pour assurer la compatibilité</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bords-de-dirichlet">Conditions de bords de Dirichlet</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#affichage-interactif-en-2d-1-2">Affichage interactif en 2D (1/2)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-d-affichage-obtenu-avec-imshow">Exemple d’affichage obtenu avec <code class="docutils literal notranslate"><span class="pre">imshow</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#affichage-interactif-en-2d-2-2">Affichage interactif en 2D (2/2)</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Les auteurs du cours de Modelisation Numerique
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
