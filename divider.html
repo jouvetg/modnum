@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Syllabus &#8212; Modelisation Numerique</title>
+    <title>&lt;no title&gt; &#8212; Modelisation Numerique</title>
   
   
   
@@ -60,12 +60,9 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'syllabus';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'divider';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction à Python" href="00_intro_python/00_intro_python.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -138,7 +135,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="syllabus.html">
   
   
   
@@ -165,8 +162,8 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="syllabus.html">
                     Syllabus
                 </a>
             </li>
@@ -448,7 +445,7 @@
       
       
       
-      <li><a href="_sources/syllabus.md" target="_blank"
+      <li><a href="_sources/divider.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -524,7 +521,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Syllabus</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -533,16 +530,9 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectif-du-cours">Objectif du cours</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requis">Pré-requis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organisation-du-cours">Organisation du cours</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-moodle">Page Moodle</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercices">Exercices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-du-cours">Plan du cours</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documents-pdf">Documents (pdf)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auteurs">Auteurs</a></li>
+                <ul class="simple visible nav section-nav flex-column">
 </ul>
+
             </nav>
         </div>
     </div>
@@ -553,149 +543,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="syllabus">
-<h1>Syllabus<a class="headerlink" href="#syllabus" title="Link to this heading">#</a></h1>
-<p><img alt="width:200px" src="_images/illu_mod_num_s.png" /></p>
-<ul class="simple">
-<li><p>Enseignant: Guillaume Jouvet (guillaume.jouvet (at) <a class="reference external" href="http://unil.ch">unil.ch</a>)</p></li>
-<li><p>Assistant(e)s 2024:  Brandon Finley, Frederik Iat Hin Tam, Kejdi Lleshi, Mattia Mazzucchelli, Océane Pfister</p></li>
-</ul>
-<section id="objectif-du-cours">
-<h2>Objectif du cours<a class="headerlink" href="#objectif-du-cours" title="Link to this heading">#</a></h2>
-<p>Le but est d’être capable de modéliser des processus naturels (p.e. diffusion d’un polluant dans le sol, diffusion de la température suite à une intrusion magmatique, dynamique des glaciers) à l’aide de méthodes numériques en utilisant Python, et de faire des expériences numériques qui reproduisent la réalité. Pour cela, l’approche de ce cours est essentiellement pratique. Il s’agit d’implémenter de façon simple et intuitive les équations qui décrivent la physique des processus étudiés dans un code informatique. Nous mettons notamment l’accent sur la similarité des codes développés pour des processus de natures très différentes.</p>
-</section>
-<section id="pre-requis">
-<h2>Pré-requis<a class="headerlink" href="#pre-requis" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Mathématiques: Calcul Matriciel, Dérivées Partielles</p></li>
-<li><p>Physique: Principe de base (p.e. loi de Newton)</p></li>
-<li><p>Programmation: Notion de Python</p></li>
-</ul>
-<p>Le premier dossier permet aux étudiants d’acquérir les notions essentielles de Python, si celles-ci ne sont pas déjà maîtrisées.</p>
-</section>
-<section id="organisation-du-cours">
-<h2>Organisation du cours<a class="headerlink" href="#organisation-du-cours" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Type d’activité</strong></p></th>
-<th class="head"><p><strong>Détails</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Cours</strong></p></td>
-<td><p>en salle Géopolis-2137 le vendredi 10.15-11.00</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Travaux pratiques</strong></p></td>
-<td><p>encadrés au Géopolis 2145+2153+2138 le vendredi 11.00-13.00</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Contrôle continu</strong></p></td>
-<td><p>Test I : 40 % , Test II : 60%</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="page-moodle">
-<h2>Page Moodle<a class="headerlink" href="#page-moodle" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://moodle.unil.ch/course/view.php?id=24768">https://moodle.unil.ch/course/view.php?id=24768</a></p>
-</section>
-<section id="exercices">
-<h2>Exercices<a class="headerlink" href="#exercices" title="Link to this heading">#</a></h2>
-<p>Une semaine sur deux, les exercices donnés le vendredi sont à rendre pour le mercredi 20h00 sur la platforme moodle. L’autre semaine, la solution sera donnée une semaine plus tard.</p>
-</section>
-<section id="plan-du-cours">
-<h2>Plan du cours<a class="headerlink" href="#plan-du-cours" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Cours</strong></p></th>
-<th class="head"><p><strong>Contenu</strong>  et <em>exercices</em></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>Introduction, initialisation et règle de mis à jour, sauvegarde des résultats. <em>Exercice du compte en banque</em></p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Equation du mouvement en 1D, discrétisation temp., approximation d’une dérivée. <em>Exercice du mouvement d’une voiture en 1D &amp; exercice plot interactif</em></p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>Equation du mouvement en 2D, discrétisation spatiale. <em>Exercice de la bombe volcanique, exercice discrétisation spatiale</em></p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>Equation de diffusion, EDP et conditions de bord. <em>Exercice diffusion concentration, fuite de Dayllens</em></p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>Equation de diffusion (température), conditions de bord, condition d’arrêt. <em>Exercice diffusion température, intrusion magmatique</em></p></td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><p>Diffusion-advection-réaction 1D, méthode de splitting et schéma upwind. <em>Exercice diffusion d’un polluant dans une rivière</em></p></td>
-</tr>
-<tr class="row-even"><td><p></p></td>
-<td><p><strong>Test I</strong></p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p><em>Pause</em></p></td>
-</tr>
-<tr class="row-even"><td><p>7</p></td>
-<td><p>Diffusion 2D. <em>Exercice manipulation Grille 2D, Modélisation Periglesol Cervin</em></p></td>
-</tr>
-<tr class="row-odd"><td><p>8</p></td>
-<td><p>Diffusion-advection 2D. <em>Exercice diffusion de la température dans la croûte terrestre</em></p></td>
-</tr>
-<tr class="row-even"><td><p>9</p></td>
-<td><p>Diffusion-advection-réaction 2D. Advection non-uniforme. <em>Exercice d’une contamination dans un lac</em></p></td>
-</tr>
-<tr class="row-odd"><td><p>10</p></td>
-<td><p>Equation de la glace 1D, equation de diffusion non-linéaire 1D. <em>Modélisation d’un glacier synthétique</em></p></td>
-</tr>
-<tr class="row-even"><td><p>11</p></td>
-<td><p>Equation de la glace 2D, equation de diffusion non-linéaire 2D. <em>Modélisation d’un glacier réel, le glacier du Gorner (VS)</em></p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p><strong>Test II</strong></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="documents-pdf">
-<h2>Documents (pdf)<a class="headerlink" href="#documents-pdf" title="Link to this heading">#</a></h2>
-<p>Le cours vient avec des document annexes:</p>
-<ul class="simple">
-<li><p><a class="reference download internal" download="" href="_downloads/694eb99b5dbd5082957e824b9968d092/Python_pour_la_modelisation_numerique.pdf"><span class="xref download myst">Introduction à Python pour la modélisation numérique</span></a></p></li>
-<li><p><a class="reference download internal" download="" href="_downloads/8434f3f7c56b64b323cf0c60b1b1f61c/Check-list-mod-num.pdf"><span class="xref download myst">Check-list d’un modèle numérique</span></a></p></li>
-</ul>
-</section>
-<section id="auteurs">
-<h2>Auteurs<a class="headerlink" href="#auteurs" title="Link to this heading">#</a></h2>
-<p>Ce cours est le fruit de contributions de la part de :</p>
-<ul class="simple">
-<li><p>Yury Podladchikov</p></li>
-<li><p>Ludovic Räss</p></li>
-<li><p>Samuel Omlin</p></li>
-<li><p>Evangelos Moulas</p></li>
-<li><p>Frederic Herman</p></li>
-<li><p>Vjeran Visnjevic</p></li>
-<li><p>Aleksandar Licul</p></li>
-<li><p>Luca Malatesta</p></li>
-<li><p>Daniel Kiss</p></li>
-<li><p>Lorenzo Candioti</p></li>
-<li><p>Ian Delaney</p></li>
-<li><p>Emilie Macherel</p></li>
-<li><p>Guillaume Jouvet</p></li>
-</ul>
-<p>Les assistants du cours ont également participé à améliorer le cours:</p>
-<ul class="simple">
-<li><p>2022: Daniel Bonser, Samuel Cook, Marjolein Gevers, Kejdi Lleshi, Emilie Macherel</p></li>
-<li><p>2023: Samuel Cook, Brandon Finley, Vincenzo Guzzardi, Gino Licini, Kejdi Lleshi</p></li>
-<li><p>2024: Brandon Finley, Frederik Iat Hin Tam, Kejdi Lleshi, Mattia Mazzucchelli, Océane Pfister</p></li>
-</ul>
-<p>Le re-formatage du cours sous la forme actuelle d’un textbook et sa mise en ligne ont été réalisées par Guillaume Jouvet avec l’aide de Océane Pfister (avec le soutien d’un project FINV de l’UNIL par Tom Buecler et Christian Kaiser).</p>
-</section>
-<div class="toctree-wrapper compound">
-</div>
-</section>
-
+  
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -726,15 +574,6 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="00_intro_python/00_intro_python.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction à Python</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -751,16 +590,9 @@
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectif-du-cours">Objectif du cours</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requis">Pré-requis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organisation-du-cours">Organisation du cours</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-moodle">Page Moodle</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercices">Exercices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-du-cours">Plan du cours</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documents-pdf">Documents (pdf)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auteurs">Auteurs</a></li>
+    <ul class="simple visible nav section-nav flex-column">
 </ul>
+
   </nav></div>
 
 </div></div>
