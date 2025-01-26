@@ -1,7 +1,7 @@
 # Jupyter Book Configuration
 title: "Modelisation Numerique"
 author: "Les auteurs du cours de Modelisation Numerique"
-logo: ""
+logo: "illu_mod_num.png"
 execute:
   execute_notebooks: "off"  # Turn off execution
   remove_cell_tags: ["solution"]  # Remove cells tagged with "solution"
