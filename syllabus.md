@@ -67,26 +67,8 @@ Le cours vient avec des document annexes:
 
 ## Auteurs
 
-Ce cours est le fruit de contributions de la part de :
+Les personnes suivantes ont contribué à construire ou/et donner/assister ce cours (par ordre chronologique):
 
-- Yury Podladchikov
-- Ludovic Räss
-- Samuel Omlin
-- Evangelos Moulas
-- Frederic Herman
-- Vjeran Visnjevic
-- Aleksandar Licul
-- Luca Malatesta
-- Daniel Kiss
-- Lorenzo Candioti
-- Ian Delaney
-- Emilie Macherel
-- Guillaume Jouvet
-
-Les assistants du cours ont également participé à améliorer le cours:
-
-- 2022: Daniel Bonser, Samuel Cook, Marjolein Gevers, Kejdi Lleshi, Emilie Macherel
-- 2023: Samuel Cook, Brandon Finley, Vincenzo Guzzardi, Gino Licini, Kejdi Lleshi
-- 2024: Brandon Finley, Frederik Iat Hin Tam, Kejdi Lleshi, Mattia Mazzucchelli, Océane Pfister
-
+Yury Podladchikov, Ludovic Räss, Samuel Omlin, Evangelos Moulas, Frederic Herman, Vjeran Visnjevic, Aleksandar Licul, Luca Malatesta, Daniel Kiss, Lorenzo Candioti, Ian Delaney, Emilie Macherel, Gino Licinil, Guillaume Jouvet, Daniel Bonser, Samuel Cook, Marjolein Gevers, Kejdi Lleshi, Brandon Finley, Vincenzo Guzzardi, Frederik Iat Hin Tam, Mattia Mazzucchelli, Océane Pfister
+ 
 Le re-formatage du cours sous la forme actuelle d'un textbook et sa mise en ligne ont été réalisées par Guillaume Jouvet avec l'aide de Océane Pfister (avec le soutien d'un project FINV de l'UNIL par Tom Buecler et Christian Kaiser).
