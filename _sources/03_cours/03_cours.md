@@ -135,7 +135,7 @@ T[ixp] = 6           # modification de la valeur en ce point
 
 ---
 
-# Valeurs au noeuds et au centre des cellules
+# Valeurs aux noeuds et au centre des cellules
 
 Il sera parfois nécessaire de calculer des valeurs entre les nœuds de discrétisation. Cela peut se faire en faisant une moyenne entre deux points successifs:
 
