@@ -649,9 +649,10 @@ Source 1: <a class="reference external" href="https://www.energie-environnement.
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="loi-de-fick-fourier-dans-le-cas-de-la-chaleur">
 <h1>1. Loi de Fick (Fourier dans le cas de la chaleur)<a class="headerlink" href="#loi-de-fick-fourier-dans-le-cas-de-la-chaleur" title="Link to this heading">#</a></h1>
-<p>Comme vu précédemment, le transfert de particules dépend de la différence de concentration <span class="math notranslate nohighlight">\(\Delta C\)</span> de part et d’autre d’une cellule de largeur <span class="math notranslate nohighlight">\(\Delta x\)</span>: plus la <strong>variation</strong> (dérivée) de concentration est grande, plus les particules se <strong>déplacent</strong> rapidement, ce qui augmente la <strong>diffusion</strong>. En d’autres termes, le flux de particules dépend du gradient de concentration :<br />
-$<span class="math notranslate nohighlight">\( q = -D \frac{\partial C}{\partial x}, \qquad (1) \)</span><span class="math notranslate nohighlight">\(  
-où \)</span>D$ est le coefficient de diffusion, ou <em>diffusivité</em>. Ce coefficient varie selon les problèmes et définit la vitesse de transfert des particules (molécules de pollution dans un sol ou particules de sol sur une colline).</p>
+<p>Comme vu précédemment, le transfert de particules dépend de la différence de concentration <span class="math notranslate nohighlight">\(\Delta C\)</span> de part et d’autre d’une cellule de largeur <span class="math notranslate nohighlight">\(\Delta x\)</span>: plus la <strong>variation</strong> (dérivée) de concentration est grande, plus les particules se <strong>déplacent</strong> rapidement, ce qui augmente la <strong>diffusion</strong>. En d’autres termes, le flux de particules dépend du gradient de concentration :</p>
+<div class="math notranslate nohighlight">
+\[ q = -D \frac{\partial C}{\partial x}, \qquad (1) \]</div>
+<p>où <span class="math notranslate nohighlight">\(D\)</span> est le coefficient de diffusion, ou <em>diffusivité</em>. Ce coefficient varie selon les problèmes et définit la vitesse de transfert des particules (molécules de pollution dans un sol ou particules de sol sur une colline).</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="principe-de-conservation">
@@ -661,21 +662,26 @@ où \)</span>D$ est le coefficient de diffusion, ou <em>diffusivité</em>. Ce co
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="id2">
 <h1>2. Principe de conservation<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
-<p>Selon le principe de conservation, le changement du nombre de particules <em>n</em> dans un bloc entre l’instant <em>t</em> et l’instant <span class="math notranslate nohighlight">\(t + \Delta t\)</span> peut être calculé à partir de la différence des flux entrants et sortants :
-$<span class="math notranslate nohighlight">\(\Delta n = (q_x - q_{x+\Delta x}) \Delta t.\)</span>$</p>
-<p>En utilisant la définition de la concentration <em>C = n/dx</em>, l’équation précédente s’écrit :
-$<span class="math notranslate nohighlight">\( \frac{\Delta C}{\Delta t} = \frac{q_x - q_{x+\Delta x}}{\Delta x}, \)</span><span class="math notranslate nohighlight">\( 
-qui se transforme en forme continue : 
-\)</span><span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x}, \qquad (2)\)</span>$</p>
+<p>Selon le principe de conservation, le changement du nombre de particules <em>n</em> dans un bloc entre l’instant <em>t</em> et l’instant <span class="math notranslate nohighlight">\(t + \Delta t\)</span> peut être calculé à partir de la différence des flux entrants et sortants :</p>
+<div class="math notranslate nohighlight">
+\[\Delta n = (q_x - q_{x+\Delta x}) \Delta t.\]</div>
+<p>En utilisant la définition de la concentration <em>C = n/dx</em>, l’équation précédente s’écrit :</p>
+<div class="math notranslate nohighlight">
+\[\frac{\Delta C}{\Delta t} = \frac{q_x - q_{x+\Delta x}}{\Delta x},\]</div>
+<p>qui se transforme en forme continue :</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x}, \qquad (2)\]</div>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="mise-en-equation-de-la-diffusion">
 <h1>Mise en equation de la diffusion<a class="headerlink" href="#mise-en-equation-de-la-diffusion" title="Link to this heading">#</a></h1>
 <p><strong>L’équation de diffusion</strong> peut être exprimée comme une dérivée seconde de la concentration <span class="math notranslate nohighlight">\(C\)</span> en combinant</p>
-<p>→ Loi de Fick/Fourier
-$<span class="math notranslate nohighlight">\(q = -D \frac{\partial C}{\partial x},  \qquad (1)\)</span>$</p>
-<p>→ Principe de conservation
-$<span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x},  \qquad (2)\)</span>$</p>
+<p>→ Loi de Fick/Fourier</p>
+<div class="math notranslate nohighlight">
+\[q = -D \frac{\partial C}{\partial x},  \qquad (1)\]</div>
+<p>→ Principe de conservation</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x},  \qquad (2)\]</div>
 <p>ce qui donne l’EDP suivante:</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2}.\]</div>

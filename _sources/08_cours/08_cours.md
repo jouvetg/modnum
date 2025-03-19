@@ -159,10 +159,12 @@ A[:-1,:] += dAdy_a * dt # si Vy<0
 # Condition de bord de Neumann
 
 Sur les bords de notre domaine de modélisation rectangulaire, nous pouvons implémenter des conditions de bords du type **Dirichlet**:
-$$ C({\rm bord}) = {\rm valeur}$$
+$$C({\rm bord}) = {\rm valeur}$$
 ou de **Neumann** comme nous l'avons vu en 1D. En 2D, cela s'écrit:
-$$ \frac{\partial C}{\partial x} ({\rm bord \; E/W}) = \alpha $$
-$$ \frac{\partial C}{\partial y} ({\rm bord \; N/S}) = \beta $$
+
+$$\frac{\partial C}{\partial x} ({\rm bord \; E/W}) = \alpha$$
+
+$$\frac{\partial C}{\partial y} ({\rm bord \; N/S}) = \beta$$
 
 Le code suivant applique des conditions de Neumann aux quatre bords:
 

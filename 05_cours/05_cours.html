@@ -602,18 +602,21 @@ ou D est le paramètre de diffusion.</p>
 <section class="tex2jax_ignore mathjax_ignore" id="loi-de-fourier-pour-la-temperature-t-nouveau">
 <h1>Loi de Fourier pour la température <span class="math notranslate nohighlight">\(T\)</span> (nouveau)<a class="headerlink" href="#loi-de-fourier-pour-la-temperature-t-nouveau" title="Link to this heading">#</a></h1>
 <p><strong>Le flux de température q dépend de la dérivée de la température T</strong>
-En effet, plus la <strong>variation (dérivée) de température est grande</strong>, plus la chaleur va se <strong>déplacer</strong> (rapidement), plus il y a de <strong>diffusion, cela se formalise  avec</strong>
-$<span class="math notranslate nohighlight">\(q = -D \frac{dT}{dx},\)</span>$
-ou D est le paramètre de diffusion.</p>
+En effet, plus la <strong>variation (dérivée) de température est grande</strong>, plus la chaleur va se <strong>déplacer</strong> (rapidement), plus il y a de <strong>diffusion, cela se formalise  avec</strong></p>
+<div class="math notranslate nohighlight">
+\[q = -D \frac{dT}{dx},\]</div>
+<p>ou D est le paramètre de diffusion.</p>
 <p><img alt="width:550" src="../_images/fourier_chaleur_s5.png" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equation-de-la-diffusion-thermique">
 <h1>Equation de la diffusion thermique<a class="headerlink" href="#equation-de-la-diffusion-thermique" title="Link to this heading">#</a></h1>
-<p>→ Loi de Fourier
-$<span class="math notranslate nohighlight">\(q = -D \frac{\partial T}{\partial x},\)</span>$</p>
-<p>→ Principe de conservation
-$<span class="math notranslate nohighlight">\(\frac{\partial T}{\partial t} = -\frac{\partial q}{\partial x} \)</span>$</p>
+<p>→ Loi de Fourier</p>
+<div class="math notranslate nohighlight">
+\[q = -D \frac{\partial T}{\partial x},\]</div>
+<p>→ Principe de conservation</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial T}{\partial t} = -\frac{\partial q}{\partial x} \]</div>
 <p>Diffusivité thermique (<span class="math notranslate nohighlight">\(m^2/s\)</span>) de l’aluminium (0.0001), du béton (0.0000005), de l’eau (0.0000001),  la glace (0.000001), …</p>
 <p><strong>Le modèle de diffusion est strictement le même que pour la concentration.</strong></p>
 </section>
@@ -660,9 +663,10 @@ $<span class="math notranslate nohighlight">\(\frac{\partial T}{\partial t} = -\
 <section class="tex2jax_ignore mathjax_ignore" id="condition-de-bords-de-dirichlet">
 <h1>Condition de bords de Dirichlet<a class="headerlink" href="#condition-de-bords-de-dirichlet" title="Link to this heading">#</a></h1>
 <p>→ Fixe la concentration ou température sur les bords</p>
-<p>→ Condition sur la dérivée de T ou C, p.e.
-$<span class="math notranslate nohighlight">\(C(0) = a, \qquad\qquad\qquad\qquad
-\qquad\qquad\qquad\qquad\qquad\qquad C(1) = b\)</span>$</p>
+<p>→ Condition sur la dérivée de T ou C, p.e.</p>
+<div class="math notranslate nohighlight">
+\[C(0) = a, \qquad\qquad\qquad\qquad
+\qquad\qquad\qquad\qquad\qquad\qquad C(1) = b\]</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="mi">0</span>                                                            <span class="mi">1</span>
      <span class="o">|------------------------------------------------------------|</span>
 </pre></div>
@@ -677,9 +681,10 @@ $<span class="math notranslate nohighlight">\(C(0) = a, \qquad\qquad\qquad\qquad
 <section class="tex2jax_ignore mathjax_ignore" id="condition-de-bord-de-neumann">
 <h1>Condition de bord de Neumann<a class="headerlink" href="#condition-de-bord-de-neumann" title="Link to this heading">#</a></h1>
 <p>→ Fixe le <strong>flux</strong> / la <strong>dérivé</strong> de concentration ou température sur les bords</p>
-<p>→ Condition sur la fonction T ou C, p.e.
-$<span class="math notranslate nohighlight">\(\frac{dC}{dx}(0) = a, \qquad\qquad\qquad\qquad
-\qquad\qquad\qquad\qquad\qquad\qquad \frac{dC}{dx}(1) =b\)</span>$</p>
+<p>→ Condition sur la fonction T ou C, p.e.</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC}{dx}(0) = a, \qquad\qquad\qquad\qquad
+\qquad\qquad\qquad\qquad\qquad\qquad \frac{dC}{dx}(1) =b\]</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="mi">0</span>                                                            <span class="mi">1</span>
      <span class="o">|------------------------------------------------------------|</span>
 </pre></div>

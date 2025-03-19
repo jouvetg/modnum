@@ -599,13 +599,15 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="advection-mise-en-equation">
 <h1>Advection : Mise en équation<a class="headerlink" href="#advection-mise-en-equation" title="Link to this heading">#</a></h1>
-<p>Si l’on suit une <strong>particule <span class="math notranslate nohighlight">\(x(t)\)</span> mouvante</strong> avec le temps (p.e. dans une rivière) avec une vitesse <span class="math notranslate nohighlight">\(v=x'(t)\)</span>, la <strong>concentration</strong> d’un produit <span class="math notranslate nohighlight">\(C(t, x)\)</span> autour de cette particule <strong>ne varie pas</strong> dans le temps:
-$<span class="math notranslate nohighlight">\(\frac{d}{dt} \big(C(t, x(t))\big) = 0,\)</span>$</p>
+<p>Si l’on suit une <strong>particule <span class="math notranslate nohighlight">\(x(t)\)</span> mouvante</strong> avec le temps (p.e. dans une rivière) avec une vitesse <span class="math notranslate nohighlight">\(v=x'(t)\)</span>, la <strong>concentration</strong> d’un produit <span class="math notranslate nohighlight">\(C(t, x)\)</span> autour de cette particule <strong>ne varie pas</strong> dans le temps:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt} \big(C(t, x(t))\big) = 0,\]</div>
 <p>ce qui se <strong>réécrit</strong>:</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial C}{\partial t} + v \frac{\partial C}{\partial x} = 0\]</div>
-<p>ou
-$<span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = - v \frac{\partial C}{\partial x}.\)</span>$</p>
+<p>ou</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C}{\partial t} = - v \frac{\partial C}{\partial x}.\]</div>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="reaction-mise-en-equation">
@@ -624,8 +626,9 @@ $<span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = - 
 <li><p>Equation de diffusion : <span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = - \frac{\partial q}{\partial x}, \qquad q=-D \frac{\partial C}{\partial x}.\)</span></p></li>
 <li><p>Equation de réaction : <span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = - \gamma C.\)</span></p></li>
 </ul>
-<p>→ <strong>L’équation d’advection-diffusion-reaction</strong> combine les trois:
-$<span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t}=-\frac{\partial q}{\partial x}-v\frac{\partial C}{\partial x} - \gamma C, \qquad q=-D\frac{\partial C}{\partial x}.\)</span>$</p>
+<p>→ <strong>L’équation d’advection-diffusion-reaction</strong> combine les trois:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C}{\partial t}=-\frac{\partial q}{\partial x}-v\frac{\partial C}{\partial x} - \gamma C, \qquad q=-D\frac{\partial C}{\partial x}.\]</div>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="example-polluant-dans-une-riviere">

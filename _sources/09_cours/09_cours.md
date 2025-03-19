@@ -84,12 +84,13 @@ Dans ce cours, le champ de vitesse $(V_x,V_y)$ est arbitraire (non nécessaireme
 # Définition du champs de vitesse 2D
 
 La figure précédente représente un courant marin avec une vitesse constante orienté selon un angle $\theta$ qui change linéairement de 0° en haut à 180° en bas:
-$$
+
+$
 \begin{eqnarray}
 V_x &=& \cos \left( \theta \right) \ V, \label{vxq3}\\
 V_y &=& -\sin \left( \theta \right) \ V. \label{vyq3}
 \end{eqnarray}
-$$ 
+$ 
 
 Voila le code qui permet de définir les champs de vitesses en Python: 
 

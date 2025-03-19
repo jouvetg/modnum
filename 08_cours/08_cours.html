@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -695,10 +695,12 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="condition-de-bord-de-neumann">
 <h1>Condition de bord de Neumann<a class="headerlink" href="#condition-de-bord-de-neumann" title="Link to this heading">#</a></h1>
 <p>Sur les bords de notre domaine de modélisation rectangulaire, nous pouvons implémenter des conditions de bords du type <strong>Dirichlet</strong>:
-$<span class="math notranslate nohighlight">\( C({\rm bord}) = {\rm valeur}\)</span><span class="math notranslate nohighlight">\(
-ou de **Neumann** comme nous l'avons vu en 1D. En 2D, cela s'écrit:
-\)</span><span class="math notranslate nohighlight">\( \frac{\partial C}{\partial x} ({\rm bord \; E/W}) = \alpha \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \frac{\partial C}{\partial y} ({\rm bord \; N/S}) = \beta \)</span>$</p>
+$<span class="math notranslate nohighlight">\(C({\rm bord}) = {\rm valeur}\)</span>$
+ou de <strong>Neumann</strong> comme nous l’avons vu en 1D. En 2D, cela s’écrit:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C}{\partial x} ({\rm bord \; E/W}) = \alpha\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C}{\partial y} ({\rm bord \; N/S}) = \beta\]</div>
 <p>Le code suivant applique des conditions de Neumann aux quatre bords:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="n">T</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">alpha</span>  <span class="c1"># bord E , 1er colonne</span>
 <span class="n">T</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">alpha</span>  <span class="c1"># bord W , derniere colonne</span>

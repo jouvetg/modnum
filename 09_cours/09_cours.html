@@ -638,13 +638,13 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="definition-du-champs-de-vitesse-2d">
 <h1>Définition du champs de vitesse 2D<a class="headerlink" href="#definition-du-champs-de-vitesse-2d" title="Link to this heading">#</a></h1>
-<p>La figure précédente représente un courant marin avec une vitesse constante orienté selon un angle <span class="math notranslate nohighlight">\(\theta\)</span> qui change linéairement de 0° en haut à 180° en bas:
-$<span class="math notranslate nohighlight">\(
+<p>La figure précédente représente un courant marin avec une vitesse constante orienté selon un angle <span class="math notranslate nohighlight">\(\theta\)</span> qui change linéairement de 0° en haut à 180° en bas:</p>
+<p><span class="math notranslate nohighlight">\(
 \begin{eqnarray}
 V_x &amp;=&amp; \cos \left( \theta \right) \ V, \label{vxq3}\\
 V_y &amp;=&amp; -\sin \left( \theta \right) \ V. \label{vyq3}
 \end{eqnarray}
-\)</span>$</p>
+\)</span></p>
 <p>Voila le code qui permet de définir les champs de vitesses en Python:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="mi">1</span>                                <span class="c1"># m/s</span>
 <span class="n">Vx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>            <span class="c1"># velocity along x, taille (ny,nx-1)</span>
