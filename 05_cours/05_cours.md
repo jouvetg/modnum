@@ -37,7 +37,9 @@ ou D est le paramètre de diffusion.
 
 **Le flux de température q dépend de la dérivée de la température T**
 En effet, plus la **variation (dérivée) de température est grande**, plus la chaleur va se **déplacer** (rapidement), plus il y a de **diffusion, cela se formalise  avec**
+
 $$q = -D \frac{dT}{dx},$$
+
 ou D est le paramètre de diffusion.
  
 ![width:550](./fig/fourier_chaleur_s5.png)
@@ -48,9 +50,11 @@ ou D est le paramètre de diffusion.
 # Equation de la diffusion thermique
 
 → Loi de Fourier
+
 $$q = -D \frac{\partial T}{\partial x},$$
 
 → Principe de conservation
+
 $$\frac{\partial T}{\partial t} = -\frac{\partial q}{\partial x} $$
 
 Diffusivité thermique ($m^2/s$) de l’aluminium (0.0001), du béton (0.0000005), de l’eau (0.0000001),  la glace (0.000001), ...
@@ -109,8 +113,10 @@ Celles-ci peuvent influencer énormement la solution!
 → Fixe la concentration ou température sur les bords
 
 → Condition sur la dérivée de T ou C, p.e.
+
 $$C(0) = a, \qquad\qquad\qquad\qquad
 \qquad\qquad\qquad\qquad\qquad\qquad C(1) = b$$
+
 ```
      0                                                            1
      |------------------------------------------------------------|
@@ -129,8 +135,10 @@ C[-1] = b
 → Fixe le **flux** / la **dérivé** de concentration ou température sur les bords
 
 → Condition sur la fonction T ou C, p.e.
+
 $$\frac{dC}{dx}(0) = a, \qquad\qquad\qquad\qquad
 \qquad\qquad\qquad\qquad\qquad\qquad \frac{dC}{dx}(1) =b$$ 
+
 ```
      0                                                            1
      |------------------------------------------------------------|

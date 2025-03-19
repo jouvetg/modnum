@@ -48,7 +48,9 @@ Une voiture parcourt le trajet Genève-Lausanne-Bern-Zurich-St Gall, la  distanc
 - Les fonctions qui décrivent des quantités physiques sont en général des fonctions du **temps** ($t$) et **d’espace** ($x,y,z$)
 - Nous pouvons donc rencontrer des dérivées par rapport à $t$, $x$ , $y$, ou $z$.
 - Pour éviter toute confusion, on parle de **dérivées partielles**, et on note la dérivée partielle de $f$ **par rapport au temps t** ainsi:
+
 $$\frac{\partial f(x,t)}{\partial t}$$
+
 **Attention, ceci est une notation, pas la division d’un nombre par un autre!**
 
 ---
@@ -56,9 +58,12 @@ $$\frac{\partial f(x,t)}{\partial t}$$
 # Une équation différentielle est
 
 ... une équation ne fait intervenir la dérivée par rapport à **une seule** variable par exemple 
+
 $$\frac{dx(t)}{dt} = v(t)$$
+
 # Une équation aux dérivées partielles est
 ... une équation fait intervenir la dérivée par rapport à **plusieurs** variables par exemple
+
 $$\frac{\partial A}{\partial t} = -D \left( \frac{\partial^2 A}{\partial x^2} + \frac{\partial^2 A}{\partial y^2} \right)$$
 
 ---

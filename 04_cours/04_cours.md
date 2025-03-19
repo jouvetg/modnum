@@ -88,8 +88,10 @@ L'EDP de diffusion repose sur deux principes :
 
 # 1. Loi de Fick (Fourier dans le cas de la chaleur) 
 
-Comme vu précédemment, le transfert de particules dépend de la différence de concentration $\Delta C$ de part et d'autre d'une cellule de largeur $\Delta x$: plus la **variation** (dérivée) de concentration est grande, plus les particules se **déplacent** rapidement, ce qui augmente la **diffusion**. En d'autres termes, le flux de particules dépend du gradient de concentration :  
+Comme vu précédemment, le transfert de particules dépend de la différence de concentration $\Delta C$ de part et d'autre d'une cellule de largeur $\Delta x$: plus la **variation** (dérivée) de concentration est grande, plus les particules se **déplacent** rapidement, ce qui augmente la **diffusion**. En d'autres termes, le flux de particules dépend du gradient de concentration : 
+
 $$ q = -D \frac{\partial C}{\partial x}, \qquad (1) $$  
+
 où $D$ est le coefficient de diffusion, ou *diffusivité*. Ce coefficient varie selon les problèmes et définit la vitesse de transfert des particules (molécules de pollution dans un sol ou particules de sol sur une colline). 
 
 ---
@@ -102,12 +104,16 @@ où $D$ est le coefficient de diffusion, ou *diffusivité*. Ce coefficient varie
 
 # 2. Principe de conservation
 
-Selon le principe de conservation, le changement du nombre de particules *n* dans un bloc entre l’instant *t* et l’instant $t + \Delta t$ peut être calculé à partir de la différence des flux entrants et sortants : 
+Selon le principe de conservation, le changement du nombre de particules *n* dans un bloc entre l’instant *t* et l’instant $t + \Delta t$ peut être calculé à partir de la différence des flux entrants et sortants :
+
 $$\Delta n = (q_x - q_{x+\Delta x}) \Delta t.$$ 
 
-En utilisant la définition de la concentration *C = n/dx*, l'équation précédente s'écrit : 
-$$ \frac{\Delta C}{\Delta t} = \frac{q_x - q_{x+\Delta x}}{\Delta x}, $$ 
+En utilisant la définition de la concentration *C = n/dx*, l'équation précédente s'écrit :
+
+$$\frac{\Delta C}{\Delta t} = \frac{q_x - q_{x+\Delta x}}{\Delta x},$$
+
 qui se transforme en forme continue : 
+
 $$\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x}, \qquad (2)$$
 
 
@@ -118,9 +124,11 @@ $$\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x}, \qquad (2)$$
 **L'équation de diffusion** peut être exprimée comme une dérivée seconde de la concentration $C$ en combinant 
 
 → Loi de Fick/Fourier
+
 $$q = -D \frac{\partial C}{\partial x},  \qquad (1)$$
 
 → Principe de conservation
+
 $$\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x},  \qquad (2)$$
 
 

@@ -33,13 +33,16 @@ Source : https://volcanoes.usgs.gov/volcanic_ash/ash_gas.html
 
 # Advection : Mise en équation
 
-Si l'on suit une **particule $x(t)$ mouvante** avec le temps (p.e. dans une rivière) avec une vitesse $v=x'(t)$, la **concentration** d'un produit $C(t, x)$ autour de cette particule **ne varie pas** dans le temps: 
+Si l'on suit une **particule $x(t)$ mouvante** avec le temps (p.e. dans une rivière) avec une vitesse $v=x'(t)$, la **concentration** d'un produit $C(t, x)$ autour de cette particule **ne varie pas** dans le temps:
+
 $$\frac{d}{dt} \big(C(t, x(t))\big) = 0,$$
 
 ce qui se **réécrit**: 
 
 $$\frac{\partial C}{\partial t} + v \frac{\partial C}{\partial x} = 0$$
+
 ou
+
 $$\frac{\partial C}{\partial t} = - v \frac{\partial C}{\partial x}.$$
 
 ---
@@ -65,6 +68,7 @@ Noton que l'équation ci-dessus peut se résoudre analytiquement: $C(t) = e^{-\g
 - Equation de réaction : $\frac{\partial C}{\partial t} = - \gamma C.$
 
 → **L’équation d’advection-diffusion-reaction** combine les trois:
+
 $$\frac{\partial C}{\partial t}=-\frac{\partial q}{\partial x}-v\frac{\partial C}{\partial x} - \gamma C, \qquad q=-D\frac{\partial C}{\partial x}.$$
 
 ---
