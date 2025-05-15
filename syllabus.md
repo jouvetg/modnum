@@ -71,4 +71,4 @@ Les personnes suivantes ont contribué à construire ou/et donner/assister ce co
 
 Yury Podladchikov, Ludovic Räss, Samuel Omlin, Evangelos Moulas, Frederic Herman, Vjeran Visnjevic, Aleksandar Licul, Luca Malatesta, Daniel Kiss, Lorenzo Candioti, Ian Delaney, Emilie Macherel, Gino Licinil, Guillaume Jouvet, Daniel Bonser, Samuel Cook, Marjolein Gevers, Kejdi Lleshi, Brandon Finley, Vincenzo Guzzardi, Frederik Iat Hin Tam, Mattia Mazzucchelli, Océane Pfister
  
-Le re-formatage du cours sous la forme actuelle d'un textbook et sa mise en ligne ont été réalisées par Guillaume Jouvet avec l'aide de Océane Pfister (avec le soutien d'un project FINV de l'UNIL par Tom Buecler et Christian Kaiser).
+Le re-formatage du cours sous la forme actuelle d'un textbook et sa mise en ligne ont été réalisées par Guillaume Jouvet avec l'aide de Océane Pfister (avec le soutien d'un project FINV de l'UNIL par Tom Beucler et Christian Kaiser).
