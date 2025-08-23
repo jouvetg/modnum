@@ -5,7 +5,7 @@
 
 - Enseignant: Guillaume Jouvet (guillaume.jouvet (at) unil.ch)
 
-- Assistant(e)s 2024:  Brandon Finley, Frederik Iat Hin Tam, Kejdi Lleshi, Mattia Mazzucchelli, Océane Pfister
+- Assistant(e)s 2025: Brandon Finley, Thomas Gregov, Kejdi Lleshi, Mattia Mazzucchelli, Hélène Morciaux
 
 ## Objectif du cours
 
@@ -30,11 +30,6 @@ Le premier dossier permet aux étudiants d'acquérir les notions essentielles de
 ## Page Moodle 
 
 https://moodle.unil.ch/course/view.php?id=24768
-
-
-## Exercices
-
-Une semaine sur deux, les exercices donnés le vendredi sont à rendre pour le mercredi 20h00 sur la platforme moodle. L'autre semaine, la solution sera donnée une semaine plus tard.
 
 ## Plan du cours
 
