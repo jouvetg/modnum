@@ -90,7 +90,7 @@ Mathématiquement, la fonction s'écrit $b(s) = \min ( b_\mathrm{grad} (s-s_\mat
 # Equation non-linéaire
 
 L'équation de la glace est une équation de diffusion, sa spécificité est que la diffusion n'est plus qu'un paramètre constant, mais dépend de la solution:
-$$ D(h) = f_d (\rho g)^3 h^5 \left( \frac{\partial s}{\partial x} \right)^2.$$
+$$D(h) = f_d (\rho g)^3 h^5 \left( \frac{\partial s}{\partial x} \right)^2.$$
 
 # Rséolution numérique
 
