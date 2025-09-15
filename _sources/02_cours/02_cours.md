@@ -250,7 +250,7 @@ Tout au long du cours, il faudra veiller à toujours prendre des pas de temps $d
 **Attention à ne pas confondre:**
 
 - les équations continues (**celles-ci ne s’implémentent pas directement**):
-$$ \frac{dx(t)}{dt} = v(t) $$
+$$\frac{dx(t)}{dt} = v(t)$$
 
 - les équations discrétisées (**celles-ci permettent l’implémentation dans le code python qui suit**):
 
