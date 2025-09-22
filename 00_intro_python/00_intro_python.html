@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Cours 1" href="../01_cours/01_cours.html" />
-    <link rel="prev" title="Syllabus" href="../syllabus.html" />
+    <link rel="prev" title="Tutoriel Minimal : Installer VS Code + Python sur votre machine" href="../00_install/00_install.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,6 +182,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Tutoriel Minimal : Installer VS Code + Python sur votre machine</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction à Python</a></li>
 
 
@@ -243,6 +244,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../02_exercice/02_exercice.html">Exercices 2</a></li>
+
 
 
 
@@ -618,6 +620,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>57.0
+</pre></div>
+</div>
+</div>
 </div>
 <p>Notons que l’opérateur <code class="docutils literal notranslate"><span class="pre">**</span></code> est la puissance, <code class="docutils literal notranslate"><span class="pre">//</span></code> est la division euclidienne, et <code class="docutils literal notranslate"><span class="pre">%</span></code> est le reste de la division :</p>
 <div class="cell docutils container">
@@ -648,6 +655,12 @@ document.write(`
 <span class="n">var4</span><span class="o">=</span><span class="kc">True</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;valeurs des variables:&quot;</span><span class="p">,</span><span class="n">var1</span><span class="p">,</span><span class="n">var2</span><span class="p">,</span><span class="n">var3</span><span class="p">,</span><span class="n">var4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;types des variables:&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">var1</span><span class="p">),</span><span class="nb">type</span><span class="p">(</span><span class="n">var2</span><span class="p">),</span><span class="nb">type</span><span class="p">(</span><span class="n">var3</span><span class="p">),</span><span class="nb">type</span><span class="p">(</span><span class="n">var4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>valeurs des variables: 10 3.5 Python True
+types des variables: &lt;class &#39;int&#39;&gt; &lt;class &#39;float&#39;&gt; &lt;class &#39;str&#39;&gt; &lt;class &#39;bool&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -815,6 +828,11 @@ document.write(`
     <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="n">val_stop</span> <span class="p">:</span>
         <span class="k">break</span>       <span class="c1"># break permet de sortir de la boucle</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>51
 </pre></div>
 </div>
 </div>
@@ -1125,6 +1143,16 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <p>Il existe aussi d’autres fonctions qui font la même chose :</p>
 <div class="cell docutils container">
@@ -1385,12 +1413,12 @@ Utilisez la fonction <code class="docutils literal notranslate"><span class="pre
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../syllabus.html"
+       href="../00_install/00_install.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Syllabus</p>
+        <p class="prev-next-title">Tutoriel Minimal : Installer VS Code + Python sur votre machine</p>
       </div>
     </a>
     <a class="right-next"

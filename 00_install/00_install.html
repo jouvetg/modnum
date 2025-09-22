@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Exercices 8 &#8212; Modelisation Numerique</title>
+    <title>Tutoriel Minimal : Installer VS Code + Python sur votre machine &#8212; Modelisation Numerique</title>
   
   
   
@@ -57,13 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '08_exercice/08_exercice';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '00_install/00_install';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Cours 9" href="../09_cours/09_cours.html" />
-    <link rel="prev" title="Cours 8" href="../08_cours/08_cours.html" />
+    <link rel="next" title="Introduction à Python" href="../00_intro_python/00_intro_python.html" />
+    <link rel="prev" title="Syllabus" href="../syllabus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,7 +180,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Tutoriel Minimal : Installer VS Code + Python sur votre machine</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutoriel Minimal : Installer VS Code + Python sur votre machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
 
 
@@ -355,7 +353,7 @@
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_exercice/08_exercice.html">Exercices 8</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_cours/09_cours.html">Cours 9</a></li>
 
@@ -455,7 +453,7 @@
       
       
       
-      <li><a href="../_sources/08_exercice/08_exercice.ipynb" target="_blank"
+      <li><a href="../_sources/00_install/00_install.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -465,7 +463,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -539,7 +537,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exercices 8</h1>
+    <h1>Tutoriel Minimal : Installer VS Code + Python sur votre machine</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -549,13 +547,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Exercices 8</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-temperature-de-la-croute-terrestre">Exercice: Température de la croûte terrestre</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-vous-de-faire">✅ <strong>À vous de faire !</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installer-vs-code">1. Installer VS Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installer-python">2. Installer Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installer-les-bibliotheques-necessaires">3. Installer les bibliothèques nécessaires</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configurer-vs-code">4. Configurer VS Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#premier-test">5. Premier test</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -566,84 +563,78 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exercices-8">
-<h1>Exercices 8<a class="headerlink" href="#exercices-8" title="Link to this heading">#</a></h1>
-<p><a class="reference download internal" download="" href="../_downloads/e5841cbd8f32f4a8adf638e9af083b0e/08_exercice.zip"><span class="xref download myst">Télécharger l’exercice</span></a></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="exercice-temperature-de-la-croute-terrestre">
-<h1>Exercice: Température de la croûte terrestre<a class="headerlink" href="#exercice-temperature-de-la-croute-terrestre" title="Link to this heading">#</a></h1>
-<p>Nous allons modéliser l’évolution du géotherme de la croûte terrestre en deux dimensions en incluant un paramètre d’exhumation et en simulant finalement une faille active dans un domaine modélisé de 50 km de longueur et de 25 km de profondeur (Figure 1). L’évolution du champ de température <span class="math notranslate nohighlight">\(T\)</span> en 2D est le résultat de la diffusion thermique le long des axes <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(z\)</span>, ainsi que de l’advection par exhumation, <span class="math notranslate nohighlight">\(\dot{e}\)</span>, le long d’une seule dimension (<span class="math notranslate nohighlight">\(z\)</span>) :</p>
-<div class="math notranslate nohighlight">
-\[\frac{\partial T}{\partial t} = -\frac{\partial q_x}{\partial x} -\frac{\partial q_z}{\partial z}  - \dot{e} \frac{\partial T}{\partial z}\ ,\: \]</div>
-<div class="math notranslate nohighlight">
-\[q_x = - D \frac{\partial T}{\partial x} \: ; \: \: q_z = - D \frac{\partial T}{\partial z}\]</div>
-<p>Tous les paramètres sont donnés dans la Table 1.</p>
-<p>Puisque l’exhumation des roches s’effectue dans la seule direction <span class="math notranslate nohighlight">\(z\)</span> (verticale), nous n’avons besoin de résoudre l’advection que dans la dimension <span class="math notranslate nohighlight">\(z\)</span>. Pour cela, il faut créer une matrice contenant les vitesses <code class="docutils literal notranslate"><span class="pre">Vz</span></code> de taille <code class="docutils literal notranslate"><span class="pre">(nz-1,</span> <span class="pre">nx)</span></code>. Ceci afin que les vitesses se situent à l’interface entre deux cellules de température “T”, en analogie avec les flux.</p>
-<p><img alt="" src="../_images/ex_1.png" /></p>
-<p><em>Figure: Le but de l’exercise est de modéliser le géotherme de la croûte terrestre avec deux taux d’exhumation différents.</em></p>
-<p>Nous voulons écrire un code avec deux variantes. Définissez un paramètre Q, qui vaut 1 ou 2, et utilisez des clauses conditionnelles pour écrire un unique code générique qui fonctionne pour les deux variantes.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-minimal-installer-vs-code-python-sur-votre-machine">
+<h1>Tutoriel Minimal : Installer VS Code + Python sur votre machine<a class="headerlink" href="#tutoriel-minimal-installer-vs-code-python-sur-votre-machine" title="Link to this heading">#</a></h1>
+<p>Ce guide explique comment installer <strong>VS Code</strong>, <strong>Python</strong>, et les bibliothèques classiques (<strong>NumPy</strong>, <strong>Matplotlib</strong>, <strong>IPython</strong>) sur <strong>Windows, macOS et Linux</strong>.</p>
+<hr class="docutils" />
+<section id="installer-vs-code">
+<h2>1. Installer VS Code<a class="headerlink" href="#installer-vs-code" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Q1: Dans une première version du code, la condition de température en profondeur est fixée à 700°C partout mais le taux d’exhumation change entre 5 km/Myr dans la partie gauche et 15 km/Myr dans la partie droite. Le flux de chaleur au travers des bords latéraux est nul. Le scénario tectonique équivalent serait la présence d’une faille normale séparant deux domaines s’érodant à des taux différents (Figure ci-dessus).</p></li>
-<li><p>Q2: Dans une deuxième version du code, utilisez une condition limite de température <span class="math notranslate nohighlight">\(T\)</span> en profondeur qui varie le long de l’axe <span class="math notranslate nohighlight">\(x\)</span>. La moitié gauche à 700°C et la droite à 900°C. La situation tectonique correspondante serait la subduction d’une croûte océanique froide sous la moitié gauche du modèle. Le flux de chaleur au travers des bords latéraux est également nul.</p></li>
+<li><p>Télécharger depuis <a class="reference external" href="https://code.visualstudio.com">https://code.visualstudio.com</a></p></li>
+<li><p>Installer normalement :</p>
+<ul>
+<li><p><strong>Windows</strong> : lancer le <code class="docutils literal notranslate"><span class="pre">.exe</span></code></p></li>
+<li><p><strong>macOS</strong> : glisser dans Applications</p></li>
+<li><p><strong>Linux</strong> : installer le <code class="docutils literal notranslate"><span class="pre">.deb</span></code> ou <code class="docutils literal notranslate"><span class="pre">.rpm</span></code></p></li>
 </ul>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Paramètres:</strong></p></th>
-<th class="head"><p><strong>Valeurs:</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Diffusivité de la température</p></td>
-<td><p>150 km²/Myr</p></td>
-</tr>
-<tr class="row-odd"><td><p>Température à la surface</p></td>
-<td><p>25°C</p></td>
-</tr>
-<tr class="row-even"><td><p>Hauteur du modèle</p></td>
-<td><p>25 km</p></td>
-</tr>
-<tr class="row-odd"><td><p>Largeur du modèle</p></td>
-<td><p>50 km</p></td>
-</tr>
-<tr class="row-even"><td><p>Nombre de cellules en x, <span class="math notranslate nohighlight">\(nx\)</span></p></td>
-<td><p>50</p></td>
-</tr>
-<tr class="row-odd"><td><p>Nombre de cellules en z, <span class="math notranslate nohighlight">\(nz\)</span></p></td>
-<td><p>60</p></td>
-</tr>
-<tr class="row-even"><td><p>Temps total</p></td>
-<td><p>10 Myr</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Q=1</strong></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>T à 25 km de profondeur</p></td>
-<td><p>700°C</p></td>
-</tr>
-<tr class="row-odd"><td><p>Taux d’exhumation entre 0 et 25 km</p></td>
-<td><p>5 km/Myr</p></td>
-</tr>
-<tr class="row-even"><td><p>Taux d’exhumation entre 25 et 50 km</p></td>
-<td><p>15 km/Myr</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Q=2</strong></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>T à 25 km de profondeur entre <span class="math notranslate nohighlight">\(x = 0-25\)</span> km</p></td>
-<td><p>700°C</p></td>
-</tr>
-<tr class="row-odd"><td><p>T à 25 km de profondeur entre <span class="math notranslate nohighlight">\(x = 25-50\)</span> km</p></td>
-<td><p>900°C</p></td>
-</tr>
-<tr class="row-even"><td><p>Taux d’exhumation, <span class="math notranslate nohighlight">\(\dot{e}\)</span></p></td>
-<td><p>10 km/Myr</p></td>
-</tr>
-</tbody>
-</table>
+</li>
+<li><p>Lancer <strong>Visual Studio Code</strong>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="installer-python">
+<h2>2. Installer Python<a class="headerlink" href="#installer-python" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>Télécharger la dernière version de <strong>Python 3</strong> depuis <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.</p></li>
+<li><p><strong>Windows</strong> : cocher <strong>“Add Python to PATH”</strong> pendant l’installation.</p></li>
+<li><p><strong>macOS / Linux</strong> : Python est souvent déjà présent. Vérifier dans un terminal :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>--version
+</pre></div>
 </div>
-<p><em>Table 1: Paramètres du modèle.</em></p>
-<section id="a-vous-de-faire">
-<h2>✅ <strong>À vous de faire !</strong><a class="headerlink" href="#a-vous-de-faire" title="Link to this heading">#</a></h2>
+<p>ou sous Windows :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="installer-les-bibliotheques-necessaires">
+<h2>3. Installer les bibliothèques nécessaires<a class="headerlink" href="#installer-les-bibliotheques-necessaires" title="Link to this heading">#</a></h2>
+<p>Ouvrir un terminal (ou PowerShell sous Windows) et taper :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>matplotlib<span class="w"> </span>ipython
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="configurer-vs-code">
+<h2>4. Configurer VS Code<a class="headerlink" href="#configurer-vs-code" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Ouvrir <strong>VS Code</strong></p></li>
+<li><p>Aller dans l’onglet <strong>Extensions</strong> (<code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+X</span></code>)</p></li>
+<li><p>Chercher <strong>Python</strong> (éditeur Microsoft) et cliquer sur <strong>Installer</strong></p></li>
+<li><p>Ouvrir un fichier <code class="docutils literal notranslate"><span class="pre">test.py</span></code></p></li>
+<li><p>Vérifier que VS Code détecte l’installation de Python (choisir l’interpréteur si besoin)</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="premier-test">
+<h2>5. Premier test<a class="headerlink" href="#premier-test" title="Link to this heading">#</a></h2>
+<p>Créer un fichier <code class="docutils literal notranslate"><span class="pre">test.py</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Lancer avec :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>test.py
+</pre></div>
+</div>
+<p>➡️ Si une courbe sinusoïdale apparaît, tout est prêt ✅</p>
+<hr class="docutils" />
 </section>
 </section>
 
@@ -660,7 +651,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./08_exercice"
+            path: "./00_install"
         },
         predefinedOutput: true
     }
@@ -678,20 +669,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../08_cours/08_cours.html"
+       href="../syllabus.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Cours 8</p>
+        <p class="prev-next-title">Syllabus</p>
       </div>
     </a>
     <a class="right-next"
-       href="../09_cours/09_cours.html"
+       href="../00_intro_python/00_intro_python.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Cours 9</p>
+        <p class="prev-next-title">Introduction à Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -711,13 +702,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Exercices 8</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-temperature-de-la-croute-terrestre">Exercice: Température de la croûte terrestre</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-vous-de-faire">✅ <strong>À vous de faire !</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installer-vs-code">1. Installer VS Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installer-python">2. Installer Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installer-les-bibliotheques-necessaires">3. Installer les bibliothèques nécessaires</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configurer-vs-code">4. Configurer VS Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#premier-test">5. Premier test</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>

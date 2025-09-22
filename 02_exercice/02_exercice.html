@@ -182,6 +182,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Tutoriel Minimal : Installer VS Code + Python sur votre machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
 
 
@@ -243,6 +244,7 @@
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices 2</a></li>
+
 
 
 
@@ -548,7 +550,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Exercices 2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-1-se-familiariser-avec-les-figures-interactives">Tutorial 1 : Se familiariser avec les figures interactives</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-1-vecteurs-indices-dimensions">Tutorial 1 : Vecteurs, indices, dimensions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-2-se-familiariser-avec-les-figures-interactives">Tutorial 2 : Se familiariser avec les figures interactives</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2-trajectoire-d-une-voiture-en-1d">Exercice 2: Trajectoire d’une voiture en 1D</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-vous-de-faire">✅ <strong>À vous de faire !</strong></a></li>
 </ul>
@@ -573,8 +576,74 @@ document.write(`
 <h1>Exercices 2<a class="headerlink" href="#exercices-2" title="Link to this heading">#</a></h1>
 <p><a class="reference download internal" download="" href="../_downloads/d9fe0005d3c1dfa9342451343fcecfa1/02_exercice.zip"><span class="xref download myst">Télécharger l’exercice</span></a></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="tutorial-1-se-familiariser-avec-les-figures-interactives">
-<h1>Tutorial 1 : Se familiariser avec les figures interactives<a class="headerlink" href="#tutorial-1-se-familiariser-avec-les-figures-interactives" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="tutorial-1-vecteurs-indices-dimensions">
+<h1>Tutorial 1 : Vecteurs, indices, dimensions<a class="headerlink" href="#tutorial-1-vecteurs-indices-dimensions" title="Link to this heading">#</a></h1>
+<p>Dans ce cours, nous allons intensivement travailler avec la notion de vecteurs (et matrices). Ces vecteurs seront des objects <code class="docutils literal notranslate"><span class="pre">numpy</span></code> du nom de la librarie qui permet de faire des opérations vecteurs/matrices.</p>
+<p>Ainsi la comande suivant permet de définir un matrices remplies de zeros et de longeurs 10 :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut accéder ou modifier des élément du vecteur <code class="docutils literal notranslate"><span class="pre">A</span></code> par ces indices, par example :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Premier élément</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>     <span class="c1"># Modifier le premier élément</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># Dernier élément</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+[5. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il faut bien avoir en tête que losque que l’on écrit <code class="docutils literal notranslate"><span class="pre">A[i]</span> <span class="pre">=</span> <span class="pre">l</span></code> on a</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A (vecteur)        i (indice)        l (valeur)
+   │                   │                 │
+   └───────────────► A[i]      =         l
+</pre></div>
+</div>
+<p>Ainsi, A ne peut prendre en crochet qu’un indice (entier).</p>
+<p>Dans le suite du cours ne seront souvent ammené a mettre à jour un vecteur, par exemple :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>  
+<span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">3</span>     <span class="c1"># Ajouter 3 à tous les éléments</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>  
+<span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>     <span class="c1"># Modifier le premier élément</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">3</span>     <span class="c1"># Modifier le troisième élément</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">5</span>     <span class="c1"># Modifier le cinquième élément</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+[3. 3. 3. 3. 3. 3. 3. 3. 3. 3.]
+[4. 3. 0. 3. 3. 8. 3. 3. 3. 3.]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tutorial-2-se-familiariser-avec-les-figures-interactives">
+<h1>Tutorial 2 : Se familiariser avec les figures interactives<a class="headerlink" href="#tutorial-2-se-familiariser-avec-les-figures-interactives" title="Link to this heading">#</a></h1>
 <p>Le but ici est de se familiariser avec les figures interactives. Le code suivant permet d’afficher une figure interactive, avec un affichage régulier (mais non systématique). Faites tourner le code suivant qui affiche la position d’une particule sur le cercle trigonométrique. Essayez de changer la fréquence <code class="docutils literal notranslate"><span class="pre">nbout</span></code>, essayez de commenter <code class="docutils literal notranslate"><span class="pre">ax.clear()</span></code> et d’en déduire son utilité.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -602,6 +671,9 @@ document.write(`
      
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7f1f446de1fd651970026b758ae8938136bf74dba41549e9b95788b7fbdb0132.png" src="../_images/7f1f446de1fd651970026b758ae8938136bf74dba41549e9b95788b7fbdb0132.png" />
 </div>
 </div>
 </section>
@@ -749,7 +821,8 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Exercices 2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-1-se-familiariser-avec-les-figures-interactives">Tutorial 1 : Se familiariser avec les figures interactives</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-1-vecteurs-indices-dimensions">Tutorial 1 : Vecteurs, indices, dimensions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-2-se-familiariser-avec-les-figures-interactives">Tutorial 2 : Se familiariser avec les figures interactives</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2-trajectoire-d-une-voiture-en-1d">Exercice 2: Trajectoire d’une voiture en 1D</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-vous-de-faire">✅ <strong>À vous de faire !</strong></a></li>
 </ul>

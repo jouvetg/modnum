@@ -182,6 +182,7 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Tutoriel Minimal : Installer VS Code + Python sur votre machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
 
 
@@ -243,6 +244,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../02_exercice/02_exercice.html">Exercices 2</a></li>
+
 
 
 
@@ -598,7 +600,7 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="exercice-du-compte-en-banque">
 <h1>Exercice du compte en banque<a class="headerlink" href="#exercice-du-compte-en-banque" title="Link to this heading">#</a></h1>
 <p>Le but de cet exercice est de construire un premier modèle numerique pour modeliser l’évolution d’un compte en banque. Il permet aussi de comparer l’utilité respective d’une solution analytique par rapport à un modéle numérique.</p>
-<p>Une somme d’argent initiale est déposée en banque (<code class="docutils literal notranslate"><span class="pre">M_init</span> <span class="pre">=</span> <span class="pre">20000</span></code>) et à partir de la deuxiéme année, une épargne supplémentaire annuelle s’y ajoute (<code class="docutils literal notranslate"><span class="pre">M_save</span> <span class="pre">=</span> <span class="pre">500</span></code>).</p>
+<p>Une somme d’argent initiale est déposée en banque (<code class="docutils literal notranslate"><span class="pre">M_init</span> <span class="pre">=</span> <span class="pre">20000</span></code>) et une épargne supplémentaire annuelle s’y ajoute (<code class="docutils literal notranslate"><span class="pre">M_save</span> <span class="pre">=</span> <span class="pre">500</span></code>).</p>
 <section id="id1">
 <h2>1.1<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>Quel sera le montant de l’épargne aprés 5, 10 et 35 ans (solution analytique)? Codez les formules qui vous permettent de répondre à cette question.</p>
@@ -609,9 +611,9 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M_init</span> <span class="o">=</span> <span class="mi">20000</span>
 <span class="n">M_save</span> <span class="o">=</span> <span class="mi">500</span>
 
-<span class="n">FV5</span> <span class="o">=</span> <span class="n">M_init</span>  <span class="o">+</span> <span class="p">(</span><span class="n">M_save</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span>   
-<span class="n">FV10</span> <span class="o">=</span> <span class="n">M_init</span> <span class="o">+</span> <span class="p">(</span><span class="n">M_save</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span>  
-<span class="n">FV35</span> <span class="o">=</span> <span class="n">M_init</span> <span class="o">+</span> <span class="p">(</span><span class="n">M_save</span><span class="p">)</span><span class="o">*</span><span class="mi">35</span>  
+<span class="n">FV5</span> <span class="o">=</span> <span class="n">M_init</span>  <span class="o">+</span> <span class="p">(</span><span class="n">M_save</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span>
+<span class="n">FV10</span> <span class="o">=</span> <span class="n">M_init</span> <span class="o">+</span> <span class="p">(</span><span class="n">M_save</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span>
+<span class="n">FV35</span> <span class="o">=</span> <span class="n">M_init</span> <span class="o">+</span> <span class="p">(</span><span class="n">M_save</span><span class="p">)</span><span class="o">*</span><span class="mi">35</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After 5 years: &quot;</span><span class="p">,</span> <span class="n">FV5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After 10 years: &quot;</span><span class="p">,</span> <span class="n">FV10</span><span class="p">)</span>
@@ -636,11 +638,11 @@ document.write(`
 <span class="n">tot_yrs</span> <span class="o">=</span> <span class="mi">35</span>
 
 <span class="n">M_evol1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">tot_yrs</span><span class="p">)</span>
-<span class="n">M_evol1</span>
 <span class="n">M_evol1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_init</span> 
 
 <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tot_yrs</span><span class="p">):</span> 
     <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M_save</span> 
+    
 </pre></div>
 </div>
 </div>
