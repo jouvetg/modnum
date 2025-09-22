@@ -3,6 +3,7 @@ format: jb-book
 root: syllabus
 
 chapters:
+  - file: 00_install/00_install
   - file: 00_intro_python/00_intro_python.ipynb
 
   - file: 01_cours/01_cours
