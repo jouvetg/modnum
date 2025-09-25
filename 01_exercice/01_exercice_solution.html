@@ -182,7 +182,7 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Tutoriel Minimal : Installer VS Code + Python sur votre machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Installer VS Code + Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
 
 
@@ -615,9 +615,9 @@ document.write(`
 <span class="n">FV10</span> <span class="o">=</span> <span class="n">M_init</span> <span class="o">+</span> <span class="p">(</span><span class="n">M_save</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span>
 <span class="n">FV35</span> <span class="o">=</span> <span class="n">M_init</span> <span class="o">+</span> <span class="p">(</span><span class="n">M_save</span><span class="p">)</span><span class="o">*</span><span class="mi">35</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After 5 years: &quot;</span><span class="p">,</span> <span class="n">FV5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After 10 years: &quot;</span><span class="p">,</span> <span class="n">FV10</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After 35 years: &quot;</span><span class="p">,</span> <span class="n">FV35</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Montant aprés 5 ans: &quot;</span><span class="p">,</span> <span class="n">FV5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Montant aprés 10 ans: &quot;</span><span class="p">,</span> <span class="n">FV10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Montant aprés 35 ans: &quot;</span><span class="p">,</span> <span class="n">FV35</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -626,22 +626,29 @@ document.write(`
 </section>
 <section id="id2">
 <h2>1.2<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>Répétez l’exercice à l’aide d’une boucle (<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(1,35):</span> <span class="pre">...</span></code>). N’oubliez pas qu’il est préférable de définir toute variable modifiée dans la boucle avant qu’elle ne commence. Ici, vous pouvez initialiser le vecteur <code class="docutils literal notranslate"><span class="pre">M_evol</span> <span class="pre">=</span> <span class="pre">np.zeros(35)</span></code> avec la fonction <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui définit un vecteur de zeros afin de stocker le montant de l’épargne chaque année.</p>
+<p>Répétez l’exercice à l’aide d’une boucle. N’oubliez pas de définir toute variable modifiée dans la boucle avant qu’elle ne commence. Ici, vous pouvez initialiser le vecteur <code class="docutils literal notranslate"><span class="pre">M_evol</span></code> avec la fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui définit un vecteur de zeros afin de stocker le montant de l’épargne chaque année (cela sera utile par la suite).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M_evol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="c1"># initialisation avec un vecteur de zeros.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">35</span><span class="p">):</span> 
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
 <section id="id3">
 <h3>✅ <strong>À vous de faire !</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="cell tag_solution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> <span class="c1"># importer le module numpy</span>
 
-<span class="n">M_init</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="c1"># paramètres</span>
+<span class="n">M_init</span> <span class="o">=</span> <span class="mi">20000</span> 
 <span class="n">M_save</span> <span class="o">=</span> <span class="mi">500</span>
-<span class="n">tot_yrs</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="n">temps_total</span> <span class="o">=</span> <span class="mi">35</span>
 
-<span class="n">M_evol1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">tot_yrs</span><span class="p">)</span>
-<span class="n">M_evol1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_init</span> 
+<span class="n">M_evol1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># initialisation avec un vecteur de zeros.</span>
+<span class="n">M_evol1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_init</span> <span class="c1"># somme initiale</span>
 
-<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tot_yrs</span><span class="p">):</span> 
-    <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M_save</span> 
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> 
+    <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M_save</span> <span class="c1"># ajout de l&#39;épargne annuelle</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Année &quot;</span><span class="p">,</span> <span class="n">it</span><span class="p">,</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span><span class="p">])</span> <span class="c1"># affichage du montant chaque année</span>
     
 </pre></div>
 </div>
@@ -664,8 +671,8 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">M_evol1</span><span class="o">/</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;temps, ans&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">M_evol1</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temps, ans&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Epargne, k CHF&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -684,19 +691,20 @@ document.write(`
 <h3>✅ <strong>À vous de faire !</strong><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <div class="cell tag_solution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M_init</span> <span class="o">=</span> <span class="mi">20000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># paramètres</span>
+<span class="n">M_init</span> <span class="o">=</span> <span class="mi">20000</span>
 <span class="n">M_save</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="n">intrst</span> <span class="o">=</span> <span class="mf">0.006</span>
-<span class="n">tot_yrs</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="n">temps_total</span> <span class="o">=</span> <span class="mi">35</span>
 
-<span class="n">M_evol1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">tot_yrs</span><span class="p">)</span>
-<span class="n">M_evol2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">tot_yrs</span><span class="p">)</span>
+<span class="n">M_evol1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">temps_total</span><span class="p">)</span> <span class="c1"># initialisation avec un vecteur de zeros.</span>
+<span class="n">M_evol2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">temps_total</span><span class="p">)</span>
 
-<span class="n">M_evol1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_init</span>
+<span class="n">M_evol1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_init</span> <span class="c1"># somme initiale</span>
 <span class="n">M_evol2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_init</span>
 
-<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tot_yrs</span><span class="p">):</span> 
-    <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M_save</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">temps_total</span><span class="p">):</span> 
+    <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M_save</span> <span class="c1"># ajout de l&#39;épargne annuelle</span>
     <span class="n">M_evol2</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">M_evol2</span><span class="p">[</span><span class="n">it</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M_save</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">intrst</span><span class="p">)</span> 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -730,13 +738,13 @@ document.write(`
 <h3>✅ <strong>À vous de faire !</strong><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <div class="cell tag_solution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M_evol1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">tot_yrs</span><span class="p">)</span>
-<span class="n">M_evol2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">tot_yrs</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M_evol1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">M_evol2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">M_evol1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_init</span>
 <span class="n">M_evol2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_init</span>
 
-<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tot_yrs</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">intrst</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
     <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M_save</span>
     <span class="n">M_evol2</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">M_evol2</span><span class="p">[</span><span class="n">it</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M_save</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">intrst</span><span class="p">)</span> 
@@ -764,21 +772,20 @@ document.write(`
 </section>
 <section id="id12">
 <h2>1.6<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
-<p>Reprenez le code précédent, et ajoutez une dépense de 1125.- à l’année 20 dans les deux cas, avec et sans intérêts de 0.6% (fixe), en utilisant une clause (par ex. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">it==19:</span> <span class="pre">...</span></code> car l’année 1 correpondant à <code class="docutils literal notranslate"><span class="pre">it=0</span></code>).</p>
-<p>Affichez la différence de fortune (valeur absolue) entre les cas avec et sans intérêts fixe de 0.6% à l’année 35.</p>
+<p>Reprenez le code précédent, et ajoutez une dépense de 1125.- à l’année 20 dans les deux cas, avec et sans intérêts de 0.6% (fixe), en utilisant une clause (par ex. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">it==19:</span> <span class="pre">...</span></code> car l’année 1 correpondant à <code class="docutils literal notranslate"><span class="pre">it=0</span></code>). Affichez la différence de fortune (valeur absolue) entre les cas avec et sans intérêts fixe de 0.6% à l’année 35.</p>
 <section id="id13">
 <h3>✅ <strong>À vous de faire !</strong><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <div class="cell tag_solution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M_evol1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">tot_yrs</span><span class="p">)</span>
-<span class="n">M_evol2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">tot_yrs</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M_evol1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">M_evol2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">expns</span> <span class="o">=</span> <span class="mi">1125</span>
 <span class="n">intrst</span> <span class="o">=</span> <span class="mf">0.006</span>
 
 <span class="n">M_evol1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_init</span>
 <span class="n">M_evol2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_init</span>
 
-<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tot_yrs</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M_save</span>
     <span class="n">M_evol2</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">M_evol2</span><span class="p">[</span><span class="n">it</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M_save</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">intrst</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">it</span> <span class="o">==</span> <span class="mi">19</span><span class="p">:</span>

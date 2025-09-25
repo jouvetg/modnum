@@ -182,7 +182,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Tutoriel Minimal : Installer VS Code + Python sur votre machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Installer VS Code + Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
 
 
@@ -610,7 +610,12 @@ document.write(`
 </section>
 <section id="id2">
 <h2>1.2<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>Répétez l’exercice à l’aide d’une boucle (<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(1,35):</span> <span class="pre">...</span></code>). N’oubliez pas qu’il est préférable de définir toute variable modifiée dans la boucle avant qu’elle ne commence. Ici, vous pouvez initialiser le vecteur <code class="docutils literal notranslate"><span class="pre">M_evol</span> <span class="pre">=</span> <span class="pre">np.zeros(35)</span></code> avec la fonction <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui définit un vecteur de zeros afin de stocker le montant de l’épargne chaque année.</p>
+<p>Répétez l’exercice à l’aide d’une boucle. N’oubliez pas de définir toute variable modifiée dans la boucle avant qu’elle ne commence. Ici, vous pouvez initialiser le vecteur <code class="docutils literal notranslate"><span class="pre">M_evol</span></code> avec la fonction de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui définit un vecteur de zeros afin de stocker le montant de l’épargne chaque année (cela sera utile par la suite).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M_evol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="c1"># initialisation avec un vecteur de zeros.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">35</span><span class="p">):</span> 
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
 <section id="id3">
 <h3>✅ <strong>À vous de faire !</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>Dans ce cas de figure, y a-t-il un avantage ou un désavantage à employer une boucle numérique à la place d’une solution analytique?</p>
@@ -654,8 +659,7 @@ document.write(`
 </section>
 <section id="id12">
 <h2>1.6<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
-<p>Reprenez le code précédent, et ajoutez une dépense de 1125.- à l’année 20 dans les deux cas, avec et sans intérêts de 0.6% (fixe), en utilisant une clause (par ex. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">it==19:</span> <span class="pre">...</span></code> car l’année 1 correpondant à <code class="docutils literal notranslate"><span class="pre">it=0</span></code>).</p>
-<p>Affichez la différence de fortune (valeur absolue) entre les cas avec et sans intérêts fixe de 0.6% à l’année 35.</p>
+<p>Reprenez le code précédent, et ajoutez une dépense de 1125.- à l’année 20 dans les deux cas, avec et sans intérêts de 0.6% (fixe), en utilisant une clause (par ex. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">it==19:</span> <span class="pre">...</span></code> car l’année 1 correpondant à <code class="docutils literal notranslate"><span class="pre">it=0</span></code>). Affichez la différence de fortune (valeur absolue) entre les cas avec et sans intérêts fixe de 0.6% à l’année 35.</p>
 <section id="id13">
 <h3>✅ <strong>À vous de faire !</strong><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 </section>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tutoriel Minimal : Installer VS Code + Python sur votre machine &#8212; Modelisation Numerique</title>
+    <title>Installer VS Code + Python &#8212; Modelisation Numerique</title>
   
   
   
@@ -180,7 +180,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutoriel Minimal : Installer VS Code + Python sur votre machine</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Installer VS Code + Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
 
 
@@ -537,7 +537,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tutoriel Minimal : Installer VS Code + Python sur votre machine</h1>
+    <h1>Installer VS Code + Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -563,9 +563,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-minimal-installer-vs-code-python-sur-votre-machine">
-<h1>Tutoriel Minimal : Installer VS Code + Python sur votre machine<a class="headerlink" href="#tutoriel-minimal-installer-vs-code-python-sur-votre-machine" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="installer-vs-code-python">
+<h1>Installer VS Code + Python<a class="headerlink" href="#installer-vs-code-python" title="Link to this heading">#</a></h1>
 <p>Ce guide explique comment installer <strong>VS Code</strong>, <strong>Python</strong>, et les bibliothèques classiques (<strong>NumPy</strong>, <strong>Matplotlib</strong>, <strong>IPython</strong>) sur <strong>Windows, macOS et Linux</strong>.</p>
+<p><strong>Cette page vous servira a installer VS Code + Python sur votre machine, ce tutorial n’est pas relevant si vous travailler sur les machines déjà installées de l’UNIL.</strong></p>
 <hr class="docutils" />
 <section id="installer-vs-code">
 <h2>1. Installer VS Code<a class="headerlink" href="#installer-vs-code" title="Link to this heading">#</a></h2>
@@ -613,27 +614,17 @@ document.write(`
 <li><p>Ouvrir <strong>VS Code</strong></p></li>
 <li><p>Aller dans l’onglet <strong>Extensions</strong> (<code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+X</span></code>)</p></li>
 <li><p>Chercher <strong>Python</strong> (éditeur Microsoft) et cliquer sur <strong>Installer</strong></p></li>
-<li><p>Ouvrir un fichier <code class="docutils literal notranslate"><span class="pre">test.py</span></code></p></li>
-<li><p>Vérifier que VS Code détecte l’installation de Python (choisir l’interpréteur si besoin)</p></li>
+<li><p>Chercher <strong>Jupyter</strong> (éditeur Microsoft) et cliquer sur <strong>Installer</strong></p></li>
 </ol>
 </section>
 <hr class="docutils" />
 <section id="premier-test">
 <h2>5. Premier test<a class="headerlink" href="#premier-test" title="Link to this heading">#</a></h2>
-<p>Créer un fichier <code class="docutils literal notranslate"><span class="pre">test.py</span></code> :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Lancer avec :</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>test.py
-</pre></div>
-</div>
-<p>➡️ Si une courbe sinusoïdale apparaît, tout est prêt ✅</p>
+<ul class="simple">
+<li><p>Ouvrir un fichier <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> (n’importe quel exercice).</p></li>
+<li><p>Vérifier que VS Code détecte l’installation de Python (choisir l’interpréteur si besoin : <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code>, taper Python: Select Interpreter, puis sélectionner une version de Python).</p></li>
+<li><p>Exécuter les cellules Markdown et Python, et vérifier que Python s’exécute correctement et produit les résultats attendus ✅.</p></li>
+</ul>
 <hr class="docutils" />
 </section>
 </section>
