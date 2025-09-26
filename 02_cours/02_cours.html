@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -604,16 +604,15 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="definition-de-la-derivee">
 <h1>Définition de la dérivée<a class="headerlink" href="#definition-de-la-derivee" title="Link to this heading">#</a></h1>
-<p>La dérivée de <span class="math notranslate nohighlight">\(x(t)\)</span> par rapport à <span class="math notranslate nohighlight">\(t\)</span> est la pente (slope) de la tangente au graphe de la fonction <span class="math notranslate nohighlight">\(x(t)\)</span> au point <span class="math notranslate nohighlight">\(t\)</span>. On peut écrire aussi la dérivée:</p>
-<div class="math notranslate nohighlight">
-\[\frac{dx(t)}{dt} = \lim_{\Delta t \to 0} \frac{x(t + \Delta t) - x(t)}{\Delta t}\]</div>
-<p><img alt="height:450px" src="../_images/def_derivees.png" /></p>
+<p>La dérivée de <span class="math notranslate nohighlight">\(x(t)\)</span> par rapport à <span class="math notranslate nohighlight">\(t\)</span> est la pente (slope) de la tangente au graphe de la fonction <span class="math notranslate nohighlight">\(x(t)\)</span> au point <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>On peut écrire aussi la dérivée: <span class="math notranslate nohighlight">\(\frac{dx(t)}{dt} = \lim_{\Delta t \to 0} \frac{x(t + \Delta t) - x(t)}{\Delta t}\)</span></p>
+<p><img alt="height:400px" src="../_images/def_derivees.png" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="signification-physique-de-la-derivee">
 <h1>Signification physique de la dérivée<a class="headerlink" href="#signification-physique-de-la-derivee" title="Link to this heading">#</a></h1>
 <p>Une voiture parcourt le trajet Genève-Lausanne-Bern-Zurich-St Gall, la  distance parcourue est <span class="math notranslate nohighlight">\(x(t)\)</span>, sa vitesse est la dérivée de la position par rapport au temps.</p>
-<p><img alt="height:250px" src="../_images/geneve-zurich.png" /></p>
+<p><img alt="height:400px" src="../_images/geneve-zurich.png" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="derivees-partielles">
@@ -645,7 +644,7 @@ document.write(`
 <h1>Espaces continus et discrets<a class="headerlink" href="#espaces-continus-et-discrets" title="Link to this heading">#</a></h1>
 <p>En général, les équations différentielles ou aux dérivées partielles issues de la physique ne peuvent pas être résolues dans le domaine <strong>continu</strong>.
 → On doit donc les résoudre numériquement dans un domaine <strong>discrétisé</strong> !</p>
-<p><img alt="height:350px" src="../_images/espaces_continus_discrets_s2.png" /></p>
+<p><img alt="height:400px" src="../_images/espaces_continus_discrets_s2.png" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="illustration-avec-la-modelisation-des-glaciers">
@@ -708,19 +707,23 @@ $<span class="math notranslate nohighlight">\(\frac{df(t)}{dt} = \lim_{\Delta t 
 <li><p>OU dans la <strong>boucle</strong>,</p></li>
 </ul>
 <p>Pour le savoir, demandez-vous si cette instruction doit-elle être mise à jour dans le temps ? Si oui, elle doit être dans la boucle ; sinon, elle doit être à l’initialisation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># par example, l&#39;évolution du taux d&#39;interet dans l&#39;évolution de la fortune</span>
+<span class="c1"># doit être mis DANS la boucle, car le taux d&#39;interet varie chaque année</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">interet</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">fortune</span> <span class="o">=</span> <span class="p">(</span><span class="n">fortune</span> <span class="o">+</span> <span class="n">M_save</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">interet</span><span class="p">)</span> 
+</pre></div>
+</div>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="boucle-temporelle-via-for-ou-while">
 <h1>Boucle temporelle via <code class="docutils literal notranslate"><span class="pre">for</span></code> ou <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#boucle-temporelle-via-for-ou-while" title="Link to this heading">#</a></h1>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span> 
-<span class="n">ttot</span> <span class="o">=</span> <span class="mi">500</span> 
-</pre></div>
-</div>
 <p>Il est possible de stopper la boucle quand une condition est remplie:</p>
 <ul class="simple">
 <li><p>en utilisant un <code class="docutils literal notranslate"><span class="pre">break</span></code>:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">ttot</span> <span class="o">=</span> <span class="mi">500</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span> 
     <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>
     <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="n">ttot</span><span class="p">:</span>
         <span class="k">break</span>
@@ -729,7 +732,7 @@ $<span class="math notranslate nohighlight">\(\frac{df(t)}{dt} = \lim_{\Delta t 
 <ul class="simple">
 <li><p>en utilisant la commande <code class="docutils literal notranslate"><span class="pre">while</span></code>:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">time</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">ttot</span> <span class="o">=</span> <span class="mi">500</span> 
 <span class="k">while</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="n">ttot</span><span class="p">:</span> 
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>
@@ -815,7 +818,11 @@ $<span class="math notranslate nohighlight">\(\frac{dx(t)}{dt} = v(t)\)</span>$<
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="affichage-interactif-d-une-figure-2-3">
 <h1>Affichage interactif d’une figure (2/3)<a class="headerlink" href="#affichage-interactif-d-une-figure-2-3" title="Link to this heading">#</a></h1>
-<p>Pour afficher un figure interactive, nous commeçons par la commande <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots()</span></code> avant de commencer la boucle temporelle. Cela initialise une figure (<code class="docutils literal notranslate"><span class="pre">fig</span></code>) et un ensemble d’axes (<code class="docutils literal notranslate"><span class="pre">ax</span></code>) où les données seront tracées. <code class="docutils literal notranslate"><span class="pre">fig</span></code> représente la fenêtre graphique globale, tandis que  <code class="docutils literal notranslate"><span class="pre">ax</span></code> correspond à la zone où les graphiques et les éléments visuels seront affichés.</p>
+<p>Pour afficher un figure interactive, nous commeçons par la commande</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>avant de commencer la boucle temporelle. Cela initialise une figure (<code class="docutils literal notranslate"><span class="pre">fig</span></code>) et un ensemble d’axes (<code class="docutils literal notranslate"><span class="pre">ax</span></code>) où les données seront tracées. <code class="docutils literal notranslate"><span class="pre">fig</span></code> représente la fenêtre graphique globale, tandis que  <code class="docutils literal notranslate"><span class="pre">ax</span></code> correspond à la zone où les graphiques et les éléments visuels seront affichés.</p>
 <p>Dans la boucle, nous utilisons <code class="docutils literal notranslate"><span class="pre">clear_output(wait=True)</span></code> pour nettoyer la sortie précédente, afin d’éviter la superposition des graphiques. La commande <code class="docutils literal notranslate"><span class="pre">ax.cla()</span></code> permet de nettoyer les axes, c’est-à-dire de supprimer toutes les données et éléments visuels précédents du tracé. Enfin, <code class="docutils literal notranslate"><span class="pre">display(fig)</span></code> affiche la figure mise à jour avec les nouvelles données et configurations à itération.</p>
 </section>
 <hr class="docutils" />

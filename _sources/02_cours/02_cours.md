@@ -26,11 +26,11 @@ color: white
 
 # Définition de la dérivée
 
-La dérivée de $x(t)$ par rapport à $t$ est la pente (slope) de la tangente au graphe de la fonction $x(t)$ au point $t$. On peut écrire aussi la dérivée:
+La dérivée de $x(t)$ par rapport à $t$ est la pente (slope) de la tangente au graphe de la fonction $x(t)$ au point $t$. 
 
-$$\frac{dx(t)}{dt} = \lim_{\Delta t \to 0} \frac{x(t + \Delta t) - x(t)}{\Delta t}$$
+On peut écrire aussi la dérivée: $\frac{dx(t)}{dt} = \lim_{\Delta t \to 0} \frac{x(t + \Delta t) - x(t)}{\Delta t}$
  
-![height:450px](./fig/def_derivees.png)
+![height:400px](./fig/def_derivees.png)
 
 ---
 
@@ -39,7 +39,7 @@ $$\frac{dx(t)}{dt} = \lim_{\Delta t \to 0} \frac{x(t + \Delta t) - x(t)}{\Delta 
 Une voiture parcourt le trajet Genève-Lausanne-Bern-Zurich-St Gall, la  distance parcourue est $x(t)$, sa vitesse est la dérivée de la position par rapport au temps.
  
 
-![height:250px](./fig/geneve-zurich.png)  
+![height:400px](./fig/geneve-zurich.png)  
 
 ---
 
@@ -73,7 +73,7 @@ $$\frac{\partial A}{\partial t} = -D \left( \frac{\partial^2 A}{\partial x^2} + 
 En général, les équations différentielles ou aux dérivées partielles issues de la physique ne peuvent pas être résolues dans le domaine **continu**.
 → On doit donc les résoudre numériquement dans un domaine **discrétisé** !
 
-![height:350px](./fig/espaces_continus_discrets_s2.png)
+![height:400px](./fig/espaces_continus_discrets_s2.png)
 
 ---
 
@@ -149,20 +149,24 @@ Pour déterminer si les instructions que vous souhaitez inclure doivent être
 
 Pour le savoir, demandez-vous si cette instruction doit-elle être mise à jour dans le temps ? Si oui, elle doit être dans la boucle ; sinon, elle doit être à l'initialisation.
 
+```python
+# par example, l'évolution du taux d'interet dans l'évolution de la fortune
+# doit être mis DANS la boucle, car le taux d'interet varie chaque année
+for it in range(1, temps_total+1):
+    interet = np.random.normal(0.005, 0.01)
+    fortune = (fortune + M_save) * (1 + interet) 
+```
+
 ---
 
 # Boucle temporelle via `for` ou `while`
-
-```python
-time = 0 
-ttot = 500 
-```
-
+ 
 Il est possible de stopper la boucle quand une condition est remplie:
 
 - en utilisant un `break`: 
 
 ```python 
+time = 0 ; ttot = 500 
 for i in range(nt): 
     time += dt
     if time > ttot:
@@ -172,12 +176,11 @@ for i in range(nt):
 - en utilisant la commande `while`:
 
 ```python 
-i = 0
+i = 0 ; time = 0 ; ttot = 500 
 while time < ttot: 
     i += 1
     time += dt
 ```
-
 
 ---
 
@@ -276,7 +279,11 @@ from IPython.display import display, clear_output
 
 # Affichage interactif d'une figure (2/3)
 
-Pour afficher un figure interactive, nous commeçons par la commande `fig, ax = plt.subplots()` avant de commencer la boucle temporelle. Cela initialise une figure (`fig`) et un ensemble d'axes (`ax`) où les données seront tracées. `fig` représente la fenêtre graphique globale, tandis que  `ax` correspond à la zone où les graphiques et les éléments visuels seront affichés.
+Pour afficher un figure interactive, nous commeçons par la commande 
+```python
+fig, ax = plt.subplots()
+```
+ avant de commencer la boucle temporelle. Cela initialise une figure (`fig`) et un ensemble d'axes (`ax`) où les données seront tracées. `fig` représente la fenêtre graphique globale, tandis que  `ax` correspond à la zone où les graphiques et les éléments visuels seront affichés.
 
 Dans la boucle, nous utilisons `clear_output(wait=True)` pour nettoyer la sortie précédente, afin d'éviter la superposition des graphiques. La commande `ax.cla()` permet de nettoyer les axes, c'est-à-dire de supprimer toutes les données et éléments visuels précédents du tracé. Enfin, `display(fig)` affiche la figure mise à jour avec les nouvelles données et configurations à itération.
 
