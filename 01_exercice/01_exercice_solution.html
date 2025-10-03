@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -249,6 +249,8 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../03_cours/03_cours.html">Cours 3</a></li>
+
+
 
 
 
@@ -621,6 +623,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Montant aprés 5 ans:  22500
+Montant aprés 10 ans:  25000
+Montant aprés 35 ans:  37500
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -653,6 +662,45 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Année  1 :  20500.0
+Année  2 :  21000.0
+Année  3 :  21500.0
+Année  4 :  22000.0
+Année  5 :  22500.0
+Année  6 :  23000.0
+Année  7 :  23500.0
+Année  8 :  24000.0
+Année  9 :  24500.0
+Année  10 :  25000.0
+Année  11 :  25500.0
+Année  12 :  26000.0
+Année  13 :  26500.0
+Année  14 :  27000.0
+Année  15 :  27500.0
+Année  16 :  28000.0
+Année  17 :  28500.0
+Année  18 :  29000.0
+Année  19 :  29500.0
+Année  20 :  30000.0
+Année  21 :  30500.0
+Année  22 :  31000.0
+Année  23 :  31500.0
+Année  24 :  32000.0
+Année  25 :  32500.0
+Année  26 :  33000.0
+Année  27 :  33500.0
+Année  28 :  34000.0
+Année  29 :  34500.0
+Année  30 :  35000.0
+Année  31 :  35500.0
+Année  32 :  36000.0
+Année  33 :  36500.0
+Année  34 :  37000.0
+Année  35 :  37500.0
+</pre></div>
+</div>
+</div>
 </div>
 <p>Dans ce cas de figure, y a-t-il un avantage ou un désavantage à employer une boucle numérique à la place d’une solution analytique?</p>
 </section>
@@ -680,6 +728,9 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/ad5d9713f73f7dab2ee6480d8c5e0fcf899964066c2e9559276e2432be301cab.png" src="../_images/ad5d9713f73f7dab2ee6480d8c5e0fcf899964066c2e9559276e2432be301cab.png" />
+</div>
 </div>
 </section>
 </section>
@@ -697,13 +748,13 @@ document.write(`
 <span class="n">intrst</span> <span class="o">=</span> <span class="mf">0.006</span>
 <span class="n">temps_total</span> <span class="o">=</span> <span class="mi">35</span>
 
-<span class="n">M_evol1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">temps_total</span><span class="p">)</span> <span class="c1"># initialisation avec un vecteur de zeros.</span>
-<span class="n">M_evol2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">temps_total</span><span class="p">)</span>
+<span class="n">M_evol1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># initialisation avec un vecteur de zeros.</span>
+<span class="n">M_evol2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">M_evol1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_init</span> <span class="c1"># somme initiale</span>
 <span class="n">M_evol2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_init</span>
 
-<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">temps_total</span><span class="p">):</span> 
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> 
     <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">M_evol1</span><span class="p">[</span><span class="n">it</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M_save</span> <span class="c1"># ajout de l&#39;épargne annuelle</span>
     <span class="n">M_evol2</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">M_evol2</span><span class="p">[</span><span class="n">it</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">M_save</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">intrst</span><span class="p">)</span> 
 
@@ -719,6 +770,9 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3b06822886626d88f42bb446b27c13530d4497c037a49f7bd91aeaaf1f51d6b6.png" src="../_images/3b06822886626d88f42bb446b27c13530d4497c037a49f7bd91aeaaf1f51d6b6.png" />
 </div>
 </div>
 <p>A nouveau, une approche numérique est-elle nécessaire ici?</p>
@@ -761,6 +815,9 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/49ad0ade0dfb1658e8b15b7747f7e61a5eee025a7fec80d63a148150c74df426.png" src="../_images/49ad0ade0dfb1658e8b15b7747f7e61a5eee025a7fec80d63a148150c74df426.png" />
 </div>
 </div>
 <p>Est-il envisageable de résoudre ce probléme avec une approche analytique?</p>
@@ -806,6 +863,12 @@ document.write(`
 <span class="n">DiffAtEnd</span> <span class="o">=</span> <span class="n">M_evol2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">M_evol1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  
 
 <span class="nb">print</span><span class="p">(</span><span class="n">DiffAtEnd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/28fd7c003009596fd1fc21eb126fe374438ede9b437898cce3707c0166b8886b.png" src="../_images/28fd7c003009596fd1fc21eb126fe374438ede9b437898cce3707c0166b8886b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6570.218641712097
 </pre></div>
 </div>
 </div>

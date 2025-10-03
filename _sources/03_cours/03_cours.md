@@ -23,8 +23,7 @@ color: white
 # Conseils pour (bien) coder
 
 - Structurez toujours vos code ainsi:
-     - Paramètres physiques 
-     - Paramètres numériques
+     - Paramètres physiques &  numériques
      - Initialisation
      - Boucle temporelle (avec affichage)
 - Commenter le but de chaque lignes.
@@ -56,8 +55,6 @@ temperature = temps + distance
 
 # Faire des opérations qui font sens (2/2)
 
-Quand vous codez, posez vous la question:
-
 - Est-ce que les opérations sont compatibles avec les dimensions des vecteurs ? 
 
 Voici des exemples qui fonctionnent (car les deux ont la même dimension).
@@ -77,6 +74,16 @@ U = T + L
 
 ---
 
+# Fonction Jupyter de VS code ...
+
+... permet de voir la valeur et le type des variables stockées en mémoire.
+
+![width:800](./fig/jupyter.png)
+
+(pour cela il faut ouvrir un nouveau "terminal" et ouvrir l'onglet "Jupyter")
+
+---
+
 # Ne pas faire de "hard-coding"
 
  Il est essentiel de définir **TOUS** les paramètres au début du code ce qui permet de changer les valeurs au début pour tester le modèle. Nous ne voulons pas toucher à l'intérieur du modèle une fois qu'il est écrit. Changer les paramètres directement dans le code s'appelle faire du "hard-coding", ce qui est une mauvaise pratique.
@@ -91,7 +98,6 @@ for i in range(10000):
     time += 0.1 
 ```
 
-
 ---
 
 # Document "Check-list"
@@ -102,7 +108,7 @@ for i in range(10000):
 
 # Discrétisation spatiale
  
-À partir du cours suivant, nous modéliserons l'évolution spatio-temporelle d'une quantité physique (par exemple, la température dans le sol). Jusqu'à présent, nous avions discrétisé le temps. Il sera donc aussi nécessaire de discrétiser l'espace, c'est-à-dire de diviser le domaine spatial de modélisation en intervalles avec un ensemble de points où la solution sera calculée :
+À partir du cours suivant, nous modéliserons l'évolution spatio-temporelle d'une quantité physique (pe, la température dans le sol). Il sera donc nécessaire de discrétiser le temps et l'espace, cad de diviser le domaine spatial de modélisation en intervalles avec un ensemble de points où la solution sera calculée :
 ```
 |----|----|----|----|----|----|----|----|----|----|----|----|----|----|
 ```
@@ -121,13 +127,15 @@ dx = (b-a)/(nx-1)
 
 # Variable discrétisée
 
-Maintenant que notre domaine est discrétisé, nous pouvons initialiser une variable (par exemple, la température $T$) sur ce domaine. Dans le domaine discrétisé (en Python), cette température prend la forme d'un vecteur, dont les valeurs sont définies aux nœuds de discrétisation (comme le vecteur `x`) :
+Maintenant que notre domaine est discrétisé, nous pouvons initialiser une variable (pe la température $T$) sur ce domaine. Dans le domaine discrétisé, $T$ devient un vecteur, dont les valeurs sont définies aux nœuds de discrétisation:
+
 ```python
 T = np.ones(nx)*2 # Initialisation à 2 partout 
 ```
 
-Pour accéder ou modifier la valeur de la température $T$ en un point du domaine, p.e. au point $x = 0.6$, il convient de trouver l'indice qui lui correspond, c'est-à-dire le point de discrétisation qui est le plus proche du point $x = 0.6$ (car il est possible que $x = 0.6$ ne tombe pas exactement sur un nœud). Cela se fait ainsi :
-```python 
+Pour accéder ou modifier la valeur de la température $T$ en un point du domaine, p.e. au point $x = 0.6$, il convient de trouver l'indice qui lui correspond, c'est-à-dire le point de discrétisation qui est le plus proche du point $x = 0.6$ (car il est possible que $x = 0.6$ ne tombe pas exactement sur un nœud):
+
+```python
 xp = 0.6
 ixp = int((xp-a)/dx) # indice de la composante la plus proche de xp
 T[ixp] = 6           # modification de la valeur en ce point
@@ -137,7 +145,7 @@ T[ixp] = 6           # modification de la valeur en ce point
 
 # Valeurs aux noeuds et au centre des cellules
 
-Il sera parfois nécessaire de calculer des valeurs entre les nœuds de discrétisation. Cela peut se faire en faisant une moyenne entre deux points successifs:
+Il est parfois nécessaire de calculer des valeurs entre les nœuds de discrétisation. Cela peut se faire en faisant une moyenne entre deux points successifs:
 
 ```python
 Tmid = (T[1:]+T[:-1])/2 # calcul de la température au milieu des cellules
@@ -148,10 +156,8 @@ Cela se justifie visuellement comme cela:
 
 ```
 x                   |-----|-----|-----|-----|-----|-----|-----|-----|
-
 x[1:]                     |-----|-----|-----|-----|-----|-----|-----| 
 x[:-1]              |-----|-----|-----|-----|-----|-----|-----|
-
 (x[1:]+x[:-1])/2       |-----|-----|-----|-----|-----|-----|-----|
 ```
 
@@ -161,7 +167,7 @@ Notons qu'en faisant cela, nous avons perdu une cellule ; le vecteur `(x[1:]+x[:
 
 # Equation du mouvement d'un projectile en 2D
 
-Nous généralisons ici l'équation du mouvement en 1D du dernier cours en 2D. On modélise la trajectoire un projectile $(x(t),y(t))$ dont la vitesse est donnée par:
+Généralisant l'équation du mouvement de 1D en 2D, on modélise la trajectoire un projectile $(x(t),y(t))$ dont la vitesse est donnée par:
 
 $$
 \begin{align}
@@ -174,17 +180,16 @@ Le projectile subit l'accélération de la gravité, $g$. La résistance de l'ai
 
 $$ \frac{\partial v_y}{\partial t} = -g.  $$ 
 
-
 ---
 
 # Discrétisation du modèle de projectile en 2D
 
- Comme dans les exercices précédents, la position de la bombe peut-être discrétisée et exprimée en fonction de la position précédente de la bombe:
+Comme dans les exercices précédents, la position d'un projectile peut-être discrétisée et exprimée en fonction de sa position précédente:
 
 $$
 \begin{align}
 x_{t+dt} = x_t + v_x dt  \\
-y_{t+dt} = y_t + v_y(t) dt.  
+y_{t+dt} = y_t + v_y dt.  
 \end{align}
 $$
 
@@ -192,4 +197,29 @@ Attention, sous l'effet de la gravité, la vitesse $v_y$ change avec le temps et
 
 $$ v_{y, t+dt} = v_{y, t} - g \times dt.  $$ 
 
-Ces équations correspondent à la forme discrétisées des équations continues ci-dessus, et nous permettent d'implémenter le modèle numérique. Pour cela, il reste à définir les conditions initiales (position et vitesse).
+Ces équations correspondent à la forme discrétisées des équations continues ci-dessus, et nous permettent d'implémenter le modèle numérique. 
+
+
+---
+
+# Conditions initiales
+
+... pour la position :
+
+$$
+\begin{align}
+x(t_{0}) = x_{0}  \\
+y(t_{0}) = y_{0},
+\end{align}
+$$
+
+... pour la vitesse ;
+
+$$
+\begin{align}
+v_x(t_{0}) = v_{x,0}  \\
+v_y(t_{0}) = v_{y,0}.
+\end{align}
+$$
+
+Les conditions initiales (et de bords en général) peut être aussi (voir plus) influente que l'équation sur la solution.

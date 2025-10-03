@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -249,6 +249,8 @@
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 3</a></li>
+
+
 
 
 
@@ -554,6 +556,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conseils-pour-bien-coder">Conseils pour (bien) coder</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#faire-des-operations-qui-font-sens-1-2">Faire des opérations qui font sens (1/2)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#faire-des-operations-qui-font-sens-2-2">Faire des opérations qui font sens (2/2)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fonction-jupyter-de-vs-code">Fonction Jupyter de VS code …</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ne-pas-faire-de-hard-coding">Ne pas faire de “hard-coding”</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#document-check-list">Document “Check-list”</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-spatiale">Discrétisation spatiale</a></li>
@@ -561,6 +564,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-aux-noeuds-et-au-centre-des-cellules">Valeurs aux noeuds et au centre des cellules</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-du-mouvement-d-un-projectile-en-2d">Equation du mouvement d’un projectile en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-modele-de-projectile-en-2d">Discrétisation du modèle de projectile en 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-initiales">Conditions initiales</a></li>
 </ul>
 
             </nav>
@@ -592,8 +596,7 @@ document.write(`
 <ul class="simple">
 <li><p>Structurez toujours vos code ainsi:</p>
 <ul>
-<li><p>Paramètres physiques</p></li>
-<li><p>Paramètres numériques</p></li>
+<li><p>Paramètres physiques &amp;  numériques</p></li>
 <li><p>Initialisation</p></li>
 <li><p>Boucle temporelle (avec affichage)</p></li>
 </ul>
@@ -627,7 +630,6 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="faire-des-operations-qui-font-sens-2-2">
 <h1>Faire des opérations qui font sens (2/2)<a class="headerlink" href="#faire-des-operations-qui-font-sens-2-2" title="Link to this heading">#</a></h1>
-<p>Quand vous codez, posez vous la question:</p>
 <ul class="simple">
 <li><p>Est-ce que les opérations sont compatibles avec les dimensions des vecteurs ?</p></li>
 </ul>
@@ -644,6 +646,13 @@ document.write(`
 </pre></div>
 </div>
 <p><strong>Important :</strong> Très souvent, Python plante quand l’opération est impossible, mais il donne aussi une indication de ce qui ne va pas. Il faut donc lire ce que Python dit !</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="fonction-jupyter-de-vs-code">
+<h1>Fonction Jupyter de VS code …<a class="headerlink" href="#fonction-jupyter-de-vs-code" title="Link to this heading">#</a></h1>
+<p>… permet de voir la valeur et le type des variables stockées en mémoire.</p>
+<p><img alt="width:800" src="../_images/jupyter.png" /></p>
+<p>(pour cela il faut ouvrir un nouveau “terminal” et ouvrir l’onglet “Jupyter”)</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="ne-pas-faire-de-hard-coding">
@@ -667,7 +676,7 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="discretisation-spatiale">
 <h1>Discrétisation spatiale<a class="headerlink" href="#discretisation-spatiale" title="Link to this heading">#</a></h1>
-<p>À partir du cours suivant, nous modéliserons l’évolution spatio-temporelle d’une quantité physique (par exemple, la température dans le sol). Jusqu’à présent, nous avions discrétisé le temps. Il sera donc aussi nécessaire de discrétiser l’espace, c’est-à-dire de diviser le domaine spatial de modélisation en intervalles avec un ensemble de points où la solution sera calculée :</p>
+<p>À partir du cours suivant, nous modéliserons l’évolution spatio-temporelle d’une quantité physique (pe, la température dans le sol). Il sera donc nécessaire de discrétiser le temps et l’espace, cad de diviser le domaine spatial de modélisation en intervalles avec un ensemble de points où la solution sera calculée :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|----|----|----|----|----|----|----|----|----|----|----|----|----|----|</span>
 </pre></div>
 </div>
@@ -683,11 +692,11 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="variable-discretisee">
 <h1>Variable discrétisée<a class="headerlink" href="#variable-discretisee" title="Link to this heading">#</a></h1>
-<p>Maintenant que notre domaine est discrétisé, nous pouvons initialiser une variable (par exemple, la température <span class="math notranslate nohighlight">\(T\)</span>) sur ce domaine. Dans le domaine discrétisé (en Python), cette température prend la forme d’un vecteur, dont les valeurs sont définies aux nœuds de discrétisation (comme le vecteur <code class="docutils literal notranslate"><span class="pre">x</span></code>) :</p>
+<p>Maintenant que notre domaine est discrétisé, nous pouvons initialiser une variable (pe la température <span class="math notranslate nohighlight">\(T\)</span>) sur ce domaine. Dans le domaine discrétisé, <span class="math notranslate nohighlight">\(T\)</span> devient un vecteur, dont les valeurs sont définies aux nœuds de discrétisation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span> <span class="c1"># Initialisation à 2 partout </span>
 </pre></div>
 </div>
-<p>Pour accéder ou modifier la valeur de la température <span class="math notranslate nohighlight">\(T\)</span> en un point du domaine, p.e. au point <span class="math notranslate nohighlight">\(x = 0.6\)</span>, il convient de trouver l’indice qui lui correspond, c’est-à-dire le point de discrétisation qui est le plus proche du point <span class="math notranslate nohighlight">\(x = 0.6\)</span> (car il est possible que <span class="math notranslate nohighlight">\(x = 0.6\)</span> ne tombe pas exactement sur un nœud). Cela se fait ainsi :</p>
+<p>Pour accéder ou modifier la valeur de la température <span class="math notranslate nohighlight">\(T\)</span> en un point du domaine, p.e. au point <span class="math notranslate nohighlight">\(x = 0.6\)</span>, il convient de trouver l’indice qui lui correspond, c’est-à-dire le point de discrétisation qui est le plus proche du point <span class="math notranslate nohighlight">\(x = 0.6\)</span> (car il est possible que <span class="math notranslate nohighlight">\(x = 0.6\)</span> ne tombe pas exactement sur un nœud):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xp</span> <span class="o">=</span> <span class="mf">0.6</span>
 <span class="n">ixp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">xp</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span> <span class="c1"># indice de la composante la plus proche de xp</span>
 <span class="n">T</span><span class="p">[</span><span class="n">ixp</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>           <span class="c1"># modification de la valeur en ce point</span>
@@ -697,17 +706,15 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="valeurs-aux-noeuds-et-au-centre-des-cellules">
 <h1>Valeurs aux noeuds et au centre des cellules<a class="headerlink" href="#valeurs-aux-noeuds-et-au-centre-des-cellules" title="Link to this heading">#</a></h1>
-<p>Il sera parfois nécessaire de calculer des valeurs entre les nœuds de discrétisation. Cela peut se faire en faisant une moyenne entre deux points successifs:</p>
+<p>Il est parfois nécessaire de calculer des valeurs entre les nœuds de discrétisation. Cela peut se faire en faisant une moyenne entre deux points successifs:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Tmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">T</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># calcul de la température au milieu des cellules</span>
 <span class="n">xmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># calcul des coordonnées  au milieu des cellules</span>
 </pre></div>
 </div>
 <p>Cela se justifie visuellement comme cela:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                   <span class="o">|-----|-----|-----|-----|-----|-----|-----|-----|</span>
-
 <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                     <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span> 
 <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>              <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
-
 <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>       <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
 </pre></div>
 </div>
@@ -716,7 +723,7 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equation-du-mouvement-d-un-projectile-en-2d">
 <h1>Equation du mouvement d’un projectile en 2D<a class="headerlink" href="#equation-du-mouvement-d-un-projectile-en-2d" title="Link to this heading">#</a></h1>
-<p>Nous généralisons ici l’équation du mouvement en 1D du dernier cours en 2D. On modélise la trajectoire un projectile <span class="math notranslate nohighlight">\((x(t),y(t))\)</span> dont la vitesse est donnée par:</p>
+<p>Généralisant l’équation du mouvement de 1D en 2D, on modélise la trajectoire un projectile <span class="math notranslate nohighlight">\((x(t),y(t))\)</span> dont la vitesse est donnée par:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -731,18 +738,39 @@ v_y &amp;=&amp; \frac{\partial y}{\partial t}.
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="discretisation-du-modele-de-projectile-en-2d">
 <h1>Discrétisation du modèle de projectile en 2D<a class="headerlink" href="#discretisation-du-modele-de-projectile-en-2d" title="Link to this heading">#</a></h1>
-<p>Comme dans les exercices précédents, la position de la bombe peut-être discrétisée et exprimée en fonction de la position précédente de la bombe:</p>
+<p>Comme dans les exercices précédents, la position d’un projectile peut-être discrétisée et exprimée en fonction de sa position précédente:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
 x_{t+dt} = x_t + v_x dt  \\
-y_{t+dt} = y_t + v_y(t) dt.  
+y_{t+dt} = y_t + v_y dt.  
 \end{align}
 \end{split}\]</div>
 <p>Attention, sous l’effet de la gravité, la vitesse <span class="math notranslate nohighlight">\(v_y\)</span> change avec le temps et elle peut-être dérivée de la troisième equation ci-dessus:</p>
 <div class="math notranslate nohighlight">
 \[ v_{y, t+dt} = v_{y, t} - g \times dt.  \]</div>
-<p>Ces équations correspondent à la forme discrétisées des équations continues ci-dessus, et nous permettent d’implémenter le modèle numérique. Pour cela, il reste à définir les conditions initiales (position et vitesse).</p>
+<p>Ces équations correspondent à la forme discrétisées des équations continues ci-dessus, et nous permettent d’implémenter le modèle numérique.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="conditions-initiales">
+<h1>Conditions initiales<a class="headerlink" href="#conditions-initiales" title="Link to this heading">#</a></h1>
+<p>… pour la position :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+x(t_{0}) = x_{0}  \\
+y(t_{0}) = y_{0},
+\end{align}
+\end{split}\]</div>
+<p>… pour la vitesse ;</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+v_x(t_{0}) = v_{x,0}  \\
+v_y(t_{0}) = v_{y,0}.
+\end{align}
+\end{split}\]</div>
+<p>Les conditions initiales (et de bords en général) peut être aussi (voir plus) influente que l’équation sur la solution.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -814,6 +842,7 @@ y_{t+dt} = y_t + v_y(t) dt.
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conseils-pour-bien-coder">Conseils pour (bien) coder</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#faire-des-operations-qui-font-sens-1-2">Faire des opérations qui font sens (1/2)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#faire-des-operations-qui-font-sens-2-2">Faire des opérations qui font sens (2/2)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fonction-jupyter-de-vs-code">Fonction Jupyter de VS code …</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ne-pas-faire-de-hard-coding">Ne pas faire de “hard-coding”</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#document-check-list">Document “Check-list”</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-spatiale">Discrétisation spatiale</a></li>
@@ -821,6 +850,7 @@ y_{t+dt} = y_t + v_y(t) dt.
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-aux-noeuds-et-au-centre-des-cellules">Valeurs aux noeuds et au centre des cellules</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-du-mouvement-d-un-projectile-en-2d">Equation du mouvement d’un projectile en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-modele-de-projectile-en-2d">Discrétisation du modèle de projectile en 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-initiales">Conditions initiales</a></li>
 </ul>
 
   </nav></div>

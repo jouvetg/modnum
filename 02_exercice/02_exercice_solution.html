@@ -260,6 +260,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
 
@@ -588,6 +590,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+</pre></div>
+</div>
+</div>
 </div>
 <p>On peut accéder ou modifier des élément du vecteur <code class="docutils literal notranslate"><span class="pre">A</span></code> par ces indices, par example :</p>
 <div class="cell docutils container">
@@ -596,6 +603,13 @@ document.write(`
 <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>     <span class="c1"># Modifier le premier élément</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># Dernier élément</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+[5. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+1.0
 </pre></div>
 </div>
 </div>
@@ -618,6 +632,13 @@ document.write(`
 <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">3</span>     <span class="c1"># Modifier le troisième élément</span>
 <span class="n">A</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">5</span>     <span class="c1"># Modifier le cinquième élément</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+[3. 3. 3. 3. 3. 3. 3. 3. 3. 3.]
+[4. 3. 0. 3. 3. 8. 3. 3. 3. 3.]
 </pre></div>
 </div>
 </div>
@@ -652,6 +673,9 @@ document.write(`
      
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7f1f446de1fd651970026b758ae8938136bf74dba41549e9b95788b7fbdb0132.png" src="../_images/7f1f446de1fd651970026b758ae8938136bf74dba41549e9b95788b7fbdb0132.png" />
 </div>
 </div>
 </section>
@@ -734,7 +758,7 @@ document.write(`
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">nt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ttot</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
 
-<span class="n">nout</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">nout</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># frequency of output</span>
 
 <span class="c1"># initialization</span>
 <span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
@@ -763,6 +787,9 @@ document.write(`
         <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># pause to visualize updates</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8faa024e3f1d4f976de2ffcec7df538ee370574b6280359a01e33cf9fad26084.png" src="../_images/8faa024e3f1d4f976de2ffcec7df538ee370574b6280359a01e33cf9fad26084.png" />
 </div>
 </div>
 </section>
