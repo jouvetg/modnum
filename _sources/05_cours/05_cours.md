@@ -172,7 +172,7 @@ C[0]  = C[1]
 C[-1] = C[-2] 
 ```
 
-En effet $\frac{dC}{dx}(0) = a$ se dicrétise $\frac{C_1 - C_0}{dx} = 0$, ce qui se ré-écrit $C_0 = C_1$.
+En effet $\frac{dC}{dx}(0) = 0$ se dicrétise $\frac{C_1 - C_0}{dx} = 0$, ce qui se ré-écrit $C_0 = C_1$.
 
 ---
 
@@ -188,9 +188,9 @@ $$\frac{dC}{dx}(0) = 0, \quad C(1) = 500$$
 
 ---
 
-# Conditions de bords
+# Conditions de bords (CDB)
 
-Les conditions de bords aggissent à tous moments, il faut donc les implémenter dans la boucle temporelle comme ceci:
+Les CDB aggissent à tous moments, il faut donc les implémenter dans la boucle:
 
 ```python
 # Initialisation
@@ -221,15 +221,15 @@ $$ dt = \frac{dx^2}{2.1 \times D}$$
 
 # Condition d'arrêt d'un modèle
 
-Souvent, nous voulons arrêter notre modèle lorsque celui-ci n'évolue plus significativement. Pour cela, nous comparons la solution actuelle avec l'ancienne afin de mesurer leur différence (p.e. avec la somme des valeurs absolues). Pour ce faire, nous faisons une copie de la solution avant de procéder à sa mise à jour:
+Souvent, nous voulons arrêter notre modèle lorsque celui-ci n'évolue plus beaucoup. Pour cela, nous mesurons la différence antre l'ancienne et la nouvelle solution. Pour cela, il faut en faire une copie avant de faire sa mise à jour:
 
 ```python
-T_old= np.copy(T)
+T_old = np.copy(T)
 ```
 Ensuite, nous pouvons arrêter le modèle après la mise à jour avec un `break`:
 ```python 
-sum = np.sum(np.abs(T_old - T))
-if sum < tol:
+somme = np.sum(np.abs(T_old - T))
+if somme < tol:
      break
 ```
 
@@ -253,7 +253,7 @@ elif q == 2:
 
 Le but est de ne construire un nouveau code (qui est quasiment identique à l'original), mais de ne modifier que le bout de code sujet à modification.
 
-→ Cela rend votre rendu / code bien plus concis
+→ Cela rend votre rendu / code bien plus concis!
 
 
 

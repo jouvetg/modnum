@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -820,7 +820,8 @@ document.write(`
 <span class="n">Lx</span>      <span class="o">=</span> <span class="mi">300</span>           <span class="c1"># Longueur du domaine [m]</span>
 <span class="n">C_right</span> <span class="o">=</span> <span class="mi">0</span>             <span class="c1"># Concentration à droite du domaine [ppm]</span>
 <span class="n">C_init</span>  <span class="o">=</span> <span class="mi">2000</span>          <span class="c1"># Concentration initial au train [ppm]</span>
-<span class="n">x_init</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>      <span class="c1"># position du train [m]</span>
+<span class="n">x_init_left</span>  <span class="o">=</span> <span class="mi">30</span>       <span class="c1"># position du train [m]</span>
+<span class="n">x_init_right</span> <span class="o">=</span> <span class="mi">50</span>       <span class="c1"># position du train [m]</span>
 <span class="n">x_veno</span>  <span class="o">=</span> <span class="mi">250</span>           <span class="c1"># Position de la riviere venoge</span>
 <span class="n">d2s</span>     <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span>  <span class="c1"># nombre de seconde par jour</span>
 <span class="n">ttot</span>    <span class="o">=</span> <span class="mi">200</span> <span class="o">*</span> <span class="n">d2s</span>     <span class="c1"># Temps total [second]</span>
@@ -836,8 +837,8 @@ document.write(`
 
 <span class="c1"># Conditions initiales</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>                                      
-<span class="n">C</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x_init</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">dx</span><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="n">x_init</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">dx</span><span class="p">)]</span> <span class="o">=</span> <span class="n">C_init</span>    <span class="c1"># Concentration initiale </span>
-<span class="c1"># C[(x_init[0] &lt; x) &amp; (x &lt; x_init[1])] = C_init  # Concentration initiale: solution alternative a la ligne du haut</span>
+<span class="n">C</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x_init_left</span><span class="o">/</span><span class="n">dx</span><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="n">x_init_right</span><span class="o">/</span><span class="n">dx</span><span class="p">)]</span> <span class="o">=</span> <span class="n">C_init</span>    <span class="c1"># Concentration initiale </span>
+<span class="c1"># C[(x_init_left &lt; x) &amp; (x &lt; x_init_right)] = C_init  # Concentration initiale: solution alternative a la ligne du haut</span>
 
 <span class="n">qx</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>                                    <span class="c1"># Flux initial</span>
 
@@ -892,6 +893,29 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</div>
+<p>Pour initialiser la concentration initiale cela peut se faire avec :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>                       
+<span class="n">C</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x_init_left</span><span class="o">/</span><span class="n">dx</span><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="n">x_init_right</span><span class="o">/</span><span class="n">dx</span><span class="p">)]</span> <span class="o">=</span> <span class="n">C_init</span>
+</pre></div>
+</div>
+<p>cad, on impose la valeur <code class="docutils literal notranslate"><span class="pre">C_init</span></code> au vecteur <code class="docutils literal notranslate"><span class="pre">C</span></code> entre les indices <code class="docutils literal notranslate"><span class="pre">x_init_left/dx)</span></code> et <code class="docutils literal notranslate"><span class="pre">int(x_init_right/dx)</span></code> en suivant la representation graphique de l’espace et sa discrésitation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">              </span><span class="p">|</span>---------------<span class="p">|</span>-----------<span class="p">|</span>-------------...
+x<span class="w">                             </span><span class="m">30</span><span class="w">          </span><span class="m">50</span>
+indice<span class="w">                   </span>int<span class="o">(</span><span class="m">30</span>/dx<span class="o">)</span><span class="w">   </span>int<span class="o">(</span><span class="m">50</span>/dx<span class="o">)</span>
+</pre></div>
+</div>
+<p><strong>ou bien</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_init_left</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x_init_right</span><span class="p">)</span>
+<span class="n">C</span><span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">C_init</span>  
+</pre></div>
+</div>
+<p>car <code class="docutils literal notranslate"><span class="pre">C[I]</span> <span class="pre">=</span> <span class="pre">C_init</span></code> donnera la valeur <code class="docutils literal notranslate"><span class="pre">C_init</span></code> dans le vecteur <code class="docutils literal notranslate"><span class="pre">C</span></code> uniquement aux indices pour lequel la condition <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">=</span> <span class="pre">(x_init_left</span> <span class="pre">&lt;</span> <span class="pre">x)</span> <span class="pre">&amp;</span> <span class="pre">(x</span> <span class="pre">&lt;</span> <span class="pre">x_init_right)</span></code> est vérifiée (cad elle vaut 1) comme illustré sur ce graphe:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">       </span><span class="p">|</span>---------------<span class="p">|</span>-----------<span class="p">|</span>-----------------...
+x<span class="w">                     </span><span class="m">30</span><span class="w">          </span><span class="m">50</span>
+I<span class="w">      </span><span class="m">0000000000000000111111111111100000000000000000</span>...
+</pre></div>
 </div>
 </section>
 </section>

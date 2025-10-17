@@ -260,6 +260,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
 
@@ -561,7 +563,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-bord-de-neumann">Condition de bord de Neumann</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-flux-nul-neumann-cas-special">Condition de flux nul (Neumann, cas spécial)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bords-mixtes">Conditions de bords mixtes</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bords">Conditions de bords</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bords-cdb">Conditions de bords (CDB)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilite-et-pas-de-temps">Stabilité et pas de temps</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-d-arret-d-un-modele">Condition d’arrêt d’un modèle</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#code-avec-plusieurs-variantes">Code avec plusieurs variantes</a></li>
@@ -714,7 +716,7 @@ $<span class="math notranslate nohighlight">\(\frac{dC}{dx}(0) = 0, \qquad\qquad
 <span class="n">C</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> 
 </pre></div>
 </div>
-<p>En effet <span class="math notranslate nohighlight">\(\frac{dC}{dx}(0) = a\)</span> se dicrétise <span class="math notranslate nohighlight">\(\frac{C_1 - C_0}{dx} = 0\)</span>, ce qui se ré-écrit <span class="math notranslate nohighlight">\(C_0 = C_1\)</span>.</p>
+<p>En effet <span class="math notranslate nohighlight">\(\frac{dC}{dx}(0) = 0\)</span> se dicrétise <span class="math notranslate nohighlight">\(\frac{C_1 - C_0}{dx} = 0\)</span>, ce qui se ré-écrit <span class="math notranslate nohighlight">\(C_0 = C_1\)</span>.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="conditions-de-bords-mixtes">
@@ -727,9 +729,9 @@ $<span class="math notranslate nohighlight">\(\frac{dC}{dx}(0) = 0, \qquad\qquad
 \[\frac{dC}{dx}(0) = 0, \quad C(1) = 500\]</div>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="conditions-de-bords">
-<h1>Conditions de bords<a class="headerlink" href="#conditions-de-bords" title="Link to this heading">#</a></h1>
-<p>Les conditions de bords aggissent à tous moments, il faut donc les implémenter dans la boucle temporelle comme ceci:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="conditions-de-bords-cdb">
+<h1>Conditions de bords (CDB)<a class="headerlink" href="#conditions-de-bords-cdb" title="Link to this heading">#</a></h1>
+<p>Les CDB aggissent à tous moments, il faut donc les implémenter dans la boucle:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialisation</span>
 <span class="n">C</span>         <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span>
 <span class="n">C</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">nx</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -758,13 +760,13 @@ $<span class="math notranslate nohighlight">\(\frac{dC}{dx}(0) = 0, \qquad\qquad
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="condition-d-arret-d-un-modele">
 <h1>Condition d’arrêt d’un modèle<a class="headerlink" href="#condition-d-arret-d-un-modele" title="Link to this heading">#</a></h1>
-<p>Souvent, nous voulons arrêter notre modèle lorsque celui-ci n’évolue plus significativement. Pour cela, nous comparons la solution actuelle avec l’ancienne afin de mesurer leur différence (p.e. avec la somme des valeurs absolues). Pour ce faire, nous faisons une copie de la solution avant de procéder à sa mise à jour:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T_old</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<p>Souvent, nous voulons arrêter notre modèle lorsque celui-ci n’évolue plus beaucoup. Pour cela, nous mesurons la différence antre l’ancienne et la nouvelle solution. Pour cela, il faut en faire une copie avant de faire sa mise à jour:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T_old</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Ensuite, nous pouvons arrêter le modèle après la mise à jour avec un <code class="docutils literal notranslate"><span class="pre">break</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">T_old</span> <span class="o">-</span> <span class="n">T</span><span class="p">))</span>
-<span class="k">if</span> <span class="nb">sum</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">somme</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">T_old</span> <span class="o">-</span> <span class="n">T</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">somme</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
      <span class="k">break</span>
 </pre></div>
 </div>
@@ -784,7 +786,7 @@ $<span class="math notranslate nohighlight">\(\frac{dC}{dx}(0) = 0, \qquad\qquad
 </pre></div>
 </div>
 <p>Le but est de ne construire un nouveau code (qui est quasiment identique à l’original), mais de ne modifier que le bout de code sujet à modification.</p>
-<p>→ Cela rend votre rendu / code bien plus concis</p>
+<p>→ Cela rend votre rendu / code bien plus concis!</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -863,7 +865,7 @@ $<span class="math notranslate nohighlight">\(\frac{dC}{dx}(0) = 0, \qquad\qquad
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-bord-de-neumann">Condition de bord de Neumann</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-flux-nul-neumann-cas-special">Condition de flux nul (Neumann, cas spécial)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bords-mixtes">Conditions de bords mixtes</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bords">Conditions de bords</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bords-cdb">Conditions de bords (CDB)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilite-et-pas-de-temps">Stabilité et pas de temps</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-d-arret-d-un-modele">Condition d’arrêt d’un modèle</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#code-avec-plusieurs-variantes">Code avec plusieurs variantes</a></li>

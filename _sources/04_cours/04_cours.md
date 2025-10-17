@@ -9,7 +9,6 @@ color: white
 
 # Cours 4
 
-
 ![](../illu_mod_num_s.png)
 
 ---
@@ -30,11 +29,11 @@ color: white
 
 ![Alt text](fig/contaminant_diffusion_s4.png)
  
-Source : https://youtu.be/6hmqOFITPbs
+Source: https://youtu.be/6hmqOFITPbs
 
 ---
 
-# Exemple 2: Pollution des sols
+# Ex 2: Pollution des sols (accident de Daillens)
  
 ![width:700](./fig/pollution_sols_s4.png) 
 
@@ -44,19 +43,23 @@ Source : https://youtu.be/6hmqOFITPbs
 
 ![height:400](./fig/temp_sol_s4.jpg) ![height:400](./fig/temp_sol2_s4.jpg) 
 
-Source 2: https://en.wikipedia.org/wiki/Active_layer
 Source 1: https://www.energie-environnement.ch/
+Source 2: https://en.wikipedia.org/wiki/Active_layer
 
 ---
 
 # Introduction à la diffusion
 
-L'équation de diffusion peut être utilisée pour représenter une grande variété de processus naturels et environnementaux. Elle a été introduite par **Fourier** en 1822 pour calculer la distribution de la température dans les matériaux, puis, par la suite, elle a été utilisée par **Fick** pour modéliser la diffusion de la matière. L'expression mathématique que nous allons dériver peut servir à modéliser, p.e. :
+L'équation de diffusion peut être utilisée pour représenter une grande variété de processus naturels et environnementaux. L'expression mathématique que nous allons dériver peut servir à modéliser:
+
 - le transfert de chaleur dans la croûte terrestre, 
 - l'évolution des sols, 
 - le transport de contaminants dans un aquifère ou dans l'atmosphère, 
 - l'érosion des chaînes de montagnes, 
 - l'évolution des glaciers, etc.
+
+
+<small>Loi introduite par **Fourier** en 1822 pour calculer la distribution de la température dans les matériaux, puis, elle a été utilisée par **Fick** pour modéliser la diffusion de la matière.</small>
 
 ---
 
@@ -64,23 +67,31 @@ L'équation de diffusion peut être utilisée pour représenter une grande vari�
 
 À partir de l'exemple de la variation de concentration d'un colorant se déplaçant dans un gel, l'équation de diffusion permet de représenter le déplacement de molécules depuis une zone de haute concentration vers une zone de basse concentration, comme l'illustre cette figure (où $C$ représente la concentration).
 
-![width:600](./fig/diffusion.png) 
+![width:700](./fig/diffusion.png) 
 
-*Gauche : représentation continue de la diffusion de molécules d'une zone hautement concentrée vers une zone à faible concentration. Droite : représentation du même processus discrétisé en temps et en espace.*
+<small>*Gauche : représentation continue de la diffusion de molécules d'une zone hautement concentrée vers une zone à faible concentration. Droite : représentation discrétisée en temps et en espace.*</small>
  
 ---
 
 # Interprétation graphique
 
-Ici, la diffusion désigne le déplacement de particules d'une zone de haute concentration vers une zone de basse concentration. Le mouvement de particules de gauche à droite est plus marqué lorsque le saut de concentration est élevé, tandis qu'il est faible lorsque la concentration est homogène. Cela entraîne un transfert de particules qui dépend de la différence de concentration $\Delta C$ de part et d'autre d'une cellule de largeur $\Delta x$. Ainsi, le flux de particules (le nombre de particules traversant par unité de temps et de surface) dépend du gradient de concentration.
+- La diffusion désigne le déplacement de particules d'une zone de haute concentration vers une zone de basse concentration. 
+
+- Le mouvement de particules de gauche à droite est plus marqué lorsque le saut de concentration est élevé, tandis qu'il est faible lorsque la concentration est homogène. 
+
+- Cela entraîne un transfert de particules qui dépend de la différence de concentration $\Delta C$ de part et d'autre d'une cellule de largeur $\Delta x$. 
+
+- Ainsi, le flux de particules (le nombre de particules traversant par unité de temps et de surface) dépend du gradient de concentration.
 
 ---
 
 # Formalisation mathématique
 
-Un problème de diffusion peut être décrit par une équation différentielle partielle (EDP). Dans le cas de la diffusion d'un liquide dans un autre, cette EDP modélise l'évolution de la concentration $C$ en fonction du temps $t$ et de l'espace $x$, en tenant compte de la concentration initiale et des conditions aux limites.
+Un problème de diffusion peut être décrit par une **équation aux dérivées partielles** (EDP). Dans le cas de la diffusion d'un liquide dans un autre, cette EDP modélise l'évolution de la concentration $C$ en fonction du temps $t$ et de l'espace $x$, en tenant compte de la **concentration initiale** et des **conditions aux limites**.
 
-Supposons une discrétisation uniforme de l'espace avec un pas $dx$, et définissons $C$ comme la concentration d'un polluant donnée par $C = \frac{n}{dx}$, où $n$ est le nombre de particules (en mol). Enfin, le flux de particules $q$ est défini comme le nombre de particules déplacées par unité de temps et de surface $\left(\frac{\textup{mol}}{\textup{m}^2 \, \text{s}}\right)$.
+- Supposons une discrétisation uniforme de l'espace avec un pas $dx$
+- Définissons $C$ comme la concentration d'un polluant donnée par $C = \frac{n}{dx}$, où $n$ est le nombre de particules (en mol). 
+- Le flux de particules $q$ est défini comme le nombre de particules déplacées par unité de temps et de surface $\left(\frac{\textup{mol}}{\textup{m}^2 \, \text{s}}\right)$.
 
 L'EDP de diffusion repose sur deux principes :
 
@@ -96,13 +107,13 @@ où $D$ est le coefficient de diffusion, ou *diffusivité*. Ce coefficient varie
 
 ---
 
-# 2. Principe de conservation
+# 2. Principe de conservation (1/2)
   
 ![width:800](./fig/principe_conservation_s4.png) 
 
 ---
 
-# 2. Principe de conservation
+# 2. Principe de conservation (2/2)
 
 Selon le principe de conservation, le changement du nombre de particules *n* dans un bloc entre l’instant *t* et l’instant $t + \Delta t$ peut être calculé à partir de la différence des flux entrants et sortants :
 
@@ -132,7 +143,7 @@ $$q = -D \frac{\partial C}{\partial x},  \qquad (1)$$
 $$\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x},  \qquad (2)$$
 
 
-ce qui donne l'EDP suivante:
+ce qui donne l'EDP suivante (que nous n'utiliserons pas sous cette forme):
 
 $$ \frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2}.$$
  
@@ -147,9 +158,9 @@ $$ \frac{\partial f}{\partial t} \sim \frac{f^{new} - f^{old}}{dt}\ \ \rightarro
 
 Si on a une discrétisation du temps, que l’on connait la concentration au temps précédent, comment la mettre à jour ?
 
-→ 1) mettre à jour le flux en discrétisant : $q = -D \frac{\partial C}{\partial x},$
-→ 2) mettre à jour `dCdt` en discrétisant: $\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x}$,
-→ 3) mettre à jour la concentration.
+ 1) mettre à jour le flux en discrétisant : $q = -D \frac{\partial C}{\partial x},$
+ 2) mettre à jour `dCdt` en discrétisant: $\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x}$,
+ 3) mettre à jour la concentration.
 
 ---
 
@@ -219,14 +230,11 @@ La mise à jour de la concentration $C$ par diffusion est le résultat de deux d
 Vecteur                                                               Taille
 
 C                         |-----|-----|-----|-----|-----|-----|-----|  nx
-
 C[1:]                           |-----|-----|-----|-----|-----|-----|  
 C[:-1]                    |-----|-----|-----|-----|-----|-----|
 
 q = -D*(C[1:]-C[:-1])/dx     |-----|-----|-----|-----|-----|-----|     nx-1
-
 dCdt = -(q[1:]-q[:-1])/ dx      |-----|-----|-----|-----|-----|        nx-2
-
 C[1:-1] += dCdt * dt            |-----|-----|-----|-----|-----|        nx-2
 ```
 

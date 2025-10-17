@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -605,20 +605,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Le vecteur des coordonééer de la discretisation est : [0.   0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.1  0.11 0.12 0.13
- 0.14 0.15 0.16 0.17 0.18 0.19 0.2  0.21 0.22 0.23 0.24 0.25 0.26 0.27
- 0.28 0.29 0.3  0.31 0.32 0.33 0.34 0.35 0.36 0.37 0.38 0.39 0.4  0.41
- 0.42 0.43 0.44 0.45 0.46 0.47 0.48 0.49 0.5  0.51 0.52 0.53 0.54 0.55
- 0.56 0.57 0.58 0.59 0.6  0.61 0.62 0.63 0.64 0.65 0.66 0.67 0.68 0.69
- 0.7  0.71 0.72 0.73 0.74 0.75 0.76 0.77 0.78 0.79 0.8  0.81 0.82 0.83
- 0.84 0.85 0.86 0.87 0.88 0.89 0.9  0.91 0.92 0.93 0.94 0.95 0.96 0.97
- 0.98 0.99 1.  ]
-Sa longueur est : 101
-La valeur de dx est : 0.01
-</pre></div>
-</div>
-</div>
 </div>
 <p>Maintenant que notre domaine est discrétisé, nous pouvons initialiser une fonction (comme une concentration ou une température) sur ce domaine. Par exemple, nous pouvons initialiser une température égale à 2 partout :</p>
 <div class="cell docutils container">
@@ -634,14 +620,6 @@ La valeur de dx est : 0.01
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span> <span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.lines.Line2D at 0x7514975346a0&gt;],
- Text(0.5, 0, &#39;x&#39;),
- Text(0, 0.5, &#39;T&#39;))
-</pre></div>
-</div>
-<img alt="../_images/972b6418df801f35a554b04b82fd3378166ee653d1a94a9f199800b5cc6f5cbb.png" src="../_images/972b6418df801f35a554b04b82fd3378166ee653d1a94a9f199800b5cc6f5cbb.png" />
 </div>
 </div>
 <p>Il est possible de modifier la valeur de T en un point donné en utilisant la syntaxe suivante :</p>
@@ -661,14 +639,6 @@ La valeur de dx est : 0.01
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.lines.Line2D at 0x7514971ae530&gt;],
- Text(0.5, 0, &#39;x&#39;),
- Text(0, 0.5, &#39;T&#39;))
-</pre></div>
-</div>
-<img alt="../_images/487f2adc66c47f004a824c34379dab0a4396f636f10efe41a3cc742f4c8ec1b3.png" src="../_images/487f2adc66c47f004a824c34379dab0a4396f636f10efe41a3cc742f4c8ec1b3.png" />
-</div>
 </div>
 <p>Nous avons vu au point précédent comment changer la valeur de T à un point donné. Souvent, il est demandé de le faire à un point physique. Par exemple, on souhaite donner à la température T la valeur <span class="math notranslate nohighlight">\(6\)</span> au point <span class="math notranslate nohighlight">\(x_P = 0.4\)</span>. Cependant, il n’est pas correct de faire <code class="docutils literal notranslate"><span class="pre">T[0.4]</span> <span class="pre">=</span> <span class="pre">6</span></code>, car <code class="docutils literal notranslate"><span class="pre">T</span></code> est un vecteur de <span class="math notranslate nohighlight">\(n_x\)</span> éléments et il ne prend que des indices entiers comme arguments.</p>
 <p>Il faut donc trouver l’indice correspondant à <span class="math notranslate nohighlight">\(x_P = 0.4\)</span> (ou celui qui s’en approche le plus), car il n’est pas garanti que <span class="math notranslate nohighlight">\(x_P = 0.4\)</span> soit atteint dans notre discrétisation <span class="math notranslate nohighlight">\(x_0\)</span>, <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, …, <span class="math notranslate nohighlight">\(x_{n_x - 2}\)</span>, <span class="math notranslate nohighlight">\(x_{n_x - 1}\)</span>. Pour cela, nous devons diviser la position du point <span class="math notranslate nohighlight">\(x_P\)</span> par la longueur de l’intervalle <span class="math notranslate nohighlight">\(dx\)</span> pour obtenir sa position relative au début de l’intervalle. Ensuite, nous prenons la partie entière de ce résultat pour nous assurer que l’indice obtenu est un entier : <code class="docutils literal notranslate"><span class="pre">ixp</span> <span class="pre">=</span> <span class="pre">int((x_P</span> <span class="pre">-</span> <span class="pre">a)</span> <span class="pre">/</span> <span class="pre">dx)</span></code>.</p>
@@ -683,12 +653,6 @@ La valeur de dx est : 0.01
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">Txp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="c1"># affichage du point rouge pour le nouveau point</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7514f45f2bc0&gt;
-</pre></div>
-</div>
-<img alt="../_images/b7b1faf73040acbd57f54118b4df3b01b3464d2f24c673c3e422da56791c381a.png" src="../_images/b7b1faf73040acbd57f54118b4df3b01b3464d2f24c673c3e422da56791c381a.png" />
 </div>
 </div>
 <p>En utilisant la même stratégie, nous pouvons appliquer cela sur un intervalle (ici, nous forçons la température à valoir 1 entre <span class="math notranslate nohighlight">\(x\)</span> = 0.1 et <span class="math notranslate nohighlight">\(x\)</span> = 0.9) :</p>
