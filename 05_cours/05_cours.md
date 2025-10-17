@@ -112,7 +112,7 @@ Celles-ci peuvent influencer énormement la solution!
 
 → Fixe la concentration ou température sur les bords
 
-→ Condition sur la dérivée de T ou C, p.e.
+→ Condition sur T ou C, p.e.
 
 $$C(0) = a, \qquad\qquad\qquad\qquad
 \qquad\qquad\qquad\qquad\qquad\qquad C(1) = b$$
@@ -134,7 +134,7 @@ C[-1] = b
 
 → Fixe le **flux** / la **dérivé** de concentration ou température sur les bords
 
-→ Condition sur la fonction T ou C, p.e.
+→ Condition sur la dérivée T ou C, p.e.
 
 $$\frac{dC}{dx}(0) = a, \qquad\qquad\qquad\qquad
 \qquad\qquad\qquad\qquad\qquad\qquad \frac{dC}{dx}(1) =b$$ 
