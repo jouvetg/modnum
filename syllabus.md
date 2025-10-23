@@ -9,7 +9,13 @@
 
 ## Objectif du cours
 
-Le but est d’être capable de modéliser des processus naturels (p.e. diffusion d'un polluant dans le sol, diffusion de la température suite à une intrusion magmatique, dynamique des glaciers) à l'aide de méthodes numériques en utilisant Python, et de faire des expériences numériques qui reproduisent la réalité. Pour cela, l'approche de ce cours est essentiellement pratique. Il s'agit d'implémenter de façon simple et intuitive les équations qui décrivent la physique des processus étudiés dans un code informatique. Nous mettons notamment l'accent sur la similarité des codes développés pour des processus de natures très différentes.
+Le but est d’être capable de modéliser des processus naturels (p.e. diffusion d'un polluant dans le sol, diffusion de la température suite à une intrusion magmatique, dynamique des glaciers) à l'aide de méthodes numériques en utilisant Python, et de faire des expériences numériques qui reproduisent la réalité. Pour cela, l'approche de ce cours est essentiellement pratique. Il s'agit d'implémenter de façon simple et intuitive les équations qui décrivent la physique des processus étudiés dans un code informatique. Nous mettons notamment l'accent sur la similarité des codes développés pour des processus de natures très différentes. En quelques points, les buts du cours sont de:
+
+- **Implémenter** mathématiquement un **processus physique** et le résoudre **numériquement**.
+- **Comprendre les méthodes** de résolution, savoir implementer chaque **étape** d’un modèle numérique des données aux résultats.
+- **Programmer** le modèle en Python.
+
+Le cours s’inscrit dans un **programme à long terme** de la Faculté des Géosciences et de l’Environnement qui permettra d’implémenter des **modèles complexes** durant le Master en environnement ou en géologie.
 
 ## Pré-requis
 
