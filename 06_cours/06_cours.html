@@ -688,10 +688,7 @@ C^{n+1}  &amp; = C^{n+2/3} &amp; - \left( \gamma C \right)^n  \times dt  \\
 <p>Le terme de droite de l’equation d’advection</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial C}{\partial t} = -v\frac{\partial C}{\partial x}, \]</div>
-<p>se discrétise avec</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dCdt</span> <span class="o">=</span> <span class="o">-</span> <span class="n">v</span> <span class="o">*</span> <span class="p">(</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
-</pre></div>
-</div>
+<p>se discrétise avec <code class="docutils literal notranslate"><span class="pre">dCdt</span> <span class="pre">=</span> <span class="pre">-</span> <span class="pre">v</span> <span class="pre">*</span> <span class="pre">(</span> <span class="pre">C[1:]</span> <span class="pre">-</span> <span class="pre">C[:-1]</span> <span class="pre">)</span> <span class="pre">/</span> <span class="pre">dx</span></code></p>
 <p>La règle de mise à jour est différente de celle utilisée pour un terme de diffusion, car elle n’implique qu’une seule dérivée (donc <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> est de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>). Rappelons que le terme de diffusion fait intervenir une dérivée seconde, et <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> est de taille <code class="docutils literal notranslate"><span class="pre">nx-2</span></code> puisque l’on perd une cellule par dérivation.</p>
 <p>Pour mettre à jour <code class="docutils literal notranslate"><span class="pre">C</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx</span></code> avec le terme d’advection <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>, il y a deux options : décaler à gauche ou à droite. Pour faire le “bon” choix, nous utiliserons la méthode “upwind”.</p>
 </section>
@@ -768,10 +765,9 @@ C^{n+1}  &amp; = C^{n+2/3} &amp; - \left( \gamma C \right)^n  \times dt  \\
 <p>Pour le problème d’<strong>advection</strong>, le pas de temps suivant est stable:</p>
 <div class="math notranslate nohighlight">
 \[ dt = 0.1 \times \frac{dx}{|v|} \]</div>
-<p>Ainsi pour un problème <strong>d’advection-diffusion</strong>, nous pouvons prendre:</p>
+<p>Ainsi pour un problème <strong>d’advection-diffusion</strong> (et poss. reaction), nous prenons:</p>
 <div class="math notranslate nohighlight">
 \[ dt = \min \left( \frac{dx^2}{2.1 \times D}, 0.1 \times \frac{dx}{|v|} \right).\]</div>
-<p><strong>Note:</strong> ce pas de temps fonctionne également si l’on a un terme de réaction.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="sauvergarde-des-resultats">

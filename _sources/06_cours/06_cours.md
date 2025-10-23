@@ -137,10 +137,8 @@ Le terme de droite de l'equation d'advection
 
 $$\frac{\partial C}{\partial t} = -v\frac{\partial C}{\partial x}, $$
 
-se discrétise avec 
-```python 
-dCdt = - v * ( C[1:] - C[:-1] ) / dx
-```
+se discrétise avec `dCdt = - v * ( C[1:] - C[:-1] ) / dx`
+
 La règle de mise à jour est différente de celle utilisée pour un terme de diffusion, car elle n'implique qu'une seule dérivée (donc `dCdt` est de taille `nx-1`). Rappelons que le terme de diffusion fait intervenir une dérivée seconde, et `dCdt` est de taille `nx-2` puisque l'on perd une cellule par dérivation.
 
 Pour mettre à jour `C` de taille `nx` avec le terme d'advection `dCdt` de taille `nx-1`, il y a deux options : décaler à gauche ou à droite. Pour faire le "bon" choix, nous utiliserons la méthode "upwind".
@@ -238,11 +236,10 @@ Pour le problème d'**advection**, le pas de temps suivant est stable:
 
 $$ dt = 0.1 \times \frac{dx}{|v|} $$
 
-Ainsi pour un problème **d'advection-diffusion**, nous pouvons prendre:
+Ainsi pour un problème **d'advection-diffusion** (et poss. reaction), nous prenons:
 
 $$ dt = \min \left( \frac{dx^2}{2.1 \times D}, 0.1 \times \frac{dx}{|v|} \right).$$
-
-**Note:** ce pas de temps fonctionne également si l'on a un terme de réaction.
+ 
 
 ---
  
