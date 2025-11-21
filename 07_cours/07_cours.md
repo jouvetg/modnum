@@ -123,7 +123,7 @@ dqxdx = -(qx[:,1:] - qx[:,:-1]) / dx        dqydy = -(qy[1:,:] - qy[:-1,:]) / dy
 ```
 
 ``` 
-taille        (ny,nx-2)                               (n-2,nx)
+taille        (ny,nx-2)                               (ny-2,nx)
 ```
 
 ---
@@ -131,10 +131,10 @@ taille        (ny,nx-2)                               (n-2,nx)
 # Troncature pour assurer la compatibilité
 
 ```python
-qx = -D * (A[:,1:] - A[:,:-1]) / dx          qy = -D * (A[1:,:] - A[:-1,:]) / dy
-dqxdx = (qx[:,1:] - qx[:,:-1]) / dx          dqydy = (qy[1:,:] - qy[:-1,:]) / dy
+qx = -D * (A[:,1:] - A[:,:-1]) / dx               qy = -D * (A[1:,:] - A[:-1,:]) / dy
+dqxdx = - (qx[:,1:] - qx[:,:-1]) / dx          dqydy = - (qy[1:,:] - qy[:-1,:]) / dy
 
-taille        (ny,nx-2)                               (n-2,nx)
+taille        (ny,nx-2)                               (ny-2,nx)
 ```
  
 
