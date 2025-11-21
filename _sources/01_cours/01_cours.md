@@ -184,7 +184,7 @@ for I in range(10):                    # Ne pas oublier “:”
 
 if i==0:
     print(‘i est egal a zero’)
-
+ 
 I=0
 while I<10:
     print(I)

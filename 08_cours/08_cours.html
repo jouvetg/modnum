@@ -357,6 +357,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../08_exercice/08_exercice.html">Exercices 8</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_cours/09_cours.html">Cours 9</a></li>
@@ -553,15 +555,17 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 8</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#retour-sur-les-dimensions-des-matrices">Retour sur les dimensions des matrices</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-initiale">Condition initiale</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-de-la-fonction-np-meshgrid">Illustration de la fonction <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisation-de-la-fonction-np-meshgrid">Utilisation de la fonction <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Utilisation de la fonction <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-d-advection-diffusion-en-2d">Equation d’advection-diffusion en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-numerique-de-l-advection-diffusion">Résolution numérique de l’advection-diffusion</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-numerique-de-l-advection-2d">Résolution numérique de l’advection 2D</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Résolution numérique de l’advection 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Résolution numérique de l’advection 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-bord-de-neumann">Condition de bord de Neumann</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Condition de bord de Neumann</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Condition de bord de Neumann</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-flux-nulle-alpha-beta-0">Condition de flux nulle (<span class="math notranslate nohighlight">\(\alpha=\beta=0\)</span>)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
 </ul>
@@ -579,8 +583,9 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="cours-8">
 <h1>Cours 8<a class="headerlink" href="#cours-8" title="Link to this heading">#</a></h1>
 <p><img alt="" src="../_images/illu_mod_num_s.png" /></p>
-</section>
 <hr class="docutils" />
+<p>Test 1: Moyenne a 4.8, Median à 5.25.</p>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="objectifs-du-cours">
 <h1>Objectifs du cours<a class="headerlink" href="#objectifs-du-cours" title="Link to this heading">#</a></h1>
 <ul class="simple">
@@ -590,6 +595,21 @@ document.write(`
 <li><p>Conditions aux bords de Neumann</p></li>
 <li><p>Conditions de stabilité</p></li>
 </ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="retour-sur-les-dimensions-des-matrices">
+<h1>Retour sur les dimensions des matrices<a class="headerlink" href="#retour-sur-les-dimensions-des-matrices" title="Link to this heading">#</a></h1>
+<p>On perd des cellules en faisant une dérivée (- 1 cellule) ou en tronquant (- 2 cells)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">qx</span> <span class="o">=</span> <span class="o">-</span><span class="n">D</span> <span class="o">*</span> <span class="p">(</span><span class="n">T</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">T</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span> <span class="c1"># On perd 1 cellule en x -&gt; (ny,nx-1)</span>
+    <span class="n">dqxdx</span> <span class="o">=</span> <span class="p">(</span><span class="n">qx</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">qx</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>   <span class="c1"># On perd 1 cellule en x -&gt; (ny,nx-2)</span>
+    <span class="n">qy</span> <span class="o">=</span> <span class="o">-</span><span class="n">D</span> <span class="o">*</span> <span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span>  <span class="o">-</span> <span class="n">T</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span> <span class="o">/</span> <span class="n">dy</span> <span class="c1"># On perd 1 cellule en y -&gt; (ny-1,nx)</span>
+    <span class="n">dqydy</span> <span class="o">=</span> <span class="p">(</span><span class="n">qy</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">qy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span> <span class="o">/</span> <span class="n">dy</span>   <span class="c1"># On perd 1 cellule en y -&gt; (ny-2,nx)</span>
+
+    <span class="n">dTdt</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span> <span class="n">dqxdx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">+</span> <span class="n">dqydy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="c1"># On perd 2 en x/y -&gt; (ny-2,nx-2)</span>
+    <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dTdt</span> <span class="o">*</span> <span class="n">dt</span>                 <span class="c1"># Matrices (ny-2,nx-2)</span>
+</pre></div>
+</div>
+<p><img alt="width:350" src="../_images/taille_matrice_sol_s91.png" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="condition-initiale">
@@ -647,6 +667,24 @@ document.write(`
 <p>On peut donc initialiser nos variables 2D de la même manière.</p>
 </section>
 <hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Utilisation de la fonction <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>Ainsi si l’on cherche a indentifier les indices de la matrice dont les points du domaines sont situés à une distance inférieure à 1 mètre du point (x,y)=(5,2), on peut utiliser le formalisme suivant:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Y</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">**</span><span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">I</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Nous pouvons donner à ces points une certaine valeur ainsi:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span><span class="n">nx</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span><span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equation-d-advection-diffusion-en-2d">
 <h1>Equation d’advection-diffusion en 2D<a class="headerlink" href="#equation-d-advection-diffusion-en-2d" title="Link to this heading">#</a></h1>
 <p>Nous pouvons introduire des termes d’advection à côté de ceux de diffusion. Cela peut servir notamment à modéliser la propagation d’un polluant par diffusion et advection dans un espace 2D.</p>
@@ -682,8 +720,8 @@ document.write(`
 <p>Notons qu’il s’agit juste de changer les indices de A pour la mise a jour.</p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>Résolution numérique de l’advection 2D<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>Résolution numérique de l’advection 2D<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dAdx_a</span>  <span class="o">=</span> <span class="o">-</span> <span class="n">Vx</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>  <span class="c1"># taille ny,nx-1</span>
 <span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>  <span class="o">+=</span> <span class="n">dAdx_a</span> <span class="o">*</span> <span class="n">dt</span> <span class="c1"># si Vx&gt;0</span>
 <span class="n">A</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dAdx_a</span> <span class="o">*</span> <span class="n">dt</span> <span class="c1"># si Vx&lt;0</span>
@@ -702,20 +740,18 @@ document.write(`
 $<span class="math notranslate nohighlight">\(C({\rm bord}) = {\rm valeur}\)</span>$
 ou de <strong>Neumann</strong> comme nous l’avons vu en 1D. En 2D, cela s’écrit:</p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial C}{\partial x} ({\rm bord \; E/W}) = \alpha\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{\partial C}{\partial y} ({\rm bord \; N/S}) = \beta\]</div>
+\[\frac{\partial C}{\partial x} ({\rm bord \; E/W}) = \alpha, \qquad \frac{\partial C}{\partial y} ({\rm bord \; N/S}) = \beta\]</div>
 <p>Le code suivant applique des conditions de Neumann aux quatre bords:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="n">T</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">alpha</span>  <span class="c1"># bord E , 1er colonne</span>
-<span class="n">T</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">alpha</span>  <span class="c1"># bord W , derniere colonne</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="n">T</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">alpha</span>  <span class="c1"># bord W , 1er colonne</span>
+<span class="n">T</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">alpha</span>  <span class="c1"># bord E , derniere colonne</span>
 <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>  <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>  <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">beta</span>   <span class="c1"># bord S , 1er ligne</span>
 <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">beta</span>   <span class="c1"># bord N , derniere ligne</span>
 </pre></div>
 </div>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>Condition de bord de Neumann<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>Condition de bord de Neumann<a class="headerlink" href="#id3" title="Link to this heading">#</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                   <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">beta</span>
 
         <span class="n">x</span><span class="o">--------</span><span class="n">x</span><span class="o">--------</span><span class="n">x</span><span class="o">--------</span><span class="n">x</span><span class="o">--------</span><span class="n">x</span><span class="o">--------</span><span class="n">x</span><span class="o">--------</span><span class="n">x</span>
@@ -830,15 +866,17 @@ Cela revient à interdire tout échange avec l’extérieur.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 8</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#retour-sur-les-dimensions-des-matrices">Retour sur les dimensions des matrices</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-initiale">Condition initiale</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-de-la-fonction-np-meshgrid">Illustration de la fonction <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisation-de-la-fonction-np-meshgrid">Utilisation de la fonction <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Utilisation de la fonction <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-d-advection-diffusion-en-2d">Equation d’advection-diffusion en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-numerique-de-l-advection-diffusion">Résolution numérique de l’advection-diffusion</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-numerique-de-l-advection-2d">Résolution numérique de l’advection 2D</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Résolution numérique de l’advection 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Résolution numérique de l’advection 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-bord-de-neumann">Condition de bord de Neumann</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Condition de bord de Neumann</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Condition de bord de Neumann</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-flux-nulle-alpha-beta-0">Condition de flux nulle (<span class="math notranslate nohighlight">\(\alpha=\beta=0\)</span>)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
 </ul>

@@ -14,6 +14,8 @@ color: white
 
 ---
 
+Test 1: Moyenne a 4.8, Median à 5.25.
+
 # Objectifs du cours
  
 - Condition initiale
@@ -21,8 +23,27 @@ color: white
 - Discrétisation du terme d'advection en 2D
 - Conditions aux bords de Neumann
 - Conditions de stabilité
-
   
+---
+
+# Retour sur les dimensions des matrices
+
+On perd des cellules en faisant une dérivée (- 1 cellule) ou en tronquant (- 2 cells)
+
+
+```python
+    qx = -D * (T[:, 1:] - T[:, :-1]) / dx # On perd 1 cellule en x -> (ny,nx-1)
+    dqxdx = (qx[:,1:] - qx[:,:-1]) / dx   # On perd 1 cellule en x -> (ny,nx-2)
+    qy = -D * (T[1:,:]  - T[:-1, :]) / dy # On perd 1 cellule en y -> (ny-1,nx)
+    dqydy = (qy[1:,:] - qy[:-1,:]) / dy   # On perd 1 cellule en y -> (ny-2,nx)
+
+    dTdt = - ( dqxdx[1:-1,:] + dqydy[:,1:-1] ) # On perd 2 en x/y -> (ny-2,nx-2)
+    T[1:-1, 1:-1] += dTdt * dt                 # Matrices (ny-2,nx-2)
+```
+
+
+![width:350](./fig/taille_matrice_sol_s9.png)
+
 ---
 
 # Condition initiale
@@ -94,6 +115,27 @@ On peut donc initialiser nos variables 2D de la même manière.
 
 ---
 
+# Utilisation de la fonction `np.meshgrid`
+
+Ainsi si l'on cherche a indentifier les indices de la matrice dont les points du domaines sont situés à une distance inférieure à 1 mètre du point (x,y)=(5,2), on peut utiliser le formalisme suivant:
+ 
+```python
+I = (X-5)**2 + (Y-2)**2 < 1**2
+>>> I
+array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]])
+```
+Nous pouvons donner à ces points une certaine valeur ainsi:
+
+```
+>>> B = np.ones((ny,nx))
+>>> B[I] = 500
+```
+ 
+---
+
 # Equation d'advection-diffusion en 2D
 
 Nous pouvons introduire des termes d'advection à côté de ceux de diffusion. Cela peut servir notamment à modéliser la propagation d'un polluant par diffusion et advection dans un espace 2D.
@@ -162,15 +204,13 @@ Sur les bords de notre domaine de modélisation rectangulaire, nous pouvons impl
 $$C({\rm bord}) = {\rm valeur}$$
 ou de **Neumann** comme nous l'avons vu en 1D. En 2D, cela s'écrit:
 
-$$\frac{\partial C}{\partial x} ({\rm bord \; E/W}) = \alpha$$
-
-$$\frac{\partial C}{\partial y} ({\rm bord \; N/S}) = \beta$$
+$$\frac{\partial C}{\partial x} ({\rm bord \; E/W}) = \alpha, \qquad \frac{\partial C}{\partial y} ({\rm bord \; N/S}) = \beta$$
 
 Le code suivant applique des conditions de Neumann aux quatre bords:
 
 ```python
-T[:, 0]  = T[:, 1]  + dt * alpha  # bord E , 1er colonne
-T[:, -1] = T[:, -2] + dt * alpha  # bord W , derniere colonne
+T[:, 0]  = T[:, 1]  + dt * alpha  # bord W , 1er colonne
+T[:, -1] = T[:, -2] + dt * alpha  # bord E , derniere colonne
 T[0, :]  = T[1, :]  + dt * beta   # bord S , 1er ligne
 T[-1, :] = T[-2, :] + dt * beta   # bord N , derniere ligne
 ```
