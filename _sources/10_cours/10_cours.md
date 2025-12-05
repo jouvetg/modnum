@@ -119,14 +119,14 @@ Puisque $D$ est une valeur qui s'applique à un flux, elle est placée entre les
 Il faudra donc que la hauteur de glace $h$ utilisée pour calculer $D$ soit la moyenne des deux cellules adjacentes:
 
 ```                           
-                              0     1    ...   i-1    i    i+1   ...  Taille
-h                             |-----|-----|-----|-----|-----|----...    nx
+                               0     1    ...   i-1    i    i+1   ...  Taille
+h                              |-----|-----|-----|-----|-----|----...    nx
                                  0     1    ...   i-1    i    i+1
-h_mid = 0.5*(h[1:]+h[:-1])       |-----|-----|-----|-----|-----|-...   nx-1
-                                 0     1    ...   i-1    i    i+1
-dsdx = (s[1:]-s[:-1])/dx         |-----|-----|-----|-----|-----|-...   nx-1
-                                 0     1    ...   i-1    i    i+1
-D=f_d*(rho*g)**3*h**5*(dsdx)**2  |-----|-----|-----|-----|-----|-...   nx-1
+hm   = 0.5*(h[1:]+h[:-1])        |-----|-----|-----|-----|-----|-...   nx-1
+                                  0     1    ...   i-1    i    i+1
+dsdx = (s[1:]-s[:-1])/dx          |-----|-----|-----|-----|-----|-...   nx-1
+                                  0     1    ...   i-1    i    i+1
+D=f_d*(rho*g)**3*hm**5*(dsdx)**2  |-----|-----|-----|-----|-----|-...   nx-1
 ```
 
 ---
