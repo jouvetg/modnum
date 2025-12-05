@@ -566,7 +566,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pas-de-temps-et-stabilite">Pas de temps et stabilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-de-la-grille-est-des-dimensions">Traitement de la grille est des dimensions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bord-bilan-de-masse-epaisseur-0">Conditions de bord, bilan de masse, épaisseur&gt;0</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-propose-des-unites">A propose des unités</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-propos-des-unites">A propos des unités</a></li>
 </ul>
 
             </nav>
@@ -637,9 +637,11 @@ D(h) = f_d (\rho g)^3 h^5 \left( \frac{\partial s}{\partial x} \right)^2,\]</div
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="fonction-bilan-de-masse-b-s">
 <h1>Fonction bilan de masse <span class="math notranslate nohighlight">\(b(s)\)</span><a class="headerlink" href="#fonction-bilan-de-masse-b-s" title="Link to this heading">#</a></h1>
-<p>Le bilan de masse annuel (en unité m/a) est la quantité de glace ajoutée par accumulation de neige qui se transforme en glace, moins la fonte. Celui-ci augmente avec l’altitude (puisque la fonte diminue avec la température). Un modèle simple de bilan de masse <span class="math notranslate nohighlight">\(b(s)\)</span> est une fct de l’altitude et de 3 paramètres: i) la ligne d’équilibre <span class="math notranslate nohighlight">\(s_\mathrm{ELA}\)</span> qui separe les zones d’ablation/accumulation, ii) le gradient du bilan de masse <span class="math notranslate nohighlight">\(b_\mathrm{grad}\)</span>, iii)  une valeur max. pour l’accumulation <span class="math notranslate nohighlight">\(b_\mathrm{max}\)</span>.</p>
-<p>Mathématiquement, la fonction s’écrit <span class="math notranslate nohighlight">\(b(s) = \min ( b_\mathrm{grad} (s-s_\mathrm{ELA}), b_\mathrm{max} )\)</span>:</p>
-<p><img alt="width:250" src="../_images/smb.png" /></p>
+<p>Le bilan de masse annuel (en m/a) est la quantité de glace ajoutée (accumulation de neige) moins la fonte. Celui-ci augmente avec l’altitude (car la fonte diminue avec la température). Un modèle simple de bilan de masse <span class="math notranslate nohighlight">\(b(s)\)</span> est donné par</p>
+<div class="math notranslate nohighlight">
+\[b(s) = \min ( b_\mathrm{grad} (s-s_\mathrm{ELA}), b_\mathrm{max} )\]</div>
+<p>où <span class="math notranslate nohighlight">\(s_\mathrm{ELA}\)</span> est la ligne d’équilibre qui separe les zones d’ablation/accumulation, <span class="math notranslate nohighlight">\(b_\mathrm{grad}\)</span> est le gradient du bilan de masse, et <span class="math notranslate nohighlight">\(b_\mathrm{max}\)</span> est une valeur max. d’accumulation.</p>
+<p><img alt="width:350" src="../_images/smb.png" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equation-non-lineaire">
@@ -657,12 +659,8 @@ $<span class="math notranslate nohighlight">\(D(h) = f_d (\rho g)^3 h^5 \left( \
 <p>Puisque <code class="docutils literal notranslate"><span class="pre">D</span></code> change constamment, le pas de temps <span class="math notranslate nohighlight">\(dt\)</span>, qui dépend de la valeur maximale de <code class="docutils literal notranslate"><span class="pre">D</span></code>, doit également être mis à jour dans la boucle :</p>
 <div class="math notranslate nohighlight">
 \[ dt = \min \left\{ dt_{max} ,  \frac{dx^2}{2.1 \times \max(|D|)} \right\}. \]</div>
-<p>La formule pour <span class="math notranslate nohighlight">\(dt\)</span> ressemble à la formule déjà utilisée avec deux spécificités :</p>
-<ul class="simple">
-<li><p>i) Puisque <span class="math notranslate nohighlight">\(D\)</span> est variable, on prend sa valeur maximale.</p></li>
-<li><p>ii) <span class="math notranslate nohighlight">\(D\)</span> peut être égal à zéro ou très grand. Pour éviter une division par 0, on impose une valeur max <span class="math notranslate nohighlight">\(dt_{max}\)</span> (p.e. 1 a).</p></li>
-</ul>
-<p>Puisque le pas de temps est recalculé dans la boucle, nous ne pouvons pas connaître a priori le nombre d’itérations. La solution consiste à définir un grand nombre de pas de temps et à arrêter la simulation lorsque la variable temps dépasse le temps souhaité à l’aide d’une condition et de <code class="docutils literal notranslate"><span class="pre">break</span></code>.</p>
+<p>La formule pour <span class="math notranslate nohighlight">\(dt\)</span> ressemble à la formule déjà utilisée avec deux spécificités : i) Comme <span class="math notranslate nohighlight">\(D\)</span> est variable, on prend sa valeur maximale, ii) <span class="math notranslate nohighlight">\(D\)</span> peut être égal à zéro. Pour éviter une division par 0, on impose une valeur max <span class="math notranslate nohighlight">\(dt_{max}\)</span> (p.e. 1 a).</p>
+<p>Comme le pas de temps est recalculé dans la boucle, nous ne pouvons pas connaître a priori le nombre d’itérations. La solution consiste à définir un grand nombre de pas de temps et à arrêter la simulation lorsque la variable temps dépasse le temps souhaité à l’aide d’une condition et de <code class="docutils literal notranslate"><span class="pre">break</span></code>.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="traitement-de-la-grille-est-des-dimensions">
@@ -684,20 +682,20 @@ $<span class="math notranslate nohighlight">\(D(h) = f_d (\rho g)^3 h^5 \left( \
 <section class="tex2jax_ignore mathjax_ignore" id="conditions-de-bord-bilan-de-masse-epaisseur-0">
 <h1>Conditions de bord, bilan de masse, épaisseur&gt;0<a class="headerlink" href="#conditions-de-bord-bilan-de-masse-epaisseur-0" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p>Au <strong>bord du domaine</strong>, on impose une condition de Dirichlet en forçant l’épaisseur à être nulle:</p></li>
+<li><p>Au <strong>bord du domaine</strong>, on impose une condition de Dirichlet en forçant l’épaisseur de glace à être nulle:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="mi">0</span>
 <span class="n">h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><strong>L’altitude du glacier <span class="math notranslate nohighlight">\(z\)</span></strong>, qui dépend de la hauteur de glace <span class="math notranslate nohighlight">\(h\)</span>, ainsi que la fonction de <strong>bilan de masse</strong>, qui dépend de <span class="math notranslate nohighlight">\(z\)</span>, doivent être placées dans la boucle temporelle.</p></li>
+<li><p><strong>L’altitude du glacier <span class="math notranslate nohighlight">\(z\)</span></strong>, qui dépend de la hauteur de glace <span class="math notranslate nohighlight">\(h\)</span>, ainsi que la fonction de <strong>bilan de masse</strong>, qui dépend de <span class="math notranslate nohighlight">\(z\)</span>, doivent être mise à jour dans la boucle temporelle.</p></li>
 <li><p>Il faut inclure la commande <code class="docutils literal notranslate"><span class="pre">h[h&lt;0]</span> <span class="pre">=</span> <span class="pre">0</span></code> pour s’assurer que la <strong>hauteur de glace <span class="math notranslate nohighlight">\(h\)</span> reste positive</strong>, car celle-ci pourrait devenir négative si le glacier est peu épais et que le bilan de masse est négatif.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="a-propose-des-unites">
-<h1>A propose des unités<a class="headerlink" href="#a-propose-des-unites" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="a-propos-des-unites">
+<h1>A propos des unités<a class="headerlink" href="#a-propos-des-unites" title="Link to this heading">#</a></h1>
 <p>Notons que les unités sont cohérentes:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(Pa = Kg \, m^{-1} \,  s^{-2}\)</span></p></li>
@@ -785,7 +783,7 @@ et donc <span class="math notranslate nohighlight">\([D] = m^2 y^{-1}\)</span>, 
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pas-de-temps-et-stabilite">Pas de temps et stabilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-de-la-grille-est-des-dimensions">Traitement de la grille est des dimensions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bord-bilan-de-masse-epaisseur-0">Conditions de bord, bilan de masse, épaisseur&gt;0</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-propose-des-unites">A propose des unités</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-propos-des-unites">A propos des unités</a></li>
 </ul>
 
   </nav></div>

@@ -136,7 +136,7 @@ dCdta_xn = - (Vx < 0) * Vx * (C[:,1:] - C[:,:-1]) / dx  # taille (ny,nx-1)
 C[:,:-1] += dt * dCdta_xn                               # taille (ny,nx-1)
 
 dCdta_xp = - (Vx > 0) * Vx * (C[:,1:] - C[:,:-1]) / dx  # taille (ny,nx-1)
-C[:,1:]  += dt * dCdta_xn                               # taille (ny,nx-1)
+C[:,1:]  += dt * dCdta_xp                               # taille (ny,nx-1)
 ```
 où les matrices (de booléens) `Vx < 0` et `Vx > 0` sont expliquées au slide suivant.
 
