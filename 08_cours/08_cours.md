@@ -265,7 +265,7 @@ T[-1, :] = T[-2, :]
 
 La méthode numérique est stable seulement si le pas de temps est assez petit. 
 
-D'aprés la théorie, définir le pas de temps
+D'aprés la théorie, définir le pas de temps (en supposant `V_x`and `V_y` constants)
 
 $$ dt = \min \left( \frac{\min(dx,dy)^2}{4.1 \times D} , 
 0.1 \times \min \left( \frac{dx}{|V_x|} , \frac{dy}{|V_y|} \right) \right)$$

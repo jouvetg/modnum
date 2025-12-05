@@ -79,11 +79,13 @@ où $D(h)$ est la diffusivité de la glace, et $f_d$, $\rho$, et $g$ sont des co
 
 # Fonction bilan de masse $b(s)$
 
-Le bilan de masse annuel (en unité m/a) est la quantité de glace ajoutée par accumulation de neige qui se transforme en glace, moins la fonte. Celui-ci augmente avec l'altitude (puisque la fonte diminue avec la température). Un modèle simple de bilan de masse $b(s)$ est une fct de l'altitude et de 3 paramètres: i) la ligne d'équilibre $s_\mathrm{ELA}$ qui separe les zones d'ablation/accumulation, ii) le gradient du bilan de masse $b_\mathrm{grad}$, iii)  une valeur max. pour l'accumulation $b_\mathrm{max}$.
+Le bilan de masse annuel (en m/a) est la quantité de glace ajoutée (accumulation de neige) moins la fonte. Celui-ci augmente avec l'altitude (car la fonte diminue avec la température). Un modèle simple de bilan de masse $b(s)$ est donné par 
 
-Mathématiquement, la fonction s'écrit $b(s) = \min ( b_\mathrm{grad} (s-s_\mathrm{ELA}), b_\mathrm{max} )$:
+$$b(s) = \min ( b_\mathrm{grad} (s-s_\mathrm{ELA}), b_\mathrm{max} )$$
+
+où $s_\mathrm{ELA}$ est la ligne d'équilibre qui separe les zones d'ablation/accumulation, $b_\mathrm{grad}$ est le gradient du bilan de masse, et $b_\mathrm{max}$ est une valeur max. d'accumulation.
  
-![width:250](./fig/smb.png)
+![width:350](./fig/smb.png)
 
 --- 
 
@@ -104,11 +106,9 @@ Puisque `D` change constamment, le pas de temps $dt$, qui dépend de la valeur m
 
 $$ dt = \min \left\{ dt_{max} ,  \frac{dx^2}{2.1 \times \max(|D|)} \right\}. $$
 
-La formule pour $dt$ ressemble à la formule déjà utilisée avec deux spécificités :
-- i) Puisque $D$ est variable, on prend sa valeur maximale.
-- ii) $D$ peut être égal à zéro ou très grand. Pour éviter une division par 0, on impose une valeur max $dt_{max}$ (p.e. 1 a).
+La formule pour $dt$ ressemble à la formule déjà utilisée avec deux spécificités : i) Comme $D$ est variable, on prend sa valeur maximale, ii) $D$ peut être égal à zéro. Pour éviter une division par 0, on impose une valeur max $dt_{max}$ (p.e. 1 a).
  
-Puisque le pas de temps est recalculé dans la boucle, nous ne pouvons pas connaître a priori le nombre d'itérations. La solution consiste à définir un grand nombre de pas de temps et à arrêter la simulation lorsque la variable temps dépasse le temps souhaité à l'aide d'une condition et de `break`.
+Comme le pas de temps est recalculé dans la boucle, nous ne pouvons pas connaître a priori le nombre d'itérations. La solution consiste à définir un grand nombre de pas de temps et à arrêter la simulation lorsque la variable temps dépasse le temps souhaité à l'aide d'une condition et de `break`.
 
 ---
 
@@ -133,20 +133,20 @@ D=f_d*(rho*g)**3*h**5*(dsdx)**2  |-----|-----|-----|-----|-----|-...   nx-1
  
 # Conditions de bord, bilan de masse, épaisseur>0
 
-- Au **bord du domaine**, on impose une condition de Dirichlet en forçant l'épaisseur à être nulle:
+- Au **bord du domaine**, on impose une condition de Dirichlet en forçant l'épaisseur de glace à être nulle:
 
 ```python
 h[0]  = 0
 h[-1] = 0
 ```
 
-- **L'altitude du glacier $z$**, qui dépend de la hauteur de glace $h$, ainsi que la fonction de **bilan de masse**, qui dépend de $z$, doivent être placées dans la boucle temporelle.
+- **L'altitude du glacier $z$**, qui dépend de la hauteur de glace $h$, ainsi que la fonction de **bilan de masse**, qui dépend de $z$, doivent être mise à jour dans la boucle temporelle.
 
 - Il faut inclure la commande `h[h<0] = 0` pour s'assurer que la **hauteur de glace $h$ reste positive**, car celle-ci pourrait devenir négative si le glacier est peu épais et que le bilan de masse est négatif.
 
 ---
 
-# A propose des unités
+# A propos des unités
  
 Notons que les unités sont cohérentes:
 - $Pa = Kg \, m^{-1} \,  s^{-2}$ 
