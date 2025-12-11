@@ -41,7 +41,7 @@ $$ q_x = - D(h) \frac{\partial s}{\partial x}, \qquad q_y = - D(h) \frac{\partia
 
 $$D(h) = f_\mathrm{d} (\rho g)^3 h^5 \lvert\lvert  \nabla s \rvert \rvert^2.  \qquad (3)$$
 
-Comme en 1D, la non-linéarité vient du fait que le diffusivité $D$ dépende elle-même de la solution, l'épaisseur locale de la glace $h$ et de la pente de sa surface $s$:
+Comme en 1D, la diffusivité $D$ dépend de la solution, l'épaisseur de glace $h$ et la pente de sa surface $s$:
 
 $$\lvert\lvert  \nabla s \rvert \rvert^2 =  (\frac{\partial s}{\partial x})^2 + (\frac{\partial s}{\partial y})^2.$$
 
@@ -49,7 +49,7 @@ $$\lvert\lvert  \nabla s \rvert \rvert^2 =  (\frac{\partial s}{\partial x})^2 + 
 
 # Résolution numérique
 
-Comme en 1D, il faut :
+Comme en 1D, il faudra veiller à (dans la boucle temporelle) :
 
 1. Mettre à jour l'altitude de la surface du glacier s=l+h.
 2. Mettre à jour la diffusivité D.
@@ -58,13 +58,15 @@ Comme en 1D, il faut :
 5. Veiller à ce que l'épaisseur de glace reste positive.
 6. Forcer l'épaisseur à être zéro sur les bords.
 
-La difficulté en 2D est de gérer la discrétisation spatiale sur la grille 2D. Seuls 2., 3., 6. différent entre les cas 1d et 2D, et sont donc traités plus bas. Pour les autres, il n'y a auncune différence d'implémementation vu dans le cours précédent.
+La difficulté en 2D est de gérer la discrétisation spatiale sur la grille 2D. 
+
+Seuls 2., 3., 6. différent du cas 1D, et sont donc traités plus bas.
 
 ---
 
 # Traitement de la grille en 2D (1/4)
 
-Le problème est comparbale au cas 1D, mais la position de toutes les valeurs sur la grille est plus complexe en 2D: les diverses quantités (tableaux ou matrices 2D) utilisées dans les équations (1)-(3) sont à des endroits spécifiques sur la grille 2D:
+La position de toutes les valeurs sur la grille est plus complexe en 2D: les quantités des équations (1)-(3) sont à des endroits différents de la grille: `□`, `+`, `o`, ou `-`. 
 
 
 ```
@@ -89,11 +91,13 @@ Le problème est comparbale au cas 1D, mais la position de toutes les valeurs su
 
 - Les variables originales (épaisseur de glace, altitude du glacier) sont définies aux nœuds des grilles (`□` ci-dessus, taille `(ny,nx)`).
 
-- La diffusivité $D$ est calculée aux centres des cellules (`o` ci-dessus, taille `(ny-1,nx-1)`). Pour satisfaire cette taille, la diffusivité est obtenue à partir de l'équation (Eq. (3)) :
+- La diffusivité $D$ est calculée aux centres des cellules (`o` ci-dessus, taille `(ny-1,nx-1)`). Pour satisfaire cette taille, $D$ est obtenue à partir de l'eq. (3):
 
-    - de l'épaisseur de glace $h$ moyennée localement sur les épaisseurs aux quatre cellules voisines.
+$$D(h) = f_\mathrm{d} (\rho g)^3 h^5 \lvert\lvert  \nabla s \rvert \rvert^2.  \qquad (3)$$
 
-    - des pentes $s_x = \frac{\partial s}{\partial x}$ et $s_y = \frac{\partial s}{\partial y}$, qui sont obtenues en dérivant dans les directions $x$ et $y$, respectivement, puis en moyennant dans les directions $y$ et $x$.
+- ou l'épaisseur de glace $h$ moyennée sur les épaisseurs des 4 cellules voisines,
+
+- les pentes $s_x = \frac{\partial s}{\partial x}$ et $s_y = \frac{\partial s}{\partial y}$ sont obtenues en dérivant dans les directions $x$ et $y$, et en moyennant dans les directions $y$ et $x$.
 
 
 ---
@@ -101,13 +105,13 @@ Le problème est comparbale au cas 1D, mais la position de toutes les valeurs su
 # Traitement de la grille en 2D (3/4)
 
 Une fois $D$ calculée, nous pouvons calculer les flux de glace $q_x$ et $q_y$ via l'équation:
-$$ q_x = - D(h) \frac{\partial s}{\partial x}, \qquad (3).$$
+$$ q_x = - D(h) \frac{\partial s}{\partial x}, \qquad (2).$$
 Notons que :
 - $D$ est de taille `(ny-1,nx-1)` (voir la diapositive précédente),
 - $\frac{\partial s}{\partial x}$ est de taille `(ny,nx-1)`,
 - $q_x$ doit être de taille `(ny-2,nx-1)` puisque $\frac{\partial q_x}{\partial x}$ est de taille `(ny-2,nx-2)`.
 
-Pour que (3) soit consistante en taille `(ny-2,nx-1)`, il faut donc moyenner $D$ en $y$ pour perdre une cellule, et tronquer la première et la dernière ligne de $\frac{\partial s}{\partial x}$.
+Pour que (2) soit de la bonne taille `(ny-2,nx-1)`, il faut donc moyenner $D$ en $y$ pour perdre une cellule, et tronquer la première et la dernière ligne de $\frac{\partial s}{\partial x}$.
 
 La même stratégie est appliquée pour calculer $q_y$ en inversant $x$ et $y$.
 
@@ -144,10 +148,10 @@ snorm = …
 D = …
 
 # Compute qx, size (ny-2,nx-1)
-Qx = …
+qx = …
 
 # Compute qy, size (ny-1,nx-2)
-Qy = …
+qy = …
 
 # Compute dHdt, and update rule, size (ny-2,nx-2)
 dhdt = ...
