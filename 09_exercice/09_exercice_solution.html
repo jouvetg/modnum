@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -576,7 +576,7 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="exercice-contamination-dans-un-lac">
 <h1>Exercice : Contamination dans un lac<a class="headerlink" href="#exercice-contamination-dans-un-lac" title="Link to this heading">#</a></h1>
-<p>Nous allons étendre l’exercice de contamination d’une rivière de 1D à 2D. On suppose la fuite continue (constante dans le temps) d’un contaminant dans un lac qui est animé d’un courant en <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> (Figure ci-dessous). La source de contamination est un périmètre circulaire centré en <span class="math notranslate nohighlight">\(x_{src} = L_x/4\)</span> et <span class="math notranslate nohighlight">\(y_{src} = L_y/4\)</span> de rayon <span class="math notranslate nohighlight">\(r_C = 1.5\)</span> m. Pour cela, vous pouvez utiliser la fonction <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code>.</p>
+<p>Nous allons étendre l’exercice de contamination d’une rivière de 1D à 2D. On suppose la fuite continue (constante dans le temps) d’un contaminant dans un lac qui est animé d’un courant en <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> (Figure ci-dessous). La source de contamination est und disque centré en <span class="math notranslate nohighlight">\(x_{src} = L_x/4\)</span> et <span class="math notranslate nohighlight">\(y_{src} = L_y/4\)</span> de rayon <span class="math notranslate nohighlight">\(r_C = 1.5\)</span> m. Pour cela, vous pouvez utiliser la fonction <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code>.</p>
 <p>Le polluant se décompose avec une constante de décroissance de <span class="math notranslate nohighlight">\(\gamma = 0.001\)</span>. Les équations à résoudre sont presque les mêmes que pour l’exercice précédent, à l’exception du terme du taux de dégradation (ou de réaction) :</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial C}{\partial t} = -\frac{\partial q_x}{\partial x} -\frac{\partial q_y}{\partial y} - V_x \frac{\partial C}{\partial x} - V_y \frac{\partial C}{\partial y}\ -\gamma C,\: \]</div>
