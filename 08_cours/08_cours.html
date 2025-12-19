@@ -722,15 +722,11 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="id2">
 <h1>Résolution numérique de l’advection 2D<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dAdx_a</span>  <span class="o">=</span> <span class="o">-</span> <span class="n">Vx</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>  <span class="c1"># taille ny,nx-1</span>
-<span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>  <span class="o">+=</span> <span class="n">dAdx_a</span> <span class="o">*</span> <span class="n">dt</span> <span class="c1"># si Vx&gt;0</span>
-<span class="n">A</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dAdx_a</span> <span class="o">*</span> <span class="n">dt</span> <span class="c1"># si Vx&lt;0</span>
-
-<span class="n">dAdy_a</span>  <span class="o">=</span> <span class="o">-</span> <span class="n">Vy</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span> <span class="o">/</span> <span class="n">dy</span>  <span class="c1"># taille ny-1,nx</span>
-<span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span>  <span class="o">+=</span> <span class="n">dAdy_a</span> <span class="o">*</span> <span class="n">dt</span> <span class="c1"># si Vy&gt;0</span>
-<span class="n">A</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">+=</span> <span class="n">dAdy_a</span> <span class="o">*</span> <span class="n">dt</span> <span class="c1"># si Vy&lt;0</span>
+<p>Symétriquement, nous avons en <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dAdy_a</span>  <span class="o">=</span> <span class="o">-</span> <span class="n">Vy</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span> <span class="o">/</span> <span class="n">dy</span>  <span class="c1"># taille ny-1,nx</span>
 </pre></div>
 </div>
+<p>Si <code class="docutils literal notranslate"><span class="pre">Vy&gt;0</span></code> alors  <code class="docutils literal notranslate"><span class="pre">A[1:,:]</span>&#160; <span class="pre">+=</span> <span class="pre">dAdy_a</span> <span class="pre">*</span> <span class="pre">dt</span></code> sinon <code class="docutils literal notranslate"><span class="pre">A[:-1,:]</span> <span class="pre">+=</span> <span class="pre">dAdy_a</span> <span class="pre">*</span> <span class="pre">dt</span></code>.</p>
 <p><img alt="width:450" src="../_images/advection_2D_s10.png" /></p>
 </section>
 <hr class="docutils" />

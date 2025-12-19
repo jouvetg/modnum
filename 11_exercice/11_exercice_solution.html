@@ -758,17 +758,17 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
 
-<span class="c1"># Physical parameters</span>
+<span class="c1"># Paramètres physiques</span>
 <span class="n">time_init</span>  <span class="o">=</span> <span class="mi">1950</span>
 <span class="n">time_final</span> <span class="o">=</span> <span class="mi">2100</span>
 
-<span class="n">grad_b</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="c1"># Mass balance gradient (no unit)</span>
-<span class="n">b_max</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># Maximum precip (m/yr) </span>
-<span class="n">rho</span> <span class="o">=</span> <span class="mf">910.0</span>   <span class="c1"># Ice density (kg/m^3)</span>
-<span class="n">g</span>   <span class="o">=</span> <span class="mf">9.81</span>    <span class="c1"># Earth&#39;s gravity (m/s^2)</span>
-<span class="n">fd</span>  <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="mf">1e-16</span>  <span class="c1"># Deformation constant (Pa^-3 y^-1) </span>
+<span class="n">grad_b</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="c1"># Gradient du bilan de masse (sans unité)</span>
+<span class="n">b_max</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># Précipitation maximale (m/an) </span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mf">910.0</span>   <span class="c1"># Densité de la glace (kg/m^3)</span>
+<span class="n">g</span>   <span class="o">=</span> <span class="mf">9.81</span>    <span class="c1"># Gravité terrestre (m/s^2)</span>
+<span class="n">fd</span>  <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="mf">1e-16</span>  <span class="c1"># Constante de déformation (Pa^-3 an^-1) </span>
 
-<span class="c1"># load the topography of Gorner Glacier</span>
+<span class="c1"># Chargement de la topographie du glacier du Gorner</span>
 <span class="n">coarsen</span> <span class="o">=</span> <span class="mi">1</span> 
 <span class="n">l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;topg.dat&#39;</span><span class="p">)[::</span><span class="n">coarsen</span><span class="p">,::</span><span class="n">coarsen</span><span class="p">]</span> 
 <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;thk.dat&#39;</span><span class="p">)[::</span><span class="n">coarsen</span><span class="p">,::</span><span class="n">coarsen</span><span class="p">]</span> 
@@ -779,15 +779,15 @@ document.write(`
 <span class="n">Lx</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">nx</span>
 <span class="n">Ly</span> <span class="o">=</span> <span class="n">dy</span><span class="o">*</span><span class="n">ny</span> 
 
-<span class="n">nout</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Frequency of plotting</span>
-<span class="n">dtmax</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># maximum time step</span>
-<span class="n">dt</span> <span class="o">=</span> <span class="n">dtmax</span>  <span class="c1"># Initial time step</span>
+<span class="n">nout</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Fréquence d&#39;affichage</span>
+<span class="n">dtmax</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># Pas de temps maximum</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">dtmax</span>  <span class="c1"># Pas de temps initial</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>  <span class="c1"># x-coordinates</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>  <span class="c1"># y-coordinates</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>  <span class="c1"># Coordonnées x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>  <span class="c1"># Coordonnées y</span>
  
-<span class="n">s</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="n">h</span>  <span class="c1"># Initial ice surface</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">time_init</span>  <span class="c1"># Initial time</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="n">h</span>  <span class="c1"># Surface initiale de la glace</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">time_init</span>  <span class="c1"># Temps initial</span>
 <span class="n">it</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
@@ -798,60 +798,68 @@ document.write(`
 <span class="n">f2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">h</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="o">/</span><span class="mi">1000</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">ccbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ice Thickness (m)&#39;</span><span class="p">)</span>
   
-<span class="c1"># Loop</span>
+<span class="c1"># Boucle temporelle</span>
 <span class="k">while</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="n">time_final</span><span class="p">:</span>
     
-    <span class="c1"># Update time</span>
+    <span class="c1"># Mise à jour du temps</span>
     <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>
     <span class="n">it</span>   <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="c1"># Calculate H_avg, size (ny-1,nx-1)</span>
+    <span class="c1"># Astuce : pour être sûr que les matrices ont les bonnes dimensions,</span>
+    <span class="c1"># il faut anticiper les dimensions en partant de la fin :</span>
+    <span class="c1"># dhdt doit être de taille (ny-2,nx-2)</span>
+    <span class="c1"># donc qx doit être de taille (ny-2,nx-1) et qy de taille (ny-1,nx-2)</span>
+    <span class="c1"># donc D doit être de taille (ny-1,nx-1)</span>
+    <span class="c1"># donc Snorm et h_avg doivent être de taille (ny-1,nx-1)</span>
+
+    <span class="c1"># Calcul de h_avg, taille (ny-1,nx-1) en moyennant les 4 points autour</span>
     <span class="n">h_avg</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">h</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">h</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
-    <span class="c1"># Compute Snorm, size (ny-1,nx-1)</span>
+    <span class="c1"># Calcul de Snorm, taille (ny-1,nx-1), </span>
+    <span class="c1"># en différenciant d&#39;un côté, moyennant de l&#39;autre, on perd une dimension de chaque côté</span>
     <span class="n">Sx</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">s</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>
     <span class="n">Sy</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">s</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span> <span class="o">/</span> <span class="n">dy</span>
     <span class="n">Sx</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">Sx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">Sx</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:])</span>
     <span class="n">Sy</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">Sy</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">Sy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:])</span>
     <span class="n">Snorm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Sx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Sy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-    <span class="c1"># Compute D, size (ny-1,nx-1)</span>
+    <span class="c1"># Calcul de D, taille (ny-1,nx-1)</span>
     <span class="n">D</span> <span class="o">=</span> <span class="n">fd</span> <span class="o">*</span> <span class="p">(</span><span class="n">rho</span> <span class="o">*</span> <span class="n">g</span><span class="p">)</span><span class="o">**</span><span class="mf">3.0</span> <span class="o">*</span> <span class="n">h_avg</span><span class="o">**</span><span class="mi">5</span> <span class="o">*</span> <span class="n">Snorm</span><span class="o">**</span><span class="mi">2</span>
 
-    <span class="c1"># Compute dt</span>
+    <span class="c1"># Calcul du pas de temps dt qui nécessite D</span>
     <span class="n">dt</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mf">4.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">D</span><span class="p">)),</span> <span class="n">dtmax</span><span class="p">)</span>
 
-    <span class="c1"># Compute qx, size (ny-2,nx-1)</span>
+    <span class="c1"># Calcul de qx, taille (ny-2,nx-1), on perd une dimension à y en moyennant D, et différenciant à x</span>
     <span class="n">qx</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">D</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]))</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>
 
-    <span class="c1"># Compute qy, size (ny-1,nx-2)</span>
+    <span class="c1"># Calcul de qy, taille (ny-1,nx-2), on perd une dimension à x en moyennant D, et différenciant à y</span>
     <span class="n">qy</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">D</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]))</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">s</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dy</span>
 
-    <span class="c1"># Update rule (diffusion), size (ny-2,nx-2)</span>
+    <span class="c1"># Règle de mise à jour (diffusion), taille (ny-2,nx-2)</span>
     <span class="n">dhdt</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span> <span class="p">(</span><span class="n">qx</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">qx</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span> <span class="o">+</span> <span class="p">(</span><span class="n">qy</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span><span class="o">-</span><span class="n">qy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span> <span class="o">/</span> <span class="n">dy</span> <span class="p">)</span>
     <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dhdt</span> 
  
-    <span class="c1"># Change ELA</span>
+    <span class="c1"># Changement de la ligne d&#39;équilibre (ELA)</span>
     <span class="n">Z_ELA</span> <span class="o">=</span> <span class="mi">3200</span> <span class="o">+</span> <span class="nb">max</span><span class="p">((</span><span class="n">time</span> <span class="o">-</span> <span class="mi">2000</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">grad_b</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">Z_ELA</span><span class="p">),</span> <span class="n">b_max</span><span class="p">)</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span> <span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">icemask</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">b</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span>
 
-    <span class="c1"># Update rule (mass balance)</span>
+    <span class="c1"># Règle de mise à jour (bilan de masse)</span>
     <span class="n">h</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">b</span>
 
-    <span class="c1"># Update rule (positive thickness)</span>
+    <span class="c1"># Règle de mise à jour (épaisseur positive)</span>
     <span class="n">h</span><span class="p">[</span><span class="n">h</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="c1"># update surface topography</span>
+    <span class="c1"># Mise à jour de la topographie de surface</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="n">h</span>
   
     <span class="n">ice_volume</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">dx</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">9</span> 
 
-    <span class="c1"># Display</span>
+    <span class="c1"># Affichage</span>
     <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="n">nout</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 
-        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Clear the output in VS Code</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Efface l&#39;affichage dans VS Code</span>
         <span class="n">ax1</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
         <span class="n">ax2</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
   

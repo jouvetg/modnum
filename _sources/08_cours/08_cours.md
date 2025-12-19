@@ -184,15 +184,11 @@ Notons qu'il s'agit juste de changer les indices de A pour la mise a jour.
 
 # Résolution numérique de l'advection 2D
 
+Symétriquement, nous avons en $y$:
 ```python
-dAdx_a  = - Vx * (A[:,1:] - A[:,:-1]) / dx  # taille ny,nx-1
-A[:,1:]  += dAdx_a * dt # si Vx>0
-A[:,:-1] += dAdx_a * dt # si Vx<0
-
 dAdy_a  = - Vy * (A[1:,:] - A[:-1,:]) / dy  # taille ny-1,nx
-A[1:,:]  += dAdy_a * dt # si Vy>0
-A[:-1,:] += dAdy_a * dt # si Vy<0
 ``` 
+Si `Vy>0` alors  `A[1:,:]  += dAdy_a * dt` sinon `A[:-1,:] += dAdy_a * dt`.
 
 ![width:450](./fig/advection_2D_s10.png)
 
