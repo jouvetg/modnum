@@ -28,7 +28,7 @@ color: white
 
 La dérivée de $x(t)$ par rapport à $t$ est la pente (slope) de la tangente au graphe de la fonction $x(t)$ au point $t$. 
 
-On peut écrire aussi la dérivée: $\frac{dx(t)}{dt} = \lim_{\Delta t \to 0} \frac{x(t + \Delta t) - x(t)}{\Delta t}$
+On peut écrire aussi la dérivée: $\frac{dx(t)}{dt} = \lim_{dt \to 0} \frac{x(t + dt) - x(t)}{dt}$
  
 ![height:400px](./fig/def_derivees.png)
 
@@ -124,7 +124,7 @@ for i in range(nt):
 # Discrétisation d’une dérivée
 
 Dérivée continue
-$$\frac{df(t)}{dt} = \lim_{\Delta t \to 0} \frac{f(t + \Delta t) - f(t)}{\Delta t}$$
+$$\frac{df(t)}{dt} = \lim_{dt \to 0} \frac{f(t + dt) - f(t)}{dt}$$
 
 Dérivée discrétisée dans l’espace temporel discret suivant
 

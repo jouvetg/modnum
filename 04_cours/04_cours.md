@@ -116,13 +116,13 @@ où $D$ est le coefficient de diffusion, ou *diffusivité*. Ce coefficient varie
 
 # 2. Principe de conservation (2/2)
 
-Selon le principe de conservation, le changement du nombre de particules *n* dans un bloc entre l’instant *t* et l’instant $t + \Delta t$ peut être calculé à partir de la différence des flux entrants et sortants :
+Selon le principe de conservation, le changement du nombre de particules *n* dans un bloc entre l’instant *t* et l’instant $t + dt$ peut être calculé à partir de la différence des flux entrants et sortants :
 
-$$\Delta n = (q_x - q_{x+\Delta x}) \Delta t.$$ 
+$$\Delta n = (q_x - q_{x+\Delta x}) dt.$$ 
 
 En utilisant la définition de la concentration *C = n/dx*, l'équation précédente s'écrit :
 
-$$\frac{\Delta C}{\Delta t} = \frac{q_x - q_{x+\Delta x}}{\Delta x},$$
+$$\frac{\Delta C}{dt} = \frac{q_x - q_{x+\Delta x}}{\Delta x},$$
 
 qui se transforme en forme continue : 
 
