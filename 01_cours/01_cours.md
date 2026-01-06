@@ -16,7 +16,6 @@ color: white
 
 - Qu'est-ce qu'un modèle numérique ? Exemples issus de la recherche
 - Présentation des outils : Python, VS Code, notebooks
-- Notions fondamentales pour ce cours en Python
 - Initialisation et règle de mise à jour
 - Solution analytique versus solution numérique
  
@@ -49,7 +48,7 @@ Source: J. Gaume, animation: https://youtu.be/7IC_ehdH7ZM
 
 ---
 
-# Example 3 : Avalanche de neige
+# Exemple 3 : Avalanche de neige
 
 ![height:350px](./fig/ex_avalanche_s1.png)
 
@@ -57,30 +56,30 @@ Source: J. Gaume, animation: https://youtu.be/YQ7e06-MZec
 
 ---
 
-# Example 4: Modèles climatiques
+# Exemple 4: Modèles climatiques
 ![](fig/ex_mod_climatique_s1.png)
 Source: http://www.windy.com/
  
 ---
 
-# Example 5: Tectonique des plaques
+# Exemple 5: Tectonique des plaques
 ![](fig/subduction_s3.png)
 Source: Candioti and al., 2022 (UNIL/FGSE)
 
 ---
 
-# Example 6: Evolution du paysage
+# Exemple 6: Évolution du paysage
  
 ![height:350px](./fig/evol_paysage_s3.png)
  
-La formation des paysages inclut i) la tectonique des plaque ii) l’érosion fluviale iii) hillslope process iv) l’érosion glaciaire v) le transport de sédiments
+La formation des paysages inclut i) la tectonique des plaques ii) l’érosion fluviale iii) hillslope process iv) l’érosion glaciaire v) le transport de sédiments
 
 Source: Campforts and al., 2017, Esurf
  
 ---
 
 # Python, VS Code, notebook : c’est quoi ?
-1) Python, l’interpreteur le language
+1) Python, l’interpréteur le language
 ![width:250px](./fig/python_s1.png)
  
 2) Visual Studio code l’éditeur
@@ -90,7 +89,7 @@ Source: Campforts and al., 2017, Esurf
 
 ---
 
-# Document "introdution à python"
+# Document "introduction à Python"
 
 ![](fig/doc_intro_s1.png)
 
@@ -121,7 +120,7 @@ Les exercices du cours sont donnés sous forme de "Jupyter Notebooks".
   - Très utilisé pour le calcul scientifique, l'analyse de données, etc.
 
 - **Fonctionnalités :**
-  - Les cellules de code peuvent être exécutées indépend. (Shift + Enter).
+  - Les cellules de code peuvent être exécutées indépendamment (Shift + Enter).
   - Possibilité d'ajouter des explications en Markdown.
   - Visualisation de graphiques et résultats directement dans le notebook.
 
@@ -140,11 +139,11 @@ Pour faire les exercices, suivez les instructions, notamment en créant un bloc 
 
 ---
 
-# Format “mardown”
+# Format “markdown”
 
-Le Markdown est un langage trés léger qui permet de formater du texte simplement (titres, listes, liens, images, etc.) avec des symboles faciles à utiliser, tout en étant lisible même sans conversion. 
+Le Markdown est un langage très léger qui permet de formater du texte simplement (titres, listes, liens, images, etc.) avec des symboles faciles à utiliser, tout en étant lisible même sans conversion. 
 
-Comme un code il s’excecute (Shift + Enter). Voila un example :
+Comme un code il s’exécute (Shift + Enter). Voilà un exemple :
 
 ![](fig/ex_markdown_s1.png)
 
@@ -154,14 +153,14 @@ On peut aussi écrire du texte, afficher une image, des équations …
  
 # Notions fondamentales en Python pour ce cours
 
-- Import de libraires
+- Import de librairies
 - Indentation 
 - Indexation
-- Incrémentation
+- Slicing
 
 ---
 
-# Import de libraires
+# Import de librairies
 
 ```python
 import numpy as np
@@ -174,16 +173,16 @@ Nous utiliserons dans ce cours principalement ces 3 librairies : `numpy`, `matpl
 
 ---
 
-# Indentation pour les boucles et clauses condit.
+# Indentation 
 
 L'alignement depuis le début de ligne détermine ce qui est inclus dans la boucle. En effet, chaque ligne indentée indique qu'elle fait partie du même bloc de code, ce qui permet à Python de comprendre la structure logique de votre programme.
 
 ```python
 for I in range(10):                    # Ne pas oublier “:”
-    print(I)                           # Ne pas oublier l’identation
+    print(I)                           # Ne pas oublier l’indentation
 
 if i==0:
-    print(‘i est egal a zero’)
+    print(‘i est égal a zero’)
  
 I=0
 while I<10:
@@ -195,7 +194,7 @@ while I<10:
 
 ---
 
-# Indexation en python
+# Indexation
 
 Si nous avons un liste (ou un vecteur `numpy`):
 
@@ -205,10 +204,10 @@ colors = ['red', 'green', 'blue', 'yellow', 'white', 'black']
 
 alors, on peut accéder à chaque élément à partir du début ou de la fin:
 
-- `colors[0]` retrounera `'green'`,  `colors[1]` retrounera `'red'`
+- `colors[0]` retournera `'red'`,  `colors[1]` retournera `'green'`
 - `colors[-1]` retournera `'black'`, `colors[-2]` retournera `'white'`
  
-| Index (postive)  | 0     | 1       | 2      | 3        | 4       | 5       |
+| Index (positive)  | 0     | 1       | 2      | 3        | 4       | 5       |
 |------------------|-------|---------|--------|----------|---------|---------|
 | Index (negative) | -6    | -5      | -4     | -3       | -2      | -1      |
 | Valeur           | 'red' | 'green' | 'blue' | 'yellow' | 'white' | 'black' |
@@ -217,79 +216,13 @@ alors, on peut accéder à chaque élément à partir du début ou de la fin:
 
 ---
 
-# Assignement
-
-Si nous avons un liste (ou un vecteur `numpy`):
-
-```python
-basket = ['bread', 'butter', 'milk'] # definition
-basket[0] = 'cake' # changement du premier élément
-```
-Aprés ces instructions, `basket` retournera `['cake', 'butter', 'milk']`.
-
-Ensuite si l'on effectue
-
-```python
-basket[-1] = 'water'
-```
-alors, `basket` retournera `['cake', 'butter', 'water']` 
-
----
-
 # Slicing
-
-Si nous avons un liste (ou un vecteur `numpy`):
-
-```python
-nums = [10, 20, 30, 40, 50, 60, 70, 80, 90] 
-
-| Index          | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    |
-|----------------|------|------|------|------|------|------|------|------|------|
-| nums           | 10   | 20   | 30   | 40   | 50   | 60   | 70   | 80   | 90   |
-| nums[2:7]      |      |      | .    |  .   | .    | .    |  .   |      |      |
-| Sliced values  |      |      | 30   | 40   | 50   | 60   | 70   |      |      |
-
-nums[2:7] → [30, 40, 50, 60, 70]
-
-some_nums = [30, 40, 50, 60, 70]
-
-| Index          | 0    | 1    | 2    | 3    | 4    |
-|----------------|------|------|------|------|------|
-| some_nums      | 30   | 40   | 50   | 60   | 70   |
-```
-
-**Attention 2 est inclus, 7 est exclus!**
-
----
-
-# Quelques exemples
-
-Voici quelques exemples supplémentaires qui permettent de comprendre les opérations sur les listes ou les vecteurs `numpy` :
-
-```python
->>> nums = [10, 20, 30, 40, 50, 60, 70, 80, 90]
-
->>> nums[:5]          # les 5 premiers elements
-[10, 20, 30, 40, 50]
-
->>> nums[-3:]         # les 3 derniers elements
-[70, 80, 90]
-
->>> nums[:-2]         # tous sauf les n dernier elements
-[10, 20, 30, 40, 50, 60, 70]
-
->>> nums[::2]         # on prend chaque 2 éléments
-[10, 30, 50, 70, 90]
-```
----
-
-# Illustration graphique
 
 Si l'on a un vecteur de taille 9:
 ```
 x                   |-----|-----|-----|-----|-----|-----|-----|-----| 
 ```
-alors nous obtenons les sous-vecteur suivants:
+alors nous obtenons les sous-vecteurs suivants:
 ```
 x[1:]                     |-----|-----|-----|-----|-----|-----|-----|
 x[3:]                                 |-----|-----|-----|-----|-----|
@@ -301,46 +234,6 @@ x[::2]              |-----------|-----------|-----------|-----------|
 x[::4]              |-----------------------|-----------------------|
 ```
 
----
-
-#  Sélection et modification d'éléments
-
-Voila encore d'autres exemples:
-
-```python
-import numpy as np
-
-vecteur = np.array([3, 7, 2, 9, 4, 6]) # Créer un tableau NumPy
-
-print(vecteur)
->>> [3, 7, 2, 9, 4, 6]
-
-elements_selectionnes = vecteur[vecteur > 5] # Sélectionne les élts > à 5
- 
-print(elements_selectionnes)
->>> [7, 9, 6]
-
-vecteur[vecteur > 5] = 1 # Assigne 1 aux éléments supérieurs à 5
-
-print(vecteur)
->>> [3, 1, 2, 1, 4, 1]
-```
-
----
-
-# Incrémentation
-
-Dans ce cours, il sera souvent question de mettre à jour des variables modélisées. Pour cela, il sera commode d'utiliser l'opérateur d'**incrémentation**, qui permet d'ajouter ou d'enlever quelque chose à une variable. Par exemple :
-
-```python
-I += 1     # est équivalent à I = I + 1
-```
-Cela fonctionne aussi :
-```python
-I -= 1     # est équivalent à I = I - 1
-I *= 10    # est équivalent à I = I * 10
-I /= 2     # est équivalent à I = I / 2
-```
 
 ---
 
@@ -353,7 +246,7 @@ time = 0 # seconde
 dt   = 1 # seconde
 nt   = 1000
 
-for it in range(nt): # Fait une boucle qui itére 1000 fois
+for it in range(nt): # Fait une boucle qui itère 1000 fois
   time += dt
   print(f"Iteration {it}: The time is {time}")
 ```
@@ -368,15 +261,13 @@ Par exemple:
  
 $$ 
 \begin{align}
-\frac{\partial F}{\partial t} & = {\rm Salaire} - {\rm Depenses} & \textrm{(Equation de la "fortune" F)} \\
- \frac{\partial X}{\partial t} & = {\rm Vitesse} & \textrm{(Equation de la "position" X )} \\
- \frac{\partial C}{\partial x} & = \frac{\partial^2 C}{\partial^2 x}  & \textrm{(Equation de diffusion pour la "concentration" C)} \\
- \frac{\partial T}{\partial t} & =  \frac{\partial^2 C}{\partial^2 x} - V \frac{\partial T}{\partial x}  &\textrm{(Equation de diffusion-advection  pour la "temperature" T)}
+\frac{\partial F}{\partial t} & = {\rm Salaire} - {\rm Depenses} & \textrm{(Équation de la "fortune" F)} \\
+ \frac{\partial X}{\partial t} & = {\rm Vitesse} & \textrm{(Équation de la "position" X )} \\
+ \frac{\partial C}{\partial x} & = \frac{\partial^2 C}{\partial^2 x}  & \textrm{(Équation de diffusion pour la "concentration" C)} \\
+ \frac{\partial T}{\partial t} & =  \frac{\partial^2 C}{\partial^2 x} - V \frac{\partial T}{\partial x}  &\textrm{(Équation de diffusion-advection  pour la "temperature" T)}
 \end{align}
 $$
  
-
-
 ---
 
 # Tous les modèles de ce cours s'implémentent

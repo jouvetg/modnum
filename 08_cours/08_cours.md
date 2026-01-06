@@ -9,12 +9,9 @@ color: white
 
 # Cours 8
 
-
 ![](../illu_mod_num_s.png)
 
 ---
-
-Test 1: Moyenne a 4.8, Median à 5.25.
 
 # Objectifs du cours
  
@@ -65,78 +62,7 @@ Par commodité, nous utilisons des lettres minuscules pour désigner des vecteur
 
 ---
 
-# Illustration de la fonction `np.meshgrid`
- 
-```
->>> x = np.linspace(0,10,11)  
-array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.])
->>> y = np.linspace(0,3,4)    
-array([ 0., 1., 2., 3.]) 
-```
-
-```python 
-X,Y = np.meshgrid(x,y)    # Création de X,Y
-``` 
-
-```
->>> X
-array([[ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.],
-       [ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.], 
-       [ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.],
-       [ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.]])
->>> Y
-array([[ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
-       [ 1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.],
-       [ 2.,  2.,  2.,  2.,  2.,  2.,  2.,  2.,  2.,  2.,  2.],
-       [ 3.,  3.,  3.,  3.,  3.,  3.,  3.,  3.,  3.,  3.,  3.]])
-```
-
----
-
-# Utilisation de la fonction `np.meshgrid`
-
-Définis ainsi, `X` et `Y` sont des matrices dont les valeurs de l'élément `(i,j)`, c'est-à-dire `X[j,i]` et `Y[j,i]`, sont exactement les coordonnées \(x, y\) du point de discrétisation correspondant.
-
-Par exemple, on définit ici la fonction distance au carré au point du milieu :
-
-```python
-A = (X-5)**2 + (Y-2)**2 
-```
-
-```
->>> A
-array([[29., 20., 13.,  8.,  5.,  4.,  5.,  8., 13., 20., 29.],
-       [26., 17., 10.,  5.,  2.,  1.,  2.,  5., 10., 17., 26.],
-       [25., 16.,  9.,  4.,  1.,  0.,  1.,  4.,  9., 16., 25.],
-       [26., 17., 10.,  5.,  2.,  1.,  2.,  5., 10., 17., 26.]])
-```
-
-On peut donc initialiser nos variables 2D de la même manière.
-
----
-
-# Utilisation de la fonction `np.meshgrid`
-
-Ainsi si l'on cherche a indentifier les indices de la matrice dont les points du domaines sont situés à une distance inférieure à 1 mètre du point (x,y)=(5,2), on peut utiliser le formalisme suivant:
- 
-```python
-I = (X-5)**2 + (Y-2)**2 < 1**2
->>> I
-array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]])
-```
-Nous pouvons donner à ces points une certaine valeur ainsi:
-
-```
->>> B = np.ones((ny,nx))
->>> B[I] = 500
-```
- 
----
-
-# Equation d'advection-diffusion en 2D
+# Équation d'advection-diffusion en 2D
 
 Nous pouvons introduire des termes d'advection à côté de ceux de diffusion. Cela peut servir notamment à modéliser la propagation d'un polluant par diffusion et advection dans un espace 2D.
 
@@ -178,7 +104,7 @@ Dans le cas inverse, si $V_x<0$, alors la mise à jour avec un schéma upwind s'
 dAdx_a  = - Vx * (A[:,1:] - A[:,:-1]) / dx  # taille ny,nx-1
 A[:,:-1] += dAdx_a * dt                     # taille ny,nx-1
 ```
-Notons qu'il s'agit juste de changer les indices de A pour la mise a jour.
+Notons qu'il s'agit juste de changer les indices de A pour la mise à jour.
 
 ---
 

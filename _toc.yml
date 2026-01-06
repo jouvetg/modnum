@@ -2,40 +2,75 @@
 format: jb-book
 root: syllabus
 
-chapters:
-  - file: 00_install/00_install
-  - file: 00_intro_python/00_intro_python.ipynb
+parts:
+  - caption: Installation et Introduction
+    chapters:
+      - file: 00_install/00_install
+      - file: 00_intro_python/00_intro_python.ipynb
 
-  - file: 01_cours/01_cours
-  - file: 01_exercice/01_exercice
+  - caption: Session 1
+    chapters:
+      - file: 01_cours/01_cours
+      - file: 01_tutoriel/01_tutoriel
+      - file: 01_exercice/01_exercice
 
-  - file: 02_cours/02_cours
-  - file: 02_exercice/02_exercice
+  - caption: Session 2
+    chapters:
+      - file: 02_cours/02_cours
+      - file: 02_tutoriel/02_tutoriel
+      - file: 02_exercice/02_exercice
 
-  - file: 03_cours/03_cours
-  - file: 03_exercice/03_exercice
+  - caption: Session 3
+    chapters:
+      - file: 03_cours/03_cours
+      - file: 03_tutoriel/03_tutoriel
+      - file: 03_exercice/03_exercice
 
-  - file: 04_cours/04_cours
-  - file: 04_exercice/04_exercice
+  - caption: Session 4
+    chapters:
+      - file: 04_cours/04_cours
+      - file: 04_tutoriel/04_tutoriel
+      - file: 04_exercice/04_exercice
 
-  - file: 05_cours/05_cours
-  - file: 05_exercice/05_exercice
+  - caption: Session 5
+    chapters:
+      - file: 05_cours/05_cours
+      - file: 05_tutoriel/05_tutoriel
+      - file: 05_exercice/05_exercice
 
-  - file: 06_cours/06_cours
-  - file: 06_exercice/06_exercice
+  - caption: Session 6
+    chapters:
+      - file: 06_cours/06_cours
+      - file: 06_tutoriel/06_tutoriel
+      - file: 06_exercice/06_exercice
 
-  - file: 07_cours/07_cours
-  - file: 07_exercice/07_exercice
+  - caption: Session 7
+    chapters:
+      - file: 07_cours/07_cours
+      - file: 07_tutoriel/07_tutoriel
+      - file: 07_exercice/07_exercice
 
-  - file: 08_cours/08_cours
-  - file: 08_exercice/08_exercice
+  - caption: Session 8
+    chapters:
+      - file: 08_cours/08_cours
+      - file: 08_tutoriel/08_tutoriel
+      - file: 08_exercice/08_exercice
 
-  - file: 09_cours/09_cours
-  - file: 09_exercice/09_exercice
+  - caption: Session 9
+    chapters:
+      - file: 09_cours/09_cours
+      - file: 09_tutoriel/09_tutoriel
+      - file: 09_exercice/09_exercice
 
-  - file: 10_cours/10_cours
-  - file: 10_exercice/10_exercice
+  - caption: Session 10
+    chapters:
+      - file: 10_cours/10_cours
+      - file: 10_tutoriel/10_tutoriel
+      - file: 10_exercice/10_exercice
 
-  - file: 11_cours/11_cours
-  - file: 11_exercice/11_exercice
+  - caption: Session 11
+    chapters:
+      - file: 11_cours/11_cours
+      - file: 11_tutoriel/11_tutoriel
+      - file: 11_exercice/11_exercice
 

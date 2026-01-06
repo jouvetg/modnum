@@ -16,7 +16,7 @@ color: white
 
 # Objectifs du cours
  
-- Retour sur les conditions initiales
+- Illustration d'un cmaps complexe d'advection
 - Problème d'advection-diffusion-réaction en 2D 
 - Advection non uniforme
 - Discrétisation du terme d'advection en 2D (cas général)
@@ -26,58 +26,13 @@ color: white
 
 ---
 
-# Retour sur les conditions initiales
-
-Nous avons vu que la fonction `np.meshgrid` peut être très utile pour l'initialisation de variables. Par exemple, le code suivant définit une matrice `d` dont les valeurs sont le nombre de cellules distantes du centre \((5, 3)\). Ensuite, on attribue la valeur 1 aux éléments qui sont à moins de 1 du centre, les autres étant laissés à 0. Cela peut être utile pour définir une pollution localisée dans une région.
-
-
-```python
-Lx = 10 ; nx = 11
-Ly = 3  ; ny = 4
-
-x = np.linspace(0,Lx,nx)  
-y = np.linspace(0,Ly,ny)    
-X, Y = np.meshgrid(x, y)
-
-C = np.zeros((ny,nx))
-d = np.maximum(np.abs(X - 5) , np.abs(Y - 2))
-C[d <= 1 ] = 1
-```
-
----
-
-# Résultat du code précédent 
-
-```
->>> X
-      array([[0., 1., 2., 3., 4., 5., 6., 7., 8., 9., 10.],
-             [0., 1., 2., 3., 4., 5., 6., 7., 8., 9., 10.],
-             [0., 1., 2., 3., 4., 5., 6., 7., 8., 9., 10.],
-             [0., 1., 2., 3., 4., 5., 6., 7., 8., 9., 10.]])
->>> Y
-      array([[0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
-             [1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.],
-             [2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2.],
-             [3., 3., 3., 3., 3., 3., 3., 3., 3., 3., 3.]])
->>> d
-      array([[5., 4., 3., 2., 2., 2., 2., 2., 3., 4., 5.],
-             [5., 4., 3., 2., 1., 1., 1., 2., 3., 4., 5.],
-             [5., 4., 3., 2., 1., 0., 1., 2., 3., 4., 5.],
-             [5., 4., 3., 2., 1., 1., 1., 2., 3., 4., 5.]])
->>> C
-      array([[0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
-             [0., 0., 0., 0., 1., 1., 1., 0., 0., 0., 0.],
-             [0., 0., 0., 0., 1., 1., 1., 0., 0., 0., 0.],
-             [0., 0., 0., 0., 1., 1., 1., 0., 0., 0., 0.]])
-```
-
----
-
-# Champs de vitesse 2D non uniforme
+# Champs de vitesse 2D complexe / non uniforme
  
+Dans ce cours, le champ de vitesse $(V_x,V_y)$ est arbitraire, comme l'illustre cette figure qui représente un courant marin. 
+
 ![width:450](./fig/complex-current.png)
 
-Dans ce cours, le champ de vitesse $(V_x,V_y)$ est arbitraire (non nécessairement uniforme ou constant), comme l'illustre cette figure. Notons que pour la résolution numérique, il sera nécessaire que `Vx` ait une taille `(ny,nx-1)` tandis que `Vy` ait une taille `(ny-1,nx)`, puisque `Vx` multiplie $\frac{\partial C}{\partial x}$.
+Pour la résolution numérique, il sera nécessaire que `Vx` ait une taille `(ny,nx-1)` tandis que `Vy` ait une taille `(ny-1,nx)`, puisque `Vx` multiplie $\frac{\partial C}{\partial x}$.
 
 ---
 
@@ -92,7 +47,7 @@ V_y &=& -\sin \left( \theta \right) \ V. \label{vyq3}
 \end{eqnarray}
 $ 
 
-Voila le code qui permet de définir les champs de vitesses en Python: 
+Voilà le code qui permet de définir les champs de vitesses en Python: 
 
 ```python
 V = 1                                # m/s
@@ -108,7 +63,7 @@ Vy = -np.sin(np.radians((theta[:, 1:]+theta[:, :-1]) / 2)) * V # taille (ny-1,nx
 
 ---
 
-# Equation d'avection-diffusion-réaction 2D
+# Équation d'avection-diffusion-réaction 2D
 
 En ajoutant un dernier terme de réaction aux équations d'advection-diffusion, nous ajoutons un terme de force (ou forçage)qui nous permet (dans le cas de la concentration) d'ajouter un contrôle de dégradation. Les équations deviennent :
 

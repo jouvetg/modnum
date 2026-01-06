@@ -15,7 +15,7 @@ color: white
  
 # Objectifs du cours
  
-- Equation de diffusion de la température
+- Équation de diffusion de la température
 - Conditions de bords
 - Code multi-questions
 - Sauvegarde des résultats
@@ -47,7 +47,7 @@ ou D est le paramètre de diffusion.
 
 ---
 
-# Equation de la diffusion thermique
+# Équation de la diffusion thermique
 
 → Loi de Fourier
 
@@ -200,7 +200,7 @@ C[:int(nx/2)] = 0
 # Boucle temporelle
 for it in range(nt):
 
-  # Mise a jour condition equation de diffusion
+  # Mise a jour condition équation de diffusion
   q       = - D * (C[1:] - C[:-1]) / dx
   dCdt    = - (q[1:] - q[:-1]) / dx
   C[1:-1] += dCdt * dt
@@ -233,7 +233,7 @@ if somme < tol:
      break
 ```
 
-Notons qu'en Python, il est nécessaire de demander une copie via `T_old = np.copy(T)`, puisque la commande `T_old = T` ne le fera pas, car `T_old` sera modifié lorsque `T` sera mis à jour (Python copie par défaut des "adresses").
+Notons qu'en Python, il est nécessaire de demander une copie via `T_old = np.copy(T)`, puisque la commande `T_old = T` ne le fera pas, car `T_old` sera modifié lorsque `T` sera mise à jour (Python copie par défaut des "adresses").
 
 ---
 

@@ -63,7 +63,7 @@ Nous introduisons les notations suivantes:
 
 ---
 
-# Equation de la glace en 1D
+# Équation de la glace en 1D
 
 ![width:450](./fig/conservation.png)
 
@@ -89,7 +89,7 @@ où $s_\mathrm{ELA}$ est la ligne d'équilibre qui separe les zones d'ablation/a
 
 --- 
 
-# Equation non-linéaire
+# Équation non-linéaire
 
 L'équation de la glace est une équation de diffusion, sa spécificité est que la diffusion n'est plus qu'un paramètre constant, mais dépend de la solution:
 $$D(h) = f_d (\rho g)^3 h^5 \left( \frac{\partial s}{\partial x} \right)^2.$$
@@ -102,7 +102,7 @@ Une conséquence majeure de la non-linéarité de l'équation lors de sa résolu
 
 # Pas de temps et stabilité
 
-Puisque `D` change constamment, le pas de temps $dt$, qui dépend de la valeur maximale de `D`, doit également être mis à jour dans la boucle :
+Puisque `D` change constamment, le pas de temps $dt$, qui dépend de la valeur maximale de `D`, doit également être mise à jour dans la boucle :
 
 $$ dt = \min \left\{ dt_{max} ,  \frac{dx^2}{2.1 \times \max(|D|)} \right\}. $$
 
