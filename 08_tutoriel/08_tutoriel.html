@@ -1,0 +1,1685 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tutoriel 8 &#8212; Modelisation Numerique</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '08_tutoriel/08_tutoriel';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercices 8" href="../08_exercice/08_exercice.html" />
+    <link rel="prev" title="Cours 8" href="../08_cours/08_cours.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../syllabus.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modelisation Numerique - Home"/>
+    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modelisation Numerique - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../syllabus.html">
+                    Syllabus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation et Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Installer VS Code + Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_cours/01_cours.html">Cours 1</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02_tutoriel/02_tutoriel.html">Tutoriel 2</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02_exercice/02_exercice.html">Exercices 2</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03_cours/03_cours.html">Cours 3</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../04_exercice/04_exercice.html">Exercices 4</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 5</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05_cours/05_cours.html">Cours 5</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06_tutoriel/06_tutoriel.html">Tutoriel 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_exercice/06_exercice.html">Exercices 6</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../07_cours/07_cours.html">Cours 7</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutoriel 8</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../08_exercice/08_exercice.html">Exercices 8</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 9</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../09_cours/09_cours.html">Cours 9</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../10_tutoriel/10_tutoriel.html">Tutoriel 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_exercice/10_exercice.html">Exercices 10</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../11_cours/11_cours.html">Cours 11</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../11_tutoriel/11_tutoriel.html">Tutoriel 11</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../11_exercice/11_exercice.html">Exercices 11</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/08_tutoriel/08_tutoriel.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tutoriel 8</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 8</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#construire-des-matrices-2d-avec-np-meshgrid">Construire des matrices 2D avec <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-et-creation-des-vecteurs-de-base">1. Import et création des vecteurs de base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-des-matrices-2d-avec-meshgrid">2. Création des matrices 2D avec <code class="docutils literal notranslate"><span class="pre">meshgrid</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-des-matrices-x-et-y">3. Visualisation des matrices X et Y</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-calcul-d-une-fonction-2d-distance-au-centre">4. Application : Calcul d’une fonction 2D (distance au centre)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-selectionner-une-zone-carree">5. Application : Sélectionner une zone carrée</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-initialiser-une-pollution-ou-temperature-localisee">6. Application : Initialiser une pollution ou température localisée</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-d-autres-fonctions-2d-utiles">7. Exemples d’autres fonctions 2D utiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-zone-circulaire-au-lieu-d-un-carre">8. Alternative : Zone circulaire au lieu d’un carré</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparaison-des-deux-methodes">Comparaison des deux méthodes :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-8">
+<h1>Tutoriel 8<a class="headerlink" href="#tutoriel-8" title="Link to this heading">#</a></h1>
+<p><a class="reference internal" href="#"><span class="std std-doc">Télécharger le tutoriel</span></a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="construire-des-matrices-2d-avec-np-meshgrid">
+<h1>Construire des matrices 2D avec <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code><a class="headerlink" href="#construire-des-matrices-2d-avec-np-meshgrid" title="Link to this heading">#</a></h1>
+<p><strong>Objectif</strong> : Apprendre à créer et manipuler facilement des matrices 2D pour représenter des champs physiques (température, altitude, distance, etc.).</p>
+<p><strong>Pourquoi c’est important ?</strong> Dans vos modèles numériques 2D, vous devez souvent :</p>
+<ul class="simple">
+<li><p>Initialiser des champs de variables (température, pression, etc.)</p></li>
+<li><p>Calculer des distances ou des fonctions de position</p></li>
+<li><p>Appliquer des conditions aux frontières ou dans des zones spécifiques</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code> vous permet de faire tout cela <strong>sans boucles</strong> ! 🚀</p>
+<section id="import-et-creation-des-vecteurs-de-base">
+<h2>1. Import et création des vecteurs de base<a class="headerlink" href="#import-et-creation-des-vecteurs-de-base" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Créons d&#39;abord les vecteurs de coordonnées</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">33</span><span class="p">)</span>  <span class="c1"># 33 points de x=0 à x=10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>    <span class="c1"># 25 points de y=0 à y=3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vecteur x :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Vecteur y :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Taille : nx = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">, ny = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vecteur x :
+[ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+  2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+  5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+  8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+
+Vecteur y :
+[0.    0.125 0.25  0.375 0.5   0.625 0.75  0.875 1.    1.125 1.25  1.375
+ 1.5   1.625 1.75  1.875 2.    2.125 2.25  2.375 2.5   2.625 2.75  2.875
+ 3.   ]
+
+Taille : nx = 33, ny = 25
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="creation-des-matrices-2d-avec-meshgrid">
+<h2>2. Création des matrices 2D avec <code class="docutils literal notranslate"><span class="pre">meshgrid</span></code><a class="headerlink" href="#creation-des-matrices-2d-avec-meshgrid" title="Link to this heading">#</a></h2>
+<p><strong>La question</strong> : Comment transformer ces deux vecteurs 1D (<code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code>) en matrices 2D ?</p>
+<p><strong>La réponse</strong> : <code class="docutils literal notranslate"><span class="pre">np.meshgrid(x,</span> <span class="pre">y)</span></code> crée deux matrices <code class="docutils literal notranslate"><span class="pre">X</span></code> et <code class="docutils literal notranslate"><span class="pre">Y</span></code> de taille <code class="docutils literal notranslate"><span class="pre">(ny,</span> <span class="pre">nx)</span></code> où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">X[j,</span> <span class="pre">i]</span></code> contient la coordonnée <strong>x</strong> du point de grille <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">j)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y[j,</span> <span class="pre">i]</span></code> contient la coordonnée <strong>y</strong> du point de grille <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">j)</span></code></p></li>
+</ul>
+<p>👉 <strong>Autrement dit</strong> : Les valeurs de <code class="docutils literal notranslate"><span class="pre">X</span></code> et <code class="docutils literal notranslate"><span class="pre">Y</span></code> à la position <code class="docutils literal notranslate"><span class="pre">[j,</span> <span class="pre">i]</span></code> vous donnent les coordonnées spatiales réelles de ce point !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Création des matrices 2D avec grille</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matrice X (coordonnées x répétées sur les lignes) :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Matrice Y (coordonnées y répétées sur les colonnes) :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Taille des matrices : </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> (ny=</span><span class="si">{</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, nx=</span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrice X (coordonnées x répétées sur les lignes) :
+[[ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]
+ [ 0.      0.3125  0.625   0.9375  1.25    1.5625  1.875   2.1875  2.5
+   2.8125  3.125   3.4375  3.75    4.0625  4.375   4.6875  5.      5.3125
+   5.625   5.9375  6.25    6.5625  6.875   7.1875  7.5     7.8125  8.125
+   8.4375  8.75    9.0625  9.375   9.6875 10.    ]]
+
+Matrice Y (coordonnées y répétées sur les colonnes) :
+[[0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.
+  0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.
+  0.    0.    0.    0.    0.    0.    0.    0.    0.   ]
+ [0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125
+  0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125
+  0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125]
+ [0.25  0.25  0.25  0.25  0.25  0.25  0.25  0.25  0.25  0.25  0.25  0.25
+  0.25  0.25  0.25  0.25  0.25  0.25  0.25  0.25  0.25  0.25  0.25  0.25
+  0.25  0.25  0.25  0.25  0.25  0.25  0.25  0.25  0.25 ]
+ [0.375 0.375 0.375 0.375 0.375 0.375 0.375 0.375 0.375 0.375 0.375 0.375
+  0.375 0.375 0.375 0.375 0.375 0.375 0.375 0.375 0.375 0.375 0.375 0.375
+  0.375 0.375 0.375 0.375 0.375 0.375 0.375 0.375 0.375]
+ [0.5   0.5   0.5   0.5   0.5   0.5   0.5   0.5   0.5   0.5   0.5   0.5
+  0.5   0.5   0.5   0.5   0.5   0.5   0.5   0.5   0.5   0.5   0.5   0.5
+  0.5   0.5   0.5   0.5   0.5   0.5   0.5   0.5   0.5  ]
+ [0.625 0.625 0.625 0.625 0.625 0.625 0.625 0.625 0.625 0.625 0.625 0.625
+  0.625 0.625 0.625 0.625 0.625 0.625 0.625 0.625 0.625 0.625 0.625 0.625
+  0.625 0.625 0.625 0.625 0.625 0.625 0.625 0.625 0.625]
+ [0.75  0.75  0.75  0.75  0.75  0.75  0.75  0.75  0.75  0.75  0.75  0.75
+  0.75  0.75  0.75  0.75  0.75  0.75  0.75  0.75  0.75  0.75  0.75  0.75
+  0.75  0.75  0.75  0.75  0.75  0.75  0.75  0.75  0.75 ]
+ [0.875 0.875 0.875 0.875 0.875 0.875 0.875 0.875 0.875 0.875 0.875 0.875
+  0.875 0.875 0.875 0.875 0.875 0.875 0.875 0.875 0.875 0.875 0.875 0.875
+  0.875 0.875 0.875 0.875 0.875 0.875 0.875 0.875 0.875]
+ [1.    1.    1.    1.    1.    1.    1.    1.    1.    1.    1.    1.
+  1.    1.    1.    1.    1.    1.    1.    1.    1.    1.    1.    1.
+  1.    1.    1.    1.    1.    1.    1.    1.    1.   ]
+ [1.125 1.125 1.125 1.125 1.125 1.125 1.125 1.125 1.125 1.125 1.125 1.125
+  1.125 1.125 1.125 1.125 1.125 1.125 1.125 1.125 1.125 1.125 1.125 1.125
+  1.125 1.125 1.125 1.125 1.125 1.125 1.125 1.125 1.125]
+ [1.25  1.25  1.25  1.25  1.25  1.25  1.25  1.25  1.25  1.25  1.25  1.25
+  1.25  1.25  1.25  1.25  1.25  1.25  1.25  1.25  1.25  1.25  1.25  1.25
+  1.25  1.25  1.25  1.25  1.25  1.25  1.25  1.25  1.25 ]
+ [1.375 1.375 1.375 1.375 1.375 1.375 1.375 1.375 1.375 1.375 1.375 1.375
+  1.375 1.375 1.375 1.375 1.375 1.375 1.375 1.375 1.375 1.375 1.375 1.375
+  1.375 1.375 1.375 1.375 1.375 1.375 1.375 1.375 1.375]
+ [1.5   1.5   1.5   1.5   1.5   1.5   1.5   1.5   1.5   1.5   1.5   1.5
+  1.5   1.5   1.5   1.5   1.5   1.5   1.5   1.5   1.5   1.5   1.5   1.5
+  1.5   1.5   1.5   1.5   1.5   1.5   1.5   1.5   1.5  ]
+ [1.625 1.625 1.625 1.625 1.625 1.625 1.625 1.625 1.625 1.625 1.625 1.625
+  1.625 1.625 1.625 1.625 1.625 1.625 1.625 1.625 1.625 1.625 1.625 1.625
+  1.625 1.625 1.625 1.625 1.625 1.625 1.625 1.625 1.625]
+ [1.75  1.75  1.75  1.75  1.75  1.75  1.75  1.75  1.75  1.75  1.75  1.75
+  1.75  1.75  1.75  1.75  1.75  1.75  1.75  1.75  1.75  1.75  1.75  1.75
+  1.75  1.75  1.75  1.75  1.75  1.75  1.75  1.75  1.75 ]
+ [1.875 1.875 1.875 1.875 1.875 1.875 1.875 1.875 1.875 1.875 1.875 1.875
+  1.875 1.875 1.875 1.875 1.875 1.875 1.875 1.875 1.875 1.875 1.875 1.875
+  1.875 1.875 1.875 1.875 1.875 1.875 1.875 1.875 1.875]
+ [2.    2.    2.    2.    2.    2.    2.    2.    2.    2.    2.    2.
+  2.    2.    2.    2.    2.    2.    2.    2.    2.    2.    2.    2.
+  2.    2.    2.    2.    2.    2.    2.    2.    2.   ]
+ [2.125 2.125 2.125 2.125 2.125 2.125 2.125 2.125 2.125 2.125 2.125 2.125
+  2.125 2.125 2.125 2.125 2.125 2.125 2.125 2.125 2.125 2.125 2.125 2.125
+  2.125 2.125 2.125 2.125 2.125 2.125 2.125 2.125 2.125]
+ [2.25  2.25  2.25  2.25  2.25  2.25  2.25  2.25  2.25  2.25  2.25  2.25
+  2.25  2.25  2.25  2.25  2.25  2.25  2.25  2.25  2.25  2.25  2.25  2.25
+  2.25  2.25  2.25  2.25  2.25  2.25  2.25  2.25  2.25 ]
+ [2.375 2.375 2.375 2.375 2.375 2.375 2.375 2.375 2.375 2.375 2.375 2.375
+  2.375 2.375 2.375 2.375 2.375 2.375 2.375 2.375 2.375 2.375 2.375 2.375
+  2.375 2.375 2.375 2.375 2.375 2.375 2.375 2.375 2.375]
+ [2.5   2.5   2.5   2.5   2.5   2.5   2.5   2.5   2.5   2.5   2.5   2.5
+  2.5   2.5   2.5   2.5   2.5   2.5   2.5   2.5   2.5   2.5   2.5   2.5
+  2.5   2.5   2.5   2.5   2.5   2.5   2.5   2.5   2.5  ]
+ [2.625 2.625 2.625 2.625 2.625 2.625 2.625 2.625 2.625 2.625 2.625 2.625
+  2.625 2.625 2.625 2.625 2.625 2.625 2.625 2.625 2.625 2.625 2.625 2.625
+  2.625 2.625 2.625 2.625 2.625 2.625 2.625 2.625 2.625]
+ [2.75  2.75  2.75  2.75  2.75  2.75  2.75  2.75  2.75  2.75  2.75  2.75
+  2.75  2.75  2.75  2.75  2.75  2.75  2.75  2.75  2.75  2.75  2.75  2.75
+  2.75  2.75  2.75  2.75  2.75  2.75  2.75  2.75  2.75 ]
+ [2.875 2.875 2.875 2.875 2.875 2.875 2.875 2.875 2.875 2.875 2.875 2.875
+  2.875 2.875 2.875 2.875 2.875 2.875 2.875 2.875 2.875 2.875 2.875 2.875
+  2.875 2.875 2.875 2.875 2.875 2.875 2.875 2.875 2.875]
+ [3.    3.    3.    3.    3.    3.    3.    3.    3.    3.    3.    3.
+  3.    3.    3.    3.    3.    3.    3.    3.    3.    3.    3.    3.
+  3.    3.    3.    3.    3.    3.    3.    3.    3.   ]]
+
+Taille des matrices : (25, 33) (ny=25, nx=33)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualisation-des-matrices-x-et-y">
+<h2>3. Visualisation des matrices X et Y<a class="headerlink" href="#visualisation-des-matrices-x-et-y" title="Link to this heading">#</a></h2>
+<p>Pour mieux comprendre, visualisons ces matrices :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Affichage de X</span>
+<span class="n">im1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Matrice X (coordonnées x)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Valeur de x&quot;</span><span class="p">)</span>
+
+<span class="c1"># Affichage de Y</span>
+<span class="n">im2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Matrice Y (coordonnées y)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Valeur de y&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a604779719e845fb70289949ab5179f214e90e1922b8de804f8a1148350f50ac.png" src="../_images/a604779719e845fb70289949ab5179f214e90e1922b8de804f8a1148350f50ac.png" />
+</div>
+</div>
+</section>
+<section id="application-calcul-d-une-fonction-2d-distance-au-centre">
+<h2>4. Application : Calcul d’une fonction 2D (distance au centre)<a class="headerlink" href="#application-calcul-d-une-fonction-2d-distance-au-centre" title="Link to this heading">#</a></h2>
+<p>Maintenant que nous avons <code class="docutils literal notranslate"><span class="pre">X</span></code> et <code class="docutils literal notranslate"><span class="pre">Y</span></code>, nous pouvons calculer <strong>n’importe quelle fonction de (x, y)</strong> très facilement !</p>
+<p><strong>Exemple</strong> : Calculons la distance au carré par rapport au point central <code class="docutils literal notranslate"><span class="pre">(x₀,</span> <span class="pre">y₀)</span> <span class="pre">=</span> <span class="pre">(5,</span> <span class="pre">2)</span></code> :</p>
+<div class="math notranslate nohighlight">
+\[d^2 = (x - x_0)^2 + (y - y_0)^2\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Point central</span>
+<span class="n">x0</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span>
+
+<span class="c1"># Calcul de la distance au carré (sans boucles !)</span>
+<span class="n">dist2</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matrice des distances au carré :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dist2</span><span class="p">)</span>
+
+<span class="c1"># Visualisation</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dist2</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="s1">&#39;k*&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Centre (</span><span class="si">{</span><span class="n">x0</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">y0</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Distance au carré par rapport au centre&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Distance² (m²)&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrice des distances au carré :
+[[2.90000000e+01 2.59726562e+01 2.31406250e+01 2.05039062e+01
+  1.80625000e+01 1.58164062e+01 1.37656250e+01 1.19101562e+01
+  1.02500000e+01 8.78515625e+00 7.51562500e+00 6.44140625e+00
+  5.56250000e+00 4.87890625e+00 4.39062500e+00 4.09765625e+00
+  4.00000000e+00 4.09765625e+00 4.39062500e+00 4.87890625e+00
+  5.56250000e+00 6.44140625e+00 7.51562500e+00 8.78515625e+00
+  1.02500000e+01 1.19101562e+01 1.37656250e+01 1.58164062e+01
+  1.80625000e+01 2.05039062e+01 2.31406250e+01 2.59726562e+01
+  2.90000000e+01]
+ [2.85156250e+01 2.54882812e+01 2.26562500e+01 2.00195312e+01
+  1.75781250e+01 1.53320312e+01 1.32812500e+01 1.14257812e+01
+  9.76562500e+00 8.30078125e+00 7.03125000e+00 5.95703125e+00
+  5.07812500e+00 4.39453125e+00 3.90625000e+00 3.61328125e+00
+  3.51562500e+00 3.61328125e+00 3.90625000e+00 4.39453125e+00
+  5.07812500e+00 5.95703125e+00 7.03125000e+00 8.30078125e+00
+  9.76562500e+00 1.14257812e+01 1.32812500e+01 1.53320312e+01
+  1.75781250e+01 2.00195312e+01 2.26562500e+01 2.54882812e+01
+  2.85156250e+01]
+ [2.80625000e+01 2.50351562e+01 2.22031250e+01 1.95664062e+01
+  1.71250000e+01 1.48789062e+01 1.28281250e+01 1.09726562e+01
+  9.31250000e+00 7.84765625e+00 6.57812500e+00 5.50390625e+00
+  4.62500000e+00 3.94140625e+00 3.45312500e+00 3.16015625e+00
+  3.06250000e+00 3.16015625e+00 3.45312500e+00 3.94140625e+00
+  4.62500000e+00 5.50390625e+00 6.57812500e+00 7.84765625e+00
+  9.31250000e+00 1.09726562e+01 1.28281250e+01 1.48789062e+01
+  1.71250000e+01 1.95664062e+01 2.22031250e+01 2.50351562e+01
+  2.80625000e+01]
+ [2.76406250e+01 2.46132812e+01 2.17812500e+01 1.91445312e+01
+  1.67031250e+01 1.44570312e+01 1.24062500e+01 1.05507812e+01
+  8.89062500e+00 7.42578125e+00 6.15625000e+00 5.08203125e+00
+  4.20312500e+00 3.51953125e+00 3.03125000e+00 2.73828125e+00
+  2.64062500e+00 2.73828125e+00 3.03125000e+00 3.51953125e+00
+  4.20312500e+00 5.08203125e+00 6.15625000e+00 7.42578125e+00
+  8.89062500e+00 1.05507812e+01 1.24062500e+01 1.44570312e+01
+  1.67031250e+01 1.91445312e+01 2.17812500e+01 2.46132812e+01
+  2.76406250e+01]
+ [2.72500000e+01 2.42226562e+01 2.13906250e+01 1.87539062e+01
+  1.63125000e+01 1.40664062e+01 1.20156250e+01 1.01601562e+01
+  8.50000000e+00 7.03515625e+00 5.76562500e+00 4.69140625e+00
+  3.81250000e+00 3.12890625e+00 2.64062500e+00 2.34765625e+00
+  2.25000000e+00 2.34765625e+00 2.64062500e+00 3.12890625e+00
+  3.81250000e+00 4.69140625e+00 5.76562500e+00 7.03515625e+00
+  8.50000000e+00 1.01601562e+01 1.20156250e+01 1.40664062e+01
+  1.63125000e+01 1.87539062e+01 2.13906250e+01 2.42226562e+01
+  2.72500000e+01]
+ [2.68906250e+01 2.38632812e+01 2.10312500e+01 1.83945312e+01
+  1.59531250e+01 1.37070312e+01 1.16562500e+01 9.80078125e+00
+  8.14062500e+00 6.67578125e+00 5.40625000e+00 4.33203125e+00
+  3.45312500e+00 2.76953125e+00 2.28125000e+00 1.98828125e+00
+  1.89062500e+00 1.98828125e+00 2.28125000e+00 2.76953125e+00
+  3.45312500e+00 4.33203125e+00 5.40625000e+00 6.67578125e+00
+  8.14062500e+00 9.80078125e+00 1.16562500e+01 1.37070312e+01
+  1.59531250e+01 1.83945312e+01 2.10312500e+01 2.38632812e+01
+  2.68906250e+01]
+ [2.65625000e+01 2.35351562e+01 2.07031250e+01 1.80664062e+01
+  1.56250000e+01 1.33789062e+01 1.13281250e+01 9.47265625e+00
+  7.81250000e+00 6.34765625e+00 5.07812500e+00 4.00390625e+00
+  3.12500000e+00 2.44140625e+00 1.95312500e+00 1.66015625e+00
+  1.56250000e+00 1.66015625e+00 1.95312500e+00 2.44140625e+00
+  3.12500000e+00 4.00390625e+00 5.07812500e+00 6.34765625e+00
+  7.81250000e+00 9.47265625e+00 1.13281250e+01 1.33789062e+01
+  1.56250000e+01 1.80664062e+01 2.07031250e+01 2.35351562e+01
+  2.65625000e+01]
+ [2.62656250e+01 2.32382812e+01 2.04062500e+01 1.77695312e+01
+  1.53281250e+01 1.30820312e+01 1.10312500e+01 9.17578125e+00
+  7.51562500e+00 6.05078125e+00 4.78125000e+00 3.70703125e+00
+  2.82812500e+00 2.14453125e+00 1.65625000e+00 1.36328125e+00
+  1.26562500e+00 1.36328125e+00 1.65625000e+00 2.14453125e+00
+  2.82812500e+00 3.70703125e+00 4.78125000e+00 6.05078125e+00
+  7.51562500e+00 9.17578125e+00 1.10312500e+01 1.30820312e+01
+  1.53281250e+01 1.77695312e+01 2.04062500e+01 2.32382812e+01
+  2.62656250e+01]
+ [2.60000000e+01 2.29726562e+01 2.01406250e+01 1.75039062e+01
+  1.50625000e+01 1.28164062e+01 1.07656250e+01 8.91015625e+00
+  7.25000000e+00 5.78515625e+00 4.51562500e+00 3.44140625e+00
+  2.56250000e+00 1.87890625e+00 1.39062500e+00 1.09765625e+00
+  1.00000000e+00 1.09765625e+00 1.39062500e+00 1.87890625e+00
+  2.56250000e+00 3.44140625e+00 4.51562500e+00 5.78515625e+00
+  7.25000000e+00 8.91015625e+00 1.07656250e+01 1.28164062e+01
+  1.50625000e+01 1.75039062e+01 2.01406250e+01 2.29726562e+01
+  2.60000000e+01]
+ [2.57656250e+01 2.27382812e+01 1.99062500e+01 1.72695312e+01
+  1.48281250e+01 1.25820312e+01 1.05312500e+01 8.67578125e+00
+  7.01562500e+00 5.55078125e+00 4.28125000e+00 3.20703125e+00
+  2.32812500e+00 1.64453125e+00 1.15625000e+00 8.63281250e-01
+  7.65625000e-01 8.63281250e-01 1.15625000e+00 1.64453125e+00
+  2.32812500e+00 3.20703125e+00 4.28125000e+00 5.55078125e+00
+  7.01562500e+00 8.67578125e+00 1.05312500e+01 1.25820312e+01
+  1.48281250e+01 1.72695312e+01 1.99062500e+01 2.27382812e+01
+  2.57656250e+01]
+ [2.55625000e+01 2.25351562e+01 1.97031250e+01 1.70664062e+01
+  1.46250000e+01 1.23789062e+01 1.03281250e+01 8.47265625e+00
+  6.81250000e+00 5.34765625e+00 4.07812500e+00 3.00390625e+00
+  2.12500000e+00 1.44140625e+00 9.53125000e-01 6.60156250e-01
+  5.62500000e-01 6.60156250e-01 9.53125000e-01 1.44140625e+00
+  2.12500000e+00 3.00390625e+00 4.07812500e+00 5.34765625e+00
+  6.81250000e+00 8.47265625e+00 1.03281250e+01 1.23789062e+01
+  1.46250000e+01 1.70664062e+01 1.97031250e+01 2.25351562e+01
+  2.55625000e+01]
+ [2.53906250e+01 2.23632812e+01 1.95312500e+01 1.68945312e+01
+  1.44531250e+01 1.22070312e+01 1.01562500e+01 8.30078125e+00
+  6.64062500e+00 5.17578125e+00 3.90625000e+00 2.83203125e+00
+  1.95312500e+00 1.26953125e+00 7.81250000e-01 4.88281250e-01
+  3.90625000e-01 4.88281250e-01 7.81250000e-01 1.26953125e+00
+  1.95312500e+00 2.83203125e+00 3.90625000e+00 5.17578125e+00
+  6.64062500e+00 8.30078125e+00 1.01562500e+01 1.22070312e+01
+  1.44531250e+01 1.68945312e+01 1.95312500e+01 2.23632812e+01
+  2.53906250e+01]
+ [2.52500000e+01 2.22226562e+01 1.93906250e+01 1.67539062e+01
+  1.43125000e+01 1.20664062e+01 1.00156250e+01 8.16015625e+00
+  6.50000000e+00 5.03515625e+00 3.76562500e+00 2.69140625e+00
+  1.81250000e+00 1.12890625e+00 6.40625000e-01 3.47656250e-01
+  2.50000000e-01 3.47656250e-01 6.40625000e-01 1.12890625e+00
+  1.81250000e+00 2.69140625e+00 3.76562500e+00 5.03515625e+00
+  6.50000000e+00 8.16015625e+00 1.00156250e+01 1.20664062e+01
+  1.43125000e+01 1.67539062e+01 1.93906250e+01 2.22226562e+01
+  2.52500000e+01]
+ [2.51406250e+01 2.21132812e+01 1.92812500e+01 1.66445312e+01
+  1.42031250e+01 1.19570312e+01 9.90625000e+00 8.05078125e+00
+  6.39062500e+00 4.92578125e+00 3.65625000e+00 2.58203125e+00
+  1.70312500e+00 1.01953125e+00 5.31250000e-01 2.38281250e-01
+  1.40625000e-01 2.38281250e-01 5.31250000e-01 1.01953125e+00
+  1.70312500e+00 2.58203125e+00 3.65625000e+00 4.92578125e+00
+  6.39062500e+00 8.05078125e+00 9.90625000e+00 1.19570312e+01
+  1.42031250e+01 1.66445312e+01 1.92812500e+01 2.21132812e+01
+  2.51406250e+01]
+ [2.50625000e+01 2.20351562e+01 1.92031250e+01 1.65664062e+01
+  1.41250000e+01 1.18789062e+01 9.82812500e+00 7.97265625e+00
+  6.31250000e+00 4.84765625e+00 3.57812500e+00 2.50390625e+00
+  1.62500000e+00 9.41406250e-01 4.53125000e-01 1.60156250e-01
+  6.25000000e-02 1.60156250e-01 4.53125000e-01 9.41406250e-01
+  1.62500000e+00 2.50390625e+00 3.57812500e+00 4.84765625e+00
+  6.31250000e+00 7.97265625e+00 9.82812500e+00 1.18789062e+01
+  1.41250000e+01 1.65664062e+01 1.92031250e+01 2.20351562e+01
+  2.50625000e+01]
+ [2.50156250e+01 2.19882812e+01 1.91562500e+01 1.65195312e+01
+  1.40781250e+01 1.18320312e+01 9.78125000e+00 7.92578125e+00
+  6.26562500e+00 4.80078125e+00 3.53125000e+00 2.45703125e+00
+  1.57812500e+00 8.94531250e-01 4.06250000e-01 1.13281250e-01
+  1.56250000e-02 1.13281250e-01 4.06250000e-01 8.94531250e-01
+  1.57812500e+00 2.45703125e+00 3.53125000e+00 4.80078125e+00
+  6.26562500e+00 7.92578125e+00 9.78125000e+00 1.18320312e+01
+  1.40781250e+01 1.65195312e+01 1.91562500e+01 2.19882812e+01
+  2.50156250e+01]
+ [2.50000000e+01 2.19726562e+01 1.91406250e+01 1.65039062e+01
+  1.40625000e+01 1.18164062e+01 9.76562500e+00 7.91015625e+00
+  6.25000000e+00 4.78515625e+00 3.51562500e+00 2.44140625e+00
+  1.56250000e+00 8.78906250e-01 3.90625000e-01 9.76562500e-02
+  0.00000000e+00 9.76562500e-02 3.90625000e-01 8.78906250e-01
+  1.56250000e+00 2.44140625e+00 3.51562500e+00 4.78515625e+00
+  6.25000000e+00 7.91015625e+00 9.76562500e+00 1.18164062e+01
+  1.40625000e+01 1.65039062e+01 1.91406250e+01 2.19726562e+01
+  2.50000000e+01]
+ [2.50156250e+01 2.19882812e+01 1.91562500e+01 1.65195312e+01
+  1.40781250e+01 1.18320312e+01 9.78125000e+00 7.92578125e+00
+  6.26562500e+00 4.80078125e+00 3.53125000e+00 2.45703125e+00
+  1.57812500e+00 8.94531250e-01 4.06250000e-01 1.13281250e-01
+  1.56250000e-02 1.13281250e-01 4.06250000e-01 8.94531250e-01
+  1.57812500e+00 2.45703125e+00 3.53125000e+00 4.80078125e+00
+  6.26562500e+00 7.92578125e+00 9.78125000e+00 1.18320312e+01
+  1.40781250e+01 1.65195312e+01 1.91562500e+01 2.19882812e+01
+  2.50156250e+01]
+ [2.50625000e+01 2.20351562e+01 1.92031250e+01 1.65664062e+01
+  1.41250000e+01 1.18789062e+01 9.82812500e+00 7.97265625e+00
+  6.31250000e+00 4.84765625e+00 3.57812500e+00 2.50390625e+00
+  1.62500000e+00 9.41406250e-01 4.53125000e-01 1.60156250e-01
+  6.25000000e-02 1.60156250e-01 4.53125000e-01 9.41406250e-01
+  1.62500000e+00 2.50390625e+00 3.57812500e+00 4.84765625e+00
+  6.31250000e+00 7.97265625e+00 9.82812500e+00 1.18789062e+01
+  1.41250000e+01 1.65664062e+01 1.92031250e+01 2.20351562e+01
+  2.50625000e+01]
+ [2.51406250e+01 2.21132812e+01 1.92812500e+01 1.66445312e+01
+  1.42031250e+01 1.19570312e+01 9.90625000e+00 8.05078125e+00
+  6.39062500e+00 4.92578125e+00 3.65625000e+00 2.58203125e+00
+  1.70312500e+00 1.01953125e+00 5.31250000e-01 2.38281250e-01
+  1.40625000e-01 2.38281250e-01 5.31250000e-01 1.01953125e+00
+  1.70312500e+00 2.58203125e+00 3.65625000e+00 4.92578125e+00
+  6.39062500e+00 8.05078125e+00 9.90625000e+00 1.19570312e+01
+  1.42031250e+01 1.66445312e+01 1.92812500e+01 2.21132812e+01
+  2.51406250e+01]
+ [2.52500000e+01 2.22226562e+01 1.93906250e+01 1.67539062e+01
+  1.43125000e+01 1.20664062e+01 1.00156250e+01 8.16015625e+00
+  6.50000000e+00 5.03515625e+00 3.76562500e+00 2.69140625e+00
+  1.81250000e+00 1.12890625e+00 6.40625000e-01 3.47656250e-01
+  2.50000000e-01 3.47656250e-01 6.40625000e-01 1.12890625e+00
+  1.81250000e+00 2.69140625e+00 3.76562500e+00 5.03515625e+00
+  6.50000000e+00 8.16015625e+00 1.00156250e+01 1.20664062e+01
+  1.43125000e+01 1.67539062e+01 1.93906250e+01 2.22226562e+01
+  2.52500000e+01]
+ [2.53906250e+01 2.23632812e+01 1.95312500e+01 1.68945312e+01
+  1.44531250e+01 1.22070312e+01 1.01562500e+01 8.30078125e+00
+  6.64062500e+00 5.17578125e+00 3.90625000e+00 2.83203125e+00
+  1.95312500e+00 1.26953125e+00 7.81250000e-01 4.88281250e-01
+  3.90625000e-01 4.88281250e-01 7.81250000e-01 1.26953125e+00
+  1.95312500e+00 2.83203125e+00 3.90625000e+00 5.17578125e+00
+  6.64062500e+00 8.30078125e+00 1.01562500e+01 1.22070312e+01
+  1.44531250e+01 1.68945312e+01 1.95312500e+01 2.23632812e+01
+  2.53906250e+01]
+ [2.55625000e+01 2.25351562e+01 1.97031250e+01 1.70664062e+01
+  1.46250000e+01 1.23789062e+01 1.03281250e+01 8.47265625e+00
+  6.81250000e+00 5.34765625e+00 4.07812500e+00 3.00390625e+00
+  2.12500000e+00 1.44140625e+00 9.53125000e-01 6.60156250e-01
+  5.62500000e-01 6.60156250e-01 9.53125000e-01 1.44140625e+00
+  2.12500000e+00 3.00390625e+00 4.07812500e+00 5.34765625e+00
+  6.81250000e+00 8.47265625e+00 1.03281250e+01 1.23789062e+01
+  1.46250000e+01 1.70664062e+01 1.97031250e+01 2.25351562e+01
+  2.55625000e+01]
+ [2.57656250e+01 2.27382812e+01 1.99062500e+01 1.72695312e+01
+  1.48281250e+01 1.25820312e+01 1.05312500e+01 8.67578125e+00
+  7.01562500e+00 5.55078125e+00 4.28125000e+00 3.20703125e+00
+  2.32812500e+00 1.64453125e+00 1.15625000e+00 8.63281250e-01
+  7.65625000e-01 8.63281250e-01 1.15625000e+00 1.64453125e+00
+  2.32812500e+00 3.20703125e+00 4.28125000e+00 5.55078125e+00
+  7.01562500e+00 8.67578125e+00 1.05312500e+01 1.25820312e+01
+  1.48281250e+01 1.72695312e+01 1.99062500e+01 2.27382812e+01
+  2.57656250e+01]
+ [2.60000000e+01 2.29726562e+01 2.01406250e+01 1.75039062e+01
+  1.50625000e+01 1.28164062e+01 1.07656250e+01 8.91015625e+00
+  7.25000000e+00 5.78515625e+00 4.51562500e+00 3.44140625e+00
+  2.56250000e+00 1.87890625e+00 1.39062500e+00 1.09765625e+00
+  1.00000000e+00 1.09765625e+00 1.39062500e+00 1.87890625e+00
+  2.56250000e+00 3.44140625e+00 4.51562500e+00 5.78515625e+00
+  7.25000000e+00 8.91015625e+00 1.07656250e+01 1.28164062e+01
+  1.50625000e+01 1.75039062e+01 2.01406250e+01 2.29726562e+01
+  2.60000000e+01]]
+</pre></div>
+</div>
+<img alt="../_images/2239bb9850ad6d8a64c3d0eb5dc124640a5a0d0353f0ed83d4f1127d7385f670.png" src="../_images/2239bb9850ad6d8a64c3d0eb5dc124640a5a0d0353f0ed83d4f1127d7385f670.png" />
+</div>
+</div>
+</section>
+<section id="application-selectionner-une-zone-carree">
+<h2>5. Application : Sélectionner une zone carrée<a class="headerlink" href="#application-selectionner-une-zone-carree" title="Link to this heading">#</a></h2>
+<p><strong>Problème pratique</strong> : Je veux identifier tous les points situés à moins de 1 mètre du centre <code class="docutils literal notranslate"><span class="pre">(5,</span> <span class="pre">2)</span></code>.</p>
+<p><strong>Solution</strong> : On définit une distance qui prend le <strong>maximum des écarts</strong> en x et en y :</p>
+<div class="math notranslate nohighlight">
+\[d = \max(|x - x_0|, |y - y_0|)\]</div>
+<p>Cette distance forme naturellement un <strong>carré</strong> autour du point central.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Point central et taille de la zone</span>
+<span class="n">x0</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">seuil</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># Calcul de la distance (maximum des écarts en x et y)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">x0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">y0</span><span class="p">))</span>
+
+<span class="c1"># Création du masque pour les points dans le carré</span>
+<span class="n">masque_carre</span> <span class="o">=</span> <span class="n">d</span> <span class="o">&lt;=</span> <span class="n">seuil</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance d (max des écarts) :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Masque carré (1 = dans le carré, 0 = hors du carré) :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">masque_carre</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+
+<span class="c1"># Visualisation</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">masque_carre</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdYlGn&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="s1">&#39;k*&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Centre (</span><span class="si">{</span><span class="n">x0</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">y0</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Dessiner le carré théorique</span>
+<span class="n">carre_x</span> <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="o">-</span><span class="n">seuil</span><span class="p">,</span> <span class="n">x0</span><span class="o">+</span><span class="n">seuil</span><span class="p">,</span> <span class="n">x0</span><span class="o">+</span><span class="n">seuil</span><span class="p">,</span> <span class="n">x0</span><span class="o">-</span><span class="n">seuil</span><span class="p">,</span> <span class="n">x0</span><span class="o">-</span><span class="n">seuil</span><span class="p">]</span>
+<span class="n">carre_y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y0</span><span class="o">-</span><span class="n">seuil</span><span class="p">,</span> <span class="n">y0</span><span class="o">-</span><span class="n">seuil</span><span class="p">,</span> <span class="n">y0</span><span class="o">+</span><span class="n">seuil</span><span class="p">,</span> <span class="n">y0</span><span class="o">+</span><span class="n">seuil</span><span class="p">,</span> <span class="n">y0</span><span class="o">-</span><span class="n">seuil</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">carre_x</span><span class="p">,</span> <span class="n">carre_y</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Carré de côté </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">seuil</span><span class="si">}</span><span class="s1"> m&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Masque : points à moins de 1 m du centre (carré)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Dans le carré ?&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;Non&#39;</span><span class="p">,</span> <span class="s1">&#39;Oui&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">✅ Nombre de points dans le carré : </span><span class="si">{</span><span class="n">masque_carre</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distance d (max des écarts) :
+[[5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  2.     2.     2.     2.     2.     2.     2.     2.     2.     2.
+  2.     2.     2.     2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.875  1.875  1.875  1.875  1.875  1.875  1.875  1.875  1.875
+  1.875  1.875  1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.75   1.75   1.75   1.75   1.75   1.75   1.75   1.75   1.75
+  1.75   1.75   1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.625  1.625  1.625  1.625  1.625  1.625  1.625  1.625  1.625
+  1.625  1.625  1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.5    1.5    1.5    1.5    1.5    1.5    1.5    1.5
+  1.5    1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.375  1.375  1.375  1.375  1.375  1.375  1.375  1.375
+  1.375  1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   1.25   1.25   1.25   1.25   1.25   1.25   1.25
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   1.125  1.125  1.125  1.125  1.125  1.125  1.125
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   1.     1.     1.     1.     1.     1.     1.
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.875  0.875  0.875  0.875  0.875  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.75   0.75   0.75   0.75   0.75   0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.625  0.625  0.625  0.625  0.625  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.625  0.5    0.5    0.5    0.625  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.625  0.375  0.375  0.375  0.625  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.625  0.3125 0.25   0.3125 0.625  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.625  0.3125 0.125  0.3125 0.625  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.625  0.3125 0.     0.3125 0.625  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.625  0.3125 0.125  0.3125 0.625  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.625  0.3125 0.25   0.3125 0.625  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.625  0.375  0.375  0.375  0.625  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.625  0.5    0.5    0.5    0.625  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.625  0.625  0.625  0.625  0.625  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.75   0.75   0.75   0.75   0.75   0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   0.9375 0.875  0.875  0.875  0.875  0.875  0.9375
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]
+ [5.     4.6875 4.375  4.0625 3.75   3.4375 3.125  2.8125 2.5    2.1875
+  1.875  1.5625 1.25   1.     1.     1.     1.     1.     1.     1.
+  1.25   1.5625 1.875  2.1875 2.5    2.8125 3.125  3.4375 3.75   4.0625
+  4.375  4.6875 5.    ]]
+
+Masque carré (1 = dans le carré, 0 = hors du carré) :
+[[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]]
+</pre></div>
+</div>
+<img alt="../_images/8da1355913111cb5e1067b6ee277817410e36415354ee86c229c0cc564bb3902.png" src="../_images/8da1355913111cb5e1067b6ee277817410e36415354ee86c229c0cc564bb3902.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ Nombre de points dans le carré : 119
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-initialiser-une-pollution-ou-temperature-localisee">
+<h2>6. Application : Initialiser une pollution ou température localisée<a class="headerlink" href="#application-initialiser-une-pollution-ou-temperature-localisee" title="Link to this heading">#</a></h2>
+<p><strong>Cas d’usage réel</strong> : Modéliser une pollution ou une source de chaleur localisée.</p>
+<p><strong>Exemple avec zone carrée</strong> (plus simple à définir) :</p>
+<ul class="simple">
+<li><p>Concentration de base <code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">=</span> <span class="pre">0</span></code> partout</p></li>
+<li><p>Concentration <code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">=</span> <span class="pre">1</span></code> dans un carré de côté 2 m autour du point <code class="docutils literal notranslate"><span class="pre">(5,</span> <span class="pre">2)</span></code></p></li>
+</ul>
+<p>👉 <strong>Avantage du carré</strong> : Plus simple que le cercle, souvent suffisant pour les conditions initiales !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># === EXEMPLE : Pollution localisée (zone carrée) ===</span>
+
+<span class="c1"># Initialisation : concentration nulle partout</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">))</span>
+
+<span class="c1"># Calcul de la distance de Chebyshev au centre (5, 2)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="mi">5</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Zone polluée : carré de côté 2 (donc distance ≤ 1)</span>
+<span class="n">C</span><span class="p">[</span><span class="n">d</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance de Chebyshev d :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Concentration C (0 = propre, 1 = pollué) :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+
+<span class="c1"># Visualisation</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Graphique 1 : Distance</span>
+<span class="n">im1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;r*&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Centre (5, 2)&#39;</span><span class="p">)</span>
+<span class="n">carre_x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">carre_y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">carre_x</span><span class="p">,</span> <span class="n">carre_y</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Zone d ≤ 1&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Distance de Chebyshev au centre&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">cbar1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">cbar1</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Graphique 2 : Concentration</span>
+<span class="n">im2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdYlGn_r&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;k*&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Source de pollution&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">carre_x</span><span class="p">,</span> <span class="n">carre_y</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Zone polluée&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Concentration de pollution&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">cbar2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">cbar2</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Concentration&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">cbar2</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;Propre&#39;</span><span class="p">,</span> <span class="s1">&#39;Pollué&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">✅ Nombre de cellules polluées : </span><span class="si">{</span><span class="n">C</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> sur </span><span class="si">{</span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="mi">5</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Zone polluée : carré de côté 2 (donc distance ≤ 1)</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">C</span><span class="p">[</span><span class="n">d</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance de Chebyshev d :&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="ne">IndexError</span>: boolean index did not match indexed array along dimension 0; dimension is 4 but corresponding boolean dimension is 25
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemples-d-autres-fonctions-2d-utiles">
+<h2>7. Exemples d’autres fonctions 2D utiles<a class="headerlink" href="#exemples-d-autres-fonctions-2d-utiles" title="Link to this heading">#</a></h2>
+<p>Avec <code class="docutils literal notranslate"><span class="pre">X</span></code> et <code class="docutils literal notranslate"><span class="pre">Y</span></code>, vous pouvez créer n’importe quelle fonction mathématique :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Créer une grille plus fine pour de belles visualisations</span>
+<span class="n">x_fin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y_fin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">X_fin</span><span class="p">,</span> <span class="n">Y_fin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_fin</span><span class="p">,</span> <span class="n">y_fin</span><span class="p">)</span>
+
+<span class="c1"># Différentes fonctions 2D</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># 1. Onde sinusoïdale</span>
+<span class="n">Z1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">X_fin</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">Y_fin</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Z1</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;seismic&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;sin(2πx/10) × cos(2πy/3)&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">)</span>
+
+<span class="c1"># 2. Gaussienne 2D</span>
+<span class="n">Z2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">X_fin</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Y_fin</span><span class="o">-</span><span class="mf">1.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Z2</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gaussienne centrée&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">)</span>
+
+<span class="c1"># 3. Pente linéaire</span>
+<span class="n">Z3</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">X_fin</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">Y_fin</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Z3</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;terrain&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Pente : 0.5x + 2y&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">)</span>
+ 
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="alternative-zone-circulaire-au-lieu-d-un-carre">
+<h2>8. Alternative : Zone circulaire au lieu d’un carré<a class="headerlink" href="#alternative-zone-circulaire-au-lieu-d-un-carre" title="Link to this heading">#</a></h2>
+<p>Dans les sections précédentes, nous avons utilisé la distance définie par <span class="math notranslate nohighlight">\(d = \max(|x - x_0|, |y - y_0|)\)</span> qui crée un <strong>carré</strong>.</p>
+<p><strong>On aurait aussi pu utiliser la distance euclidienne classique</strong> :</p>
+<div class="math notranslate nohighlight">
+\[d = \sqrt{(x - x_0)^2 + (y - y_0)^2}\]</div>
+<p>Cette distance crée un <strong>disque</strong> (cercle) au lieu d’un carré.</p>
+<section id="comparaison-des-deux-methodes">
+<h3>Comparaison des deux méthodes :<a class="headerlink" href="#comparaison-des-deux-methodes" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparaison : CARRÉ vs DISQUE</span>
+
+<span class="c1"># Point central</span>
+<span class="n">x0</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">rayon</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># === MÉTHODE 1 : CARRÉ (celle utilisée avant) ===</span>
+<span class="n">d_carre</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">x0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">y0</span><span class="p">))</span>
+<span class="n">masque_carre</span> <span class="o">=</span> <span class="n">d_carre</span> <span class="o">&lt;=</span> <span class="n">rayon</span>
+
+<span class="c1"># === MÉTHODE 2 : DISQUE (alternative) ===</span>
+<span class="n">d_disque</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">masque_disque</span> <span class="o">=</span> <span class="n">d_disque</span> <span class="o">&lt;</span> <span class="n">rayon</span>
+
+<span class="c1"># Visualisation côte à côte</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Angle pour dessiner les formes théoriques</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Graphique 1 : CARRÉ</span>
+<span class="n">im1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">masque_carre</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdYlGn&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="s1">&#39;k*&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Centre (</span><span class="si">{</span><span class="n">x0</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">y0</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+<span class="n">carre_x</span> <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="o">-</span><span class="n">rayon</span><span class="p">,</span> <span class="n">x0</span><span class="o">+</span><span class="n">rayon</span><span class="p">,</span> <span class="n">x0</span><span class="o">+</span><span class="n">rayon</span><span class="p">,</span> <span class="n">x0</span><span class="o">-</span><span class="n">rayon</span><span class="p">,</span> <span class="n">x0</span><span class="o">-</span><span class="n">rayon</span><span class="p">]</span>
+<span class="n">carre_y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y0</span><span class="o">-</span><span class="n">rayon</span><span class="p">,</span> <span class="n">y0</span><span class="o">-</span><span class="n">rayon</span><span class="p">,</span> <span class="n">y0</span><span class="o">+</span><span class="n">rayon</span><span class="p">,</span> <span class="n">y0</span><span class="o">+</span><span class="n">rayon</span><span class="p">,</span> <span class="n">y0</span><span class="o">-</span><span class="n">rayon</span><span class="p">]</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">carre_x</span><span class="p">,</span> <span class="n">carre_y</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Carré théorique&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;🟦 CARRÉ : max(|x-x₀|, |y-y₀|) ≤ 1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="c1"># Graphique 2 : DISQUE</span>
+<span class="n">im2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">masque_disque</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdYlGn&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="s1">&#39;k*&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Centre (</span><span class="si">{</span><span class="n">x0</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">y0</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">rayon</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">rayon</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cercle théorique&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;🔵 DISQUE : √((x-x₀)² + (y-y₀)²) &lt; 1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Points dans le carré : </span><span class="si">{</span><span class="n">masque_carre</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Points dans le disque : </span><span class="si">{</span><span class="n">masque_disque</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1809717/998529463.py:43: UserWarning: Glyph 128998 (\N{LARGE BLUE SQUARE}) missing from current font.
+  plt.tight_layout()
+/tmp/ipykernel_1809717/998529463.py:43: UserWarning: Glyph 128309 (\N{LARGE BLUE CIRCLE}) missing from current font.
+  plt.tight_layout()
+</pre></div>
+</div>
+<img alt="../_images/2e6010250d0493840257555f29387bd82f176e4c6ec6e3eb4af300d84a5f8947.png" src="../_images/2e6010250d0493840257555f29387bd82f176e4c6ec6e3eb4af300d84a5f8947.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Points dans le carré : 9
+Points dans le disque : 1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./08_tutoriel"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../08_cours/08_cours.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cours 8</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../08_exercice/08_exercice.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercices 8</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 8</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#construire-des-matrices-2d-avec-np-meshgrid">Construire des matrices 2D avec <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-et-creation-des-vecteurs-de-base">1. Import et création des vecteurs de base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-des-matrices-2d-avec-meshgrid">2. Création des matrices 2D avec <code class="docutils literal notranslate"><span class="pre">meshgrid</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-des-matrices-x-et-y">3. Visualisation des matrices X et Y</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-calcul-d-une-fonction-2d-distance-au-centre">4. Application : Calcul d’une fonction 2D (distance au centre)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-selectionner-une-zone-carree">5. Application : Sélectionner une zone carrée</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-initialiser-une-pollution-ou-temperature-localisee">6. Application : Initialiser une pollution ou température localisée</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-d-autres-fonctions-2d-utiles">7. Exemples d’autres fonctions 2D utiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-zone-circulaire-au-lieu-d-un-carre">8. Alternative : Zone circulaire au lieu d’un carré</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparaison-des-deux-methodes">Comparaison des deux méthodes :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Les auteurs du cours de Modelisation Numerique
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

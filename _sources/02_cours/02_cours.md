@@ -28,7 +28,7 @@ color: white
 
 La dérivée de $x(t)$ par rapport à $t$ est la pente (slope) de la tangente au graphe de la fonction $x(t)$ au point $t$. 
 
-On peut écrire aussi la dérivée: $\frac{dx(t)}{dt} = \lim_{\Delta t \to 0} \frac{x(t + \Delta t) - x(t)}{\Delta t}$
+On peut écrire aussi la dérivée: $\frac{dx(t)}{dt} = \lim_{dt \to 0} \frac{x(t + dt) - x(t)}{dt}$
  
 ![height:400px](./fig/def_derivees.png)
 
@@ -124,7 +124,7 @@ for i in range(nt):
 # Discrétisation d’une dérivée
 
 Dérivée continue
-$$\frac{df(t)}{dt} = \lim_{\Delta t \to 0} \frac{f(t + \Delta t) - f(t)}{\Delta t}$$
+$$\frac{df(t)}{dt} = \lim_{dt \to 0} \frac{f(t + dt) - f(t)}{dt}$$
 
 Dérivée discrétisée dans l’espace temporel discret suivant
 
@@ -150,7 +150,7 @@ Pour déterminer si les instructions que vous souhaitez inclure doivent être
 Pour le savoir, demandez-vous si cette instruction doit-elle être mise à jour dans le temps ? Si oui, elle doit être dans la boucle ; sinon, elle doit être à l'initialisation.
 
 ```python
-# par example, l'évolution du taux d'interet dans l'évolution de la fortune
+# par exemple, l'évolution du taux d'interet dans l'évolution de la fortune
 # doit être mis DANS la boucle, car le taux d'interet varie chaque année
 for it in range(1, temps_total+1):
     interet = np.random.normal(0.005, 0.01)
@@ -212,7 +212,7 @@ for i in range(nt):
 
 La vitesse d'un objet est définie comme un changement de position $x$ par temps $t$: 
 
-$$ \frac{\partial x(t)}{\partial t} = v(t) $$
+$$\frac{\partial x(t)}{\partial t} = v(t)$$
 
 **Connaissant** au temps t la position d’un objet $x(t)$ ainsi que sa vitesse $v(t)$ on peut **approcher** sa **position** au temps suivant $t^{new} = t^{old} + dt$ avec la régle de mise à jour:
 $$x^{\text{new}} =x^{\text{old}} + V \times dt, $$
@@ -220,20 +220,6 @@ où $dt$ est le pas de temps.
 
 Si j'avance à 4 km/h, je serai $(4 km / h) \times ( 0.5 h ) = 2 km$ plus loin après 1/2 heure.
 
----
-
-# Plus rigoureusement
-
-Dans la dérivée 
-
-$$ V = \frac{\partial x}{\partial t} =\lim_{\Delta t -> 0 } \frac{x(t+\Delta t)-x(t)}{\Delta t}, $$
-
- $x(t+\Delta t)-x(t)$ et $\Delta t$ sont infiniment petits, une quantité que l'on ne peut pas représenter sur un ordinateur. Si au contraire, on fixe $\Delta t$ à une petite valeur ($dt$), les incréments de temps et de distance sont des valeurs discrètes et ainsi manipulable par un ordinateur. Pour cela, nous faisons l'approximation suivante: 
-
-$$ V = \frac{\partial x}{\partial t} \approx  \frac{x_{t+\Delta t}-x_t}{\Delta t},$$
- 
-laquelle peut être réorganisée pour calculer la position $x$ au temps nouveau $t+\Delta t$ en fonction de celle au temps ancien $t$, cad  $x^{\text{new}} =x^{\text{old}} + V \times dt.$
- 
 ---
 
 # Erreurs induites par l'approximation
@@ -262,83 +248,3 @@ $$x^{\text{new}} = x^{\text{old}} + V \, dt.$$
 x += V * dt
 ```
 
----
-
-# Affichage interactif d'une figure (1/3)
-
-Lorsque nous implémentons un modèle numérique, il est commode de visualiser les résultats de manière dynamique, pour voir la solution évoluer avec le temps. 
-
-Pour ce faire, il nous faut appeler la bibliothèque `IPython`, qui permet l'interactivité, en plus de matplotlib, qui gère l'affichage de figures :
-
-```python
-import matplotlib.pyplot as plt
-from IPython.display import display, clear_output
-```
-
----
-
-# Affichage interactif d'une figure (2/3)
-
-Pour afficher un figure interactive, nous commeçons par la commande 
-```python
-fig, ax = plt.subplots()
-```
- avant de commencer la boucle temporelle. Cela initialise une figure (`fig`) et un ensemble d'axes (`ax`) où les données seront tracées. `fig` représente la fenêtre graphique globale, tandis que  `ax` correspond à la zone où les graphiques et les éléments visuels seront affichés.
-
-Dans la boucle, nous utilisons `clear_output(wait=True)` pour nettoyer la sortie précédente, afin d'éviter la superposition des graphiques. La commande `ax.cla()` permet de nettoyer les axes, c'est-à-dire de supprimer toutes les données et éléments visuels précédents du tracé. Enfin, `display(fig)` affiche la figure mise à jour avec les nouvelles données et configurations à itération.
-
----
-
-# Affichage interactif d'une figure (3/3)
-
-Notons qu'en définissant `fig, ax = plt.subplots()`, il faut ensuite appeler les commandes d'affichage via `ax` (et non `plt`). Bon nombre de fonctions `plt` ont un équivalent avec `ax` en ajoutant `set_` devant, par exemple :
-
-```python
-ax.plot(z, T, linewidth=2.5)
-ax.set_title('Figure')
-ax.set_ylabel('Concentration')
-ax.set_xlabel('Elevation, m')
-ax.set_ylim([0, 500]) 
-```
-
-Il est également possible de définir une figure avec plusieurs sous-figures en utilisant la commande `fig, (ax1, ax2) = plt.subplots(2, 1)`. Dans ce cas, il faudra appliquer `ax1.cla()` et `ax2.cla()` (pour chaque axe) afin de les nettoyer, puis remplir les axes respectivement avec `ax1.plot(...)` et `ax2.plot(...)`.
- 
----
-
-# Fréquence d'affichage d'une figure interactive
-
-La fréquence d'affichage d'une figure interactive doit être suffisamment grande pour bien voir l'évolution temporelle du résultat, mais pas trop pour ne pas ralentir le code inutilement. Pour cela, nous pouvons utiliser le code suivant:
-
-```python
-nout = 10 # frequence d'affichage
-nbit = 1000 # nombre d'iteration maximum
-
-for it range(nbit):
-    if it % nout == 0:
-        # commande d'affichage (chaque 10 itérations)
-```
-
-Ici la commande `it % nout` opére le reste de la division de `it` par `nout`, dans le cas ci-dessus, le reste de la division de `it` par 10 sera bien nulle (et donc le résultat sera bien affiché) chaque 10 lorsque `it=10, 20, 30,...`. 
-
----
-
-# Example d'utilisation d'une figure interactive  
-
-```python
-import matplotlib.pyplot as plt
-from IPython.display import clear_output, display  # Définit 2 fonctions utiles
-
-fig, ax= plt.subplots()                            # Définit une figure princ.
-
-for it in range(1, nt): 
-    ...
-    clear_output(wait=True)                        # permet de rafraichir le display 
-    ax.cla()                                       # permet la mise à jour de l'axe
-    ax.scatter(distx, disty, c='k')
-    ax.set_xlim(0, 200)
-    ax.set_ylim(0, 1000)
-    ax.set_xlabel('label x')
-    ax.set_ylabel('label y')
-    display(fig)                         # fait une pause (cela peut être trop rapide)
-```
-Notons ici que la commmande `plt.pause(0.1)` permet de faire une pause si le calcul est trop rapide, afin de mieux voir l'évolution de la variable.

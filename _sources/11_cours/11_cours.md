@@ -139,21 +139,27 @@ h[1:-1, 1:-1] += dt * dhdt
 
 ```python
 # Calculate H_avg, size (ny-1,nx-1)
+# Calculer H_avg, taille (ny-1,nx-1)
 h_avg = …
 
 # Compute Snorm, size (ny-1,nx-1)
+# Calculer Snorm, taille (ny-1,nx-1)
 snorm = …
 
 # Compute D, size (ny-1,nx-1)
+# Calculer D, taille (ny-1,nx-1)
 D = …
 
 # Compute qx, size (ny-2,nx-1)
+# Calculer qx, taille (ny-2,nx-1)
 qx = …
 
 # Compute qy, size (ny-1,nx-2)
+# Calculer qy, taille (ny-1,nx-2)
 qy = …
 
 # Compute dHdt, and update rule, size (ny-2,nx-2)
+# Calculer dHdt et règle de mise à jour, taille (ny-2,nx-2)
 dhdt = ...
 h[1:-1, 1:-1] += dt * dHdt
 ```
@@ -165,13 +171,13 @@ Pour assurer la stabilité de la méthode, nous prendrons le pas de temps $dt$ a
 
 $$ dt = \min \left\{ dt_{max} , \frac{min(dx, dy)^2}{4.1 \times \max(|D|)} \right\}. $$
 
-Comme dans le cas 1D, le pas de temps est adaptatif, c.a.d. il doit être mis à jour comme la diffusité.
+Comme dans le cas 1D, le pas de temps est adaptatif, c'est-à-dire qu'il doit être mis à jour comme la diffusivité.
 
 ---
 
 # Conditions de bords
 
-Forcer l'épaisseur de glace à être nulle sur les 4 cotés du domaine modélisé s'écrit:
+Forcer l'épaisseur de glace à être nulle sur les 4 côtés du domaine modélisé s'écrit:
 
 ```python
 h[0,:]  = 0

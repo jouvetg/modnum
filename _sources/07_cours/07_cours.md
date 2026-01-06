@@ -21,7 +21,6 @@ color: white
 - Implémenter de la diffusion en Python
 - Conditions aux bords de Dirichlet
 - Conditions de stabilité
-- Visualisation interactive en 2D
 
 ---
 
@@ -67,7 +66,7 @@ T = np.ones((ny,nx)) * Tinit # initialisation dûne temperature constante
 
 ---
 
-# Equation de diffusion en 2D
+# Équation de diffusion en 2D
 
 Le modèle de diffusion en 1D se généralise en 2D (ici pour la diffusion thermique):
 
@@ -177,51 +176,9 @@ T[:, -1] = Tdroit   # derniere colonne
 
 ---
 
-# Affichage interactif en 2D (1/2)
-
-Comme en 1D, nous souhaitons afficher nos résultats de manière interactive en temps réel. Il est pratique d'afficher le champ modélisé à l'aide de la fonction `imshow` de `matplotlib`, en utilisant une "colorbar". Pour cela, nous commençons par définir la figure comme suit avant la boucle temporelle:
-
-```python
-# definit fig et ax
-fig, ax = plt.subplots() 
-
-# affiche la temperature initiale
-s = ax.imshow(T, extent=[0, Lx, 0, Ly], origin='lower', cmap='jet') 
-
-# definit la "colorbar" pour qu'elle soit fixe lors de l'affichage interactif
-cbar = plt.colorbar(s) 
-
-# Affiche un titre a la colorbar
-cbar.set_label("Temperature (°C)", rotation=270) 
-
-# fixe les valeurs limite de la temperature dans la colorbar
-s.set_clim(5,15) 
-```
----
-
-# Exemple d'affichage obtenu avec `imshow`
+# Tutoriel 7 sur la construction de figure 2D interactives
  
 
 ![width:600](./fig/modele_elementaire_s9.png)
 
 ---
-
-# Affichage interactif en 2D (2/2)
-
-Ensuite, il faudra mettre à jour l'affichage de la température dans la boucle temporelle comme auparavant entre les commandes `clear_output(wait=True) ; ax.cla()` et `display(fig)` ensuite. Voila un exemple:
-
-```python
-# boucle temporelle
-for it in range(1,nt):
-    ... 
-    if it % nout == 0:
-        clear_output(wait=True)  
-        ax.cla() 
-        ax.imshow(T, extent=[0, Lx, 0, Ly], origin='lower', cmap='jet')
-        plt.gca().set_aspect("auto")
-        plt.axis('equal')
-        ax.set_title(f'Temperature at ' + str(int(time)) + ' yr')
-        ax.set_xlabel('Horizontal distance in x (m)')
-        ax.set_ylabel('Horizontal distance in y (m)')
-        display(fig)
-```

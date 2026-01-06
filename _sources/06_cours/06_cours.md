@@ -23,7 +23,7 @@ color: white
 
 ---
 
-# Diffusion-advection: example
+# Diffusion-advection: exemple
 
 ![width:750](https://volcanoes.usgs.gov/vsc/images/image_mngr/3100-3199/img3190_900w_543h.jpg)
 
@@ -59,13 +59,13 @@ Noton que l'équation ci-dessus peut se résoudre analytiquement: $C(t) = e^{-\g
 
 ---
 
-# Equation d’Advection-Diffusion-Reaction
+# Équation d’Advection-Diffusion-Reaction
 
-- Equation d’advection : $\frac{\partial C}{\partial t} = - v \frac{\partial C}{\partial x}.$
+- Équation d’advection : $\frac{\partial C}{\partial t} = - v \frac{\partial C}{\partial x}.$
 
-- Equation de diffusion : $\frac{\partial C}{\partial t} = - \frac{\partial q}{\partial x}, \qquad q=-D \frac{\partial C}{\partial x}.$
+- Équation de diffusion : $\frac{\partial C}{\partial t} = - \frac{\partial q}{\partial x}, \qquad q=-D \frac{\partial C}{\partial x}.$
 
-- Equation de réaction : $\frac{\partial C}{\partial t} = - \gamma C.$
+- Équation de réaction : $\frac{\partial C}{\partial t} = - \gamma C.$
 
 → **L’équation d’advection-diffusion-reaction** combine les trois:
 
@@ -133,7 +133,7 @@ Le "splitting" permet de découpler le traitement des termes de l'équation (dif
 
 # Discrétisation du terme d'advection
 
-Le terme de droite de l'equation d'advection 
+Le terme de droite de l'équation d'advection 
 
 $$\frac{\partial C}{\partial t} = -v\frac{\partial C}{\partial x}, $$
 
@@ -239,26 +239,4 @@ $$ dt = 0.1 \times \frac{dx}{|v|} $$
 Ainsi pour un problème **d'advection-diffusion** (et poss. reaction), nous prenons:
 
 $$ dt = \min \left( \frac{dx^2}{2.1 \times D}, 0.1 \times \frac{dx}{|v|} \right).$$
- 
-
----
- 
-# Sauvergarde des résultats
-
-Jusqu'à présent, nous mettions à jour le résultat en remplaçant la solution à chaque fois :
-
-```python
-C = ... # initialisation
-for it in range(nt):
-    C+= ...
-```
-
-Toutefois, nous pouvons avoir intérêt à sauvegarder ce résultat dans une grande matrice, par exemple si nous voulons afficher les résultats à la fin sous une autre forme. Dans ce cas, il nous faut stocker notre variable dans une grande matrice :
-
-```python
-C = np.zeros(nt,nx)
-C[0,:] = ... # initialisation
-for it in range (1,nt):
-    C[it,:] = C[it-1,:] + ...
-```
  

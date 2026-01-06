@@ -19,7 +19,8 @@ color: white
 - Illustration par des exemples
 - Principes physiques de la diffusion
 - Formulation mathématique
-- Discrétisation numérique
+- Discrétisation spatiale
+- Approximation numérique
 - Implémentation en Python
 - Stabilité et pas de temps
 
@@ -115,13 +116,13 @@ où $D$ est le coefficient de diffusion, ou *diffusivité*. Ce coefficient varie
 
 # 2. Principe de conservation (2/2)
 
-Selon le principe de conservation, le changement du nombre de particules *n* dans un bloc entre l’instant *t* et l’instant $t + \Delta t$ peut être calculé à partir de la différence des flux entrants et sortants :
+Selon le principe de conservation, le changement du nombre de particules *n* dans un bloc entre l’instant *t* et l’instant $t + dt$ peut être calculé à partir de la différence des flux entrants et sortants :
 
-$$\Delta n = (q_x - q_{x+\Delta x}) \Delta t.$$ 
+$$\Delta n = (q_x - q_{x+\Delta x}) dt.$$ 
 
 En utilisant la définition de la concentration *C = n/dx*, l'équation précédente s'écrit :
 
-$$\frac{\Delta C}{\Delta t} = \frac{q_x - q_{x+\Delta x}}{\Delta x},$$
+$$\frac{\Delta C}{dt} = \frac{q_x - q_{x+\Delta x}}{\Delta x},$$
 
 qui se transforme en forme continue : 
 
@@ -130,7 +131,7 @@ $$\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x}, \qquad (2)$$
 
 ---
 
-# Mise en equation de la diffusion
+# Mise en équation de la diffusion
 
 **L'équation de diffusion** peut être exprimée comme une dérivée seconde de la concentration $C$ en combinant 
 
@@ -147,6 +148,64 @@ ce qui donne l'EDP suivante (que nous n'utiliserons pas sous cette forme):
 
 $$ \frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2}.$$
  
+---
+
+# Discrétisation spatiale
+ 
+Pour modéliser l'évolution spatio-temporelle d'une quantité physique comme la concentration, il es nécessaire de discrétiser le temps et l'espace, cad de diviser le domaine spatial de modélisation en intervalles avec un ensemble de points où la solution sera calculée :
+```
+|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
+```
+Par exemple: $x_0 = 0, x_1 = 0.1, x_2 = 0.2, ..., x_{10} = 1$
+
+avec une longueur d'intervalle $dx = 0.1$. Cette discrétisation se code ainsi:
+
+```python
+import numpy as np
+a = 0 ; b = 1 ; nx = 11                            
+x  = np.linspace(a, b, nx)  
+dx = (b-a)/(nx-1)
+```
+
+---
+
+# Variable discrétisée
+
+Maintenant que notre domaine est discrétisé, nous pouvons initialiser une variable (pe la température $C$) sur ce domaine. Dans le domaine discrétisé, $C$ devient un vecteur, dont les valeurs sont définies aux nœuds de discrétisation:
+
+```python
+C = np.ones(nx)*2 # Initialisation à 2 partout 
+```
+
+Pour accéder ou modifier la valeur de la concentration $C$ en un point du domaine, p.e. au point $x = 0.6$, il convient de trouver l'indice qui lui correspond, c'est-à-dire le point de discrétisation qui est le plus proche du point $x = 0.6$ (car il est possible que $x = 0.6$ ne tombe pas exactement sur un nœud):
+
+```python
+xp = 0.6
+ixp = int((xp-a)/dx) # indice de la composante la plus proche de xp
+C[ixp] = 6           # modification de la valeur en ce point
+```
+
+---
+
+# Valeurs aux noeuds et au centre des cellules
+
+Il est parfois nécessaire de calculer des valeurs entre les nœuds de discrétisation. Cela peut se faire en faisant une moyenne entre deux points successifs:
+
+```python
+Cmid = (C[1:]+C[:-1])/2 # calcul de la température au milieu des cellules
+xmid = (x[1:]+x[:-1])/2 # calcul des coordonnées  au milieu des cellules
+```
+
+Cela se justifie visuellement comme cela:
+
+```
+x                   |-----|-----|-----|-----|-----|-----|-----|-----|
+x[1:]                     |-----|-----|-----|-----|-----|-----|-----| 
+x[:-1]              |-----|-----|-----|-----|-----|-----|-----|
+(x[1:]+x[:-1])/2       |-----|-----|-----|-----|-----|-----|-----|
+```
+
+Notons qu'en faisant cela, nous avons perdu une cellule ; le vecteur `(x[1:]+x[:-1])/2`est maintenant de dimension $n_x - 1$.
 
 ---
 

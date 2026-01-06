@@ -12,7 +12,7 @@
 Le but est d’être capable de modéliser des processus naturels (p.e. diffusion d'un polluant dans le sol, diffusion de la température suite à une intrusion magmatique, dynamique des glaciers) à l'aide de méthodes numériques en utilisant Python, et de faire des expériences numériques qui reproduisent la réalité. Pour cela, l'approche de ce cours est essentiellement pratique. Il s'agit d'implémenter de façon simple et intuitive les équations qui décrivent la physique des processus étudiés dans un code informatique. Nous mettons notamment l'accent sur la similarité des codes développés pour des processus de natures très différentes. En quelques points, les buts du cours sont de:
 
 - **Implémenter** mathématiquement un **processus physique** et le résoudre **numériquement**.
-- **Comprendre les méthodes** de résolution, savoir implementer chaque **étape** d’un modèle numérique des données aux résultats.
+- **Comprendre les méthodes** de résolution, savoir implémenter chaque **étape** d’un modèle numérique des données aux résultats.
 - **Programmer** le modèle en Python.
 
 Le cours s’inscrit dans un **programme à long terme** de la Faculté des Géosciences et de l’Environnement qui permettra d’implémenter des **modèles complexes** durant le Master en environnement ou en géologie.
@@ -41,19 +41,19 @@ https://moodle.unil.ch/course/view.php?id=24768
 
 | **Cours**  | **Contenu**  et _exercices_ |
 |------------------|---------------------------------------------------------------------------------|
-| 1          | Introduction, initialisation et règle de mis à jour, sauvegarde des résultats. _Exercice du compte en banque_  |
-| 2          | Equation du mouvement en 1D, discrétisation temp., approximation d'une dérivée. _Exercice du mouvement d'une voiture en 1D & exercice plot interactif_  |
-| 3          | Equation du mouvement en 2D, discrétisation spatiale. _Exercice de la bombe volcanique, exercice discrétisation spatiale_  |
-| 4          | Equation de diffusion, EDP et conditions de bord. _Exercice diffusion concentration, fuite de Dayllens_   |
-| 5          | Equation de diffusion (température), conditions de bord, condition d'arrêt. _Exercice diffusion température, intrusion magmatique_  |
+| 1          | Introduction, initialisation et règle de mise à jour, sauvegarde des résultats. _Exercice du compte en banque_  |
+| 2          | Équation du mouvement en 1D, discrétisation temp., approximation d'une dérivée. _Exercice du mouvement d'une voiture en 1D & exercice plot interactif_  |
+| 3          | Équation du mouvement en 2D, discrétisation spatiale. _Exercice de la bombe volcanique, exercice discrétisation spatiale_  |
+| 4          | Équation de diffusion, EDP et conditions de bord. _Exercice diffusion concentration, fuite de Dayllens_   |
+| 5          | Équation de diffusion (température), conditions de bord, condition d'arrêt. _Exercice diffusion température, intrusion magmatique_  |
 | 6          | Diffusion-advection-réaction 1D, méthode de splitting et schéma upwind. _Exercice diffusion d'un polluant dans une rivière_ |
 |                  | **Test I**   |
 |                  | _Pause_   
-| 7          | Diffusion 2D. _Exercice manipulation Grille 2D, Modélisation Periglesol Cervin_  |
+| 7          | Diffusion 2D. _Exercice manipulation Grille 2D, Modélisation Pergélisol Cervin_  |
 | 8          | Diffusion-advection 2D. _Exercice diffusion de la température dans la croûte terrestre_  |
 | 9          | Diffusion-advection-réaction 2D. Advection non-uniforme. _Exercice d'une contamination dans un lac_ |
-| 10         | Equation de la glace 1D, equation de diffusion non-linéaire 1D. _Modélisation d'un glacier synthétique_                                           |
-| 11         | Equation de la glace 2D, equation de diffusion non-linéaire 2D. _Modélisation d'un glacier réel, le glacier du Gorner (VS)_ |
+| 10         | Équation de la glace 1D, équation de diffusion non-linéaire 1D. _Modélisation d'un glacier synthétique_                                           |
+| 11         | Équation de la glace 2D, équation de diffusion non-linéaire 2D. _Modélisation d'un glacier réel, le glacier du Gorner (VS)_ |
 |                  | **Test II**                                                                     |
 
  
@@ -72,4 +72,4 @@ Les personnes suivantes ont contribué à construire ou/et donner/assister ce co
 
 Yury Podladchikov, Ludovic Räss, Samuel Omlin, Evangelos Moulas, Frederic Herman, Vjeran Visnjevic, Aleksandar Licul, Luca Malatesta, Daniel Kiss, Lorenzo Candioti, Ian Delaney, Emilie Macherel, Gino Licinil, Guillaume Jouvet, Daniel Bonser, Samuel Cook, Marjolein Gevers, Kejdi Lleshi, Brandon Finley, Vincenzo Guzzardi, Frederik Iat Hin Tam, Mattia Mazzucchelli, Océane Pfister
  
-Le re-formatage du cours sous la forme actuelle d'un textbook et sa mise en ligne ont été réalisées par Guillaume Jouvet avec l'aide de Océane Pfister (avec le soutien d'un project FINV de l'UNIL par Tom Beucler et Christian Kaiser).
+Le re-formatage du cours sous la forme actuelle d'un textbook et sa mise en ligne ont été réalisés par Guillaume Jouvet avec l'aide de Océane Pfister (avec le soutien d'un projet FINV de l'UNIL par Tom Beucler et Christian Kaiser).

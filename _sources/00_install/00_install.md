@@ -56,4 +56,4 @@ pip install numpy matplotlib ipython
 
 - Exécuter les cellules Markdown et Python, et vérifier que Python s’exécute correctement et produit les résultats attendus ✅.
 
----
+
