@@ -248,4 +248,3 @@ $$x^{\text{new}} = x^{\text{old}} + V \, dt.$$
 x += V * dt
 ```
 
----
