@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tutoriel 11 &#8212; Modelisation Numerique</title>
+    <title>Tutoriel 11 &#8212; Modélisation Numérique</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '11_tutoriel/11_tutoriel';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -153,8 +155,8 @@
       
     
     
-    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modelisation Numerique - Home"/>
-    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modelisation Numerique - Home"/>`);</script>
+    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modélisation Numérique - Home"/>
+    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modélisation Numérique - Home"/>`);</script>
   
   
 </a></div>
@@ -259,6 +261,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
 
@@ -289,8 +292,8 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04_exercice/04_exercice.html">Exercices 4</a></li>
 
@@ -315,6 +318,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
 
 </ul>
@@ -334,6 +338,9 @@
 
 
 
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06_tutoriel/06_tutoriel.html">Tutoriel 6</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../06_exercice/06_exercice.html">Exercices 6</a></li>
 
@@ -372,6 +379,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../08_tutoriel/08_tutoriel.html">Tutoriel 8</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../08_exercice/08_exercice.html">Exercices 8</a></li>
@@ -389,6 +397,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
 
 </ul>
@@ -408,11 +417,13 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../10_tutoriel/10_tutoriel.html">Tutoriel 10</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../10_exercice/10_exercice.html">Exercices 10</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11 — hors-programme, pour les curieux</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../11_cours/11_cours.html">Cours 11</a></li>
 
@@ -579,7 +590,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 11</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tutoriel-preliminaire">Tutoriel préliminaire</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manipuler-les-lignes-et-les-colonnes-d-une-matrice-2d">Manipuler les lignes et les colonnes d’une matrice 2D</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-experimenter">À expérimenter</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -594,57 +608,115 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-11">
 <h1>Tutoriel 11<a class="headerlink" href="#tutoriel-11" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>🧭 <strong>Séance hors-programme, pour les curieux.</strong> Cette séance ne fait pas partie de la matière évaluée. Elle reprend tout ce qui a été vu aux séances 7 à 10 et constitue un bon projet personnel pour qui souhaite aller plus loin.</p>
+</div></blockquote>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="tutoriel-preliminaire">
-<h1>Tutoriel préliminaire<a class="headerlink" href="#tutoriel-preliminaire" title="Link to this heading">#</a></h1>
-<p>L’exercice suivant requiert de faire des manipulations / opérations sur les lignes et les colonnes d’une matrice afin que l’on puisse modifier sa taille légérement, ce qui est nécéssaire pour l’implémentation de la méthode numérique. Nous allons donc faire ce genre de manupulation en excercice avant de passé à l’application dans l’exerice suivant.</p>
-<p>Définissons une matrice <code class="docutils literal notranslate"><span class="pre">M</span></code> de taille <code class="docutils literal notranslate"><span class="pre">(3,4)</span></code>:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="manipuler-les-lignes-et-les-colonnes-d-une-matrice-2d">
+<h1>Manipuler les lignes et les colonnes d’une matrice 2D<a class="headerlink" href="#manipuler-les-lignes-et-les-colonnes-d-une-matrice-2d" title="Link to this heading">#</a></h1>
+<p>L’exercice suivant demande de faire des opérations sur les lignes et les colonnes d’une matrice afin d’en modifier légèrement la taille, ce qui est nécessaire à l’implémentation de la méthode numérique. Nous allons donc nous exercer à ces manipulations avant de passer à l’application.</p>
+<p><strong>Trois opérations suffisent</strong>, et vous les connaissez déjà en 1D :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Opération</p></th>
+<th class="head"><p>Effet sur la taille</p></th>
+<th class="head"><p>Quand l’utiliser</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>dérivation</strong></p></td>
+<td><p>on perd une cellule</p></td>
+<td><p>quand on a besoin d’une dérivée</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>moyenne</strong></p></td>
+<td><p>on perd une cellule</p></td>
+<td><p>quand on a besoin d’une valeur <em>entre</em> deux points</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>troncation</strong></p></td>
+<td><p>on perd deux cellules</p></td>
+<td><p>quand on doit renoncer aux deux bords</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En 2D, il faut en plus choisir <strong>selon quel axe</strong> : le premier indice désigne la <strong>ligne</strong> (axe <span class="math notranslate nohighlight">\(y\)</span>), le second la <strong>colonne</strong> (axe <span class="math notranslate nohighlight">\(x\)</span>). Donc <code class="docutils literal notranslate"><span class="pre">M[:,1:]</span></code> travaille selon <span class="math notranslate nohighlight">\(x\)</span>, et <code class="docutils literal notranslate"><span class="pre">M[1:,:]</span></code> selon <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
 <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;M =</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">taille :&quot;</span><span class="p">,</span> <span class="n">M</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; -&gt; 3 lignes, 4 colonnes</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 1) derivation : on perd une cellule selon l&#39;axe de la difference</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;M[:,1:] - M[:,:-1]      -&gt;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">M</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; une COLONNE en moins&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;M[1:,:] - M[:-1,:]      -&gt;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span><span class="o">-</span><span class="n">M</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; une LIGNE en moins&quot;</span><span class="p">)</span>
+
+<span class="c1"># 2) moyenne : la valeur ENTRE deux points, on perd aussi une cellule</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;0.5*(M[:,1:]+M[:,:-1])  -&gt;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">M</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; comme la derivee&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;0.5*(M[1:,:]+M[:-1,:])  -&gt;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span><span class="o">+</span><span class="n">M</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]))</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; comme la derivee&quot;</span><span class="p">)</span>
+
+<span class="c1"># 3) troncation : on renonce a la premiere et a la derniere ligne / colonne</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;M[:,1:-1]               -&gt;&quot;</span><span class="p">,</span> <span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; deux colonnes en moins&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;M[1:-1,:]               -&gt;&quot;</span><span class="p">,</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; deux lignes en moins&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>M =
+ [[9 2 3 0]
+ [8 2 9 5]
+ [7 9 0 4]] 
+taille : (3, 4)  -&gt; 3 lignes, 4 colonnes
+
+M[:,1:] - M[:,:-1]      -&gt; (3, 3)  une COLONNE en moins
+M[1:,:] - M[:-1,:]      -&gt; (2, 4)  une LIGNE en moins
+0.5*(M[:,1:]+M[:,:-1])  -&gt; (3, 3)  comme la derivee
+0.5*(M[1:,:]+M[:-1,:])  -&gt; (2, 4)  comme la derivee
+M[:,1:-1]               -&gt; (3, 2)  deux colonnes en moins
+M[1:-1,:]               -&gt; (1, 4)  deux lignes en moins
 </pre></div>
 </div>
 </div>
 </div>
-<p>Si l’on fait une approximation numérique de la dérivée, son pert une dimension selon l’axe ou l’on fait la différnce:</p>
+<p><strong>Dérivation et moyenne donnent la même taille</strong> : c’est ce qui permet de les multiplier entre elles, comme dans <code class="docutils literal notranslate"><span class="pre">D</span> <span class="pre">*</span> <span class="pre">(s[:,1:]-s[:,:-1])/dx</span></code> où <code class="docutils literal notranslate"><span class="pre">D</span></code> provient d’une moyenne.</p>
+<p>Enchaînons-les comme dans un vrai modèle 2D, en surveillant la taille à chaque ligne :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dMx</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">M</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Taille de dMx :&#39;</span><span class="p">,</span><span class="n">dMx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">dMy</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">M</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Taille de dMy :&#39;</span><span class="p">,</span><span class="n">dMy</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">))</span>
+
+<span class="n">qx</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">S</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">S</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span> <span class="n">S</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">S</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="n">dx</span>    <span class="c1"># flux selon x</span>
+<span class="n">qy</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span><span class="o">+</span><span class="n">S</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span> <span class="o">*</span> <span class="p">(</span> <span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">S</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="p">)</span><span class="o">/</span><span class="n">dy</span>    <span class="c1"># flux selon y</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;qx :&quot;</span><span class="p">,</span> <span class="n">qx</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;(entre les colonnes)   qy :&quot;</span><span class="p">,</span> <span class="n">qy</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;(entre les lignes)&quot;</span><span class="p">)</span>
+
+<span class="n">divx</span> <span class="o">=</span> <span class="p">(</span> <span class="n">qx</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">qx</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="n">dx</span>                           <span class="c1"># (ny, nx-2)</span>
+<span class="n">divy</span> <span class="o">=</span> <span class="p">(</span> <span class="n">qy</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">qy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="p">)</span><span class="o">/</span><span class="n">dy</span>                           <span class="c1"># (ny-2, nx)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;divx :&quot;</span><span class="p">,</span> <span class="n">divx</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;  divy :&quot;</span><span class="p">,</span> <span class="n">divy</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; &lt;- tailles DIFFERENTES !&quot;</span><span class="p">)</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">S</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">divx</span><span class="p">)</span>      <span class="c1"># on met a jour l&#39;interieur SELON X</span>
+<span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">divy</span><span class="p">)</span>      <span class="c1"># puis l&#39;interieur SELON Y</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S garde sa taille :&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>qx : (40, 59) (entre les colonnes)   qy : (39, 60) (entre les lignes)
+divx : (40, 58)   divy : (38, 60)  &lt;- tailles DIFFERENTES !
+S garde sa taille : (40, 60)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Si l’on a pas besoin de faire une derivation, on peut “perdre” une cellule en moyennant selon une direction, cela revient à prendre la valeur entre deux points de discrétisation comme nous l’avions vu en 1D:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|-----|-----|-----|-----|-----|-----|</span>
-   <span class="o">|-----|-----|-----|-----|-----|</span>   
-</pre></div>
-</div>
-<p>En 2D, on “moyenner” en x ou en y, selon l’axe on lon fait cette opération:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Mx</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span> <span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Taille de Mx :&#39;</span><span class="p">,</span><span class="n">Mx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">My</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">+</span> <span class="n">M</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Taille de Md :&#39;</span><span class="p">,</span><span class="n">My</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Efin, si l’on a besoin de “perdre” deux cellules, cela peut se faire part troncation, p.e. de la premiere et de la derniere ligne/colonne:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Taille de M[:,1:-1] :&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Taille de M[1:-1,:] :&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Dans la suite, nous employerons l’une des trois techniques ci dessus pour obtenir des tailles consistentes pour les règles de mise à jour.</p>
+<p><code class="docutils literal notranslate"><span class="pre">divx</span></code> et <code class="docutils literal notranslate"><span class="pre">divy</span></code> n’ont <strong>pas la même taille</strong> : on ne peut donc pas les additionner directement. La solution est de mettre à jour la solution en <strong>deux temps</strong>, chaque terme sur la zone qui lui correspond.</p>
+<p>Dans la suite, nous emploierons l’une de ces trois techniques chaque fois qu’il faudra obtenir des tailles cohérentes pour les règles de mise à jour.</p>
+<section id="a-experimenter">
+<h2>À expérimenter<a class="headerlink" href="#a-experimenter" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Essayez <code class="docutils literal notranslate"><span class="pre">S[1:-1,1:-1]</span> <span class="pre">+=</span> <span class="pre">dt*(-divx</span> <span class="pre">-</span> <span class="pre">divy)</span></code>. Quelle erreur Python renvoie-t-il, et pourquoi est-ce une bonne nouvelle ?</p></li>
+<li><p>Quelle est la taille de <code class="docutils literal notranslate"><span class="pre">0.5*(S[1:,1:]</span> <span class="pre">+</span> <span class="pre">S[:-1,:-1])</span></code> ? Devinez avant d’exécuter.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -712,7 +784,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 11</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tutoriel-preliminaire">Tutoriel préliminaire</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manipuler-les-lignes-et-les-colonnes-d-une-matrice-2d">Manipuler les lignes et les colonnes d’une matrice 2D</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-experimenter">À expérimenter</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>
@@ -728,7 +803,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Les auteurs du cours de Modelisation Numerique
+By Les auteurs du cours de Modélisation Numérique
 </p>
 
   </div>

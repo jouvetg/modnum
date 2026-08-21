@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Cours 2 &#8212; Modelisation Numerique</title>
+    <title>Cours 2 &#8212; Modélisation Numérique</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modelisation Numerique - Home"/>
-    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modelisation Numerique - Home"/>`);</script>
+    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modélisation Numérique - Home"/>
+    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modélisation Numérique - Home"/>`);</script>
   
   
 </a></div>
@@ -261,6 +261,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
 
@@ -291,8 +292,8 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04_exercice/04_exercice.html">Exercices 4</a></li>
 
@@ -317,6 +318,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
 
 </ul>
@@ -336,6 +338,9 @@
 
 
 
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06_tutoriel/06_tutoriel.html">Tutoriel 6</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../06_exercice/06_exercice.html">Exercices 6</a></li>
 
@@ -374,6 +379,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../08_tutoriel/08_tutoriel.html">Tutoriel 8</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../08_exercice/08_exercice.html">Exercices 8</a></li>
@@ -391,6 +397,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
 
 </ul>
@@ -410,11 +417,13 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../10_tutoriel/10_tutoriel.html">Tutoriel 10</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../10_exercice/10_exercice.html">Exercices 10</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11 — hors-programme, pour les curieux</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../11_cours/11_cours.html">Cours 11</a></li>
 
@@ -597,7 +606,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-dun-modele-dynamique">Structure d’un modèle dynamique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#application-a-la-vitesse-dun-objet-en-1d">Application à la vitesse d’un objet en 1D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#erreurs-induites-par-l-approximation">Erreurs induites par l’approximation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-continues-versus-discretisees">Equations “continues” versus “discrétisées”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-continues-versus-discretisees">Équations “continues” versus “discrétisées”</a></li>
 </ul>
 
             </nav>
@@ -623,7 +632,7 @@ document.write(`
 <li><p>Discrétisation (du monde “réel” <em>continu</em> au monde “numérique” <em>discret</em>)</p></li>
 <li><p>Discrétisation temporelle</p></li>
 <li><p>Structure d’un modèle numérique</p></li>
-<li><p>Figures interactives</p></li>
+<li><p>Figures interactives (voir le tutoriel 2)</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -636,7 +645,7 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="signification-physique-de-la-derivee">
 <h1>Signification physique de la dérivée<a class="headerlink" href="#signification-physique-de-la-derivee" title="Link to this heading">#</a></h1>
-<p>Une voiture parcourt le trajet Genève-Lausanne-Bern-Zurich-St Gall, la  distance parcourue est <span class="math notranslate nohighlight">\(x(t)\)</span>, sa vitesse est la dérivée de la position par rapport au temps.</p>
+<p>Une voiture parcourt le trajet Genève-Lausanne-Berne-Zurich-Saint-Gall : la distance parcourue est <span class="math notranslate nohighlight">\(x(t)\)</span>, et sa vitesse est la dérivée de la position par rapport au temps.</p>
 <p><img alt="height:400px" src="../_images/geneve-zurich.png" /></p>
 </section>
 <hr class="docutils" />
@@ -654,15 +663,15 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="une-equation-differentielle-est">
 <h1>Une équation différentielle est<a class="headerlink" href="#une-equation-differentielle-est" title="Link to this heading">#</a></h1>
-<p>… une équation ne fait intervenir la dérivée par rapport à <strong>une seule</strong> variable par exemple</p>
+<p>… une équation qui ne fait intervenir la dérivée que par rapport à <strong>une seule</strong> variable, par exemple</p>
 <div class="math notranslate nohighlight">
 \[\frac{dx(t)}{dt} = v(t)\]</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="une-equation-aux-derivees-partielles-est">
 <h1>Une équation aux dérivées partielles est<a class="headerlink" href="#une-equation-aux-derivees-partielles-est" title="Link to this heading">#</a></h1>
-<p>… une équation fait intervenir la dérivée par rapport à <strong>plusieurs</strong> variables par exemple</p>
+<p>… une équation qui fait intervenir la dérivée par rapport à <strong>plusieurs</strong> variables, par exemple</p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial A}{\partial t} = -D \left( \frac{\partial^2 A}{\partial x^2} + \frac{\partial^2 A}{\partial y^2} \right)\]</div>
+\[\frac{\partial A}{\partial t} = D \left( \frac{\partial^2 A}{\partial x^2} + \frac{\partial^2 A}{\partial y^2} \right)\]</div>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="espaces-continus-et-discrets">
@@ -692,20 +701,20 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="structure-dun-modele">
 <h1>Structure d’un modèle<a class="headerlink" href="#structure-dun-modele" title="Link to this heading">#</a></h1>
-<p>Le code suivant définit une discrétisation de l’intervalle de temps <span class="math notranslate nohighlight">\([0,1000]\)</span> en <code class="docutils literal notranslate"><span class="pre">nt</span></code>=10000 pas de temps de longueur <code class="docutils literal notranslate"><span class="pre">dt</span></code>=0.1.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parametre physiques</span>
-<span class="n">total_time</span> <span class="o">=</span> <span class="mi">1000</span>
+<p>Le code suivant définit une discrétisation de l’intervalle de temps <span class="math notranslate nohighlight">\([0,1000]\)</span> en <code class="docutils literal notranslate"><span class="pre">nt</span></code> = 10000 pas de temps de longueur <code class="docutils literal notranslate"><span class="pre">dt</span></code> = 0.1.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parametres physiques</span>
+<span class="n">duree</span> <span class="o">=</span> <span class="mi">1000</span>
 
-<span class="c1"># Parametre numeriques</span>
+<span class="c1"># Parametres numeriques</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">nt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">total_time</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span> <span class="c1"># Nombre de pas de temps, qui doit etre un entier. </span>
+<span class="n">nt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">duree</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span> <span class="c1"># Nombre de pas de temps, qui doit etre un entier</span>
 
 <span class="c1"># Initialisation</span>
-<span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">temps</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c1"># Boucle en temps</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
-    <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>  <span class="c1"># Mise à jour du temps</span>
+<span class="c1"># Boucle temporelle</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
+    <span class="n">temps</span> <span class="o">+=</span> <span class="n">dt</span>  <span class="c1"># Mise a jour du temps</span>
 </pre></div>
 </div>
 </section>
@@ -717,7 +726,7 @@ $<span class="math notranslate nohighlight">\(\frac{df(t)}{dt} = \lim_{dt \to 0}
 <p>Dérivée discrétisée dans l’espace temporel discret suivant</p>
 <div class="math notranslate nohighlight">
 \[\frac{df(t^n)}{dt} \sim \frac{f(t^{n+1}) - f(t^n)}{dt}\]</div>
-<p>Ce qui donne la règle de la mis-à-jour suivante:</p>
+<p>Ce qui donne la règle de mise à jour suivante :</p>
 <div class="math notranslate nohighlight">
 \[f(t^{n+1}) \leftarrow f(t^n) + \frac{df(t^n)}{dt} \times dt\]</div>
 <p>où <span class="math notranslate nohighlight">\(dt\)</span> est le pas de temps.</p>
@@ -734,9 +743,9 @@ $<span class="math notranslate nohighlight">\(\frac{df(t)}{dt} = \lim_{dt \to 0}
 <p>Pour le savoir, demandez-vous si cette instruction doit-elle être mise à jour dans le temps ? Si oui, elle doit être dans la boucle ; sinon, elle doit être à l’initialisation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># par exemple, l&#39;évolution du taux d&#39;interet dans l&#39;évolution de la fortune</span>
 <span class="c1"># doit être mis DANS la boucle, car le taux d&#39;interet varie chaque année</span>
-<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">temps_total</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">duree</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">interet</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-    <span class="n">fortune</span> <span class="o">=</span> <span class="p">(</span><span class="n">fortune</span> <span class="o">+</span> <span class="n">M_save</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">interet</span><span class="p">)</span> 
+    <span class="n">fortune</span> <span class="o">=</span> <span class="p">(</span><span class="n">fortune</span> <span class="o">+</span> <span class="n">M_save</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">interet</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -747,20 +756,20 @@ $<span class="math notranslate nohighlight">\(\frac{df(t)}{dt} = \lim_{dt \to 0}
 <ul class="simple">
 <li><p>en utilisant un <code class="docutils literal notranslate"><span class="pre">break</span></code>:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">ttot</span> <span class="o">=</span> <span class="mi">500</span> 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span> 
-    <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>
-    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="n">ttot</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temps</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">duree</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
+    <span class="n">temps</span> <span class="o">+=</span> <span class="n">dt</span>
+    <span class="k">if</span> <span class="n">temps</span> <span class="o">&gt;</span> <span class="n">duree</span><span class="p">:</span>
         <span class="k">break</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>en utilisant la commande <code class="docutils literal notranslate"><span class="pre">while</span></code>:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">time</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">ttot</span> <span class="o">=</span> <span class="mi">500</span> 
-<span class="k">while</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="n">ttot</span><span class="p">:</span> 
-    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">temps</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">duree</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="k">while</span> <span class="n">temps</span> <span class="o">&lt;</span> <span class="n">duree</span><span class="p">:</span>
+    <span class="n">it</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">temps</span> <span class="o">+=</span> <span class="n">dt</span>
 </pre></div>
 </div>
 </section>
@@ -768,21 +777,20 @@ $<span class="math notranslate nohighlight">\(\frac{df(t)}{dt} = \lim_{dt \to 0}
 <section class="tex2jax_ignore mathjax_ignore" id="structure-dun-modele-dynamique">
 <h1>Structure d’un modèle dynamique<a class="headerlink" href="#structure-dun-modele-dynamique" title="Link to this heading">#</a></h1>
 <p>Notons que <strong>tous</strong> les modèles du cours présentent la même structure :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># I&gt; parametre physiques</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># I&gt; parametres physiques</span>
 <span class="n">x_ini</span>  <span class="o">=</span> <span class="mi">1</span>
 
-<span class="c1"># II&gt; parametre numeriques</span>
+<span class="c1"># II&gt; parametres numeriques</span>
 <span class="n">nt</span>     <span class="o">=</span> <span class="mi">100</span>
 <span class="n">dt</span>     <span class="o">=</span> <span class="mf">0.1</span>
 
 <span class="c1"># III&gt; initialisation</span>
-<span class="n">x</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span>
 <span class="n">x</span>      <span class="o">=</span> <span class="n">x_ini</span>
 
-<span class="c1"># IV&gt; boucle temporel</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">+=</span> <span class="err">?</span>   <span class="c1"># regle de mise à jour</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>       <span class="c1"># Visualisation</span>
+<span class="c1"># IV&gt; boucle temporelle</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="o">...</span>            <span class="c1"># regle de mise a jour</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>       <span class="c1"># visualisation</span>
 </pre></div>
 </div>
 </section>
@@ -791,22 +799,22 @@ $<span class="math notranslate nohighlight">\(\frac{df(t)}{dt} = \lim_{dt \to 0}
 <h1>Application à la vitesse d’un objet en 1D<a class="headerlink" href="#application-a-la-vitesse-dun-objet-en-1d" title="Link to this heading">#</a></h1>
 <p>La vitesse d’un objet est définie comme un changement de position <span class="math notranslate nohighlight">\(x\)</span> par temps <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial x(t)}{\partial t} = v(t)\]</div>
-<p><strong>Connaissant</strong> au temps t la position d’un objet <span class="math notranslate nohighlight">\(x(t)\)</span> ainsi que sa vitesse <span class="math notranslate nohighlight">\(v(t)\)</span> on peut <strong>approcher</strong> sa <strong>position</strong> au temps suivant <span class="math notranslate nohighlight">\(t^{new} = t^{old} + dt\)</span> avec la régle de mise à jour:
+\[\frac{\partial x(t)}{\partial t} = V(t)\]</div>
+<p><strong>Connaissant</strong> au temps <span class="math notranslate nohighlight">\(t\)</span> la position d’un objet <span class="math notranslate nohighlight">\(x(t)\)</span> ainsi que sa vitesse <span class="math notranslate nohighlight">\(V(t)\)</span>, on peut <strong>approcher</strong> sa <strong>position</strong> au temps suivant <span class="math notranslate nohighlight">\(t^{new} = t^{old} + dt\)</span> avec la règle de mise à jour :
 $<span class="math notranslate nohighlight">\(x^{\text{new}} =x^{\text{old}} + V \times dt, \)</span><span class="math notranslate nohighlight">\(
 où \)</span>dt$ est le pas de temps.</p>
-<p>Si j’avance à 4 km/h, je serai <span class="math notranslate nohighlight">\((4 km / h) \times ( 0.5 h ) = 2 km\)</span> plus loin après 1/2 heure.</p>
+<p>Si j’avance à 4 km/h, je serai <span class="math notranslate nohighlight">\((4\ \mathrm{km/h}) \times (0.5\ \mathrm{h}) = 2\ \mathrm{km}\)</span> plus loin après une demi-heure.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="erreurs-induites-par-l-approximation">
 <h1>Erreurs induites par l’approximation<a class="headerlink" href="#erreurs-induites-par-l-approximation" title="Link to this heading">#</a></h1>
-<p>La solution discrète est une approximation de la solution continue. L’<strong>erreur</strong> est controlée par le pas de temps <span class="math notranslate nohighlight">\(dt\)</span>: plus <span class="math notranslate nohighlight">\(dt\)</span> est petit, moins l’erreur est grande!</p>
+<p>La solution discrète est une approximation de la solution continue. L’<strong>erreur</strong> est contrôlée par le pas de temps <span class="math notranslate nohighlight">\(dt\)</span> : plus <span class="math notranslate nohighlight">\(dt\)</span> est petit, plus l’erreur est faible !</p>
 <p><img alt="height:300px" src="../_images/erreur_derivee_s2.png" /></p>
 <p>Tout au long du cours, il faudra veiller à toujours prendre des pas de temps <span class="math notranslate nohighlight">\(dt\)</span> (et d’espace !) suffisamment précis pour permettre à la solution d’être précise.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equations-continues-versus-discretisees">
-<h1>Equations “continues” versus “discrétisées”<a class="headerlink" href="#equations-continues-versus-discretisees" title="Link to this heading">#</a></h1>
+<h1>Équations “continues” versus “discrétisées”<a class="headerlink" href="#equations-continues-versus-discretisees" title="Link to this heading">#</a></h1>
 <p><strong>Attention à ne pas confondre:</strong></p>
 <ul class="simple">
 <li><p>les équations continues (<strong>celles-ci ne s’implémentent pas directement</strong>):
@@ -901,7 +909,7 @@ $<span class="math notranslate nohighlight">\(\frac{dx(t)}{dt} = v(t)\)</span>$<
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-dun-modele-dynamique">Structure d’un modèle dynamique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#application-a-la-vitesse-dun-objet-en-1d">Application à la vitesse d’un objet en 1D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#erreurs-induites-par-l-approximation">Erreurs induites par l’approximation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-continues-versus-discretisees">Equations “continues” versus “discrétisées”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-continues-versus-discretisees">Équations “continues” versus “discrétisées”</a></li>
 </ul>
 
   </nav></div>
@@ -917,7 +925,7 @@ $<span class="math notranslate nohighlight">\(\frac{dx(t)}{dt} = v(t)\)</span>$<
   <div class="footer-item">
     
 <p class="component-author">
-By Les auteurs du cours de Modelisation Numerique
+By Les auteurs du cours de Modélisation Numérique
 </p>
 
   </div>

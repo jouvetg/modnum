@@ -20,26 +20,26 @@ color: white
 - Discrétisation (du monde “réel” *continu* au monde “numérique” *discret*)
 - Discrétisation temporelle
 - Structure d’un modèle numérique
-- Figures interactives
+- Figures interactives (voir le tutoriel 2)
 
 ---
 
 # Définition de la dérivée
 
-La dérivée de $x(t)$ par rapport à $t$ est la pente (slope) de la tangente au graphe de la fonction $x(t)$ au point $t$. 
+La dérivée de $x(t)$ par rapport à $t$ est la pente (slope) de la tangente au graphe de la fonction $x(t)$ au point $t$.
 
 On peut écrire aussi la dérivée: $\frac{dx(t)}{dt} = \lim_{dt \to 0} \frac{x(t + dt) - x(t)}{dt}$
- 
+
 ![height:400px](./fig/def_derivees.png)
 
 ---
 
 # Signification physique de la dérivée
 
-Une voiture parcourt le trajet Genève-Lausanne-Bern-Zurich-St Gall, la  distance parcourue est $x(t)$, sa vitesse est la dérivée de la position par rapport au temps.
- 
+Une voiture parcourt le trajet Genève-Lausanne-Berne-Zurich-Saint-Gall : la distance parcourue est $x(t)$, et sa vitesse est la dérivée de la position par rapport au temps.
 
-![height:400px](./fig/geneve-zurich.png)  
+
+![height:400px](./fig/geneve-zurich.png)
 
 ---
 
@@ -57,14 +57,14 @@ $$\frac{\partial f(x,t)}{\partial t}$$
 
 # Une équation différentielle est
 
-... une équation ne fait intervenir la dérivée par rapport à **une seule** variable par exemple 
+... une équation qui ne fait intervenir la dérivée que par rapport à **une seule** variable, par exemple
 
 $$\frac{dx(t)}{dt} = v(t)$$
 
 # Une équation aux dérivées partielles est
-... une équation fait intervenir la dérivée par rapport à **plusieurs** variables par exemple
+... une équation qui fait intervenir la dérivée par rapport à **plusieurs** variables, par exemple
 
-$$\frac{\partial A}{\partial t} = -D \left( \frac{\partial^2 A}{\partial x^2} + \frac{\partial^2 A}{\partial y^2} \right)$$
+$$\frac{\partial A}{\partial t} = D \left( \frac{\partial^2 A}{\partial x^2} + \frac{\partial^2 A}{\partial y^2} \right)$$
 
 ---
 
@@ -81,14 +81,14 @@ En général, les équations différentielles ou aux dérivées partielles issue
 
 ![](./fig/steps_s1.png)
 
- 
+
 ---
 
 # Discrétisation, initialisation et boucle
 
-Pour résoudre numériquement une équation d'évolution (c'est le cas pour tous les exemples de ce cours), il nous faut construire une **discrétisation** du temps en créant des points de temps, c'est-à-dire 
+Pour résoudre numériquement une équation d'évolution (c'est le cas pour tous les exemples de ce cours), il nous faut construire une **discrétisation** du temps en créant des points de temps, c'est-à-dire
 
-$$t_0 = 0, \qquad t_1, \ldots, \ldots \qquad  t_{n-1} = 1000$$ 
+$$t_0 = 0, \qquad t_1, \ldots, \ldots \qquad  t_{n-1} = 1000$$
 
 espacés de $dt$ (le pas de temps), avec lesquels nous mettons à jour le temps.
 
@@ -101,22 +101,22 @@ Les modèles sont toujours présentés de la même manière, avec une partie d'*
 
 # Structure d’un modèle
 
-Le code suivant définit une discrétisation de l'intervalle de temps $[0,1000]$ en `nt`=10000 pas de temps de longueur `dt`=0.1.
+Le code suivant définit une discrétisation de l'intervalle de temps $[0,1000]$ en `nt` = 10000 pas de temps de longueur `dt` = 0.1.
 
 ```python
-# Parametre physiques
-total_time = 1000
+# Parametres physiques
+duree = 1000
 
-# Parametre numeriques
+# Parametres numeriques
 dt = 0.1
-nt = int(total_time/dt) # Nombre de pas de temps, qui doit etre un entier. 
+nt = int(duree/dt) # Nombre de pas de temps, qui doit etre un entier
 
 # Initialisation
-time = 0
+temps = 0
 
-# Boucle en temps
-for i in range(nt):
-    time += dt  # Mise à jour du temps
+# Boucle temporelle
+for it in range(nt):
+    temps += dt  # Mise a jour du temps
 ```
 
 ---
@@ -130,56 +130,56 @@ Dérivée discrétisée dans l’espace temporel discret suivant
 
 $$\frac{df(t^n)}{dt} \sim \frac{f(t^{n+1}) - f(t^n)}{dt}$$
 
-Ce qui donne la règle de la mis-à-jour suivante:
-  
+Ce qui donne la règle de mise à jour suivante :
+
 $$f(t^{n+1}) \leftarrow f(t^n) + \frac{df(t^n)}{dt} \times dt$$
 
 où $dt$ est le pas de temps.
- 
+
 ---
 
 # En initialisation ou dans la boucle ?
 
 Il faudra souvent se poser la question de savoir où doivent aller les instructions.
 
-Pour déterminer si les instructions que vous souhaitez inclure doivent être 
+Pour déterminer si les instructions que vous souhaitez inclure doivent être
 
-- dans l'**initialisation** 
-- OU dans la **boucle**, 
+- dans l'**initialisation**
+- OU dans la **boucle**,
 
 Pour le savoir, demandez-vous si cette instruction doit-elle être mise à jour dans le temps ? Si oui, elle doit être dans la boucle ; sinon, elle doit être à l'initialisation.
 
 ```python
 # par exemple, l'évolution du taux d'interet dans l'évolution de la fortune
 # doit être mis DANS la boucle, car le taux d'interet varie chaque année
-for it in range(1, temps_total+1):
+for it in range(1, duree+1):
     interet = np.random.normal(0.005, 0.01)
-    fortune = (fortune + M_save) * (1 + interet) 
+    fortune = (fortune + M_save) * (1 + interet)
 ```
 
 ---
 
 # Boucle temporelle via `for` ou `while`
- 
+
 Il est possible de stopper la boucle quand une condition est remplie:
 
-- en utilisant un `break`: 
+- en utilisant un `break`:
 
-```python 
-time = 0 ; ttot = 500 
-for i in range(nt): 
-    time += dt
-    if time > ttot:
+```python
+temps = 0 ; duree = 500
+for it in range(nt):
+    temps += dt
+    if temps > duree:
         break
 ```
 
 - en utilisant la commande `while`:
 
-```python 
-i = 0 ; time = 0 ; ttot = 500 
-while time < ttot: 
-    i += 1
-    time += dt
+```python
+it = 0 ; temps = 0 ; duree = 500
+while temps < duree:
+    it += 1
+    temps += dt
 ```
 
 ---
@@ -189,43 +189,42 @@ while time < ttot:
 Notons que **tous** les modèles du cours présentent la même structure :
 
 ```python
-# I> parametre physiques
+# I> parametres physiques
 x_ini  = 1
 
-# II> parametre numeriques
+# II> parametres numeriques
 nt     = 100
 dt     = 0.1
 
 # III> initialisation
-x      = np.zeros(nt)
 x      = x_ini
 
-# IV> boucle temporel
-for i in range(nt):
-    x += ?   # regle de mise à jour
-    plt.plot(...)       # Visualisation
+# IV> boucle temporelle
+for it in range(nt):
+    x += ...            # regle de mise a jour
+    plt.plot(...)       # visualisation
 ```
 
 ---
 
 # Application à la vitesse d’un objet en 1D
 
-La vitesse d'un objet est définie comme un changement de position $x$ par temps $t$: 
+La vitesse d'un objet est définie comme un changement de position $x$ par temps $t$:
 
-$$\frac{\partial x(t)}{\partial t} = v(t)$$
+$$\frac{\partial x(t)}{\partial t} = V(t)$$
 
-**Connaissant** au temps t la position d’un objet $x(t)$ ainsi que sa vitesse $v(t)$ on peut **approcher** sa **position** au temps suivant $t^{new} = t^{old} + dt$ avec la régle de mise à jour:
+**Connaissant** au temps $t$ la position d’un objet $x(t)$ ainsi que sa vitesse $V(t)$, on peut **approcher** sa **position** au temps suivant $t^{new} = t^{old} + dt$ avec la règle de mise à jour :
 $$x^{\text{new}} =x^{\text{old}} + V \times dt, $$
 où $dt$ est le pas de temps.
 
-Si j'avance à 4 km/h, je serai $(4 km / h) \times ( 0.5 h ) = 2 km$ plus loin après 1/2 heure.
+Si j'avance à 4 km/h, je serai $(4\ \mathrm{km/h}) \times (0.5\ \mathrm{h}) = 2\ \mathrm{km}$ plus loin après une demi-heure.
 
 ---
 
 # Erreurs induites par l'approximation
 
-La solution discrète est une approximation de la solution continue. L’**erreur** est controlée par le pas de temps $dt$: plus $dt$ est petit, moins l’erreur est grande!
-  
+La solution discrète est une approximation de la solution continue. L’**erreur** est contrôlée par le pas de temps $dt$ : plus $dt$ est petit, plus l’erreur est faible !
+
 
 ![height:300px](./fig/erreur_derivee_s2.png)
 
@@ -234,7 +233,7 @@ Tout au long du cours, il faudra veiller à toujours prendre des pas de temps $d
 
 ---
 
-# Equations "continues" versus "discrétisées"
+# Équations "continues" versus "discrétisées"
 
 **Attention à ne pas confondre:**
 

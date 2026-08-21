@@ -8,23 +8,25 @@ color: white
 
 # Cours 11
 
+**Hors-programme — pour les curieux**
+
 ![](../illu_mod_num_s.png)
 
 ---
 
 # Objectifs du cours
- 
+
 - Formuler l'équation de la glace en 2D
 - Résoudre l'équation en 2D
 - Implémenter l'équation 2D dans un code
 
 ---
 
-# Modelisation des glaciers en 2D
+# Modélisation des glaciers en 2D
 
-  
- 
-![width:750](https://images.contenthub.dev/xshiytapvw9a/e404ac0c4deb0f9ef3d3bd6859603bb2/Gornergletscher%20Wanderung%20Rotenboden.jpg?fm=avif&fit=fill&q=45&h=640&w=1140)
+
+
+![width:750px](https://images.contenthub.dev/xshiytapvw9a/e404ac0c4deb0f9ef3d3bd6859603bb2/Gornergletscher%20Wanderung%20Rotenboden.jpg?fm=avif&fit=fill&q=45&h=640&w=1140)
 
 *Le Glacier du Gorner vers Zermatt*
 
@@ -34,9 +36,9 @@ color: white
 
 En reprenant les notations, le modèle 1D se généralise en 2D:
 
-$$\frac{\partial h}{\partial t} = - \frac{\partial q_x}{\partial x}  
+$$\frac{\partial h}{\partial t} = - \frac{\partial q_x}{\partial x}
 - \frac{\partial q_y}{\partial y} + b(s), \qquad (1) $$
- 
+
 $$ q_x = - D(h) \frac{\partial s}{\partial x}, \qquad q_y = - D(h) \frac{\partial s}{\partial y}, \qquad (2) $$
 
 $$D(h) = f_\mathrm{d} (\rho g)^3 h^5 \lvert\lvert  \nabla s \rvert \rvert^2.  \qquad (3)$$
@@ -58,15 +60,15 @@ Comme en 1D, il faudra veiller à (dans la boucle temporelle) :
 5. Veiller à ce que l'épaisseur de glace reste positive.
 6. Forcer l'épaisseur à être zéro sur les bords.
 
-La difficulté en 2D est de gérer la discrétisation spatiale sur la grille 2D. 
+La difficulté en 2D est de gérer la discrétisation spatiale sur la grille 2D.
 
-Seuls 2., 3., 6. différent du cas 1D, et sont donc traités plus bas.
+Seuls les points 2, 3 et 6 diffèrent du cas 1D : ils sont donc traités plus bas.
 
 ---
 
 # Traitement de la grille en 2D (1/4)
 
-La position de toutes les valeurs sur la grille est plus complexe en 2D: les quantités des équations (1)-(3) sont à des endroits différents de la grille: `□`, `+`, `o`, ou `-`. 
+La position de toutes les valeurs sur la grille est plus complexe en 2D: les quantités des équations (1)-(3) sont à des endroits différents de la grille: `□`, `+`, `o`, ou `-`.
 
 
 ```
@@ -95,7 +97,7 @@ La position de toutes les valeurs sur la grille est plus complexe en 2D: les qua
 
 $$D(h) = f_\mathrm{d} (\rho g)^3 h^5 \lvert\lvert  \nabla s \rvert \rvert^2.  \qquad (3)$$
 
-- ou l'épaisseur de glace $h$ moyennée sur les épaisseurs des 4 cellules voisines,
+- où l'épaisseur de glace $h$ est moyennée sur les 4 nœuds voisins,
 
 - les pentes $s_x = \frac{\partial s}{\partial x}$ et $s_y = \frac{\partial s}{\partial y}$ sont obtenues en dérivant dans les directions $x$ et $y$, et en moyennant dans les directions $y$ et $x$.
 
@@ -121,9 +123,9 @@ La même stratégie est appliquée pour calculer $q_y$ en inversant $x$ et $y$.
 
 Une fois $q_x$ et $q_y$ calculés, nous avons :
 
-- $q_x$ de taille `(ny-2,nx-1)` est défini aux interfaces verticales (`-` ci-dessus).
+- $q_x$ de taille `(ny-2,nx-1)` est défini aux interfaces verticales (`+` ci-dessus).
 
-- $q_y$ de taille `(ny-1,nx-2)` est défini aux interfaces horizontales (`+` ci-dessus).
+- $q_y$ de taille `(ny-1,nx-2)` est défini aux interfaces horizontales (`-` ci-dessus).
 
 Il suffit de mettre à jour l'épaisseur de glace en fonction des flux, comme d'habitude, de sorte que $dh/dt$ soit de taille `(ny-2,nx-2)` :
 
@@ -131,51 +133,51 @@ Il suffit de mettre à jour l'épaisseur de glace en fonction des flux, comme d'
 dhdt = - ( (qx[:,1:] - qx[:,:-1]) / dx + (qy[1:,:] - qy[:-1,:]) / dy )
 h[1:-1, 1:-1] += dt * dhdt
 ```
- 
+
 ---
 
-# Ebauche de code
+# Ébauche de code
 
 
 ```python
-# Calculate H_avg, size (ny-1,nx-1)
-# Calculer H_avg, taille (ny-1,nx-1)
-h_avg = …
+# Calculer h_moy, taille (ny-1,nx-1)
+h_moy = ...
 
-# Compute Snorm, size (ny-1,nx-1)
 # Calculer Snorm, taille (ny-1,nx-1)
-snorm = …
+Snorm = ...
 
-# Compute D, size (ny-1,nx-1)
 # Calculer D, taille (ny-1,nx-1)
-D = …
+D = ...
 
-# Compute qx, size (ny-2,nx-1)
 # Calculer qx, taille (ny-2,nx-1)
-qx = …
+qx = ...
 
-# Compute qy, size (ny-1,nx-2)
 # Calculer qy, taille (ny-1,nx-2)
-qy = …
+qy = ...
 
-# Compute dHdt, and update rule, size (ny-2,nx-2)
-# Calculer dHdt et règle de mise à jour, taille (ny-2,nx-2)
+# Calculer dhdt et appliquer la regle de mise a jour, taille (ny-2,nx-2)
 dhdt = ...
-h[1:-1, 1:-1] += dt * dHdt
+h[1:-1, 1:-1] += dt * dhdt
 ```
 ---
 
 # Pas de temps
 
-Pour assurer la stabilité de la méthode, nous prendrons le pas de temps $dt$ adaptatif suivant qui généralise celui que l'on a vu en 1D: 
+Pour assurer la stabilité de la méthode, nous prendrons le pas de temps $dt$ adaptatif suivant, qui généralise celui que l'on a vu en 1D:
 
-$$ dt = \min \left\{ dt_{max} , \frac{min(dx, dy)^2}{4.1 \times \max(|D|)} \right\}. $$
+$$ dt_\mathrm{diff} = \frac{\min(dx, dy)^2}{4.1 \times \max(D)}, \qquad
+dt = \min \left( dt_\mathrm{max} , \ dt_\mathrm{diff} \right). $$
 
-Comme dans le cas 1D, le pas de temps est adaptatif, c'est-à-dire qu'il doit être mis à jour comme la diffusivité.
+```python
+dt_diff = min(dx, dy)**2 / (4.1 * np.max(D))  # contrainte de la diffusion
+dt      = min(dt_max, dt_diff)                # pas de temps retenu
+```
+
+Comme dans le cas 1D, le pas de temps est adaptatif, c'est-à-dire qu'il doit être mis à jour dans la boucle, comme la diffusivité.
 
 ---
 
-# Conditions de bords
+# Conditions aux bords
 
 Forcer l'épaisseur de glace à être nulle sur les 4 côtés du domaine modélisé s'écrit:
 
@@ -186,4 +188,3 @@ h[:,0]  = 0
 h[:,-1] = 0
 ```
 
- 

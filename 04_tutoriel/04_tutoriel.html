@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tutoriel 4 &#8212; Modelisation Numerique</title>
+    <title>Tutoriel 4 &#8212; Modélisation Numérique</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modelisation Numerique - Home"/>
-    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modelisation Numerique - Home"/>`);</script>
+    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modélisation Numérique - Home"/>
+    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modélisation Numérique - Home"/>`);</script>
   
   
 </a></div>
@@ -261,6 +261,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
 
@@ -291,8 +292,8 @@
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutoriel 4</a></li>
 
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutoriel 4</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04_exercice/04_exercice.html">Exercices 4</a></li>
 
@@ -317,6 +318,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
 
 </ul>
@@ -336,6 +338,9 @@
 
 
 
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06_tutoriel/06_tutoriel.html">Tutoriel 6</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../06_exercice/06_exercice.html">Exercices 6</a></li>
 
@@ -374,6 +379,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../08_tutoriel/08_tutoriel.html">Tutoriel 8</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../08_exercice/08_exercice.html">Exercices 8</a></li>
@@ -391,6 +397,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
 
 </ul>
@@ -410,11 +417,13 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../10_tutoriel/10_tutoriel.html">Tutoriel 10</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../10_exercice/10_exercice.html">Exercices 10</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11 — hors-programme, pour les curieux</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../11_cours/11_cours.html">Cours 11</a></li>
 
@@ -581,8 +590,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 4</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#se-familiariser-avec-la-discretisation-spatiale">Se familiariser avec la discrétisation spatiale</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#se-familiariser-avec-l-approximation-d-un-derivee-spatiale">Se familiariser avec l’approximation d’un dérivée spatiale</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#se-familiariser-avec-la-discretisation-spatiale-et-les-derivees">Se familiariser avec la discrétisation spatiale et les dérivées</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discretiser-un-domaine">1. Discrétiser un domaine</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agir-a-une-position-physique">2. Agir à une position physique</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximer-une-derivee-spatiale">3. Approximer une dérivée spatiale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-experimenter">À expérimenter</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -598,164 +612,109 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-4">
 <h1>Tutoriel 4<a class="headerlink" href="#tutoriel-4" title="Link to this heading">#</a></h1>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="se-familiariser-avec-la-discretisation-spatiale">
-<h1>Se familiariser avec la discrétisation spatiale<a class="headerlink" href="#se-familiariser-avec-la-discretisation-spatiale" title="Link to this heading">#</a></h1>
-<p>Pour résoudre une équation en 1D (par exemple, une équation de diffusion), il est nécessaire de discrétiser l’espace, c’est-à-dire de diviser le domaine spatial de modélisation en intervalles avec un ensemble de points où la solution sera calculée. Par exemple, si notre domaine est l’intervalle <span class="math notranslate nohighlight">\([0, 1]\)</span>, nous définissons <span class="math notranslate nohighlight">\(x_0 = 0\)</span>, <span class="math notranslate nohighlight">\(x_1 = 0.1\)</span>, <span class="math notranslate nohighlight">\(x_2 = 0.2\)</span>, …, <span class="math notranslate nohighlight">\(x_{10} = 1\)</span>, avec une longueur d’intervalle <span class="math notranslate nohighlight">\(dx = 0.1\)</span>.</p>
-<p>Dans l’example suivant, nous discrétisons l’intervalle <span class="math notranslate nohighlight">\([a,b]\)</span> en <span class="math notranslate nohighlight">\(nx\)</span> morceaux: <span class="math notranslate nohighlight">\(x_0\)</span> – <span class="math notranslate nohighlight">\(x_1\)</span> – <span class="math notranslate nohighlight">\(x_2\)</span> – … – … – … – … – <span class="math notranslate nohighlight">\(x_{nx-2}\)</span> – <span class="math notranslate nohighlight">\(x_{nx-1}\)</span>.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="se-familiariser-avec-la-discretisation-spatiale-et-les-derivees">
+<h1>Se familiariser avec la discrétisation spatiale et les dérivées<a class="headerlink" href="#se-familiariser-avec-la-discretisation-spatiale-et-les-derivees" title="Link to this heading">#</a></h1>
+<section id="discretiser-un-domaine">
+<h2>1. Discrétiser un domaine<a class="headerlink" href="#discretiser-un-domaine" title="Link to this heading">#</a></h2>
+<p>Pour résoudre une équation en 1D, il faut <strong>discrétiser l’espace</strong> : diviser le domaine en intervalles, et ne calculer la solution qu’en un ensemble de points. Nous découpons l’intervalle <span class="math notranslate nohighlight">\([a,b]\)</span> en <code class="docutils literal notranslate"><span class="pre">nx</span></code> points <span class="math notranslate nohighlight">\(x_0, x_1, \ldots, x_{nx-1}\)</span> séparés d’un pas <span class="math notranslate nohighlight">\(dx\)</span>.</p>
+<p>Une fois le domaine discrétisé, on y initialise une fonction (une concentration, une température), puis on peut en modifier la valeur à un indice donné.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">nx</span> <span class="o">=</span> <span class="mi">101</span>                            
-<span class="n">x</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>  
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">101</span>
+<span class="n">x</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
 <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;longueur de x :&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s2">&quot;   dx =&quot;</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Le vecteur des coordonééer de la discretisation est :&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sa longueur est :&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;La valeur de dx est :&#39;</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Maintenant que notre domaine est discrétisé, nous pouvons initialiser une fonction (comme une concentration ou une température) sur ce domaine. Par exemple, nous pouvons initialiser une température égale à 2 partout :</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Nous pouvons vérifier en traçant la fonction T(x) que nous l’avons bien initialisée :</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span> <span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Il est possible de modifier la valeur de T en un point donné en utilisant la syntaxe suivante :</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="mi">0</span>             <span class="c1"># modification de la valeur de la première composante (cad quand x=a)</span>
-<span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>             <span class="c1"># modification de la valeur de la dernière composante (cad quand x=b)</span>
-<span class="n">T</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">nx</span><span class="o">/</span><span class="mi">5</span><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">nx</span><span class="o">/</span><span class="mi">5</span><span class="p">)]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="c1"># modification de la valeur de la composante entre le premier et le deuxième cinquième du domaine</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Affichons à nouveau la fonction <span class="math notranslate nohighlight">\(T\)</span> pour voir les effets des changements :</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span> <span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Nous avons vu au point précédent comment changer la valeur de T à un point donné. Souvent, il est demandé de le faire à un point physique. Par exemple, on souhaite donner à la température T la valeur <span class="math notranslate nohighlight">\(6\)</span> au point <span class="math notranslate nohighlight">\(x_P = 0.4\)</span>. Cependant, il n’est pas correct de faire <code class="docutils literal notranslate"><span class="pre">T[0.4]</span> <span class="pre">=</span> <span class="pre">6</span></code>, car <code class="docutils literal notranslate"><span class="pre">T</span></code> est un vecteur de <span class="math notranslate nohighlight">\(n_x\)</span> éléments et il ne prend que des indices entiers comme arguments.</p>
-<p>Il faut donc trouver l’indice correspondant à <span class="math notranslate nohighlight">\(x_P = 0.4\)</span> (ou celui qui s’en approche le plus), car il n’est pas garanti que <span class="math notranslate nohighlight">\(x_P = 0.4\)</span> soit atteint dans notre discrétisation <span class="math notranslate nohighlight">\(x_0\)</span>, <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, …, <span class="math notranslate nohighlight">\(x_{n_x - 2}\)</span>, <span class="math notranslate nohighlight">\(x_{n_x - 1}\)</span>. Pour cela, nous devons diviser la position du point <span class="math notranslate nohighlight">\(x_P\)</span> par la longueur de l’intervalle <span class="math notranslate nohighlight">\(dx\)</span> pour obtenir sa position relative au début de l’intervalle. Ensuite, nous prenons la partie entière de ce résultat pour nous assurer que l’indice obtenu est un entier : <code class="docutils literal notranslate"><span class="pre">ixp</span> <span class="pre">=</span> <span class="pre">int((x_P</span> <span class="pre">-</span> <span class="pre">a)</span> <span class="pre">/</span> <span class="pre">dx)</span></code>.</p>
-<p>Voici le code complet ainsi qu’un graphique pour vérifier que la valeur a bien été changée :</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Txp</span> <span class="o">=</span> <span class="mi">6</span>   
-<span class="n">xp</span> <span class="o">=</span> <span class="mf">0.6</span>
-<span class="n">ixp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">xp</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span> <span class="c1"># indice de la composante la plus proche de xp</span>
-<span class="n">T</span><span class="p">[</span><span class="n">ixp</span><span class="p">]</span> <span class="o">=</span> <span class="n">Txp</span>         <span class="c1"># modification de la valeur de la composante la plus proche de xp</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span> <span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span> <span class="c1"># affichage du vecteur T</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">Txp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="c1"># affichage du point rouge pour le nouveau point</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>En utilisant la même stratégie, nous pouvons appliquer cela sur un intervalle (ici, nous forçons la température à valoir 1 entre <span class="math notranslate nohighlight">\(x\)</span> = 0.1 et <span class="math notranslate nohighlight">\(x\)</span> = 0.9) :</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Txp</span> <span class="o">=</span> <span class="mi">1</span>  
-<span class="n">xl</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">xr</span> <span class="o">=</span> <span class="mf">0.9</span>
-<span class="n">ixl</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">xl</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span> 
-<span class="n">ixr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">xr</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span> 
-<span class="n">T</span><span class="p">[</span><span class="n">ixl</span><span class="p">:</span><span class="n">ixr</span><span class="p">]</span> <span class="o">=</span> <span class="n">Txp</span>     
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span> <span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span> <span class="c1"># affichage du vecteur T</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Notons qu’il est possible (et parfois préférable) d’obtenir le même résultat que <code class="docutils literal notranslate"><span class="pre">T[ixl,ixr]</span></code> avec avec <code class="docutils literal notranslate"><span class="pre">T[(xl&lt;x)&amp;(x&lt;xr)]</span> <span class="pre">=</span> <span class="pre">Txp</span></code>. Avec cette derniere commande et <code class="docutils literal notranslate"><span class="pre">x</span></code> étant le vecteur de coordonnés défini ci-dessus, <code class="docutils literal notranslate"><span class="pre">(xl&lt;x)&amp;(x&lt;xr)</span></code> trouve les indices du vecteur dont les coordonées sont compris entre <code class="docutils literal notranslate"><span class="pre">xl</span></code> et <code class="docutils literal notranslate"><span class="pre">xr</span></code>, il est ainsi plus facile d’attribuer une valeur choisie <code class="docutils literal notranslate"><span class="pre">Txp</span></code> aux éléments du vecteur <code class="docutils literal notranslate"><span class="pre">T</span></code> qui satisfassent cette condition. Ainsi la comande suivante est équivalente à celle du code précédent:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="p">[(</span><span class="n">xl</span><span class="o">&lt;</span><span class="n">x</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="n">xr</span><span class="p">)]</span> <span class="o">=</span> <span class="n">Txp</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Il est possible de tester si la température T au point <code class="docutils literal notranslate"><span class="pre">vc</span></code> est égale à <code class="docutils literal notranslate"><span class="pre">va</span></code> avec la commande <code class="docutils literal notranslate"><span class="pre">T[int((xc</span> <span class="pre">-</span> <span class="pre">a)/dx)]</span> <span class="pre">==</span> <span class="pre">va</span></code> :</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xc</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="p">;</span> <span class="n">va</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;La température en x=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">xc</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; est equal à &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">va</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; :&#39;</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="nb">int</span><span class="p">((</span><span class="n">xc</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)]</span><span class="o">==</span><span class="n">va</span><span class="p">)</span>
-<span class="n">xc</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="p">;</span> <span class="n">va</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;La température en x=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">xc</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; est equal à &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">va</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; :&#39;</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="nb">int</span><span class="p">((</span><span class="n">xc</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)]</span><span class="o">==</span><span class="n">va</span><span class="p">)</span>
-<span class="n">xc</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="p">;</span> <span class="n">va</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;La température en x=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">xc</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; est equal à &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">va</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; :&#39;</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="nb">int</span><span class="p">((</span><span class="n">xc</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)]</span><span class="o">==</span><span class="n">va</span><span class="p">)</span>
-<span class="n">xc</span> <span class="o">=</span> <span class="mf">0.8</span> <span class="p">;</span> <span class="n">va</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;La température en x=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">xc</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; est equal à &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">va</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; :&#39;</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="nb">int</span><span class="p">((</span><span class="n">xc</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)]</span><span class="o">==</span><span class="n">va</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Il sera parfois nécessaire de calculer des valeurs entre les nœuds de discrétisation. Cela peut se faire en faisant une moyenne entre deux points successifs. Notons qu’en faisant cela, nous avons perdu une cellule ; le vecteur est maintenant de dimension <span class="math notranslate nohighlight">\(n_x - 1\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">T</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># calcul de la valeur de la température au milieu de chaque intervallele (taille nx-1)</span>
-<span class="n">xmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># calcul de la valeur de la position au milieu de chaque intervallele (taille nx-1)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span>                <span class="c1"># une temperature egale a 2 partout</span>
+<span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="mi">0</span>                        <span class="c1"># premiere composante (x = a)</span>
+<span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>                        <span class="c1"># derniere composante (x = b)</span>
+<span class="n">T</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">nx</span><span class="o">/</span><span class="mi">5</span><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">nx</span><span class="o">/</span><span class="mi">5</span><span class="p">)]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>    <span class="c1"># entre le premier et le deuxieme cinquieme</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coordonnées des points au milieu de chaque intervalle :&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">xmid</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valeurs de la température au milieu de chaque intervalle :&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Tmid</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>longueur de x : 101    dx = 0.01
+</pre></div>
+</div>
+<img alt="../_images/41a90d8ae8c58ff0d53389bb2a33a338a2a3c62e4d167473e9cfb431fc4406b6.png" src="../_images/41a90d8ae8c58ff0d53389bb2a33a338a2a3c62e4d167473e9cfb431fc4406b6.png" />
+</div>
+</div>
+</section>
+<section id="agir-a-une-position-physique">
+<h2>2. Agir à une position physique<a class="headerlink" href="#agir-a-une-position-physique" title="Link to this heading">#</a></h2>
+<p>Nous venons de modifier <code class="docutils literal notranslate"><span class="pre">T</span></code> à un <strong>indice</strong> donné. Le plus souvent, on souhaite le faire à une <strong>position physique</strong>. Écrire <code class="docutils literal notranslate"><span class="pre">T[0.4]</span> <span class="pre">=</span> <span class="pre">6</span></code> est incorrect : <code class="docutils literal notranslate"><span class="pre">T</span></code> n’accepte que des indices entiers.</p>
+<p>Il faut donc convertir la position en indice. On divise la position par le pas <span class="math notranslate nohighlight">\(dx\)</span> pour obtenir la position relative au début de l’intervalle, puis on en prend la partie entière : <code class="docutils literal notranslate"><span class="pre">ixp</span> <span class="pre">=</span> <span class="pre">int((xp</span> <span class="pre">-</span> <span class="pre">a)/dx)</span></code>. Rien ne garantit en effet que <span class="math notranslate nohighlight">\(x_P\)</span> tombe exactement sur un point de la discrétisation.</p>
+<p>La même stratégie s’applique à un intervalle. On peut aussi, et c’est parfois préférable, utiliser directement une <strong>condition sur les coordonnées</strong> : <code class="docutils literal notranslate"><span class="pre">T[(xl</span> <span class="pre">&lt;</span> <span class="pre">x)</span> <span class="pre">&amp;</span> <span class="pre">(x</span> <span class="pre">&lt;</span> <span class="pre">xr)]</span> <span class="pre">=</span> <span class="pre">Txp</span></code> sélectionne les éléments de <code class="docutils literal notranslate"><span class="pre">T</span></code> dont la coordonnée est comprise entre <code class="docutils literal notranslate"><span class="pre">xl</span></code> et <code class="docutils literal notranslate"><span class="pre">xr</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xp</span><span class="p">,</span> <span class="n">Txp</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">6</span>
+<span class="n">ixp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">xp</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>          <span class="c1"># indice de la composante la plus proche de xp</span>
+<span class="n">T</span><span class="p">[</span><span class="n">ixp</span><span class="p">]</span> <span class="o">=</span> <span class="n">Txp</span>
+
+<span class="n">xl</span><span class="p">,</span> <span class="n">xr</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span>
+<span class="n">T</span><span class="p">[(</span><span class="n">xl</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">xr</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span>    <span class="c1"># equivalent a T[int((xl-a)/dx):int((xr-a)/dx)] = 1</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">Txp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># on peut aussi tester la valeur de T en une position donnee</span>
+<span class="n">xc</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;T en x =&#39;</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="s1">&#39;vaut 1 :&#39;</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="nb">int</span><span class="p">((</span><span class="n">xc</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f4b4c5b5f86d0c639fa220b7e7d83f4d30dd63cd74b85addcf9252ec4e64c3fa.png" src="../_images/f4b4c5b5f86d0c639fa220b7e7d83f4d30dd63cd74b85addcf9252ec4e64c3fa.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T en x = 0.3 vaut 1 : True
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="se-familiariser-avec-l-approximation-d-un-derivee-spatiale">
-<h1>Se familiariser avec l’approximation d’un dérivée spatiale<a class="headerlink" href="#se-familiariser-avec-l-approximation-d-un-derivee-spatiale" title="Link to this heading">#</a></h1>
-<p>Pour résoudre un modèle (p.e. de diffusion), il nous faudra trés souvent dans ces modèles appoximer des dérivées, c.a.d. de facçon numérique (pas de façon exacte/analytique). Pour illustrer cela, nous définisons un vecteur <span class="math notranslate nohighlight">\(F\)</span> avec la fonction sinus, sa dérivée “exacte” définit avec la fonction cosinus, et sa dérivée “approchée” défini au moyen d’une différence finie (approximation que nous utiliserons à mainte reprise dans ce cours). Le code suivant fait tout cela, et montre que la dérivée approximative est trés proche de la dérivée exacte:</p>
+<section id="approximer-une-derivee-spatiale">
+<h2>3. Approximer une dérivée spatiale<a class="headerlink" href="#approximer-une-derivee-spatiale" title="Link to this heading">#</a></h2>
+<p>Nous aurons très souvent à approximer des dérivées de façon <strong>numérique</strong>, et non exacte. Nous le ferons par une <strong>différence finie</strong> entre deux points voisins : <code class="docutils literal notranslate"><span class="pre">(F[1:]</span> <span class="pre">-</span> <span class="pre">F[:-1])/dx</span></code>.</p>
+<p>Cette opération fait <strong>perdre une cellule</strong> : le résultat est de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>, et il ne vit plus <em>sur</em> les points de la grille mais <em>entre</em> eux. Pour le tracer, il faut donc l’associer aux points milieux <code class="docutils literal notranslate"><span class="pre">xm</span> <span class="pre">=</span> <span class="pre">(x[1:]</span> <span class="pre">+</span> <span class="pre">x[:-1])/2</span></code>, et non à <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Notons que cette même moyenne <code class="docutils literal notranslate"><span class="pre">(T[1:]</span> <span class="pre">+</span> <span class="pre">T[:-1])/2</span></code> sert aussi, à elle seule, à calculer une valeur <strong>entre</strong> les nœuds — nous en aurons besoin plus tard.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">F</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="c1"># Define x and dx</span>
-<span class="n">nx</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>  <span class="c1"># Example intervalle of x</span>
-<span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Calculer dx</span>
+<span class="n">dFdx_exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                <span class="c1"># taille nx</span>
+<span class="n">dFdx_appro</span> <span class="o">=</span> <span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">F</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>      <span class="c1"># taille nx-1 : une cellule perdue</span>
+<span class="n">xm</span>         <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>       <span class="c1"># les points milieux, taille nx-1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;taille de F :&quot;</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;  taille de dF/dx approchee :&quot;</span><span class="p">,</span> <span class="n">dFdx_appro</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="c1"># Calculer F, dFdx_exact, and dFdx_appro</span>
-<span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">dFdx_exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">dFdx_appro</span> <span class="o">=</span> <span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">F</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>
-
-<span class="c1"># Calculer points milieux (xm)</span>
-<span class="n">xm</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
-
-<span class="c1"># Tracerting</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dFdx_exact</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;dF/dx exact (blue)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xm</span><span class="p">,</span> <span class="n">dFdx_appro</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;dF/dx approx (red)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
-
-<span class="c1"># Add labels, legend, and title</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;dF/dx&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Comparaison entre dérivées Exact et Approximative&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-<span class="c1"># Afficher the tracer</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dFdx_exact</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;dF/dx exacte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xm</span><span class="p">,</span> <span class="n">dFdx_appro</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;dF/dx approchee&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;dF/dx&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>taille de F : (50,)   taille de dF/dx approchee : (49,)
+</pre></div>
 </div>
-<p>Notons que pour afficher les deux <code class="docutils literal notranslate"><span class="pre">dFdx_exact</span></code> et <code class="docutils literal notranslate"><span class="pre">dFdx_approx</span></code> sur un meme graphique, il a fallue calculer les points au centre des cellules <code class="docutils literal notranslate"><span class="pre">xm</span> <span class="pre">=</span> <span class="pre">(x[1:]</span> <span class="pre">+</span> <span class="pre">x[:-1])</span> <span class="pre">/</span> <span class="pre">2</span></code> cat la dérivée approximative est de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code> puisque l’on perd une cellule lors de la différence finie <code class="docutils literal notranslate"><span class="pre">(F[1:]</span> <span class="pre">-</span> <span class="pre">F[:-1])</span> <span class="pre">/</span> <span class="pre">dx</span></code>, il faut donc “plotter” <code class="docutils literal notranslate"><span class="pre">dFdx_approx</span></code> par rapport à <code class="docutils literal notranslate"><span class="pre">xm</span></code> et non <code class="docutils literal notranslate"><span class="pre">x</span></code> qui est de taille <code class="docutils literal notranslate"><span class="pre">nx</span></code>.</p>
+<img alt="../_images/1d8eba39a5d8c98347a853adbf8112f76bc07fe26d9860fe0a34b1ca5360fdfe.png" src="../_images/1d8eba39a5d8c98347a853adbf8112f76bc07fe26d9860fe0a34b1ca5360fdfe.png" />
+</div>
+</div>
+</section>
+<section id="a-experimenter">
+<h2>À expérimenter<a class="headerlink" href="#a-experimenter" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Passez <code class="docutils literal notranslate"><span class="pre">nx</span></code> de 50 à 200 dans la dernière cellule : l’écart entre les deux courbes augmente-t-il ou diminue-t-il ? Essayez ensuite <code class="docutils literal notranslate"><span class="pre">nx</span> <span class="pre">=</span> <span class="pre">10</span></code>.</p></li>
+<li><p>Que se passe-t-il si vous tracez <code class="docutils literal notranslate"><span class="pre">dFdx_appro</span></code> en fonction de <code class="docutils literal notranslate"><span class="pre">x[1:]</span></code> au lieu de <code class="docutils literal notranslate"><span class="pre">xm</span></code> ?</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -823,8 +782,13 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 4</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#se-familiariser-avec-la-discretisation-spatiale">Se familiariser avec la discrétisation spatiale</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#se-familiariser-avec-l-approximation-d-un-derivee-spatiale">Se familiariser avec l’approximation d’un dérivée spatiale</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#se-familiariser-avec-la-discretisation-spatiale-et-les-derivees">Se familiariser avec la discrétisation spatiale et les dérivées</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discretiser-un-domaine">1. Discrétiser un domaine</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agir-a-une-position-physique">2. Agir à une position physique</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximer-une-derivee-spatiale">3. Approximer une dérivée spatiale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-experimenter">À expérimenter</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>
@@ -840,7 +804,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Les auteurs du cours de Modelisation Numerique
+By Les auteurs du cours de Modélisation Numérique
 </p>
 
   </div>

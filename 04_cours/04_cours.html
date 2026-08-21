@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Cours 4 &#8212; Modelisation Numerique</title>
+    <title>Cours 4 &#8212; Modélisation Numérique</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modelisation Numerique - Home"/>
-    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modelisation Numerique - Home"/>`);</script>
+    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modélisation Numérique - Home"/>
+    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modélisation Numérique - Home"/>`);</script>
   
   
 </a></div>
@@ -261,6 +261,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
 
@@ -291,8 +292,8 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04_exercice/04_exercice.html">Exercices 4</a></li>
 
@@ -317,6 +318,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
 
 </ul>
@@ -336,6 +338,9 @@
 
 
 
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06_tutoriel/06_tutoriel.html">Tutoriel 6</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../06_exercice/06_exercice.html">Exercices 6</a></li>
 
@@ -374,6 +379,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../08_tutoriel/08_tutoriel.html">Tutoriel 8</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../08_exercice/08_exercice.html">Exercices 8</a></li>
@@ -391,6 +397,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
 
 </ul>
@@ -410,11 +417,13 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../10_tutoriel/10_tutoriel.html">Tutoriel 10</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../10_exercice/10_exercice.html">Exercices 10</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11 — hors-programme, pour les curieux</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../11_cours/11_cours.html">Cours 11</a></li>
 
@@ -597,12 +606,13 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-discretisee">Variable discrétisée</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-aux-noeuds-et-au-centre-des-cellules">Valeurs aux noeuds et au centre des cellules</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-numerique">Approximation numérique</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-numerique-du-flux-q">1) Approximation numérique du flux <code class="docutils literal notranslate"><span class="pre">q</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-numerique-du-flux-qx">1) Approximation numérique du flux <code class="docutils literal notranslate"><span class="pre">qx</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-numerique-de-dcdt">2) Approximation numérique de <code class="docutils literal notranslate"><span class="pre">dCdt</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#regle-de-mise-a-jour">3) Règle de mise à jour</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#derivees-et-taille-de-vecteurs">Dérivées et taille de vecteurs</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bord">Conditions de bord</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-aux-bords">Conditions aux bords</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pas-de-temps-dt-et-stabilite">Pas de temps <span class="math notranslate nohighlight">\(dt\)</span> et stabilité</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pas-de-temps-dt-ecriture-systematique">Pas de temps <span class="math notranslate nohighlight">\(dt\)</span>: écriture systématique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisation-d-un-flag">Utilisation d’un flag</a></li>
 </ul>
 
@@ -643,12 +653,12 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="ex-2-pollution-des-sols-accident-de-daillens">
 <h1>Ex 2: Pollution des sols (accident de Daillens)<a class="headerlink" href="#ex-2-pollution-des-sols-accident-de-daillens" title="Link to this heading">#</a></h1>
-<p><img alt="width:700" src="../_images/pollution_sols_s4.png" /></p>
+<p><img alt="width:700px" src="../_images/pollution_sols_s4.png" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="exemple-3-temperature-dans-le-sol">
 <h1>Exemple 3:  Température dans le sol<a class="headerlink" href="#exemple-3-temperature-dans-le-sol" title="Link to this heading">#</a></h1>
-<p><img alt="height:400" src="../_images/temp_sol_s4.jpg" /> <img alt="height:400" src="../_images/temp_sol2_s4.jpg" /></p>
+<p><img alt="height:400px" src="../_images/temp_sol_s4.jpg" /> <img alt="height:400px" src="../_images/temp_sol2_s4.jpg" /></p>
 <p>Source 1: <a class="reference external" href="https://www.energie-environnement.ch/">https://www.energie-environnement.ch/</a>
 Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Active_layer">https://en.wikipedia.org/wiki/Active_layer</a></p>
 </section>
@@ -669,7 +679,7 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 <section class="tex2jax_ignore mathjax_ignore" id="interpretation-graphique">
 <h1>Interprétation graphique<a class="headerlink" href="#interpretation-graphique" title="Link to this heading">#</a></h1>
 <p>À partir de l’exemple de la variation de concentration d’un colorant se déplaçant dans un gel, l’équation de diffusion permet de représenter le déplacement de molécules depuis une zone de haute concentration vers une zone de basse concentration, comme l’illustre cette figure (où <span class="math notranslate nohighlight">\(C\)</span> représente la concentration).</p>
-<p><img alt="width:700" src="../_images/diffusion.png" /></p>
+<p><img alt="width:700px" src="../_images/diffusion.png" /></p>
 <p><small><em>Gauche : représentation continue de la diffusion de molécules d’une zone hautement concentrée vers une zone à faible concentration. Droite : représentation discrétisée en temps et en espace.</em></small></p>
 </section>
 <hr class="docutils" />
@@ -685,11 +695,11 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="formalisation-mathematique">
 <h1>Formalisation mathématique<a class="headerlink" href="#formalisation-mathematique" title="Link to this heading">#</a></h1>
-<p>Un problème de diffusion peut être décrit par une <strong>équation aux dérivées partielles</strong> (EDP). Dans le cas de la diffusion d’un liquide dans un autre, cette EDP modélise l’évolution de la concentration <span class="math notranslate nohighlight">\(C\)</span> en fonction du temps <span class="math notranslate nohighlight">\(t\)</span> et de l’espace <span class="math notranslate nohighlight">\(x\)</span>, en tenant compte de la <strong>concentration initiale</strong> et des <strong>conditions aux limites</strong>.</p>
+<p>Un problème de diffusion peut être décrit par une <strong>équation aux dérivées partielles</strong> (EDP). Dans le cas de la diffusion d’un liquide dans un autre, cette EDP modélise l’évolution de la concentration <span class="math notranslate nohighlight">\(C\)</span> en fonction du temps <span class="math notranslate nohighlight">\(t\)</span> et de l’espace <span class="math notranslate nohighlight">\(x\)</span>, en tenant compte de la <strong>concentration initiale</strong> et des <strong>conditions aux bords</strong>.</p>
 <ul class="simple">
-<li><p>Supposons une discrétisation uniforme de l’espace avec un pas <span class="math notranslate nohighlight">\(dx\)</span></p></li>
-<li><p>Définissons <span class="math notranslate nohighlight">\(C\)</span> comme la concentration d’un polluant donnée par <span class="math notranslate nohighlight">\(C = \frac{n}{dx}\)</span>, où <span class="math notranslate nohighlight">\(n\)</span> est le nombre de particules (en mol).</p></li>
-<li><p>Le flux de particules <span class="math notranslate nohighlight">\(q\)</span> est défini comme le nombre de particules déplacées par unité de temps et de surface <span class="math notranslate nohighlight">\(\left(\frac{\textup{mol}}{\textup{m}^2 \, \text{s}}\right)\)</span>.</p></li>
+<li><p>Supposons une discrétisation uniforme de l’espace avec un pas <span class="math notranslate nohighlight">\(dx\)</span>, et une section unitaire (<span class="math notranslate nohighlight">\(1 \, \textup{m}^2\)</span>)</p></li>
+<li><p>Définissons <span class="math notranslate nohighlight">\(C\)</span> comme la concentration d’un polluant donnée par <span class="math notranslate nohighlight">\(C = \frac{n}{dx}\)</span> (en <span class="math notranslate nohighlight">\(\textup{mol}/\textup{m}^3\)</span>), où <span class="math notranslate nohighlight">\(n\)</span> est le nombre de particules (en mol).</p></li>
+<li><p>Le flux de particules <span class="math notranslate nohighlight">\(q_x\)</span> est défini comme le nombre de particules déplacées par unité de temps et de surface <span class="math notranslate nohighlight">\(\left(\frac{\textup{mol}}{\textup{m}^2 \, \text{s}}\right)\)</span>.</p></li>
 </ul>
 <p>L’EDP de diffusion repose sur deux principes :</p>
 </section>
@@ -698,26 +708,26 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 <h1>1. Loi de Fick (Fourier dans le cas de la chaleur)<a class="headerlink" href="#loi-de-fick-fourier-dans-le-cas-de-la-chaleur" title="Link to this heading">#</a></h1>
 <p>Comme vu précédemment, le transfert de particules dépend de la différence de concentration <span class="math notranslate nohighlight">\(\Delta C\)</span> de part et d’autre d’une cellule de largeur <span class="math notranslate nohighlight">\(\Delta x\)</span>: plus la <strong>variation</strong> (dérivée) de concentration est grande, plus les particules se <strong>déplacent</strong> rapidement, ce qui augmente la <strong>diffusion</strong>. En d’autres termes, le flux de particules dépend du gradient de concentration :</p>
 <div class="math notranslate nohighlight">
-\[ q = -D \frac{\partial C}{\partial x}, \qquad (1) \]</div>
+\[ q_x = -D \frac{\partial C}{\partial x}, \qquad (1) \]</div>
 <p>où <span class="math notranslate nohighlight">\(D\)</span> est le coefficient de diffusion, ou <em>diffusivité</em>. Ce coefficient varie selon les problèmes et définit la vitesse de transfert des particules (molécules de pollution dans un sol ou particules de sol sur une colline).</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="principe-de-conservation-1-2">
 <h1>2. Principe de conservation (1/2)<a class="headerlink" href="#principe-de-conservation-1-2" title="Link to this heading">#</a></h1>
-<p><img alt="width:800" src="../_images/principe_conservation_s4.png" /></p>
+<p><img alt="width:800px" src="../_images/principe_conservation_s4.png" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="principe-de-conservation-2-2">
 <h1>2. Principe de conservation (2/2)<a class="headerlink" href="#principe-de-conservation-2-2" title="Link to this heading">#</a></h1>
 <p>Selon le principe de conservation, le changement du nombre de particules <em>n</em> dans un bloc entre l’instant <em>t</em> et l’instant <span class="math notranslate nohighlight">\(t + dt\)</span> peut être calculé à partir de la différence des flux entrants et sortants :</p>
 <div class="math notranslate nohighlight">
-\[\Delta n = (q_x - q_{x+\Delta x}) dt.\]</div>
+\[\Delta n = \big( q_x(x) - q_x(x+\Delta x) \big) \, dt.\]</div>
 <p>En utilisant la définition de la concentration <em>C = n/dx</em>, l’équation précédente s’écrit :</p>
 <div class="math notranslate nohighlight">
-\[\frac{\Delta C}{dt} = \frac{q_x - q_{x+\Delta x}}{\Delta x},\]</div>
+\[\frac{\Delta C}{dt} = \frac{q_x(x) - q_x(x+\Delta x)}{\Delta x},\]</div>
 <p>qui se transforme en forme continue :</p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x}, \qquad (2)\]</div>
+\[\frac{\partial C}{\partial t} = -\frac{\partial q_x}{\partial x}, \qquad (2)\]</div>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="mise-en-equation-de-la-diffusion">
@@ -725,10 +735,10 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 <p><strong>L’équation de diffusion</strong> peut être exprimée comme une dérivée seconde de la concentration <span class="math notranslate nohighlight">\(C\)</span> en combinant</p>
 <p>→ Loi de Fick/Fourier</p>
 <div class="math notranslate nohighlight">
-\[q = -D \frac{\partial C}{\partial x},  \qquad (1)\]</div>
+\[q_x = -D \frac{\partial C}{\partial x},  \qquad (1)\]</div>
 <p>→ Principe de conservation</p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x},  \qquad (2)\]</div>
+\[\frac{\partial C}{\partial t} = -\frac{\partial q_x}{\partial x},  \qquad (2)\]</div>
 <p>ce qui donne l’EDP suivante (que nous n’utiliserons pas sous cette forme):</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2}.\]</div>
@@ -736,15 +746,15 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="discretisation-spatiale">
 <h1>Discrétisation spatiale<a class="headerlink" href="#discretisation-spatiale" title="Link to this heading">#</a></h1>
-<p>Pour modéliser l’évolution spatio-temporelle d’une quantité physique comme la concentration, il es nécessaire de discrétiser le temps et l’espace, cad de diviser le domaine spatial de modélisation en intervalles avec un ensemble de points où la solution sera calculée :</p>
+<p>Pour modéliser l’évolution spatio-temporelle d’une quantité physique comme la concentration, il est nécessaire de discrétiser le temps et l’espace, c’est-à-dire de diviser le domaine spatial de modélisation en intervalles avec un ensemble de points où la solution sera calculée :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|----|----|----|----|----|----|----|----|----|----|----|----|----|----|</span>
 </pre></div>
 </div>
 <p>Par exemple: <span class="math notranslate nohighlight">\(x_0 = 0, x_1 = 0.1, x_2 = 0.2, ..., x_{10} = 1\)</span></p>
 <p>avec une longueur d’intervalle <span class="math notranslate nohighlight">\(dx = 0.1\)</span>. Cette discrétisation se code ainsi:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">nx</span> <span class="o">=</span> <span class="mi">11</span>                            
-<span class="n">x</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>  
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">nx</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">x</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
 <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -752,14 +762,14 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="variable-discretisee">
 <h1>Variable discrétisée<a class="headerlink" href="#variable-discretisee" title="Link to this heading">#</a></h1>
-<p>Maintenant que notre domaine est discrétisé, nous pouvons initialiser une variable (pe la température <span class="math notranslate nohighlight">\(C\)</span>) sur ce domaine. Dans le domaine discrétisé, <span class="math notranslate nohighlight">\(C\)</span> devient un vecteur, dont les valeurs sont définies aux nœuds de discrétisation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span> <span class="c1"># Initialisation à 2 partout </span>
+<p>Maintenant que notre domaine est discrétisé, nous pouvons initialiser une variable (p.e. la concentration <span class="math notranslate nohighlight">\(C\)</span>) sur ce domaine. Dans le domaine discrétisé, <span class="math notranslate nohighlight">\(C\)</span> devient un vecteur, dont les valeurs sont définies aux nœuds de discrétisation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span> <span class="c1"># Initialisation à 2 partout</span>
 </pre></div>
 </div>
 <p>Pour accéder ou modifier la valeur de la concentration <span class="math notranslate nohighlight">\(C\)</span> en un point du domaine, p.e. au point <span class="math notranslate nohighlight">\(x = 0.6\)</span>, il convient de trouver l’indice qui lui correspond, c’est-à-dire le point de discrétisation qui est le plus proche du point <span class="math notranslate nohighlight">\(x = 0.6\)</span> (car il est possible que <span class="math notranslate nohighlight">\(x = 0.6\)</span> ne tombe pas exactement sur un nœud):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xp</span> <span class="o">=</span> <span class="mf">0.6</span>
-<span class="n">ixp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">xp</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span> <span class="c1"># indice de la composante la plus proche de xp</span>
-<span class="n">C</span><span class="p">[</span><span class="n">ixp</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>           <span class="c1"># modification de la valeur en ce point</span>
+<span class="n">ixp</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">xp</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span> <span class="c1"># indice de la composante la plus proche de xp</span>
+<span class="n">C</span><span class="p">[</span><span class="n">ixp</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>             <span class="c1"># modification de la valeur en ce point</span>
 </pre></div>
 </div>
 </section>
@@ -767,13 +777,13 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 <section class="tex2jax_ignore mathjax_ignore" id="valeurs-aux-noeuds-et-au-centre-des-cellules">
 <h1>Valeurs aux noeuds et au centre des cellules<a class="headerlink" href="#valeurs-aux-noeuds-et-au-centre-des-cellules" title="Link to this heading">#</a></h1>
 <p>Il est parfois nécessaire de calculer des valeurs entre les nœuds de discrétisation. Cela peut se faire en faisant une moyenne entre deux points successifs:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Cmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># calcul de la température au milieu des cellules</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Cmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># calcul de la concentration au milieu des cellules</span>
 <span class="n">xmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># calcul des coordonnées  au milieu des cellules</span>
 </pre></div>
 </div>
 <p>Cela se justifie visuellement comme cela:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                   <span class="o">|-----|-----|-----|-----|-----|-----|-----|-----|</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                     <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span> 
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                     <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
 <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>              <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
 <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>       <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
 </pre></div>
@@ -788,40 +798,40 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 \[ \frac{\partial f}{\partial t} \sim \frac{f^{new} - f^{old}}{dt}\ \ \rightarrow \ \ f^{new} \sim f^{old}+\frac{\partial f}{\partial t} \times dt.  \qquad (4) \]</div>
 <p>Si on a une discrétisation du temps, que l’on connait la concentration au temps précédent, comment la mettre à jour ?</p>
 <ol class="arabic simple">
-<li><p>mettre à jour le flux en discrétisant : <span class="math notranslate nohighlight">\(q = -D \frac{\partial C}{\partial x},\)</span></p></li>
-<li><p>mettre à jour <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> en discrétisant: <span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x}\)</span>,</p></li>
+<li><p>mettre à jour le flux en discrétisant : <span class="math notranslate nohighlight">\(q_x = -D \frac{\partial C}{\partial x},\)</span></p></li>
+<li><p>mettre à jour <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> en discrétisant: <span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = -\frac{\partial q_x}{\partial x}\)</span>,</p></li>
 <li><p>mettre à jour la concentration.</p></li>
 </ol>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="approximation-numerique-du-flux-q">
-<h1>1) Approximation numérique du flux <code class="docutils literal notranslate"><span class="pre">q</span></code><a class="headerlink" href="#approximation-numerique-du-flux-q" title="Link to this heading">#</a></h1>
-<p>Discretiser le flux</p>
+<section class="tex2jax_ignore mathjax_ignore" id="approximation-numerique-du-flux-qx">
+<h1>1) Approximation numérique du flux <code class="docutils literal notranslate"><span class="pre">qx</span></code><a class="headerlink" href="#approximation-numerique-du-flux-qx" title="Link to this heading">#</a></h1>
+<p>Discrétiser le flux</p>
 <div class="math notranslate nohighlight">
-\[q = -D \frac{\partial C}{\partial x},\]</div>
-<p>peut se faire par differences finies:</p>
+\[q_x = -D \frac{\partial C}{\partial x},\]</div>
+<p>peut se faire par différences finies :</p>
 <div class="math notranslate nohighlight">
-\[ q^n_i = -D \ \frac{C_{i+1}^n - C_i^n}{dx}, \quad i=0,...,n_x-1\]</div>
+\[ (q_x)^n_i = -D \ \frac{C_{i+1}^n - C_i^n}{dx}, \quad i=0,...,n_x-2\]</div>
 <p>lequel se code en python ainsi:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="o">-</span> <span class="n">D</span> <span class="o">*</span> <span class="p">(</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">qx</span> <span class="o">=</span> <span class="o">-</span> <span class="n">D</span> <span class="o">*</span> <span class="p">(</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
 </pre></div>
 </div>
-<p>Attention, après cela <code class="docutils literal notranslate"><span class="pre">q</span></code> a perdu une cellule (taille <span class="math notranslate nohighlight">\(n_x - 1\)</span>), et est défini au centre des cellules (contrairement à <code class="docutils literal notranslate"><span class="pre">C</span></code>, qui a une taille de <span class="math notranslate nohighlight">\(n_x\)</span>).</p>
+<p>Attention, après cela <code class="docutils literal notranslate"><span class="pre">qx</span></code> a perdu une cellule (taille <span class="math notranslate nohighlight">\(n_x - 1\)</span>), et est défini au centre des cellules (contrairement à <code class="docutils literal notranslate"><span class="pre">C</span></code>, qui a une taille de <span class="math notranslate nohighlight">\(n_x\)</span>).</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="approximation-numerique-de-dcdt">
 <h1>2) Approximation numérique de <code class="docutils literal notranslate"><span class="pre">dCdt</span></code><a class="headerlink" href="#approximation-numerique-de-dcdt" title="Link to this heading">#</a></h1>
-<p>Discretiser <code class="docutils literal notranslate"><span class="pre">dCdt</span></code></p>
+<p>Discrétiser <code class="docutils literal notranslate"><span class="pre">dCdt</span></code></p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x}\]</div>
-<p>se fait aussi par differences finies:</p>
+\[\frac{\partial C}{\partial t} = -\frac{\partial q_x}{\partial x}\]</div>
+<p>se fait aussi par différences finies :</p>
 <div class="math notranslate nohighlight">
-\[ (dCdt)^n_i  = - \frac{q_{i+1}^n - q_i^n}{dx}, \quad i=1,...,n_x-2\]</div>
+\[ (dCdt)^n_i  = - \frac{(q_x)_{i}^n - (q_x)_{i-1}^n}{dx}, \quad i=1,...,n_x-2\]</div>
 <p>lequel se code en python ainsi:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dCdt</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">q</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dCdt</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span> <span class="n">qx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">qx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
 </pre></div>
 </div>
-<p>Une fois encore, on pert une cellule, de sorte que <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> a une taille <span class="math notranslate nohighlight">\(n_x - 2\)</span>. On revient donc aus noeuds où <span class="math notranslate nohighlight">\(C\)</span> est défini.</p>
+<p>Une fois encore, on perd une cellule, de sorte que <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> a une taille <span class="math notranslate nohighlight">\(n_x - 2\)</span>. On revient donc aux nœuds où <span class="math notranslate nohighlight">\(C\)</span> est défini.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="regle-de-mise-a-jour">
@@ -840,19 +850,19 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="derivees-et-taille-de-vecteurs">
 <h1>Dérivées et taille de vecteurs<a class="headerlink" href="#derivees-et-taille-de-vecteurs" title="Link to this heading">#</a></h1>
-<p>La mise à jour de la concentration <span class="math notranslate nohighlight">\(C\)</span> par diffusion est le résultat de deux dérivées successives. A chaque dérivée, on perd une cellule. Pour <span class="math notranslate nohighlight">\(n_x\)</span> cellules, il y aura <span class="math notranslate nohighlight">\(n - 1\)</span> flux entre elles, et <span class="math notranslate nohighlight">\(nx - 2\)</span> valeurs pour <code class="docutils literal notranslate"><span class="pre">dCdt</span></code>.</p>
+<p>La mise à jour de la concentration <span class="math notranslate nohighlight">\(C\)</span> par diffusion est le résultat de deux dérivées successives. À chaque dérivée, on perd une cellule. Pour <span class="math notranslate nohighlight">\(n_x\)</span> nœuds, il y aura <span class="math notranslate nohighlight">\(n_x - 1\)</span> flux entre eux, et <span class="math notranslate nohighlight">\(n_x - 2\)</span> valeurs pour <code class="docutils literal notranslate"><span class="pre">dCdt</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Vecteur</span>                                                               <span class="n">Taille</span>
 
 <span class="n">C</span>                         <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>  <span class="n">nx</span>
-<span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                           <span class="o">|-----|-----|-----|-----|-----|-----|</span>  
+<span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                           <span class="o">|-----|-----|-----|-----|-----|-----|</span>
 <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>                    <span class="o">|-----|-----|-----|-----|-----|-----|</span>
 
-<span class="n">q</span> <span class="o">=</span> <span class="o">-</span><span class="n">D</span><span class="o">*</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>     <span class="o">|-----|-----|-----|-----|-----|-----|</span>     <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
-<span class="n">dCdt</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">q</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span> <span class="n">dx</span>      <span class="o">|-----|-----|-----|-----|-----|</span>        <span class="n">nx</span><span class="o">-</span><span class="mi">2</span>
+<span class="n">qx</span> <span class="o">=</span> <span class="o">-</span><span class="n">D</span><span class="o">*</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>    <span class="o">|-----|-----|-----|-----|-----|-----|</span>     <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">dCdt</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">qx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">qx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>     <span class="o">|-----|-----|-----|-----|-----|</span>        <span class="n">nx</span><span class="o">-</span><span class="mi">2</span>
 <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dCdt</span> <span class="o">*</span> <span class="n">dt</span>            <span class="o">|-----|-----|-----|-----|-----|</span>        <span class="n">nx</span><span class="o">-</span><span class="mi">2</span>
 </pre></div>
 </div>
-<p><strong>Attention:</strong> Il faut aire des opérations sur des vecteurs de tailles consistantes!</p>
+<p><strong>Attention :</strong> il faut faire des opérations sur des vecteurs de tailles compatibles !</p>
 <hr class="docutils" />
 <p><img alt="bg" src="../_images/scheme_1.png" /></p>
 <hr class="docutils" />
@@ -861,40 +871,53 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 <p><img alt="bg" src="../_images/scheme_3.png" /></p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="conditions-de-bord">
-<h1>Conditions de bord<a class="headerlink" href="#conditions-de-bord" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="conditions-aux-bords">
+<h1>Conditions aux bords<a class="headerlink" href="#conditions-aux-bords" title="Link to this heading">#</a></h1>
 <p>La règle de mise à jour</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dCdt</span> <span class="o">*</span> <span class="n">dt</span>  
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dCdt</span> <span class="o">*</span> <span class="n">dt</span>
 </pre></div>
 </div>
 <p>n’agit pas sur les valeurs de <code class="docutils literal notranslate"><span class="pre">C</span></code> aux extrémités (c’est-à-dire <code class="docutils literal notranslate"><span class="pre">C[0]</span></code> et <code class="docutils literal notranslate"><span class="pre">C[-1]</span></code>).</p>
 <p>Si l’on ne fait rien, les valeurs de bord de <code class="docutils literal notranslate"><span class="pre">C</span></code> ne sont donc pas mises à jour et restent à leur état initial.</p>
-<p>Dans ce cours, nous n’irons pas plus loin. Toutefois, nous verrons dans le cours suivant qu’il y a plusieurs options pour mettre à jour les valeurs au bord selon les conditions physiques du problème. C’est ce qu’on appelle les conditions de bord.</p>
+<p>Dans ce cours, nous n’irons pas plus loin. Toutefois, nous verrons dans le cours suivant qu’il y a plusieurs options pour mettre à jour les valeurs au bord selon les conditions physiques du problème. C’est ce qu’on appelle les conditions aux bords.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="pas-de-temps-dt-et-stabilite">
 <h1>Pas de temps <span class="math notranslate nohighlight">\(dt\)</span> et stabilité<a class="headerlink" href="#pas-de-temps-dt-et-stabilite" title="Link to this heading">#</a></h1>
 <p>La <strong>stabilité</strong> et la <strong>précision</strong> d’un modèle numérique dépendent de son pas de temps <span class="math notranslate nohighlight">\(dt\)</span>, lequel doit être suffisamment petit, comme le montre la figure suivante.</p>
-<p><img alt="width:550" src="../_images/graph_precision_s4.png" /> <img alt="width:550" src="../_images/graph_precision2_s4.png" /></p>
-<p>Dans le cas d’un problème de diffusion, le pas de temps suivant assure la stabilité:</p>
+<p><img alt="width:550px" src="../_images/graph_precision_s4.png" /> <img alt="width:550px" src="../_images/graph_precision2_s4.png" /></p>
+<p>Dans le cas d’un problème de diffusion, la stabilité est assurée si le pas de temps ne dépasse pas</p>
 <div class="math notranslate nohighlight">
-\[ dt = dx^2 / (2.1 D)\]</div>
+\[ dt_\mathrm{diff} = \frac{dx^2}{2.1 \times D}.\]</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="pas-de-temps-dt-ecriture-systematique">
+<h1>Pas de temps <span class="math notranslate nohighlight">\(dt\)</span>: écriture systématique<a class="headerlink" href="#pas-de-temps-dt-ecriture-systematique" title="Link to this heading">#</a></h1>
+<p>Convention gardée <strong>jusqu’à la fin du cours</strong>: on calcule la contrainte de chaque processus séparément, et on retient la plus petite:</p>
+<div class="math notranslate nohighlight">
+\[ dt = \min \left( dt_\mathrm{max}, \ dt_\mathrm{diff} \right)\]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dt_max</span>  <span class="o">=</span> <span class="mf">0.1</span>                   <span class="c1"># pas de temps maximal</span>
+<span class="n">dt_diff</span> <span class="o">=</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.1</span> <span class="o">*</span> <span class="n">D</span><span class="p">)</span>     <span class="c1"># contrainte de la diffusion</span>
+<span class="n">dt</span>      <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dt_max</span><span class="p">,</span> <span class="n">dt_diff</span><span class="p">)</span>  <span class="c1"># pas de temps retenu</span>
+</pre></div>
+</div>
+<p>→ Au cours 6, l’advection ajoutera sa propre contrainte <span class="math notranslate nohighlight">\(dt_\mathrm{adv}\)</span>.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="utilisation-d-un-flag">
 <h1>Utilisation d’un flag<a class="headerlink" href="#utilisation-d-un-flag" title="Link to this heading">#</a></h1>
 <p>Il peut être utile de détecter quand une condition est remplie pour la première fois, par exemple, pour trouver à quel moment une température au milieu du domaine passe pour la première fois au-dessus de zéro:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[]</span><span class="o">...</span><span class="p">]</span>
-<span class="n">flag_firstime</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="n">flag_firstfois</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
-    <span class="n">ix</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nt</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">flag_firstime</span><span class="p">):</span>
-        <span class="n">temps_passage_seuil</span> <span class="o">=</span> <span class="n">it</span> <span class="o">*</span> <span class="n">nt</span>
-        <span class="n">flag_firstime</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="p">[]</span><span class="o">...</span><span class="p">]</span>
+    <span class="n">ix</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nx</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>                       <span class="c1"># indice du milieu du domaine</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">flag_firstfois</span><span class="p">):</span>
+        <span class="n">temps_passage_seuil</span> <span class="o">=</span> <span class="n">it</span> <span class="o">*</span> <span class="n">dt</span>    <span class="c1"># le temps vaut it * dt</span>
+        <span class="n">flag_firstfois</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Sans la variable “flag”, la variable <code class="docutils literal notranslate"><span class="pre">temps_passage_seuil</span></code> serait réécrite (car la condition est satisfaite), et l’on perdrait l’information de quand cette condition a été réalisée la première fois. Alternativement, on aurait pu utiliser un <code class="docutils literal notranslate"><span class="pre">break</span></code>.</p>
+<p>Sans la variable “flag”, la variable <code class="docutils literal notranslate"><span class="pre">temps_passage_seuil</span></code> serait réécrite à chaque pas de temps (car la condition reste satisfaite), et l’on perdrait l’information du moment où cette condition a été remplie pour la première fois. Alternativement, on aurait pu utiliser un <code class="docutils literal notranslate"><span class="pre">break</span></code>.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -978,12 +1001,13 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-discretisee">Variable discrétisée</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-aux-noeuds-et-au-centre-des-cellules">Valeurs aux noeuds et au centre des cellules</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-numerique">Approximation numérique</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-numerique-du-flux-q">1) Approximation numérique du flux <code class="docutils literal notranslate"><span class="pre">q</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-numerique-du-flux-qx">1) Approximation numérique du flux <code class="docutils literal notranslate"><span class="pre">qx</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-numerique-de-dcdt">2) Approximation numérique de <code class="docutils literal notranslate"><span class="pre">dCdt</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#regle-de-mise-a-jour">3) Règle de mise à jour</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#derivees-et-taille-de-vecteurs">Dérivées et taille de vecteurs</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bord">Conditions de bord</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-aux-bords">Conditions aux bords</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pas-de-temps-dt-et-stabilite">Pas de temps <span class="math notranslate nohighlight">\(dt\)</span> et stabilité</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pas-de-temps-dt-ecriture-systematique">Pas de temps <span class="math notranslate nohighlight">\(dt\)</span>: écriture systématique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisation-d-un-flag">Utilisation d’un flag</a></li>
 </ul>
 
@@ -1000,7 +1024,7 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
   <div class="footer-item">
     
 <p class="component-author">
-By Les auteurs du cours de Modelisation Numerique
+By Les auteurs du cours de Modélisation Numérique
 </p>
 
   </div>

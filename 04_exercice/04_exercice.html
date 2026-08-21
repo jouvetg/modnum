@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Exercices 4 &#8212; Modelisation Numerique</title>
+    <title>Exercices 4 &#8212; Modélisation Numérique</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modelisation Numerique - Home"/>
-    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modelisation Numerique - Home"/>`);</script>
+    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modélisation Numérique - Home"/>
+    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modélisation Numérique - Home"/>`);</script>
   
   
 </a></div>
@@ -261,6 +261,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
 
@@ -291,8 +292,8 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices 4</a></li>
 
@@ -317,6 +318,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
 
 </ul>
@@ -336,6 +338,9 @@
 
 
 
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06_tutoriel/06_tutoriel.html">Tutoriel 6</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../06_exercice/06_exercice.html">Exercices 6</a></li>
 
@@ -374,6 +379,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../08_tutoriel/08_tutoriel.html">Tutoriel 8</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../08_exercice/08_exercice.html">Exercices 8</a></li>
@@ -391,6 +397,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
 
 </ul>
@@ -410,11 +417,13 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../10_tutoriel/10_tutoriel.html">Tutoriel 10</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../10_exercice/10_exercice.html">Exercices 10</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11 — hors-programme, pour les curieux</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../11_cours/11_cours.html">Cours 11</a></li>
 
@@ -604,17 +613,17 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="exercices-4">
 <h1>Exercices 4<a class="headerlink" href="#exercices-4" title="Link to this heading">#</a></h1>
 <p><a class="reference download internal" download="" href="../_downloads/a58f5135a29168b0b6c83fc2ebe53f54/04_exercice.zip"><span class="xref download myst">Télécharger l’exercice</span></a></p>
-<p>L’objectifs des exercices est de comprendre l’équation de diffusion en 1D, et sa discrétisation, d’implémenter un modèle simple de diffusion en 1D pour un problème de concentration, et de l’appliquer à un problème concret.</p>
+<p>L’objectif de ces exercices est de comprendre l’équation de diffusion en 1D et sa discrétisation, d’implémenter un modèle simple de diffusion en 1D pour un problème de concentration, et de l’appliquer à un problème concret.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="diffusion-simple-d-une-concentration">
 <h1>Diffusion simple d’une concentration<a class="headerlink" href="#diffusion-simple-d-une-concentration" title="Link to this heading">#</a></h1>
 <p>Vous allez maintenant rédiger un code qui permette de résoudre numériquement l’équation de diffusion de la concentration <span class="math notranslate nohighlight">\(C\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[ q = -D \frac{\partial C}{dx}, \qquad (1) \]</div>
+\[ q_x = -D \frac{\partial C}{\partial x}, \qquad (1) \]</div>
 <div class="math notranslate nohighlight">
-\[ \frac{\partial C}{\partial t} = -\frac{\partial q}{\partial x}. \qquad (2) \]</div>
+\[ \frac{\partial C}{\partial t} = -\frac{\partial q_x}{\partial x}. \qquad (2) \]</div>
 <p>dans un domaine <span class="math notranslate nohighlight">\([0,L_x]\)</span>, où <span class="math notranslate nohighlight">\(L_x=30\)</span>.</p>
-<p>Pour pouvoir faire le calcul, il faut également une condition initiale (concentration <code class="docutils literal notranslate"><span class="pre">C=C_i</span></code> dans la moitié gauche et <code class="docutils literal notranslate"><span class="pre">C=0</span></code> dans la moitié droite) et des conditions aux limites qui sont fixes à <code class="docutils literal notranslate"><span class="pre">x=0</span></code> et <code class="docutils literal notranslate"><span class="pre">x=Lx</span></code> (c.a.d. les mêmes que les conditions initiales). La figure suivante montre le résultat attendue aprés 20 secondes de diffusion.</p>
+<p>Pour pouvoir faire le calcul, il faut également une condition initiale (concentration <code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">=</span> <span class="pre">C_gauche</span></code> dans la moitié gauche et <code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">=</span> <span class="pre">C_droit</span></code> dans la moitié droite) et des conditions aux bords fixes en <code class="docutils literal notranslate"><span class="pre">x=0</span></code> et <code class="docutils literal notranslate"><span class="pre">x=Lx</span></code> (c’est-à-dire les mêmes que les conditions initiales). La figure suivante montre le résultat attendu après 20 secondes de diffusion.</p>
 <p><img alt="" src="../_images/DiffMod.png" /></p>
 <p><em>Résultat de la diffusion après 20 secondes.</em></p>
 <p>Toutes les valeurs nécessaires sont dans la table suivante:</p>
@@ -625,10 +634,10 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Longueur du modèle (Lx)</p></td>
+<tr class="row-even"><td><p>Longueur du domaine <span class="math notranslate nohighlight">\(L_x\)</span></p></td>
 <td><p>30 m</p></td>
 </tr>
-<tr class="row-odd"><td><p>Diffusivité (D)</p></td>
+<tr class="row-odd"><td><p>Diffusivité <span class="math notranslate nohighlight">\(D\)</span></p></td>
 <td><p>0.8 m²/s</p></td>
 </tr>
 <tr class="row-even"><td><p>Condition initiale moitié gauche</p></td>
@@ -637,10 +646,10 @@ document.write(`
 <tr class="row-odd"><td><p>Condition initiale moitié droite</p></td>
 <td><p>0 ppm</p></td>
 </tr>
-<tr class="row-even"><td><p>Condition limite gauche</p></td>
+<tr class="row-even"><td><p>Condition aux bords gauche</p></td>
 <td><p>500 ppm</p></td>
 </tr>
-<tr class="row-odd"><td><p>Condition limite droite</p></td>
+<tr class="row-odd"><td><p>Condition aux bords droite</p></td>
 <td><p>0 ppm</p></td>
 </tr>
 <tr class="row-even"><td><p>Temps total</p></td>
@@ -654,47 +663,49 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span>
- 
-<span class="c1"># Physical parameters</span>
-<span class="n">D</span> <span class="o">=</span> <span class="o">...</span>     <span class="c1"># diffusivite</span>
-<span class="n">Lx</span> <span class="o">=</span> <span class="o">...</span>    <span class="c1"># longueur of model</span>
-<span class="n">C_l</span> <span class="o">=</span> <span class="o">...</span>   <span class="c1"># Condition de bord gauche</span>
-<span class="n">C_r</span> <span class="o">=</span> <span class="o">...</span>   <span class="c1"># Condition de bord droit</span>
-<span class="n">ttot</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># temps total</span>
 
-<span class="c1"># Numerical parameters</span>
-<span class="n">nx</span> <span class="o">=</span> <span class="mi">200</span>                      <span class="c1"># nombre de cellules</span>
+<span class="c1"># Paramètres physiques</span>
+<span class="n">D</span> <span class="o">=</span> <span class="o">...</span>     <span class="c1"># diffusivité</span>
+<span class="n">Lx</span> <span class="o">=</span> <span class="o">...</span>    <span class="c1"># longueur du domaine</span>
+<span class="n">C_gauche</span> <span class="o">=</span> <span class="o">...</span>   <span class="c1"># condition aux bords gauche</span>
+<span class="n">C_droit</span> <span class="o">=</span> <span class="o">...</span>   <span class="c1"># condition aux bords droite</span>
+<span class="n">duree</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># durée totale</span>
+
+<span class="c1"># Paramètres numériques</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="mi">200</span>                      <span class="c1"># nombre de nœuds</span>
 <span class="n">dx</span> <span class="o">=</span> <span class="n">Lx</span> <span class="o">/</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>            <span class="c1"># taille d&#39;une cellule</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>    <span class="c1"># coordonees des point du maillage</span>
-<span class="n">dt</span> <span class="o">=</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.1</span> <span class="o">*</span> <span class="n">D</span><span class="p">)</span>        <span class="c1"># condition sur le pas de temps</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>    <span class="c1"># coordonnées des points du maillage</span>
+<span class="n">dt_max</span> <span class="o">=</span> <span class="mf">0.1</span>                  <span class="c1"># pas de temps maximal</span>
+<span class="n">dt_diff</span> <span class="o">=</span> <span class="o">...</span>                 <span class="c1"># contrainte de la diffusion</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dt_max</span><span class="p">,</span> <span class="n">dt_diff</span><span class="p">)</span>     <span class="c1"># pas de temps retenu</span>
 <span class="n">nt</span> <span class="o">=</span> <span class="o">...</span>                      <span class="c1"># nombre de pas de temps</span>
-<span class="n">nout</span> <span class="o">=</span> <span class="mi">100</span>                    <span class="c1"># afficher la figure chaque 100e step</span>
+<span class="n">freq_affich</span> <span class="o">=</span> <span class="mi">100</span>                    <span class="c1"># fréquence d&#39;affichage</span>
 
-<span class="c1"># Initial conditions</span>
+<span class="c1"># Conditions initiales</span>
 <span class="n">C</span> <span class="o">=</span> <span class="o">...</span>
 <span class="n">C</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">nx</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="o">...</span>
 
-<span class="c1"># create the figure outside the loop </span>
+<span class="c1"># création de la figure à l&#39;extérieur de la boucle</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
-<span class="c1"># loop</span>
+<span class="c1"># boucle temporelle</span>
 <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
-    <span class="c1"># Mettre a jour le flux q en fonction de C </span>
-    <span class="n">q</span> <span class="o">=</span> <span class="o">...</span>
-    <span class="c1"># Mettre a jour dCdt</span>
+    <span class="c1"># mise à jour du flux qx en fonction de C</span>
+    <span class="n">qx</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="c1"># mise à jour de dCdt</span>
     <span class="n">dCdt</span> <span class="o">=</span> <span class="o">...</span>
-    <span class="c1"># Mettre a jour C</span>
+    <span class="c1"># mise à jour de C</span>
     <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="o">...</span>
 
-    <span class="c1"># plot</span>
-    <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="n">nout</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
-        <span class="n">ax</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span> 
+    <span class="c1"># affichage</span>
+    <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="n">freq_affich</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance&#39;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration&#39;</span><span class="p">)</span>
         <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> 
+        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
 <section id="a-vous-de-faire">
@@ -703,51 +714,65 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="modelisation-de-la-fuite-chimique-de-daillens-en-avril-2015-dans-la-riviere-venoge">
 <h1>Modélisation de la fuite chimique de Daillens en avril 2015 dans la rivière Venoge<a class="headerlink" href="#modelisation-de-la-fuite-chimique-de-daillens-en-avril-2015-dans-la-riviere-venoge" title="Link to this heading">#</a></h1>
-<p>Imaginez la fuite d’acide sulfurique qui a suivi l’accident ferroviaire de Daillens, VD, en 2015 près de la Venoge (voir <a class="reference external" href="https://www.rts.ch/info/regions/6851235-en-cas-d-accident-un-wagon-de-chlore-pourrait-intoxiquer-20-000-personnes.html">RTS</a>.  Les mesures lors de l’intervention et du rétablissement ont prévenus des contaminations de la nappe phréatique et de la Venoge. Le modèle représente une ligne qui va de la source de pollution (les wagons renversés qui ont déversé 25 tonnes de H<sub>2</sub>SO<sub>4</sub>) au puits local, la Venoge.</p>
+<p>Imaginez la fuite d’acide sulfurique qui a suivi l’accident ferroviaire de Daillens, VD, en 2015 près de la Venoge (voir cet <a class="reference external" href="https://www.rts.ch/info/regions/6851235-en-cas-d-accident-un-wagon-de-chlore-pourrait-intoxiquer-20-000-personnes.html">article de la RTS</a> sur les risques liés au transport ferroviaire de produits chimiques en Suisse). Les mesures prises lors de l’intervention et de la remise en état ont permis d’éviter la contamination de la nappe phréatique et de la Venoge. Le modèle représente une ligne qui part de la source de pollution (les wagons renversés qui ont déversé 25 tonnes de H<sub>2</sub>SO<sub>4</sub>), traverse le puits local — la Venoge, en <span class="math notranslate nohighlight">\(x_\mathrm{veno} = 250\)</span> m — et se prolonge au-delà jusqu’à l’extrémité du domaine, en <span class="math notranslate nohighlight">\(x = L_x = 300\)</span> m. La figure ci-dessous ne montre que la partie du domaine allant jusqu’à la Venoge.</p>
 <p><img alt="" src="../_images/fuite_chimique.png" /></p>
 <p>Il s’agit ici d’implémenter un modèle qui représente une version simplifiée de l’évolution de la pollution sans intervention post-accident (retrait de 1350 tonnes de sol). De plus, il sera considéré que le H<sub>2</sub>SO<sub>4</sub> ne se dégrade pas et ne se déplace que par diffusion. Reprenez le code de l’exercice précédent en adaptant la configuration initiale (Figure ci-dessous) et les paramètres de la table ci-dessous (en prenant garde aux unités). De plus, il faudra apporter de nouvelles choses au code :</p>
 <ul class="simple">
-<li><p>Vous effectuerez un changement des conditions aux frontières. Jusqu’à présent, les conditions aux frontières imposaient implicitement une concentration inchangée au bord, c’est-à-dire les mêmes que les conditions initiales étant donné que les valeurs de la solution aux bords ne sont pas mises à jour. Ici, la condition de bord <span class="math notranslate nohighlight">\(C = 0\)</span> est une condition dite de “Dirichlet”. Une autre condition de bord (dite de “Neumann”) impose <span class="math notranslate nohighlight">\(\frac{\partial C}{\partial x} = 0\)</span>, c’est-à-dire qu’il n’y a plus d’échange vers l’extérieur, en forçant un flux nul aux bords (en raison de l’équation (2)). Numériquement parlant, cela revient à imposer que les deux cellules de bord aient la même valeur. Dans le cas présent, on suppose une molasse imperméable qui rend tout flux vers l’extérieur impossible à l’extrémité gauche, et que la concentration à l’extrémité droite du modèle doit être maintenue à zéro afin que tout le polluant puisse quitter le domaine. On implémente ces deux conditions ainsi en Python dans la boucle temporelle après la mise à jour de la diffusion :</p></li>
+<li><p>Vous effectuerez un changement des conditions aux frontières. Jusqu’à présent, les conditions aux frontières imposaient implicitement une concentration inchangée au bord, c’est-à-dire les mêmes que les conditions initiales étant donné que les valeurs de la solution aux bords ne sont pas mises à jour. Ici, la condition aux bords <span class="math notranslate nohighlight">\(C = 0\)</span> est une condition dite de “Dirichlet”. Une autre condition aux bords (dite de “Neumann”) impose <span class="math notranslate nohighlight">\(\frac{\partial C}{\partial x} = 0\)</span>, c’est-à-dire qu’il n’y a plus d’échange vers l’extérieur, en forçant un flux nul aux bords (en raison de l’équation (1)). Numériquement parlant, cela revient à imposer que les deux cellules de bord aient la même valeur. Dans le cas présent, on suppose une molasse imperméable qui rend tout flux vers l’extérieur impossible à l’extrémité gauche, et que la concentration à l’extrémité droite du modèle doit être maintenue à zéro afin que tout le polluant puisse quitter le domaine. On implémente ces deux conditions ainsi en Python dans la boucle temporelle après la mise à jour de la diffusion :</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">C</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Vous implémenterez une clause conditionnelle dans la boucle temporelle pour déterminer quand le niveau de contamination de la Venoge en H<sub>2</sub>SO<sub>4</sub> dépasse 0.1 ppm pour la première fois (utilisez un flag). Vous ajouterez un affichage de cette valeur à la fin du code.</p></li>
-<li><p>Vous implémenterez une clause conditionnelle dans la boucle temporelle pour déterminer quand le flux qui s’épanche dans la Venoge commence à diminuer pour la première fois (utilisez un flag). Vous ajouterez un affichage de cette valeur à la fin du code. Pour cela, il est utile de sauvegarder le flux avant la mise à jour. Cependant, la commande <code class="docutils literal notranslate"><span class="pre">q_old</span> <span class="pre">=</span> <span class="pre">q</span></code> ne sera pas efficace en Python, car <code class="docutils literal notranslate"><span class="pre">q_old</span> <span class="pre">=</span> <span class="pre">q</span></code> changera automatiquement lorsque <code class="docutils literal notranslate"><span class="pre">q</span></code> sera mis à jour (une spécificité de Python). En Python, il faut créer une “copie” explicitement avec la commande <code class="docutils literal notranslate"><span class="pre">q_old</span> <span class="pre">=</span> <span class="pre">np.copy(q)</span></code>, qui permettra de créer une nouvelle variable <code class="docutils literal notranslate"><span class="pre">q_old</span></code> retenant l’ancienne valeur de <code class="docutils literal notranslate"><span class="pre">q</span></code>, même après que celle-ci soit mise à jour.</p></li>
+<li><p>Vous implémenterez une clause conditionnelle dans la boucle temporelle pour déterminer quand le flux qui s’épanche dans la Venoge commence à diminuer pour la première fois (utilisez un flag). Vous ajouterez un affichage de cette valeur à la fin du code. Pour cela, il est utile de sauvegarder le flux avant la mise à jour. Cependant, la commande <code class="docutils literal notranslate"><span class="pre">qx_prec</span> <span class="pre">=</span> <span class="pre">qx</span></code> ne sera pas efficace en Python, car <code class="docutils literal notranslate"><span class="pre">qx_prec</span></code> changerait automatiquement lorsque <code class="docutils literal notranslate"><span class="pre">qx</span></code> est mis à jour (une spécificité de Python). Il faut créer une “copie” explicitement avec la commande <code class="docutils literal notranslate"><span class="pre">qx_prec</span> <span class="pre">=</span> <span class="pre">np.copy(qx)</span></code>, qui permet de créer une nouvelle variable <code class="docutils literal notranslate"><span class="pre">qx_prec</span></code> retenant l’ancienne valeur de <code class="docutils literal notranslate"><span class="pre">qx</span></code>, même après que celle-ci soit mise à jour.</p></li>
 </ul>
 <p>Enfin, une fois le code terminé, faites des tests numériques avec plusieurs valeurs de <span class="math notranslate nohighlight">\(n_x\)</span>, et trouvez à partir de quelle valeur de <span class="math notranslate nohighlight">\(n_x\)</span> les résultats ne dépendent plus sensiblement de ce paramètre numérique.</p>
 <p><img alt="" src="../_images/fuite_chimique_shema_s5.png" /></p>
 <p><em>Condition initiale pour l’exercice.</em></p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p><strong>Paramètres</strong></p></th>
-<th class="head"><p><strong>Valeurs</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Paramètre</strong></p></th>
+<th class="head"><p><strong>Valeur</strong></p></th>
+<th class="head"><p><strong>Unité</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Longueur, (L_x)</p></td>
-<td><p>300 m</p></td>
+<tr class="row-even"><td><p>Longueur, <span class="math notranslate nohighlight">\(L_x\)</span></p></td>
+<td><p>300</p></td>
+<td><p>m</p></td>
 </tr>
-<tr class="row-odd"><td><p>Position de la Venoge, (x_veno)</p></td>
-<td><p>250 m</p></td>
+<tr class="row-odd"><td><p>Position de la Venoge, <span class="math notranslate nohighlight">\(x_\mathrm{veno}\)</span></p></td>
+<td><p>250</p></td>
+<td><p>m</p></td>
 </tr>
-<tr class="row-even"><td><p>Diffusivité, (D)</p></td>
-<td><p><span class="math notranslate nohighlight">\(10^{-3}\)</span> m²/s</p></td>
+<tr class="row-even"><td><p>Emprise de la fuite</p></td>
+<td><p>30 à 50</p></td>
+<td><p>m</p></td>
 </tr>
-<tr class="row-odd"><td><p>Concentration initiale</p></td>
-<td><p>2000 ppm</p></td>
+<tr class="row-odd"><td><p>Diffusivité, <span class="math notranslate nohighlight">\(D\)</span></p></td>
+<td><p>10</p></td>
+<td><p>cm²/s</p></td>
 </tr>
-<tr class="row-even"><td><p>Tolérance arrêt modèle</p></td>
-<td><p>0.001</p></td>
+<tr class="row-even"><td><p>Concentration initiale</p></td>
+<td><p>2000</p></td>
+<td><p>ppm</p></td>
 </tr>
-<tr class="row-odd"><td><p>Temps total</p></td>
-<td><p>200 jours</p></td>
+<tr class="row-odd"><td><p>Concentration seuil</p></td>
+<td><p>0.1</p></td>
+<td><p>ppm</p></td>
+</tr>
+<tr class="row-even"><td><p>Temps total</p></td>
+<td><p>200</p></td>
+<td><p>jours</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<blockquote>
+<div><p>⚠️ <strong>Attention aux unités !</strong> Les paramètres ne vous sont pas tous donnés dans des unités compatibles entre elles. Convertissez-les explicitement dans votre code, avant la boucle temporelle.</p>
+</div></blockquote>
 <p><em>Tableau : Valeurs des paramètres pour l’exercice.</em></p>
 <section id="id1">
 <h2>✅ <strong>À vous de faire !</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
@@ -842,7 +867,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Les auteurs du cours de Modelisation Numerique
+By Les auteurs du cours de Modélisation Numérique
 </p>
 
   </div>

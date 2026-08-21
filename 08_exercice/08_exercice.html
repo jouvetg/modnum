@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Exercices 8 &#8212; Modelisation Numerique</title>
+    <title>Exercices 8 &#8212; Modélisation Numérique</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modelisation Numerique - Home"/>
-    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modelisation Numerique - Home"/>`);</script>
+    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modélisation Numérique - Home"/>
+    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modélisation Numérique - Home"/>`);</script>
   
   
 </a></div>
@@ -261,6 +261,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
 
@@ -291,8 +292,8 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04_exercice/04_exercice.html">Exercices 4</a></li>
 
@@ -317,6 +318,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
 
 </ul>
@@ -336,6 +338,9 @@
 
 
 
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06_tutoriel/06_tutoriel.html">Tutoriel 6</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../06_exercice/06_exercice.html">Exercices 6</a></li>
 
@@ -374,6 +379,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../08_tutoriel/08_tutoriel.html">Tutoriel 8</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices 8</a></li>
@@ -391,6 +397,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
 
 </ul>
@@ -410,11 +417,13 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../10_tutoriel/10_tutoriel.html">Tutoriel 10</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../10_exercice/10_exercice.html">Exercices 10</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11 — hors-programme, pour les curieux</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../11_cours/11_cours.html">Cours 11</a></li>
 
@@ -609,74 +618,113 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[q_x = - D \frac{\partial T}{\partial x} \: ; \: \: q_z = - D \frac{\partial T}{\partial z}\]</div>
 <p>La température initiale varie linéairement entre les valeurs données en surface et au fond du domaine modélisé. Tous les paramètres sont donnés dans la Table 1.</p>
-<p>Puisque l’exhumation des roches s’effectue dans la seule direction <span class="math notranslate nohighlight">\(z\)</span> (verticale), nous n’avons besoin de résoudre l’advection que dans la dimension <span class="math notranslate nohighlight">\(z\)</span>. Pour cela, il faut créer une matrice contenant les vitesses <code class="docutils literal notranslate"><span class="pre">Vz</span></code> de taille <code class="docutils literal notranslate"><span class="pre">(nz-1,</span> <span class="pre">nx)</span></code>. Ceci afin que les vitesses se situent à l’interface entre deux cellules de température “T”, en analogie avec les flux.</p>
+<p>Puisque l’exhumation des roches s’effectue dans la seule direction <span class="math notranslate nohighlight">\(z\)</span> (verticale), nous n’avons besoin de résoudre l’advection que dans la dimension <span class="math notranslate nohighlight">\(z\)</span>. Pour cela, il faut créer une matrice contenant les vitesses <code class="docutils literal notranslate"><span class="pre">Vz</span></code> de taille <code class="docutils literal notranslate"><span class="pre">(nz-1,</span> <span class="pre">nx)</span></code>. Ceci afin que les vitesses se situent à l’interface entre deux cellules de température <code class="docutils literal notranslate"><span class="pre">T</span></code>, par analogie avec les flux.</p>
 <p><img alt="" src="../_images/ex_1.png" /></p>
-<p><em>Figure: Le but de l’exercise est de modéliser le géotherme de la croûte terrestre avec deux taux d’exhumation différents.</em></p>
-<p>Deux dimensions compliquent aussi le calcul de <code class="docutils literal notranslate"><span class="pre">dt</span></code>, qui doit prendre en compte la valeur la plus petite d’entre les deux <code class="docutils literal notranslate"><span class="pre">dx</span></code> et <code class="docutils literal notranslate"><span class="pre">dz</span></code>, ainsi :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dz</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mf">4.1</span><span class="o">*</span><span class="n">D</span><span class="p">),</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">dz</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Vz</span><span class="p">)))</span>
+<p><em>Figure : le but de l’exercice est de modéliser le géotherme de la croûte terrestre avec deux taux d’exhumation différents.</em></p>
+<p>Deux dimensions compliquent aussi le calcul de <code class="docutils literal notranslate"><span class="pre">dt</span></code>. La contrainte de diffusion prend en compte le plus petit des deux pas d’espace <code class="docutils literal notranslate"><span class="pre">dx</span></code> et <code class="docutils literal notranslate"><span class="pre">dz</span></code>, et la contrainte d’advection porte sur la direction <code class="docutils literal notranslate"><span class="pre">z</span></code> (la seule où il y a advection) :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dt_diff</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dz</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mf">4.1</span> <span class="o">*</span> <span class="n">D</span><span class="p">)</span>          <span class="c1"># contrainte de la diffusion</span>
+<span class="n">dt_adv</span>  <span class="o">=</span> <span class="n">dz</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Vz</span><span class="p">)))</span>     <span class="c1"># contrainte de l&#39;advection</span>
+<span class="n">dt</span>      <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dt_max</span><span class="p">,</span> <span class="n">dt_diff</span><span class="p">,</span> <span class="n">dt_adv</span><span class="p">)</span>        <span class="c1"># pas de temps retenu</span>
 </pre></div>
 </div>
-<p>Vous noterez que la valeur maximale de la matrice des vitesses <code class="docutils literal notranslate"><span class="pre">Vz</span></code> en valeure absolue est donnée par <code class="docutils literal notranslate"><span class="pre">np.max(np.abs(Vz))</span></code>.</p>
-<p>Nous voulons écrire un code avec deux variantes. Définissez un paramètre Q, qui vaut 1 ou 2, et utilisez des clauses conditionnelles pour écrire un unique code générique qui fonctionne pour les deux variantes.</p>
-<ul class="simple">
+<p>Vous noterez que la valeur maximale de la matrice des vitesses <code class="docutils literal notranslate"><span class="pre">Vz</span></code> en valeur absolue est donnée par <code class="docutils literal notranslate"><span class="pre">np.max(np.abs(Vz))</span></code>.</p>
+<p>Nous voulons écrire un code avec trois variantes. Définissez un paramètre Q, qui vaut 1, 2 ou 3, et utilisez des clauses conditionnelles pour écrire un unique code générique qui fonctionne pour les trois variantes.</p>
+<ul>
 <li><p>Q1: Dans une première version du code, la condition de température en profondeur est fixée à 700°C partout mais le taux d’exhumation change entre 5 km/Myr dans la partie gauche et 15 km/Myr dans la partie droite. Le flux de chaleur au travers des bords latéraux est nul. Le scénario tectonique équivalent serait la présence d’une faille normale séparant deux domaines s’érodant à des taux différents (Figure ci-dessus).</p></li>
-<li><p>Q2: Dans une deuxième version du code, utilisez une condition limite de température <span class="math notranslate nohighlight">\(T\)</span> en profondeur qui varie le long de l’axe <span class="math notranslate nohighlight">\(x\)</span>. La moitié gauche à 700°C et la droite à 900°C. La situation tectonique correspondante serait la subduction d’une croûte océanique froide sous la moitié gauche du modèle. Le flux de chaleur au travers des bords latéraux est également nul.</p></li>
+<li><p>Q2: Dans une deuxième version du code, utilisez une condition aux bords de température <span class="math notranslate nohighlight">\(T\)</span> en profondeur qui varie le long de l’axe <span class="math notranslate nohighlight">\(x\)</span>. La moitié gauche à 700°C et la droite à 900°C. La situation tectonique correspondante serait la subduction d’une croûte océanique froide sous la moitié gauche du modèle. Le flux de chaleur au travers des bords latéraux est également nul.</p></li>
+<li><p>Q3: Jusqu’ici la température en profondeur était <strong>imposée</strong> (condition de Dirichlet). Dans cette troisième version, nous imposons à la place le <strong>flux de chaleur géothermique</strong> <span class="math notranslate nohighlight">\(q_\mathrm{base}\)</span> qui entre par le bas du domaine: c’est une condition de Neumann <strong>non-nulle</strong>. La température à 25 km de profondeur n’est alors plus une donnée, elle devient un <strong>résultat</strong> du modèle. Pour isoler l’effet de cette nouvelle condition aux bords, on supprime l’exhumation (<span class="math notranslate nohighlight">\(\dot{e} = 0\)</span>) dans cette question.</p>
+<p>Rappelons que la loi de Fourier relie le flux au gradient, <span class="math notranslate nohighlight">\(q = -D \frac{\partial T}{\partial z}\)</span>, d’où le gradient à imposer à la base:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial T}{\partial z}(\mathrm{base}) = -\frac{q_\mathrm{base}}{D}.\]</div>
+<p>À la fin de la simulation, relevez la température atteinte à 25 km de profondeur et comparez-la aux 700°C imposés en Q1. Vous pouvez vérifier votre résultat avec la solution analytique à l’équilibre, <span class="math notranslate nohighlight">\(T_\mathrm{bas} = T_\mathrm{haut} + \frac{q_\mathrm{base}}{D} L_z\)</span>.</p>
+</li>
 </ul>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p><strong>Paramètres:</strong></p></th>
-<th class="head"><p><strong>Valeurs:</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Paramètre</strong></p></th>
+<th class="head"><p><strong>Valeur</strong></p></th>
+<th class="head"><p><strong>Unité</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Diffusivité de la température</p></td>
-<td><p>150 km²/Myr</p></td>
+<tr class="row-even"><td><p>Diffusivité de la température, <span class="math notranslate nohighlight">\(D\)</span></p></td>
+<td><p>150</p></td>
+<td><p>km²/Myr</p></td>
 </tr>
-<tr class="row-odd"><td><p>Température à la surface</p></td>
-<td><p>25°C</p></td>
+<tr class="row-odd"><td><p>Température à la surface, <span class="math notranslate nohighlight">\(T_\mathrm{haut}\)</span></p></td>
+<td><p>25</p></td>
+<td><p>°C</p></td>
 </tr>
-<tr class="row-even"><td><p>Hauteur du modèle</p></td>
-<td><p>25 km</p></td>
+<tr class="row-even"><td><p>Profondeur du modèle, <span class="math notranslate nohighlight">\(L_z\)</span></p></td>
+<td><p>25 000</p></td>
+<td><p>m</p></td>
 </tr>
-<tr class="row-odd"><td><p>Largeur du modèle</p></td>
-<td><p>50 km</p></td>
-</tr>
-<tr class="row-even"><td><p>Nombre de cellules en x, <span class="math notranslate nohighlight">\(nx\)</span></p></td>
+<tr class="row-odd"><td><p>Largeur du modèle, <span class="math notranslate nohighlight">\(L_x\)</span></p></td>
 <td><p>50</p></td>
+<td><p>km</p></td>
 </tr>
-<tr class="row-odd"><td><p>Nombre de cellules en z, <span class="math notranslate nohighlight">\(nz\)</span></p></td>
+<tr class="row-even"><td><p>Nombre de nœuds en <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(n_x\)</span></p></td>
+<td><p>50</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nombre de nœuds en <span class="math notranslate nohighlight">\(z\)</span>, <span class="math notranslate nohighlight">\(n_z\)</span></p></td>
 <td><p>60</p></td>
+<td><p>—</p></td>
 </tr>
-<tr class="row-even"><td><p>Temps total</p></td>
-<td><p>10 Myr</p></td>
+<tr class="row-even"><td><p>Durée totale</p></td>
+<td><p>10</p></td>
+<td><p>Myr</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Q=1</strong></p></td>
 <td><p></p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>T à 25 km de profondeur</p></td>
-<td><p>700°C</p></td>
+<td><p>700</p></td>
+<td><p>°C</p></td>
 </tr>
 <tr class="row-odd"><td><p>Taux d’exhumation entre 0 et 25 km</p></td>
-<td><p>5 km/Myr</p></td>
+<td><p>5</p></td>
+<td><p>km/Myr</p></td>
 </tr>
 <tr class="row-even"><td><p>Taux d’exhumation entre 25 et 50 km</p></td>
-<td><p>15 km/Myr</p></td>
+<td><p>15</p></td>
+<td><p>km/Myr</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Q=2</strong></p></td>
 <td><p></p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>T à 25 km de profondeur entre <span class="math notranslate nohighlight">\(x = 0-25\)</span> km</p></td>
-<td><p>700°C</p></td>
+<td><p>700</p></td>
+<td><p>°C</p></td>
 </tr>
 <tr class="row-odd"><td><p>T à 25 km de profondeur entre <span class="math notranslate nohighlight">\(x = 25-50\)</span> km</p></td>
-<td><p>900°C</p></td>
+<td><p>900</p></td>
+<td><p>°C</p></td>
 </tr>
 <tr class="row-even"><td><p>Taux d’exhumation, <span class="math notranslate nohighlight">\(\dot{e}\)</span></p></td>
-<td><p>10 km/Myr</p></td>
+<td><p>10</p></td>
+<td><p>km/Myr</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Q=3</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Flux géothermique à la base, <span class="math notranslate nohighlight">\(q_\mathrm{base}\)</span></p></td>
+<td><p>4500</p></td>
+<td><p>°C·km/Myr</p></td>
+</tr>
+<tr class="row-odd"><td><p>Taux d’exhumation, <span class="math notranslate nohighlight">\(\dot{e}\)</span></p></td>
+<td><p>0</p></td>
+<td><p>km/Myr</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<blockquote>
+<div><p>⚠️ <strong>Attention aux unités !</strong> Les paramètres ne vous sont pas tous donnés dans des unités compatibles entre elles. Convertissez-les explicitement dans votre code, avant la boucle temporelle.</p>
+</div></blockquote>
 <p><em>Table 1: Paramètres du modèle.</em></p>
 <section id="a-vous-de-faire">
 <h2>✅ <strong>À vous de faire !</strong><a class="headerlink" href="#a-vous-de-faire" title="Link to this heading">#</a></h2>
@@ -767,7 +815,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Les auteurs du cours de Modelisation Numerique
+By Les auteurs du cours de Modélisation Numérique
 </p>
 
   </div>

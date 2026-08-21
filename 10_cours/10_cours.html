@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Cours 10 &#8212; Modelisation Numerique</title>
+    <title>Cours 10 &#8212; Modélisation Numérique</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modelisation Numerique - Home"/>
-    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modelisation Numerique - Home"/>`);</script>
+    <img src="../_static/illu_mod_num.png" class="logo__image only-light" alt="Modélisation Numérique - Home"/>
+    <script>document.write(`<img src="../_static/illu_mod_num.png" class="logo__image only-dark" alt="Modélisation Numérique - Home"/>`);</script>
   
   
 </a></div>
@@ -261,6 +261,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
 
@@ -291,8 +292,8 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04_exercice/04_exercice.html">Exercices 4</a></li>
 
@@ -317,6 +318,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
 
 </ul>
@@ -336,6 +338,9 @@
 
 
 
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06_tutoriel/06_tutoriel.html">Tutoriel 6</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../06_exercice/06_exercice.html">Exercices 6</a></li>
 
@@ -374,6 +379,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../08_tutoriel/08_tutoriel.html">Tutoriel 8</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../08_exercice/08_exercice.html">Exercices 8</a></li>
@@ -391,6 +397,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
 
 </ul>
@@ -410,11 +417,13 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../10_tutoriel/10_tutoriel.html">Tutoriel 10</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../10_exercice/10_exercice.html">Exercices 10</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11 — hors-programme, pour les curieux</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../11_cours/11_cours.html">Cours 11</a></li>
 
@@ -589,10 +598,11 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-la-glace-en-1d">Équation de la glace en 1D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fonction-bilan-de-masse-b-s">Fonction bilan de masse <span class="math notranslate nohighlight">\(b(s)\)</span></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-non-lineaire">Équation non-linéaire</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rseolution-numerique">Rséolution numérique</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-numerique">Résolution numérique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pas-de-temps-et-stabilite">Pas de temps et stabilité</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-de-la-grille-est-des-dimensions">Traitement de la grille est des dimensions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bord-bilan-de-masse-epaisseur-0">Conditions de bord, bilan de masse, épaisseur&gt;0</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nombre-d-iterations-inconnu">Nombre d’itérations inconnu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-de-la-grille-et-des-dimensions">Traitement de la grille et des dimensions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-aux-bords-bilan-de-masse-epaisseur-0">Conditions aux bords, bilan de masse, épaisseur&gt;0</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-propos-des-unites">A propos des unités</a></li>
 </ul>
 
@@ -623,75 +633,84 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="modelisation-des-glaciers">
 <h1>Modélisation des glaciers<a class="headerlink" href="#modelisation-des-glaciers" title="Link to this heading">#</a></h1>
-<p><img alt="width:550" src="../_images/aletsch.jpg" /></p>
+<p><img alt="width:550px" src="../_images/aletsch.jpg" /></p>
 <p>Voir des modélisations sur <a class="reference external" href="https://jouvetg.github.io/the-aletsch-glacier-module/">https://jouvetg.github.io/the-aletsch-glacier-module/</a></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="processus-regissant-levolution-des-glaciers">
 <h1>Processus régissant l’évolution des glaciers<a class="headerlink" href="#processus-regissant-levolution-des-glaciers" title="Link to this heading">#</a></h1>
-<p><img alt="width:750" src="../_images/glacier_principe.png" /></p>
+<p><img alt="width:750px" src="../_images/glacier_principe.png" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="la-glace-en-mouvement">
 <h1>La glace en mouvement<a class="headerlink" href="#la-glace-en-mouvement" title="Link to this heading">#</a></h1>
-<p><img alt="width:550" src="https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003849/antarctica_flows_1_00120_1024x576.jpg" /></p>
+<p><img alt="width:550px" src="https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003849/antarctica_flows_1_00120_1024x576.jpg" /></p>
 <p>Champ d’écoulement de la glace en Antarctique, les zones roses (plates-formes glaciaires où la glace flotte) affichent les endroits ou la glace est la plus rapide.</p>
 <p>Consultez le <a class="reference external" href="https://svs.gsfc.nasa.gov/3849/">site web de la NASA</a> pour des animations.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="notations">
 <h1>Notations<a class="headerlink" href="#notations" title="Link to this heading">#</a></h1>
-<p><img alt="width:450" src="../_images/conservation.png" /></p>
+<p><img alt="width:450px" src="../_images/conservation.png" /></p>
 <p>Nous introduisons les notations suivantes:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(h\)</span> est la <strong>h</strong>auteur de glace,</p></li>
 <li><p><span class="math notranslate nohighlight">\(l\)</span> est l’altitude du <strong>l</strong>it rocheux,</p></li>
-<li><p><span class="math notranslate nohighlight">\(s=l+h\)</span> est l’atitude de la <strong>s</strong>urface du glacier,</p></li>
+<li><p><span class="math notranslate nohighlight">\(s=l+h\)</span> est l’<strong>a</strong>ltitude de la <strong>s</strong>urface du glacier,</p></li>
 <li><p><span class="math notranslate nohighlight">\(b\)</span> est le <strong>b</strong>ilan de masse.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equation-de-la-glace-en-1d">
 <h1>Équation de la glace en 1D<a class="headerlink" href="#equation-de-la-glace-en-1d" title="Link to this heading">#</a></h1>
-<p><img alt="width:450" src="../_images/conservation.png" /></p>
+<p><img alt="width:450px" src="../_images/conservation.png" /></p>
 <p>En combinant la loi d’écoulement gravitaire de la glace avec le principe de conservation de la masse, nous obtenons l’équation d’évolution des glaciers:</p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial h}{\partial t} = - \frac{\partial q_x}{\partial x} 
-+ b(s), \quad q_x = - D(h) \frac{\partial s}{\partial x}, \quad 
+\[\frac{\partial h}{\partial t} = - \frac{\partial q_x}{\partial x}
++ b(s), \quad q_x = - D(h) \frac{\partial s}{\partial x}, \quad
 D(h) = f_d (\rho g)^3 h^5 \left( \frac{\partial s}{\partial x} \right)^2,\]</div>
-<p>où <span class="math notranslate nohighlight">\(D(h)\)</span> est la diffusivité de la glace, et <span class="math notranslate nohighlight">\(f_d\)</span>, <span class="math notranslate nohighlight">\(\rho\)</span>, et <span class="math notranslate nohighlight">\(g\)</span> sont des constantes.</p>
+<p>où <span class="math notranslate nohighlight">\(D(h)\)</span> est la diffusivité de la glace, <span class="math notranslate nohighlight">\(f_d\)</span> une constante physique, <span class="math notranslate nohighlight">\(\rho\)</span> la masse volumique de la glace et <span class="math notranslate nohighlight">\(g\)</span> l’accélération de la pesanteur.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="fonction-bilan-de-masse-b-s">
 <h1>Fonction bilan de masse <span class="math notranslate nohighlight">\(b(s)\)</span><a class="headerlink" href="#fonction-bilan-de-masse-b-s" title="Link to this heading">#</a></h1>
-<p>Le bilan de masse annuel (en m/a) est la quantité de glace ajoutée (accumulation de neige) moins la fonte. Celui-ci augmente avec l’altitude (car la fonte diminue avec la température). Un modèle simple de bilan de masse <span class="math notranslate nohighlight">\(b(s)\)</span> est donné par</p>
+<p>Le bilan de masse annuel (en m/a) est la quantité de glace ajoutée (accumulation de neige) moins la fonte. Celui-ci augmente avec l’altitude (car la température, et donc la fonte, diminue avec l’altitude). Un modèle simple de bilan de masse <span class="math notranslate nohighlight">\(b(s)\)</span> est donné par</p>
 <div class="math notranslate nohighlight">
 \[b(s) = \min ( b_\mathrm{grad} (s-s_\mathrm{ELA}), b_\mathrm{max} )\]</div>
-<p>où <span class="math notranslate nohighlight">\(s_\mathrm{ELA}\)</span> est la ligne d’équilibre qui separe les zones d’ablation/accumulation, <span class="math notranslate nohighlight">\(b_\mathrm{grad}\)</span> est le gradient du bilan de masse, et <span class="math notranslate nohighlight">\(b_\mathrm{max}\)</span> est une valeur max. d’accumulation.</p>
-<p><img alt="width:350" src="../_images/smb.png" /></p>
+<p>où <span class="math notranslate nohighlight">\(s_\mathrm{ELA}\)</span> est l’altitude de la ligne d’équilibre, qui sépare les zones d’ablation et d’accumulation, <span class="math notranslate nohighlight">\(b_\mathrm{grad}\)</span> est le gradient du bilan de masse, et <span class="math notranslate nohighlight">\(b_\mathrm{max}\)</span> est une valeur max. d’accumulation.</p>
+<p><img alt="width:350px" src="../_images/smb.png" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equation-non-lineaire">
 <h1>Équation non-linéaire<a class="headerlink" href="#equation-non-lineaire" title="Link to this heading">#</a></h1>
-<p>L’équation de la glace est une équation de diffusion, sa spécificité est que la diffusion n’est plus qu’un paramètre constant, mais dépend de la solution:
+<p>L’équation de la glace est une équation de diffusion ; sa spécificité est que la diffusivité n’est plus un paramètre constant, mais dépend de la solution :
 $<span class="math notranslate nohighlight">\(D(h) = f_d (\rho g)^3 h^5 \left( \frac{\partial s}{\partial x} \right)^2.\)</span>$</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="rseolution-numerique">
-<h1>Rséolution numérique<a class="headerlink" href="#rseolution-numerique" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="resolution-numerique">
+<h1>Résolution numérique<a class="headerlink" href="#resolution-numerique" title="Link to this heading">#</a></h1>
 <p>Une conséquence majeure de la non-linéarité de l’équation lors de sa résolution numérique est que la diffusion doit être recalculée (c’est-à-dire mise à jour) à chaque itération de la boucle temporelle, puisque celle-ci dépend de la solution.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="pas-de-temps-et-stabilite">
 <h1>Pas de temps et stabilité<a class="headerlink" href="#pas-de-temps-et-stabilite" title="Link to this heading">#</a></h1>
-<p>Puisque <code class="docutils literal notranslate"><span class="pre">D</span></code> change constamment, le pas de temps <span class="math notranslate nohighlight">\(dt\)</span>, qui dépend de la valeur maximale de <code class="docutils literal notranslate"><span class="pre">D</span></code>, doit également être mise à jour dans la boucle :</p>
+<p>Puisque <code class="docutils literal notranslate"><span class="pre">D</span></code> change constamment, <span class="math notranslate nohighlight">\(dt\)</span> doit être mis à jour <strong>dans la boucle</strong> :</p>
 <div class="math notranslate nohighlight">
-\[ dt = \min \left\{ dt_{max} ,  \frac{dx^2}{2.1 \times \max(|D|)} \right\}. \]</div>
-<p>La formule pour <span class="math notranslate nohighlight">\(dt\)</span> ressemble à la formule déjà utilisée avec deux spécificités : i) Comme <span class="math notranslate nohighlight">\(D\)</span> est variable, on prend sa valeur maximale, ii) <span class="math notranslate nohighlight">\(D\)</span> peut être égal à zéro. Pour éviter une division par 0, on impose une valeur max <span class="math notranslate nohighlight">\(dt_{max}\)</span> (p.e. 1 a).</p>
+\[ dt_\mathrm{diff} = \frac{dx^2}{2.1 \times \max(D)}, \qquad
+dt = \min \left( dt_\mathrm{max} , \ dt_\mathrm{diff} \right). \]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dt_diff</span> <span class="o">=</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>  <span class="c1"># contrainte de la diffusion</span>
+<span class="n">dt</span>      <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dt_max</span><span class="p">,</span> <span class="n">dt_diff</span><span class="p">)</span>       <span class="c1"># pas de temps retenu</span>
+</pre></div>
+</div>
+<p>Même formule que depuis le cours 4, avec deux spécificités : i) <span class="math notranslate nohighlight">\(D\)</span> étant variable, on prend son maximum, ii) <span class="math notranslate nohighlight">\(D\)</span> peut valoir zéro (pas de glace), et <span class="math notranslate nohighlight">\(dt_\mathrm{diff}\)</span> serait infini. C’est ici que <span class="math notranslate nohighlight">\(dt_\mathrm{max}\)</span> (p.e. 1 an) devient <strong>indispensable</strong>.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="nombre-d-iterations-inconnu">
+<h1>Nombre d’itérations inconnu<a class="headerlink" href="#nombre-d-iterations-inconnu" title="Link to this heading">#</a></h1>
 <p>Comme le pas de temps est recalculé dans la boucle, nous ne pouvons pas connaître a priori le nombre d’itérations. La solution consiste à définir un grand nombre de pas de temps et à arrêter la simulation lorsque la variable temps dépasse le temps souhaité à l’aide d’une condition et de <code class="docutils literal notranslate"><span class="pre">break</span></code>.</p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="traitement-de-la-grille-est-des-dimensions">
-<h1>Traitement de la grille est des dimensions<a class="headerlink" href="#traitement-de-la-grille-est-des-dimensions" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="traitement-de-la-grille-et-des-dimensions">
+<h1>Traitement de la grille et des dimensions<a class="headerlink" href="#traitement-de-la-grille-et-des-dimensions" title="Link to this heading">#</a></h1>
 <p>Puisque <span class="math notranslate nohighlight">\(D\)</span> est une valeur qui s’applique à un flux, elle est placée entre les cellules du vecteur <span class="math notranslate nohighlight">\(h\)</span>, et le vecteur <span class="math notranslate nohighlight">\(D\)</span> aura ainsi une taille de <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>.</p>
 <p>Il faudra donc que la hauteur de glace <span class="math notranslate nohighlight">\(h\)</span> utilisée pour calculer <span class="math notranslate nohighlight">\(D\)</span> soit la moyenne des deux cellules adjacentes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                               <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>   <span class="o">...</span>  <span class="n">Taille</span>
@@ -706,8 +725,8 @@ $<span class="math notranslate nohighlight">\(D(h) = f_d (\rho g)^3 h^5 \left( \
 </div>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="conditions-de-bord-bilan-de-masse-epaisseur-0">
-<h1>Conditions de bord, bilan de masse, épaisseur&gt;0<a class="headerlink" href="#conditions-de-bord-bilan-de-masse-epaisseur-0" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="conditions-aux-bords-bilan-de-masse-epaisseur-0">
+<h1>Conditions aux bords, bilan de masse, épaisseur&gt;0<a class="headerlink" href="#conditions-aux-bords-bilan-de-masse-epaisseur-0" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Au <strong>bord du domaine</strong>, on impose une condition de Dirichlet en forçant l’épaisseur de glace à être nulle:</p></li>
 </ul>
@@ -716,7 +735,7 @@ $<span class="math notranslate nohighlight">\(D(h) = f_d (\rho g)^3 h^5 \left( \
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><strong>L’altitude du glacier <span class="math notranslate nohighlight">\(z\)</span></strong>, qui dépend de la hauteur de glace <span class="math notranslate nohighlight">\(h\)</span>, ainsi que la fonction de <strong>bilan de masse</strong>, qui dépend de <span class="math notranslate nohighlight">\(z\)</span>, doivent être mise à jour dans la boucle temporelle.</p></li>
+<li><p><strong>L’altitude de la surface du glacier <span class="math notranslate nohighlight">\(s\)</span></strong>, qui dépend de la hauteur de glace <span class="math notranslate nohighlight">\(h\)</span>, ainsi que la fonction de <strong>bilan de masse</strong>, qui dépend de <span class="math notranslate nohighlight">\(s\)</span>, doivent être mises à jour dans la boucle temporelle.</p></li>
 <li><p>Il faut inclure la commande <code class="docutils literal notranslate"><span class="pre">h[h&lt;0]</span> <span class="pre">=</span> <span class="pre">0</span></code> pour s’assurer que la <strong>hauteur de glace <span class="math notranslate nohighlight">\(h\)</span> reste positive</strong>, car celle-ci pourrait devenir négative si le glacier est peu épais et que le bilan de masse est négatif.</p></li>
 </ul>
 </section>
@@ -725,9 +744,9 @@ $<span class="math notranslate nohighlight">\(D(h) = f_d (\rho g)^3 h^5 \left( \
 <h1>A propos des unités<a class="headerlink" href="#a-propos-des-unites" title="Link to this heading">#</a></h1>
 <p>Notons que les unités sont cohérentes:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(Pa = Kg \, m^{-1} \,  s^{-2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Pa = kg \, m^{-1} \,  s^{-2}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\([f_d] = Pa^{-3} \, y^{-1}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\([\rho g] = Kg \, m^{-3} \, m  \, s^{-2} = Kg \, m^{-2} \, s^{-2} = Pa \, m^{-1}\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\([\rho g] = kg \, m^{-3} \, m  \, s^{-2} = kg \, m^{-2} \, s^{-2} = Pa \, m^{-1}\)</span>,</p></li>
 </ul>
 <p>nous avons <span class="math notranslate nohighlight">\([f_d (\rho g)^3 ] = Pa^{-3} \, y^{-1} \, Pa^3 \, m^{-3} = m^{-3} y^{-1}\)</span>
 et donc <span class="math notranslate nohighlight">\([D] = m^2 y^{-1}\)</span>, ce qui est cohérent.</p>
@@ -806,10 +825,11 @@ et donc <span class="math notranslate nohighlight">\([D] = m^2 y^{-1}\)</span>, 
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-la-glace-en-1d">Équation de la glace en 1D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fonction-bilan-de-masse-b-s">Fonction bilan de masse <span class="math notranslate nohighlight">\(b(s)\)</span></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-non-lineaire">Équation non-linéaire</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rseolution-numerique">Rséolution numérique</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-numerique">Résolution numérique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pas-de-temps-et-stabilite">Pas de temps et stabilité</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-de-la-grille-est-des-dimensions">Traitement de la grille est des dimensions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-de-bord-bilan-de-masse-epaisseur-0">Conditions de bord, bilan de masse, épaisseur&gt;0</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nombre-d-iterations-inconnu">Nombre d’itérations inconnu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-de-la-grille-et-des-dimensions">Traitement de la grille et des dimensions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-aux-bords-bilan-de-masse-epaisseur-0">Conditions aux bords, bilan de masse, épaisseur&gt;0</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-propos-des-unites">A propos des unités</a></li>
 </ul>
 
@@ -826,7 +846,7 @@ et donc <span class="math notranslate nohighlight">\([D] = m^2 y^{-1}\)</span>, 
   <div class="footer-item">
     
 <p class="component-author">
-By Les auteurs du cours de Modelisation Numerique
+By Les auteurs du cours de Modélisation Numérique
 </p>
 
   </div>
