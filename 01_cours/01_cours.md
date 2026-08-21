@@ -7,7 +7,7 @@ color: white
 ---
 
 # Cours 1
- 
+
 ![](../illu_mod_num_s.png)
 
 ---
@@ -18,21 +18,21 @@ color: white
 - Présentation des outils : Python, VS Code, notebooks
 - Initialisation et règle de mise à jour
 - Solution analytique versus solution numérique
- 
+
  ---
- 
- # Du processus à la résolution numérique  
+
+ # Du processus à la résolution numérique
 
 ![](./fig/framework.png)
 
 ---
- 
+
 # Exemple 1 : Le mouvement des glaciers
- 
+
 Le mouvement de la glace ressemble à celui d'un **fluide** (très) visqueux.
- 
+
 La modélisation des glaciers fait donc appel à la **mécanique des fluides**.
- 
+
 ![](./fig/steps_s1.png)
 
 Voir des modélisations sur https://jouvetg.github.io/the-aletsch-glacier-module/
@@ -43,7 +43,7 @@ Voir des modélisations sur https://jouvetg.github.io/the-aletsch-glacier-module
 # Exemple 2 : Rupture d'iceberg avec tsunami
 
 ![height:250px](./fig/ex_velage_s1.jpg) ![height:250px](./fig/ex_velage2_s1.png)
- 
+
 Source: J. Gaume, animation: https://youtu.be/7IC_ehdH7ZM
 
 ---
@@ -59,29 +59,29 @@ Source: J. Gaume, animation: https://youtu.be/YQ7e06-MZec
 # Exemple 4: Modèles climatiques
 ![](fig/ex_mod_climatique_s1.png)
 Source: http://www.windy.com/
- 
+
 ---
 
 # Exemple 5: Tectonique des plaques
 ![](fig/subduction_s3.png)
-Source: Candioti and al., 2022 (UNIL/FGSE)
+Source : Candioti et al., 2022 (UNIL/FGSE)
 
 ---
 
 # Exemple 6: Évolution du paysage
- 
-![height:350px](./fig/evol_paysage_s3.png)
- 
-La formation des paysages inclut i) la tectonique des plaques ii) l’érosion fluviale iii) hillslope process iv) l’érosion glaciaire v) le transport de sédiments
 
-Source: Campforts and al., 2017, Esurf
- 
+![height:350px](./fig/evol_paysage_s3.png)
+
+La formation des paysages fait intervenir i) la tectonique des plaques, ii) l’érosion fluviale, iii) les processus de versant, iv) l’érosion glaciaire, v) le transport de sédiments.
+
+Source : Campforts et al., 2017, Esurf
+
 ---
 
 # Python, VS Code, notebook : c’est quoi ?
-1) Python, l’interpréteur le language
+1) Python, l’interpréteur et le langage
 ![width:250px](./fig/python_s1.png)
- 
+
 2) Visual Studio code l’éditeur
 ![width:250px](./fig/VScode_s1.png)
 
@@ -101,7 +101,7 @@ Source: Campforts and al., 2017, Esurf
 
 ---
 
-# Tips pour VS Code 
+# Tips pour VS Code
 
 - À l'ouverture de VS Code, un dossier `Code` sur le bureau vous permet d'accéder à vos notebooks. Ce dossier est sauvegardé.
 
@@ -112,7 +112,7 @@ Source: Campforts and al., 2017, Esurf
 ---
 
 # Jupyter notebook (p.e. monNotebook.ipynb)
- 
+
 Les exercices du cours sont donnés sous forme de "Jupyter Notebooks".
 
 - **Qu'est-ce qu'un Jupyter Notebook ?**
@@ -141,20 +141,20 @@ Pour faire les exercices, suivez les instructions, notamment en créant un bloc 
 
 # Format “markdown”
 
-Le Markdown est un langage très léger qui permet de formater du texte simplement (titres, listes, liens, images, etc.) avec des symboles faciles à utiliser, tout en étant lisible même sans conversion. 
+Le Markdown est un langage très léger qui permet de formater du texte simplement (titres, listes, liens, images, etc.) avec des symboles faciles à utiliser, tout en étant lisible même sans conversion.
 
 Comme un code il s’exécute (Shift + Enter). Voilà un exemple :
 
 ![](fig/ex_markdown_s1.png)
 
 On peut aussi écrire du texte, afficher une image, des équations …
- 
+
 ---
- 
+
 # Notions fondamentales en Python pour ce cours
 
 - Import de librairies
-- Indentation 
+- Indentation
 - Indexation
 - Slicing
 
@@ -165,7 +165,7 @@ On peut aussi écrire du texte, afficher une image, des équations …
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from IPython.display import clear_output, display 
+from IPython.display import clear_output, display
 ```
 Cela permet d’appeler la librairie mais aussi de lui donner un nom court (‘alias’).
 
@@ -173,21 +173,21 @@ Nous utiliserons dans ce cours principalement ces 3 librairies : `numpy`, `matpl
 
 ---
 
-# Indentation 
+# Indentation
 
 L'alignement depuis le début de ligne détermine ce qui est inclus dans la boucle. En effet, chaque ligne indentée indique qu'elle fait partie du même bloc de code, ce qui permet à Python de comprendre la structure logique de votre programme.
 
 ```python
-for I in range(10):                    # Ne pas oublier “:”
-    print(I)                           # Ne pas oublier l’indentation
+for i in range(10):                    # Ne pas oublier le ":"
+    print(i)                           # Ne pas oublier l'indentation
 
-if i==0:
-    print(‘i est égal a zero’)
- 
-I=0
-while I<10:
-    print(I)
-    I += 1
+if i == 0:
+    print("i est égal à zéro")
+
+i = 0
+while i < 10:
+    print(i)
+    i += 1
 ```
 
 **Attention :** une fois que le nombre d'espaces pour l'indentation est défini, il doit être respecté tout au long de votre bloc d'instruction.
@@ -196,7 +196,7 @@ while I<10:
 
 # Indexation
 
-Si nous avons un liste (ou un vecteur `numpy`):
+Si nous avons une liste (ou un vecteur `numpy`) :
 
 ```python
 colors = ['red', 'green', 'blue', 'yellow', 'white', 'black']
@@ -206,10 +206,10 @@ alors, on peut accéder à chaque élément à partir du début ou de la fin:
 
 - `colors[0]` retournera `'red'`,  `colors[1]` retournera `'green'`
 - `colors[-1]` retournera `'black'`, `colors[-2]` retournera `'white'`
- 
-| Index (positive)  | 0     | 1       | 2      | 3        | 4       | 5       |
+
+| Indice (positif) | 0     | 1       | 2      | 3        | 4       | 5       |
 |------------------|-------|---------|--------|----------|---------|---------|
-| Index (negative) | -6    | -5      | -4     | -3       | -2      | -1      |
+| Indice (négatif) | -6    | -5      | -4     | -3       | -2      | -1      |
 | Valeur           | 'red' | 'green' | 'blue' | 'yellow' | 'white' | 'black' |
 
 **Attention: Python compte à partir de 0!**
@@ -220,7 +220,7 @@ alors, on peut accéder à chaque élément à partir du début ou de la fin:
 
 Si l'on a un vecteur de taille 9:
 ```
-x                   |-----|-----|-----|-----|-----|-----|-----|-----| 
+x                   |-----|-----|-----|-----|-----|-----|-----|-----|
 ```
 alors nous obtenons les sous-vecteurs suivants:
 ```
@@ -242,13 +242,13 @@ x[::4]              |-----------------------|-----------------------|
 L'objectif de ce cours est d'implémenter l'évolution de phénomènes physiques. Nous serons donc amenés à **initialiser** et **mettre à jour** des variables. Dans l'exemple simple suivant, nous **initialisons** le temps à zéro. À chaque pas de temps, nous **mettons à jour** le temps en l'incrémentant du pas de temps `dt`.
 
 ```python
-time = 0 # seconde
+temps = 0 # seconde
 dt   = 1 # seconde
 nt   = 1000
 
 for it in range(nt): # Fait une boucle qui itère 1000 fois
-  time += dt
-  print(f"Iteration {it}: The time is {time}")
+  temps += dt
+  print(f"Itération {it} : le temps vaut {temps}")
 ```
 
 ---
@@ -258,16 +258,16 @@ for it in range(nt): # Fait une boucle qui itère 1000 fois
 $$ \frac{\partial f}{\partial t} = {\rm qlq \; chose} $$
 
 Par exemple:
- 
-$$ 
+
+$$
 \begin{align}
-\frac{\partial F}{\partial t} & = {\rm Salaire} - {\rm Depenses} & \textrm{(Équation de la "fortune" F)} \\
+\frac{\partial F}{\partial t} & = {\rm Salaire} - {\rm Depense} & \textrm{(Équation de la "fortune" F)} \\
  \frac{\partial X}{\partial t} & = {\rm Vitesse} & \textrm{(Équation de la "position" X )} \\
- \frac{\partial C}{\partial x} & = \frac{\partial^2 C}{\partial^2 x}  & \textrm{(Équation de diffusion pour la "concentration" C)} \\
- \frac{\partial T}{\partial t} & =  \frac{\partial^2 C}{\partial^2 x} - V \frac{\partial T}{\partial x}  &\textrm{(Équation de diffusion-advection  pour la "temperature" T)}
+ \frac{\partial C}{\partial t} & = D \frac{\partial^2 C}{\partial x^2}  & \textrm{(Équation de diffusion pour la "concentration" C)} \\
+ \frac{\partial T}{\partial t} & =  D \frac{\partial^2 T}{\partial x^2} - V \frac{\partial T}{\partial x}  &\textrm{(Équation de diffusion-advection pour la "température" T)}
 \end{align}
 $$
- 
+
 ---
 
 # Tous les modèles de ce cours s'implémentent
@@ -277,7 +277,7 @@ $$ f_{new} = f_{old} + dt \times {\rm qlq \; chose} $$
 Un exemple en python (qui utilise l'incrémentation `+=`):
 
 ```python
-time    = 2025  # années, initialisation
+temps   = 0     # mois, initialisation
 dt      = 1     # mois
 fortune = 10000 # CHF, initialisation
 salaire = 3500  # CHF/mois
@@ -286,9 +286,9 @@ nt      = 36    # 36 pas de temps (période de modélisation : 3 ans)
 
 # Boucle temporelle
 for it in range(nt):
-  time += dt                               # Mise à jour du temps
-  fortune += dt * (salaire - depense)      # Mise à jour de la fortune
-  print(f"Ma fortune au temps {time} est de {fortune}")
+  temps += dt                          # Mise à jour du temps
+  fortune += dt * (salaire - depense)  # Mise à jour de la fortune
+  print(f"Ma fortune après {temps} mois est de {fortune}")
 ```
 
 ---

@@ -2,3 +2,5 @@
 _build/
 ??_exercice_solution.ipynb
 ??_cours.html
+# notes de travail locales laissees a la racine
+/[A-Z]*.md

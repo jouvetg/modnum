@@ -14,13 +14,13 @@ color: white
 ---
 
 # Objectifs du cours
- 
+
 - Condition initiale
 - Problème d'advection-diffusion en 2D avec advection uniforme
 - Discrétisation du terme d'advection en 2D
 - Conditions aux bords de Neumann
 - Conditions de stabilité
-  
+
 ---
 
 # Retour sur les dimensions des matrices
@@ -39,7 +39,7 @@ On perd des cellules en faisant une dérivée (- 1 cellule) ou en tronquant (- 2
 ```
 
 
-![width:350](./fig/taille_matrice_sol_s9.png)
+![width:350px](./fig/taille_matrice_sol_s9.png)
 
 ---
 
@@ -58,7 +58,7 @@ Sinon, il est pratique d'utiliser la fonction `np.meshgrid` afin de générer de
 X,Y = np.meshgrid(x,y)
 ```
 
-Par commodité, nous utilisons des lettres minuscules pour désigner des vecteurs (c.a.d tableaux 1D) et des lettres majuscules pour des matrices (c.a.d.tableaux 2D).
+Par commodité, nous utilisons des lettres minuscules pour désigner des vecteurs (c.-à-d. des tableaux 1D) et des lettres majuscules pour des matrices (c.-à-d. des tableaux 2D).
 
 ---
 
@@ -72,7 +72,7 @@ $$ \frac{\partial C}{\partial t} = -\frac{\partial q_x}{\partial x} -\frac{\part
 
 $$ \textrm{où} \quad q_x = - D \frac{\partial C}{\partial x} \: ; \: \: q_y = - D \frac{\partial C}{\partial y} $$
 
-où $(V_x, V_y)$ est un champ de vitesse en 2D, que nous supposerons constants. Dans le cours suivant, ces derniers seront variables.
+où $(V_x, V_y)$ est un champ de vitesse en 2D, que nous supposerons constant. Dans le cours suivant, il sera variable.
 
 Comme en 1D, les termes d'advection ne font intervenir qu'une dérivée première.
 
@@ -82,9 +82,9 @@ Comme en 1D, les termes d'advection ne font intervenir qu'une dérivée premièr
 
 Parce que les deux termes (diffusion et advection) de mise à jour n'ont pas la même taille (voir ci-dessous), nous traiterons les deux termes séparément grâce à la méthode de splitting.
 
-![width:500](./fig/diffusion_2D_s10.png) ![width:500](./fig/adv_2D_s10.png) 
- 
-Diffusion 2D (taille `(ny-2,nx-2)`) vs Advection 2D (taille `(ny-1,nx) ou (ny,nx-1)`) 
+![width:500px](./fig/diffusion_2D_s10.png) ![width:500px](./fig/adv_2D_s10.png)
+
+Diffusion 2D (taille `(ny-2,nx-2)`) vs Advection 2D (taille `(ny-1,nx) ou (ny,nx-1)`)
 
 ---
 
@@ -113,16 +113,16 @@ Notons qu'il s'agit juste de changer les indices de A pour la mise à jour.
 Symétriquement, nous avons en $y$:
 ```python
 dAdy_a  = - Vy * (A[1:,:] - A[:-1,:]) / dy  # taille ny-1,nx
-``` 
+```
 Si `Vy>0` alors  `A[1:,:]  += dAdy_a * dt` sinon `A[:-1,:] += dAdy_a * dt`.
 
-![width:450](./fig/advection_2D_s10.png)
+![width:450px](./fig/advection_2D_s10.png)
 
 ---
 
-# Condition de bord de Neumann
+# Condition aux bords de Neumann
 
-Sur les bords de notre domaine de modélisation rectangulaire, nous pouvons implémenter des conditions de bords du type **Dirichlet**:
+Sur les bords de notre domaine de modélisation rectangulaire, nous pouvons implémenter des conditions aux bords du type **Dirichlet**:
 $$C({\rm bord}) = {\rm valeur}$$
 ou de **Neumann** comme nous l'avons vu en 1D. En 2D, cela s'écrit:
 
@@ -131,18 +131,20 @@ $$\frac{\partial C}{\partial x} ({\rm bord \; E/W}) = \alpha, \qquad \frac{\part
 Le code suivant applique des conditions de Neumann aux quatre bords:
 
 ```python
-T[:, 0]  = T[:, 1]  + dt * alpha  # bord W , 1er colonne
-T[:, -1] = T[:, -2] + dt * alpha  # bord E , derniere colonne
-T[0, :]  = T[1, :]  + dt * beta   # bord S , 1er ligne
-T[-1, :] = T[-2, :] + dt * beta   # bord N , derniere ligne
+T[:, 0]  = T[:, 1]  - dx * alpha  # bord W , 1er colonne
+T[:, -1] = T[:, -2] + dx * alpha  # bord E , derniere colonne
+T[0, :]  = T[1, :]  - dy * beta   # bord S , 1er ligne
+T[-1, :] = T[-2, :] + dy * beta   # bord N , derniere ligne
 ```
+
+**Attention:** comme en 1D, c'est le **pas d'espace** ($dx$ ou $dy$) qui intervient, et le **signe change** entre le bord de gauche/bas et celui de droite/haut.
 
 ---
 
-# Condition de bord de Neumann
+# Condition aux bords de Neumann
 
 ```
-                   T[-1, :] = T[-2, :] + dt * beta
+                   T[-1, :] = T[-2, :] + dy * beta
 
         x--------x--------x--------x--------x--------x--------x
         ||---------------------------------------------------||
@@ -150,46 +152,67 @@ T[-1, :] = T[-2, :] + dt * beta   # bord N , derniere ligne
         ||                                                   || T[:, -1]
         x|                                                   |x =
 T[:, 0] ||                                                   || T[:, -2]
-=       ||                                                   || + dt 
-T[:, 1] ||                                                   || * alpha 
-+ dt    x|                                                   |x
+=       ||                                                   || + dx
+T[:, 1] ||                                                   || * alpha
+- dx    x|                                                   |x
 * alpha ||                                                   ||
         ||                                                   ||
         ||---------------------------------------------------||
         x--------x--------x--------x--------x--------x--------x
 
-                    T[0, :]  = T[1, :]  + dt * beta
+                    T[0, :]  = T[1, :]  - dy * beta
 ```
 ---
 
-# Condition de flux nulle ($\alpha=\beta=0$)
+# Condition de flux nul ($\alpha=\beta=0$)
 
-Dans le cas où $\alpha = \beta = 0$, cela revient à imposer un flux nul, c'est-à-dire une dérivée nulle de la solution dans la direction de pénétration du bord. 
+Dans le cas où $\alpha = \beta = 0$, cela revient à imposer un flux nul, c'est-à-dire une dérivée nulle de la solution dans la direction de pénétration du bord.
 Cela revient à interdire tout échange avec l'extérieur.
 
 
 $$ \frac{\partial C}{\partial x} ({\rm bord \; E/W}) = 0 $$
 $$ \frac{\partial C}{\partial y} ({\rm bord \; N/S}) = 0 $$
 
-Le code suivant applique des conditions de flux nulles aux quatre bords :
+Le code suivant applique des conditions de flux nul aux quatre bords :
 
 
 ```python
-T[:, 0]  = T[:, 1]  
-T[:, -1] = T[:, -2]  
-T[0, :]  = T[1, :] 
-T[-1, :] = T[-2, :] 
+T[:, 0]  = T[:, 1]
+T[:, -1] = T[:, -2]
+T[0, :]  = T[1, :]
+T[-1, :] = T[-2, :]
 ```
+
+---
+
+# Imposer un flux plutôt qu'un gradient
+
+Souvent, la physique donne un **flux** $q$ (p.e. le flux géothermique) et non un gradient. La loi de Fourier fait le lien:
+
+$$ q = -D \frac{\partial T}{\partial z} \quad \Longrightarrow \quad \beta = \frac{\partial T}{\partial z} = -\frac{q}{D} $$
+
+On applique ensuite la formule de Neumann avec ce $\beta$. Pour le bord du bas:
+
+```python
+beta   = - q / D              # gradient deduit du flux
+T[0,:] = T[1,:] - dy * beta   # soit  T[1,:] + dy * q / D
+```
+
+→ Avec Dirichlet on impose **l'état** (la température); avec Neumann on impose **l'échange** (le flux), et la température de bord devient un **résultat** du modèle.
 
 ---
 
 # Condition de stabilité
 
-La méthode numérique est stable seulement si le pas de temps est assez petit. 
+Comme en 1D, chaque processus impose sa propre contrainte (ici $V_x$ et $V_y$ constants):
 
-D'aprés la théorie, définir le pas de temps (en supposant `V_x`and `V_y` constants)
+$$ dt_\mathrm{diff} = \frac{\min(dx,dy)^2}{4.1 \times D}, \qquad
+dt_\mathrm{adv} = \min \left( \frac{dx}{2.1 \times |V_x|} , \frac{dy}{2.1 \times |V_y|} \right)$$
 
-$$ dt = \min \left( \frac{\min(dx,dy)^2}{4.1 \times D} , 
-0.1 \times \min \left( \frac{dx}{|V_x|} , \frac{dy}{|V_y|} \right) \right)$$
- 
-assure la stabilité de la méthode.
+$$ dt = \min \left( dt_\mathrm{max}, \ dt_\mathrm{diff}, \ dt_\mathrm{adv} \right)$$
+
+```python
+dt_diff = min(dx, dy)**2 / (4.1 * D)
+dt_adv  = min(dx / (2.1 * np.abs(Vx)), dy / (2.1 * np.abs(Vy)))
+dt      = min(dt_max, dt_diff, dt_adv)
+```

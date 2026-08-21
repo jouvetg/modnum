@@ -5,7 +5,7 @@
 
 - Enseignant: Guillaume Jouvet (guillaume.jouvet (at) unil.ch)
 
-- Assistant(e)s 2025: Brandon Finley, Thomas Gregov, Kejdi Lleshi, Mattia Mazzucchelli, Hélène Morciaux
+- Assistant(e)s 2026: Brandon Finley, Thomas Gregov, Kejdi Lleshi, Mattia Mazzucchelli, Hélène Morciaux
 
 ## Objectif du cours
 
@@ -39,33 +39,27 @@ https://moodle.unil.ch/course/view.php?id=24768
 
 ## Plan du cours
 
-| **Cours**  | **Contenu**  et _exercices_ |
-|------------------|---------------------------------------------------------------------------------|
-| 1          | Introduction, initialisation et règle de mise à jour, sauvegarde des résultats. _Exercice du compte en banque_  |
-| 2          | Équation du mouvement en 1D, discrétisation temp., approximation d'une dérivée. _Exercice du mouvement d'une voiture en 1D & exercice plot interactif_  |
-| 3          | Équation du mouvement en 2D, discrétisation spatiale. _Exercice de la bombe volcanique, exercice discrétisation spatiale_  |
-| 4          | Équation de diffusion, EDP et conditions de bord. _Exercice diffusion concentration, fuite de Dayllens_   |
-| 5          | Équation de diffusion (température), conditions de bord, condition d'arrêt. _Exercice diffusion température, intrusion magmatique_  |
-| 6          | Diffusion-advection-réaction 1D, méthode de splitting et schéma upwind. _Exercice diffusion d'un polluant dans une rivière_ |
-|                  | **Test I**   |
-|                  | _Pause_   
-| 7          | Diffusion 2D. _Exercice manipulation Grille 2D, Modélisation Pergélisol Cervin_  |
-| 8          | Diffusion-advection 2D. _Exercice diffusion de la température dans la croûte terrestre_  |
-| 9          | Diffusion-advection-réaction 2D. Advection non-uniforme. _Exercice d'une contamination dans un lac_ |
-| 10         | Équation de la glace 1D, équation de diffusion non-linéaire 1D. _Modélisation d'un glacier synthétique_                                           |
-| 11         | Équation de la glace 2D, équation de diffusion non-linéaire 2D. _Modélisation d'un glacier réel, le glacier du Gorner (VS)_ |
-|                  | **Test II**                                                                     |
+Chaque séance comprend un **cours**, un **tutoriel** (courte mise en train pratique en début de travaux pratiques) et un **exercice**.
+
+| **Séance** | **Cours** | **Tutoriel** | **Exercice** |
+|---|---|---|---|
+| 1 | Introduction, initialisation et règle de mise à jour, solution analytique vs. numérique | Notions fondamentales de Python pour ce cours | Le compte en banque |
+| 2 | Équation du mouvement en 1D, discrétisation temporelle, approximation d'une dérivée | Se familiariser avec les figures interactives | Trajectoire d'une voiture en 1D puis en 2D |
+| 3 | Bonnes pratiques de programmation, équations d'un projectile en 2D | La structure d'un code : la seiche du Léman | Trajectoire d'une bombe volcanique |
+| 4 | Équation de diffusion, EDP, discrétisation spatiale | Discrétisation spatiale et dérivées | Diffusion d'une concentration ; fuite chimique de Daillens |
+| 5 | Diffusion de la température, conditions aux bords, condition d'arrêt | Se familiariser avec les conditions aux bords | Intrusion magmatique |
+| 6 | Diffusion-advection-réaction 1D, méthode de splitting, schéma upwind | Le décentrage « upwind » | Contamination d'une rivière au cyanure |
+|  | **Test I** |  |  |
+|  | _Pause_ |  |  |
+| 7 | Diffusion 2D, conditions aux bords de Dirichlet | Affichage interactif de résultats 2D | Permafrost du Cervin |
+| 8 | Diffusion-advection 2D, advection uniforme, conditions de Neumann | Construire des matrices 2D avec `np.meshgrid` | Température de la croûte terrestre |
+| 9 | Diffusion-advection-réaction 2D, advection non uniforme | Champs de vitesse 2D et matrices de booléens | Contamination d'un lac |
+| 10 | Équation de la glace 1D, diffusion non linéaire | Diffusivité variable et flux aux interfaces | Modélisation d'un glacier synthétique |
+|  | **Test II** |  |  |
+
+> 🧭 **Séance 11 — hors-programme, pour les curieux.** L'équation de la glace **en 2D** (diffusion non linéaire en deux dimensions) et la modélisation d'un glacier réel, le **glacier du Gorner** (VS), ne font **pas partie de la matière évaluée** et ne sont pas traitées en séance. Le cours, le tutoriel et l'exercice restent disponibles en ligne pour qui souhaite aller plus loin : ils réutilisent tout ce qui a été vu aux séances 7 à 10 et constituent un bon projet personnel.
 
  
-## Documents (pdf)
-
-Le cours vient avec des document annexes:
-
-- [Introduction à Python pour la modélisation numérique](documents/Python_pour_la_modelisation_numerique.pdf)
-
-- [Check-list d'un modèle numérique](documents/Check-list-mod-num.pdf)
-
-
 ## Auteurs
 
 Les personnes suivantes ont contribué à construire ou/et donner/assister ce cours (par ordre chronologique):

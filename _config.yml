@@ -1,7 +1,18 @@
 # Jupyter Book Configuration
-title: "Modelisation Numerique"
-author: "Les auteurs du cours de Modelisation Numerique"
+title: "Modélisation Numérique"
+author: "Les auteurs du cours de Modélisation Numérique"
 logo: "illu_mod_num.png"
+# Fichiers que Sphinx ne doit PAS transformer en pages du site.
+# Sans cette liste, les corrigés NN_exercice_solution.ipynb sont publiés :
+# en page HTML, et en .ipynb téléchargeable sous _sources/.
+# Le motif [A-Z]*.md écarte les notes de travail laissées à la racine ;
+# la racine du livre, syllabus.md, est en minuscules et reste incluse.
+exclude_patterns:
+  - "**/*_solution.ipynb"
+  - "[A-Z]*.md"
+  - "_build"
+  - "**.ipynb_checkpoints"
+
 execute:
   execute_notebooks: "off"  # Turn off execution
   remove_cell_tags: ["solution"]  # Remove cells tagged with "solution"

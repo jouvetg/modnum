@@ -68,7 +68,7 @@ parts:
       - file: 10_tutoriel/10_tutoriel
       - file: 10_exercice/10_exercice
 
-  - caption: Session 11
+  - caption: Session 11 — hors-programme, pour les curieux
     chapters:
       - file: 11_cours/11_cours
       - file: 11_tutoriel/11_tutoriel
