@@ -1,5 +1,5 @@
 
-# Syllabus
+# Modélisation Numérique -- Syllabus
 
 ![width:200px](illu_mod_num_s.png)
 
