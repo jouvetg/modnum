@@ -99,7 +99,7 @@ for it in range(10000):
 
 ---
 
-# Document "Check-list"
+# Check-list et grille d'évaluation d'un code
 
 ![width:900px](./fig/check-list.png)
 
