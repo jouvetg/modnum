@@ -5,7 +5,7 @@
 
 - Enseignant: Guillaume Jouvet (guillaume.jouvet (at) unil.ch)
 
-- Assistant(e)s 2026: Brandon Finley, Thomas Gregov, Kejdi Lleshi, Mattia Mazzucchelli, Hélène Morciaux
+- Assistant(e)s 2026: Fien De Doncker, Brandon Finley, Thomas Gregov, Kejdi Lleshi, Mattia Mazzucchelli, Hélène Morciaux 
 
 ## Objectif du cours
 
@@ -60,6 +60,27 @@ Chaque séance comprend un **cours**, un **tutoriel** (courte mise en train prat
 > 🧭 **Séance 11 — hors-programme, pour les curieux.** L'équation de la glace **en 2D** (diffusion non linéaire en deux dimensions) et la modélisation d'un glacier réel, le **glacier du Gorner** (VS), ne font **pas partie de la matière évaluée** et ne sont pas traitées en séance. Le cours, le tutoriel et l'exercice restent disponibles en ligne pour qui souhaite aller plus loin : ils réutilisent tout ce qui a été vu aux séances 7 à 10 et constituent un bon projet personnel.
 
  
+## Grille d'évaluation d'un code
+
+Cette grille sert à relire son propre code lors des exercices et de base pour l'évaluation des tests :
+
+| **Code** | **Critère** | **Questions à se poser** |
+|---|---|---|
+| | **Présentation générale** | |
+| **RU** | Le code fonctionne | Le code s'exécute-t-il sans erreur, pour toutes les questions ? Toutes les variables sont-elles définies avant usage ? |
+| **CO** | Présentation du code | Le code est-il bien structuré (paramètres → discrétisation → initialisation → boucle → figure) ? Un seul code pour toutes les questions ? Propre et bien commenté ? Chaque instruction est-elle au bon endroit (dans ou hors boucle) ? |
+| **DE** | Définition des variables | Tous les paramètres sont-ils définis en tête de code ? Les unités sont-elles adaptées ? Pas de « hard-coding » (valeurs écrites en dur) ? |
+| **FI** | Figure | Est-elle dans la boucle et mise à jour ? Temps dans le titre, arrondi et avec unité ? Labels et limites d'axes (ou colorbar) fixés ? Bonnes variables tracées ? Lisible ? |
+| | **Partie technique** | |
+| **IC** | Condition initiale | Bonne valeur sur toute la grille, bonnes dimensions ? Apparaît avant la boucle ? |
+| **PT** | Pas de temps et boucle temporelle | `dt` issu de la condition de stabilité ? Boucle `for` si le nombre de pas est connu, `while` sinon ? Temps mis à jour à chaque pas ? |
+| **ED** | Équation de diffusion | Bien implémentée dans la boucle ? Sur les points intérieurs ? Avec le bon signe ? Adaptée à une diffusivité spatialement variable ou non linéaire ? |
+| **ER** | Équation de réaction | Bien implémentée dans la boucle ? Avec les bonnes dimensions ? |
+| **EA** | Équation d'advection | Bien implémentée dans la boucle ? Avec les bonnes dimensions ? Schéma « upwind » selon le signe de la vitesse ? Vitesses bien définies ? |
+| **BC** | Conditions aux limites | Bien implémentées dans la boucle ? Bon type à chaque bord (Dirichlet / Neumann), bonnes valeurs ? |
+| **FO** | Forçage | Bien implémenté dans la boucle ? Position bien convertie en indice ? Bonne valeur imposée ? |
+| **CA** | Condition d'arrêt | Bien implémentée dans la boucle ? Sur la bonne variable au bon indice, avec le bon opérateur ? Un « flag » identifie-t-il la première occurrence ? |
+
 ## Auteurs
 
 Les personnes suivantes ont contribué à construire ou/et donner/assister ce cours (par ordre chronologique):

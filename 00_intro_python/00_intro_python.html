@@ -691,21 +691,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>57.0
-</pre></div>
-</div>
-</div>
 </div>
 <p>Notons que l’opérateur <code class="docutils literal notranslate"><span class="pre">**</span></code> est la puissance, <code class="docutils literal notranslate"><span class="pre">//</span></code> est la division euclidienne, et <code class="docutils literal notranslate"><span class="pre">%</span></code> est le reste de la division :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="o">//</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="o">%</span><span class="k">3</span>)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8 3 1
 </pre></div>
 </div>
 </div>
@@ -716,11 +706,6 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cette ligne est commentée, elle ne sera pas exécutée</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># cette ligne n&#39;est pas commentée</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
 </pre></div>
 </div>
 </div>
@@ -740,12 +725,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>valeurs des variables: 10 3.5 Python True
-types des variables: &lt;class &#39;int&#39;&gt; &lt;class &#39;float&#39;&gt; &lt;class &#39;str&#39;&gt; &lt;class &#39;bool&#39;&gt;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Le nom d’une variable est <strong>sensible à la casse</strong> (<code class="docutils literal notranslate"><span class="pre">T</span></code> et <code class="docutils literal notranslate"><span class="pre">t</span></code> sont deux variables différentes), peut être aussi long qu’on le souhaite, et peut contenir des chiffres — à l’exception du premier caractère.</p>
 <p>On peut faire bon nombre d’opérations sur les variables, par exemple :</p>
@@ -754,13 +733,6 @@ types des variables: &lt;class &#39;int&#39;&gt; &lt;class &#39;float&#39;&gt; &
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">var1</span><span class="o">+</span><span class="n">var2</span><span class="o">*</span><span class="n">var1</span><span class="p">)</span>      <span class="c1"># operation algebrique</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">var3</span><span class="o">+</span><span class="n">var3</span><span class="p">)</span>           <span class="c1"># operation sur les chaines de caracteres</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">var4</span> <span class="ow">and</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">)</span>   <span class="c1"># operation logique</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45.0
-PythonPython
-False
 </pre></div>
 </div>
 </div>
@@ -773,11 +745,6 @@ False
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
 </div>
 <p>Enfin, il est très commode d’utiliser les <strong>opérateurs d’incrémentation</strong> <code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code> et <code class="docutils literal notranslate"><span class="pre">/=</span></code>, qui reviennent à mettre à jour une variable à partir de sa propre valeur :</p>
 <div class="cell docutils container">
@@ -787,12 +754,6 @@ False
 <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">*=</span> <span class="mi">2</span>          <span class="c1"># equivalent a : n = n * 2</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
-18
 </pre></div>
 </div>
 </div>
@@ -815,11 +776,6 @@ False
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-</pre></div>
-</div>
-</div>
 </div>
 <p>On accède à un élément ou à une sous-liste en utilisant <code class="docutils literal notranslate"><span class="pre">[]</span></code> :</p>
 <div class="cell docutils container">
@@ -828,14 +784,6 @@ False
 <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># Extraire les 2 premiers éléments</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># Extraire le dernier élément</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:])</span>  <span class="c1"># Extraire les 3 derniers éléments</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
-[3, 5]
-True
-[5, 6, True]
 </pre></div>
 </div>
 </div>
@@ -863,13 +811,6 @@ True
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python
-data_scientist
-data_
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="fonctions-predefinies-et-aide">
@@ -884,30 +825,11 @@ data_
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-5 1 15
-3
-</pre></div>
-</div>
-</div>
 </div>
 <p>Vous pouvez accéder à l’aide de chaque fonction Python en utilisant :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function sum in module builtins:
-
-sum(iterable, /, start=0)
-    Return the sum of a &#39;start&#39; value (default: 0) plus an iterable of numbers
-    
-    When the iterable is empty, return the start value.
-    This function is intended specifically for use with numeric values and may
-    reject non-numeric types.
 </pre></div>
 </div>
 </div>
@@ -921,11 +843,6 @@ sum(iterable, /, start=0)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="kc">True</span>
 <span class="k">if</span> <span class="n">a</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c&#39;est vrai&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c&#39;est vrai
 </pre></div>
 </div>
 </div>
@@ -944,11 +861,6 @@ sum(iterable, /, start=0)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c&#39;est vrai
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -959,11 +871,6 @@ sum(iterable, /, start=0)
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c&#39;est faux&quot;</span><span class="p">)</span>
 <span class="k">else</span> <span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ce n&#39;est pas un booléen&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c&#39;est vrai
 </pre></div>
 </div>
 </div>
@@ -986,11 +893,6 @@ sum(iterable, /, start=0)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a est superieur a 25
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="les-boucles-for-while">
@@ -1005,12 +907,6 @@ sum(iterable, /, start=0)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-2
-</pre></div>
-</div>
-</div>
 </div>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">range()</span></code> permet de générer une suite d’entiers : <code class="docutils literal notranslate"><span class="pre">range(n)</span></code> contient les nombres de <code class="docutils literal notranslate"><span class="pre">0</span></code> à <code class="docutils literal notranslate"><span class="pre">n-1</span></code>, et <code class="docutils literal notranslate"><span class="pre">range(m,n)</span></code> contient les nombres de <code class="docutils literal notranslate"><span class="pre">m</span></code> à <code class="docutils literal notranslate"><span class="pre">n-1</span></code>.</p>
 <div class="cell docutils container">
@@ -1021,33 +917,12 @@ sum(iterable, /, start=0)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4]
-[2, 3, 4]
-[2, 4, 6, 8, 10, 12, 14]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Pour générer une boucle sur les entiers de 0 à 9, on utilise :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-1
-2
-3
-4
-5
-6
-7
-8
-9
 </pre></div>
 </div>
 </div>
@@ -1066,11 +941,6 @@ sum(iterable, /, start=0)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>51
-</pre></div>
-</div>
-</div>
 </div>
 <blockquote>
 <div><p><strong>Le mot-clé <code class="docutils literal notranslate"><span class="pre">break</span></code> permet la sortie prématurée d’une boucle.</strong></p>
@@ -1084,22 +954,6 @@ sum(iterable, /, start=0)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 0
-0 1
-0 2
-0 3
-1 0
-1 1
-1 2
-1 3
-2 0
-2 1
-2 2
-2 3
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1110,15 +964,6 @@ sum(iterable, /, start=0)
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;la condition i + j == 15 est remplie pour i =&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;et j =&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
             <span class="k">break</span>      <span class="c1"># cela sort prematurement de la boucle while</span>
         <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>la condition i + j == 15 est remplie pour i = 0 et j = 15
-la condition i + j == 15 est remplie pour i = 1 et j = 14
-la condition i + j == 15 est remplie pour i = 2 et j = 13
-la condition i + j == 15 est remplie pour i = 3 et j = 12
-la condition i + j == 15 est remplie pour i = 4 et j = 11
 </pre></div>
 </div>
 </div>
@@ -1150,13 +995,6 @@ la condition i + j == 15 est remplie pour i = 4 et j = 11
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
-10
-10
-</pre></div>
-</div>
-</div>
 </div>
 <p>Une fonction peut avoir plusieurs sorties/outputs, retournées avec le mot-clé <code class="docutils literal notranslate"><span class="pre">return</span></code> :</p>
 <div class="cell docutils container">
@@ -1171,11 +1009,6 @@ la condition i + j == 15 est remplie pour i = 4 et j = 11
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="o">=</span><span class="n">ma_fonc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 -3
 </pre></div>
 </div>
 </div>
@@ -1196,11 +1029,6 @@ la condition i + j == 15 est remplie pour i = 4 et j = 11
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 5
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="modules">
@@ -1213,21 +1041,11 @@ la condition i + j == 15 est remplie pour i = 4 et j = 11
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-08-05
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span> <span class="c1"># permet d&#39;importer le module math, qui permet de faire des calculs mathématiques</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="c1"># retournera 3.141592653589793</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
 </pre></div>
 </div>
 </div>
@@ -1241,13 +1059,6 @@ la condition i + j == 15 est remplie pour i = 4 et j = 11
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 1. 1. 1.]
- [1. 1. 1. 1.]
- [1. 1. 1. 1.]]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1257,12 +1068,6 @@ la condition i + j == 15 est remplie pour i = 4 et j = 11
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x767ebdbc8100&gt;]
-</pre></div>
-</div>
-<img alt="../_images/e88b65cc96fdef527f157fdfddb98230df732ab00d2852eb605f3dd719b2f62a.png" src="../_images/e88b65cc96fdef527f157fdfddb98230df732ab00d2852eb605f3dd719b2f62a.png" />
 </div>
 </div>
 <p>On donne souvent des noms courts (des <em>alias</em>) aux bibliothèques par simplicité, et pour s’économiser des lignes de code.</p>
@@ -1308,21 +1113,11 @@ la condition i + j == 15 est remplie pour i = 4 et j = 11
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 4 7 9]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_range</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># on crée un tableau de 0 à 9</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">array_range</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9]
 </pre></div>
 </div>
 </div>
@@ -1334,24 +1129,11 @@ la condition i + j == 15 est remplie pour i = 4 et j = 11
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.         0.05263158 0.10526316 0.15789474 0.21052632 0.26315789
- 0.31578947 0.36842105 0.42105263 0.47368421 0.52631579 0.57894737
- 0.63157895 0.68421053 0.73684211 0.78947368 0.84210526 0.89473684
- 0.94736842 1.        ]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_ones</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># un tableau de 1 avec 4 éléments</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">array_ones</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1.]
 </pre></div>
 </div>
 </div>
@@ -1374,30 +1156,6 @@ la condition i + j == 15 est remplie pour i = 4 et j = 11
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>O=  [[0 1 2]
- [3 4 5]
- [6 7 8]]
-A=  [[0. 0. 0.]
- [0. 0. 0.]
- [0. 0. 0.]]
-B=  [[1. 1.]
- [1. 1.]]
-C=  [[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
- [0. 1. 0. 0. 0. 0. 0. 0. 0. 0.]
- [0. 0. 1. 0. 0. 0. 0. 0. 0. 0.]
- [0. 0. 0. 1. 0. 0. 0. 0. 0. 0.]
- [0. 0. 0. 0. 1. 0. 0. 0. 0. 0.]
- [0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
- [0. 0. 0. 0. 0. 0. 1. 0. 0. 0.]
- [0. 0. 0. 0. 0. 0. 0. 1. 0. 0.]
- [0. 0. 0. 0. 0. 0. 0. 0. 1. 0.]
- [0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]]
-D=  [0 1 2 3 4 5 6 7 8 9]
-E=  [0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Ce formalisme est particulièrement pratique pour créer des matrices de grandes dimensions.</p>
 <p>Nous pouvons également créer des matrices en 3D, 4D, … (aussi appelées tenseurs), mais nous ne les utiliserons pas dans le cours.</p>
@@ -1417,13 +1175,6 @@ E=  [0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3,)
-(3, 3)
-(10, 10)
-</pre></div>
-</div>
-</div>
 </div>
 <p>En prenant la <strong>transposée</strong> d’une matrice, la forme <span class="math notranslate nohighlight">\((a,b)\)</span> devient <span class="math notranslate nohighlight">\((b,a)\)</span> :</p>
 <div class="cell docutils container">
@@ -1432,12 +1183,6 @@ E=  [0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape de F  :&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">F</span><span class="p">))</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>        <span class="c1"># on peut aussi ecrire F.T</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape de F.T:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape de F  : (2, 5)
-shape de F.T: (5, 2)
 </pre></div>
 </div>
 </div>
@@ -1457,14 +1202,6 @@ shape de F.T: (5, 2)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ligne 1 et colonne 1:  4
-ligne 1:  [3 4 5]
-lignes 1 et 2 et les colonnes 0 et 1 : [[3 4]
- [6 7]]
-</pre></div>
-</div>
-</div>
 </div>
 <p>On peut pointer sur l’élément d’un vecteur par un indice <strong>positif</strong> en partant du début, ou par un indice <strong>négatif</strong> en partant de la fin :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Indices</span>  <span class="o">-&gt;</span>      <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span>
@@ -1480,22 +1217,12 @@ lignes 1 et 2 et les colonnes 0 et 1 : [[3 4]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2 3 4 5 6]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Il est également possible de ne garder qu’un élément sur X avec l’opérateur <code class="docutils literal notranslate"><span class="pre">::</span></code>. Par exemple, la commande suivante ne garde que les éléments à chaque 3e position :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">[::</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># affiche un élément sur 3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 3 6 9]
 </pre></div>
 </div>
 </div>
@@ -1511,16 +1238,6 @@ lignes 1 et 2 et les colonnes 0 et 1 : [[3 4]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>avant : [[0 1 2]
- [3 4 5]
- [6 7 8]]
-apres : [[ 0  1  2]
- [ 3 10  5]
- [ 0  0  0]]
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="operations">
@@ -1531,11 +1248,6 @@ apres : [[ 0  1  2]
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 <span class="n">arr2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">arr1</span><span class="o">+</span><span class="n">arr2</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 2.  5. 10.  6.]
 </pre></div>
 </div>
 </div>
@@ -1559,14 +1271,6 @@ apres : [[ 0  1  2]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 0. 0.]
-[1. 1. 1.]
-[2. 2. 2.]
-[0. 0. 0.]
-</pre></div>
-</div>
-</div>
 </div>
 <p>L’opérateur <code class="docutils literal notranslate"><span class="pre">*</span></code> effectue la multiplication terme à terme. Le produit scalaire entre deux vecteurs, le produit matrice-vecteur et le produit matriciel se font avec l’opérateur <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> (ou <code class="docutils literal notranslate"><span class="pre">np.dot</span></code>) :</p>
 <div class="cell docutils container">
@@ -1580,17 +1284,6 @@ apres : [[ 0  1  2]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>produit terme a terme :  [[  0  -1  -4]
- [ -9 -16 -25]
- [-36 -49 -64]]
-produit matriciel :  [[ -15  -18  -21]
- [ -42  -54  -66]
- [ -69  -90 -111]]
-produit matrice-vecteur :  [-8 -8 -8]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Le module NumPy fournit une liste de fonctions usuelles en mathématiques : <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">log2</span></code>, <code class="docutils literal notranslate"><span class="pre">log10</span></code>, <code class="docutils literal notranslate"><span class="pre">floor</span></code>, <code class="docutils literal notranslate"><span class="pre">ceil</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code>, etc. :</p>
 <div class="cell docutils container">
@@ -1601,29 +1294,12 @@ produit matrice-vecteur :  [-8 -8 -8]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.718281828459045 1.0
-1.0 1.4142135623730951
-1.0 4.0
-</pre></div>
-</div>
-</div>
 </div>
 <p>et ceci s’applique bien sûr matriciellement :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.00000000e+00 3.67879441e-01 1.35335283e-01]
- [4.97870684e-02 1.83156389e-02 6.73794700e-03]
- [2.47875218e-03 9.11881966e-04 3.35462628e-04]]
-[[ 1.          0.54030231 -0.41614684]
- [-0.9899925  -0.65364362  0.28366219]
- [ 0.96017029  0.75390225 -0.14550003]]
 </pre></div>
 </div>
 </div>
@@ -1644,13 +1320,6 @@ produit matrice-vecteur :  [-8 -8 -8]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.45320479 0.64049907 0.47901498 0.53791961 0.98086186 0.09132491
- 0.00604515 0.05004318 0.49244671 0.18545095]
-(5, 10)
-</pre></div>
-</div>
-</div>
 </div>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">np.random.normal(m,</span> <span class="pre">s,</span> <span class="pre">(a,</span> <span class="pre">b))</span></code> génère une matrice de <code class="docutils literal notranslate"><span class="pre">a</span></code> lignes et <code class="docutils literal notranslate"><span class="pre">b</span></code> colonnes remplie de <strong>nombres aléatoires distribués normalement</strong> autour de la moyenne <code class="docutils literal notranslate"><span class="pre">m</span></code> avec un écart-type <code class="docutils literal notranslate"><span class="pre">s</span></code> (cliquez plusieurs fois pour obtenir plusieurs réalisations) :</p>
 <div class="cell docutils container">
@@ -1658,14 +1327,6 @@ produit matrice-vecteur :  [-8 -8 -8]
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>    <span class="c1"># loi normale de moyenne 4 et d&#39;ecart-type 5</span>
 <span class="c1"># matrice de 3x4 nb aleatoires distr. normalement, de moyenne 8 et d&#39;ecart-type 2</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-5.8982259768401235
-[[ 8.22346671  7.14447363  6.63786864  6.77885706]
- [11.38955926  8.33758371  7.9839593   7.2470513 ]
- [ 5.0251713   7.99190811  6.47806861  6.43811932]]
 </pre></div>
 </div>
 </div>
@@ -1677,22 +1338,11 @@ produit matrice-vecteur :  [-8 -8 -8]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.11981237 0.49746277]
- [0.05037446 0.87295039]]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Pour générer un vecteur de 10 entiers compris entre 0 et 4, on utilise :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 0 1 1 4 3 1 4 4]
 </pre></div>
 </div>
 </div>
@@ -1702,12 +1352,6 @@ produit matrice-vecteur :  [-8 -8 -8]
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>  <span class="c1"># uniforme entre 0 et 1</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">())</span> <span class="c1"># normale centree d&#39;ecart-type 1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7659930131002896
-0.9942526365849117
 </pre></div>
 </div>
 </div>
@@ -1758,11 +1402,6 @@ produit matrice-vecteur :  [-8 -8 -8]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = [100   2   3]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Ce comportement propre à Python (qui gère des adresses) peut générer des problèmes inattendus. Il est toutefois possible de créer une <strong>copie physique</strong> <code class="docutils literal notranslate"><span class="pre">B</span></code> d’un objet <code class="docutils literal notranslate"><span class="pre">A</span></code> déjà défini avec la commande <code class="docutils literal notranslate"><span class="pre">B=np.copy(A)</span></code>. Une fois cette copie réalisée, toute modification de <code class="docutils literal notranslate"><span class="pre">B</span></code> ne causera aucun changement sur <code class="docutils literal notranslate"><span class="pre">A</span></code>, car il ne s’agit plus du même objet :</p>
 <div class="cell docutils container">
@@ -1771,11 +1410,6 @@ produit matrice-vecteur :  [-8 -8 -8]
 <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>   <span class="c1"># copie physique de A</span>
 <span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>       <span class="c1"># on modifie B ...</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A =&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>  <span class="c1"># ... et A est inchange</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = [1 2 3]
 </pre></div>
 </div>
 </div>
@@ -1807,9 +1441,6 @@ produit matrice-vecteur :  [-8 -8 -8]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/79119292f24221317e2f6fbe8e04f51eb83bd4ff1129b7aad43d59674d70c398.png" src="../_images/79119292f24221317e2f6fbe8e04f51eb83bd4ff1129b7aad43d59674d70c398.png" />
-</div>
 </div>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">plt.plot(X,</span> <span class="pre">Y)</span></code> permet de tracer une courbe à partir d’un vecteur <code class="docutils literal notranslate"><span class="pre">X</span></code> et d’un vecteur <code class="docutils literal notranslate"><span class="pre">Y</span></code> — attention, les deux doivent avoir la même taille. Elle possède un bon nombre d’options (taille et type du trait, présence de marqueurs, couleur, etc.) : consultez l’aide avec <code class="docutils literal notranslate"><span class="pre">help(plt.plot)</span></code> pour plus d’informations.</p>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">plt.subplot(m,</span> <span class="pre">n,</span> <span class="pre">k)</span></code> découpe une même fenêtre graphique en un tableau de m × n cases et insère les instructions de type <code class="docutils literal notranslate"><span class="pre">plt.</span></code> qui suivent dans la k-ième case. Par exemple :</p>
@@ -1825,9 +1456,6 @@ produit matrice-vecteur :  [-8 -8 -8]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/1580c500b87e8cb2ade8505d2cb5039f36ad05b909f803a7aea3324efb92cb94.png" src="../_images/1580c500b87e8cb2ade8505d2cb5039f36ad05b909f803a7aea3324efb92cb94.png" />
-</div>
 </div>
 <p>Si X et Y sont deux listes ou tableaux de nombres réels et de même longueur, alors <code class="docutils literal notranslate"><span class="pre">plt.scatter(X,</span> <span class="pre">Y)</span></code> trace le nuage de points (X[0], Y[0]), (X[1], Y[1]), …, (X[n-1], Y[n-1]). Par exemple :</p>
 <div class="cell docutils container">
@@ -1838,12 +1466,6 @@ produit matrice-vecteur :  [-8 -8 -8]
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x767ebd007550&gt;
-</pre></div>
-</div>
-<img alt="../_images/fc51684f23b028ee07549cd4c8ce9aefc1debf2b45b8a5055ea9de592edb4f33.png" src="../_images/fc51684f23b028ee07549cd4c8ce9aefc1debf2b45b8a5055ea9de592edb4f33.png" />
 </div>
 </div>
 <p>Si <code class="docutils literal notranslate"><span class="pre">X</span></code> est une liste ou un tableau de nombres réels, alors <code class="docutils literal notranslate"><span class="pre">plt.hist(X,</span> <span class="pre">bins=c,</span> <span class="pre">density=True)</span></code> construit un <strong>histogramme</strong> des valeurs de <code class="docutils literal notranslate"><span class="pre">X</span></code> ayant <code class="docutils literal notranslate"><span class="pre">c</span></code> classes (par défaut <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">10</span></code>) :</p>
@@ -1856,9 +1478,6 @@ produit matrice-vecteur :  [-8 -8 -8]
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/7969f12d7f075d9ddef168a1311b3cbbd4000e9617132942b72de5b89c820861.png" src="../_images/7969f12d7f075d9ddef168a1311b3cbbd4000e9617132942b72de5b89c820861.png" />
 </div>
 </div>
 <p>Enfin, la fonction <code class="docutils literal notranslate"><span class="pre">plt.imshow</span></code> permet de dessiner un <strong>champ 2D</strong> à partir d’une matrice (numpy array), prise aléatoirement ici. Quelques options seront très utilisées dans ce cours :</p>
@@ -1886,9 +1505,6 @@ produit matrice-vecteur :  [-8 -8 -8]
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Label of the colorbar&#39;</span><span class="p">)</span>   <span class="c1"># on ajoute une colorbar</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/e157729fc82f05590ec233f5e11e1eb3319e0c1d0712091d6029532e29f71b5a.png" src="../_images/e157729fc82f05590ec233f5e11e1eb3319e0c1d0712091d6029532e29f71b5a.png" />
 </div>
 </div>
 </section>
@@ -1948,9 +1564,6 @@ produit matrice-vecteur :  [-8 -8 -8]
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/fbcf16d2d1591e253fe53bd6fe494649ddf3beaea2780ace6e58602f2a63c72d.png" src="../_images/fbcf16d2d1591e253fe53bd6fe494649ddf3beaea2780ace6e58602f2a63c72d.png" />
 </div>
 </div>
 <p>Par ailleurs, il est également possible de définir une figure avec plusieurs sous-figures en utilisant <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">(ax1,</span> <span class="pre">ax2)</span> <span class="pre">=</span> <span class="pre">plt.subplots(2,</span> <span class="pre">1)</span></code>. Dans ce cas, il faudra appliquer <code class="docutils literal notranslate"><span class="pre">ax1.cla()</span></code> et <code class="docutils literal notranslate"><span class="pre">ax2.cla()</span></code> (pour chaque axe) afin de les nettoyer, puis remplir les axes respectivement avec <code class="docutils literal notranslate"><span class="pre">ax1.plot(...)</span></code> et <code class="docutils literal notranslate"><span class="pre">ax2.plot(...)</span></code>.</p>
@@ -2056,9 +1669,6 @@ produit matrice-vecteur :  [-8 -8 -8]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/73e27a6621098072943a286fedc369892ba666042f98a92b2adb932667b416a8.png" src="../_images/73e27a6621098072943a286fedc369892ba666042f98a92b2adb932667b416a8.png" />
-</div>
 </div>
 </section>
 </section>
@@ -2157,9 +1767,6 @@ Utilisez la fonction <code class="docutils literal notranslate"><span class="pre
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/6dbe87e8f607b51aa06de56fc77b7d92675c37a211301f7cd22c02ba540f17bf.png" src="../_images/6dbe87e8f607b51aa06de56fc77b7d92675c37a211301f7cd22c02ba540f17bf.png" />
 </div>
 </div>
 </section>

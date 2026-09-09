@@ -638,19 +638,35 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>longueur de x : 101    dx = 0.01
-</pre></div>
-</div>
-<img alt="../_images/41a90d8ae8c58ff0d53389bb2a33a338a2a3c62e4d167473e9cfb431fc4406b6.png" src="../_images/41a90d8ae8c58ff0d53389bb2a33a338a2a3c62e4d167473e9cfb431fc4406b6.png" />
-</div>
 </div>
 </section>
 <section id="agir-a-une-position-physique">
 <h2>2. Agir à une position physique<a class="headerlink" href="#agir-a-une-position-physique" title="Link to this heading">#</a></h2>
 <p>Nous venons de modifier <code class="docutils literal notranslate"><span class="pre">T</span></code> à un <strong>indice</strong> donné. Le plus souvent, on souhaite le faire à une <strong>position physique</strong>. Écrire <code class="docutils literal notranslate"><span class="pre">T[0.4]</span> <span class="pre">=</span> <span class="pre">6</span></code> est incorrect : <code class="docutils literal notranslate"><span class="pre">T</span></code> n’accepte que des indices entiers.</p>
 <p>Il faut donc convertir la position en indice. On divise la position par le pas <span class="math notranslate nohighlight">\(dx\)</span> pour obtenir la position relative au début de l’intervalle, puis on en prend la partie entière : <code class="docutils literal notranslate"><span class="pre">ixp</span> <span class="pre">=</span> <span class="pre">int((xp</span> <span class="pre">-</span> <span class="pre">a)/dx)</span></code>. Rien ne garantit en effet que <span class="math notranslate nohighlight">\(x_P\)</span> tombe exactement sur un point de la discrétisation.</p>
-<p>La même stratégie s’applique à un intervalle. On peut aussi, et c’est parfois préférable, utiliser directement une <strong>condition sur les coordonnées</strong> : <code class="docutils literal notranslate"><span class="pre">T[(xl</span> <span class="pre">&lt;</span> <span class="pre">x)</span> <span class="pre">&amp;</span> <span class="pre">(x</span> <span class="pre">&lt;</span> <span class="pre">xr)]</span> <span class="pre">=</span> <span class="pre">Txp</span></code> sélectionne les éléments de <code class="docutils literal notranslate"><span class="pre">T</span></code> dont la coordonnée est comprise entre <code class="docutils literal notranslate"><span class="pre">xl</span></code> et <code class="docutils literal notranslate"><span class="pre">xr</span></code>.</p>
+<p>La même stratégie s’applique à un intervalle:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>
+<span class="n">C</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x_init_gauche</span><span class="o">/</span><span class="n">dx</span><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="n">x_init_droit</span><span class="o">/</span><span class="n">dx</span><span class="p">)]</span> <span class="o">=</span> <span class="n">C_init</span>
+</pre></div>
+</div>
+<p>c’est-à-dire qu’on impose la valeur <code class="docutils literal notranslate"><span class="pre">C_init</span></code> au vecteur <code class="docutils literal notranslate"><span class="pre">C</span></code> entre les indices <code class="docutils literal notranslate"><span class="pre">int(x_init_gauche/dx)</span></code> et <code class="docutils literal notranslate"><span class="pre">int(x_init_droit/dx)</span></code>, en suivant la représentation graphique de l’espace et de sa discrétisation :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">              </span><span class="p">|</span>---------------<span class="p">|</span>-----------<span class="p">|</span>-------------...
+x<span class="w">                             </span><span class="m">30</span><span class="w">          </span><span class="m">50</span>
+indice<span class="w">                   </span>int<span class="o">(</span><span class="m">30</span>/dx<span class="o">)</span><span class="w">   </span>int<span class="o">(</span><span class="m">50</span>/dx<span class="o">)</span>
+</pre></div>
+</div>
+<p><strong>ou bien</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_init_gauche</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x_init_droit</span><span class="p">)</span>
+<span class="n">C</span><span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">C_init</span>
+</pre></div>
+</div>
+<p>car <code class="docutils literal notranslate"><span class="pre">C[I]</span> <span class="pre">=</span> <span class="pre">C_init</span></code> donnera la valeur <code class="docutils literal notranslate"><span class="pre">C_init</span></code> dans le vecteur <code class="docutils literal notranslate"><span class="pre">C</span></code> uniquement aux indices pour lesquels la condition <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">=</span> <span class="pre">(x_init_gauche</span> <span class="pre">&lt;</span> <span class="pre">x)</span> <span class="pre">&amp;</span> <span class="pre">(x</span> <span class="pre">&lt;</span> <span class="pre">x_init_droit)</span></code> est vérifiée (c’est-à-dire qu’elle vaut 1), comme illustré sur ce graphe :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">       </span><span class="p">|</span>---------------<span class="p">|</span>-----------<span class="p">|</span>-----------------...
+x<span class="w">                     </span><span class="m">30</span><span class="w">          </span><span class="m">50</span>
+I<span class="w">      </span><span class="m">0000000000000000111111111111100000000000000000</span>...
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xp</span><span class="p">,</span> <span class="n">Txp</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">6</span>
@@ -666,12 +682,6 @@ document.write(`
 
 <span class="c1"># on peut aussi tester la valeur de T en une position donnee</span>
 <span class="n">xc</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;T en x =&#39;</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="s1">&#39;vaut 1 :&#39;</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="nb">int</span><span class="p">((</span><span class="n">xc</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">)]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/f4b4c5b5f86d0c639fa220b7e7d83f4d30dd63cd74b85addcf9252ec4e64c3fa.png" src="../_images/f4b4c5b5f86d0c639fa220b7e7d83f4d30dd63cd74b85addcf9252ec4e64c3fa.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T en x = 0.3 vaut 1 : True
 </pre></div>
 </div>
 </div>
@@ -699,12 +709,6 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>taille de F : (50,)   taille de dF/dx approchee : (49,)
-</pre></div>
-</div>
-<img alt="../_images/1d8eba39a5d8c98347a853adbf8112f76bc07fe26d9860fe0a34b1ca5360fdfe.png" src="../_images/1d8eba39a5d8c98347a853adbf8112f76bc07fe26d9860fe0a34b1ca5360fdfe.png" />
 </div>
 </div>
 </section>

@@ -595,6 +595,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organisation-du-cours">Organisation du cours</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-moodle">Page Moodle</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-du-cours">Plan du cours</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grille-d-evaluation-d-un-code">Grille d’évaluation d’un code</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auteurs">Auteurs</a></li>
 </ul>
             </nav>
@@ -612,7 +613,7 @@ document.write(`
 <p><img alt="width:200px" src="_images/illu_mod_num_s.png" /></p>
 <ul class="simple">
 <li><p>Enseignant: Guillaume Jouvet (guillaume.jouvet (at) <a class="reference external" href="http://unil.ch">unil.ch</a>)</p></li>
-<li><p>Assistant(e)s 2026: Brandon Finley, Thomas Gregov, Kejdi Lleshi, Mattia Mazzucchelli, Hélène Morciaux</p></li>
+<li><p>Assistant(e)s 2026: Fien De Doncker, Brandon Finley, Thomas Gregov, Kejdi Lleshi, Mattia Mazzucchelli, Hélène Morciaux</p></li>
 </ul>
 <section id="objectif-du-cours">
 <h2>Objectif du cours<a class="headerlink" href="#objectif-du-cours" title="Link to this heading">#</a></h2>
@@ -743,6 +744,77 @@ document.write(`
 <div><p>🧭 <strong>Séance 11 — hors-programme, pour les curieux.</strong> L’équation de la glace <strong>en 2D</strong> (diffusion non linéaire en deux dimensions) et la modélisation d’un glacier réel, le <strong>glacier du Gorner</strong> (VS), ne font <strong>pas partie de la matière évaluée</strong> et ne sont pas traitées en séance. Le cours, le tutoriel et l’exercice restent disponibles en ligne pour qui souhaite aller plus loin : ils réutilisent tout ce qui a été vu aux séances 7 à 10 et constituent un bon projet personnel.</p>
 </div></blockquote>
 </section>
+<section id="grille-d-evaluation-d-un-code">
+<h2>Grille d’évaluation d’un code<a class="headerlink" href="#grille-d-evaluation-d-un-code" title="Link to this heading">#</a></h2>
+<p>Cette grille sert à relire son propre code lors des exercices et de base pour l’évaluation des tests :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Code</strong></p></th>
+<th class="head"><p><strong>Critère</strong></p></th>
+<th class="head"><p><strong>Questions à se poser</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p><strong>Présentation générale</strong></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>RU</strong></p></td>
+<td><p>Le code fonctionne</p></td>
+<td><p>Le code s’exécute-t-il sans erreur, pour toutes les questions ? Toutes les variables sont-elles définies avant usage ?</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>CO</strong></p></td>
+<td><p>Présentation du code</p></td>
+<td><p>Le code est-il bien structuré (paramètres → discrétisation → initialisation → boucle → figure) ? Un seul code pour toutes les questions ? Propre et bien commenté ? Chaque instruction est-elle au bon endroit (dans ou hors boucle) ?</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DE</strong></p></td>
+<td><p>Définition des variables</p></td>
+<td><p>Tous les paramètres sont-ils définis en tête de code ? Les unités sont-elles adaptées ? Pas de « hard-coding » (valeurs écrites en dur) ?</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>FI</strong></p></td>
+<td><p>Figure</p></td>
+<td><p>Est-elle dans la boucle et mise à jour ? Temps dans le titre, arrondi et avec unité ? Labels et limites d’axes (ou colorbar) fixés ? Bonnes variables tracées ? Lisible ?</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><strong>Partie technique</strong></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>IC</strong></p></td>
+<td><p>Condition initiale</p></td>
+<td><p>Bonne valeur sur toute la grille, bonnes dimensions ? Apparaît avant la boucle ?</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PT</strong></p></td>
+<td><p>Pas de temps et boucle temporelle</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dt</span></code> issu de la condition de stabilité ? Boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> si le nombre de pas est connu, <code class="docutils literal notranslate"><span class="pre">while</span></code> sinon ? Temps mis à jour à chaque pas ?</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ED</strong></p></td>
+<td><p>Équation de diffusion</p></td>
+<td><p>Bien implémentée dans la boucle ? Sur les points intérieurs ? Avec le bon signe ? Adaptée à une diffusivité spatialement variable ou non linéaire ?</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ER</strong></p></td>
+<td><p>Équation de réaction</p></td>
+<td><p>Bien implémentée dans la boucle ? Avec les bonnes dimensions ?</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>EA</strong></p></td>
+<td><p>Équation d’advection</p></td>
+<td><p>Bien implémentée dans la boucle ? Avec les bonnes dimensions ? Schéma « upwind » selon le signe de la vitesse ? Vitesses bien définies ?</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BC</strong></p></td>
+<td><p>Conditions aux limites</p></td>
+<td><p>Bien implémentées dans la boucle ? Bon type à chaque bord (Dirichlet / Neumann), bonnes valeurs ?</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>FO</strong></p></td>
+<td><p>Forçage</p></td>
+<td><p>Bien implémenté dans la boucle ? Position bien convertie en indice ? Bonne valeur imposée ?</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CA</strong></p></td>
+<td><p>Condition d’arrêt</p></td>
+<td><p>Bien implémentée dans la boucle ? Sur la bonne variable au bon indice, avec le bon opérateur ? Un « flag » identifie-t-il la première occurrence ?</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 <section id="auteurs">
 <h2>Auteurs<a class="headerlink" href="#auteurs" title="Link to this heading">#</a></h2>
 <p>Les personnes suivantes ont contribué à construire ou/et donner/assister ce cours (par ordre chronologique):</p>
@@ -835,6 +907,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organisation-du-cours">Organisation du cours</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-moodle">Page Moodle</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-du-cours">Plan du cours</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grille-d-evaluation-d-un-code">Grille d’évaluation d’un code</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auteurs">Auteurs</a></li>
 </ul>
   </nav></div>

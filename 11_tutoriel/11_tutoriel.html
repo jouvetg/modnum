@@ -661,22 +661,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>M =
- [[9 2 3 0]
- [8 2 9 5]
- [7 9 0 4]] 
-taille : (3, 4)  -&gt; 3 lignes, 4 colonnes
-
-M[:,1:] - M[:,:-1]      -&gt; (3, 3)  une COLONNE en moins
-M[1:,:] - M[:-1,:]      -&gt; (2, 4)  une LIGNE en moins
-0.5*(M[:,1:]+M[:,:-1])  -&gt; (3, 3)  comme la derivee
-0.5*(M[1:,:]+M[:-1,:])  -&gt; (2, 4)  comme la derivee
-M[:,1:-1]               -&gt; (3, 2)  deux colonnes en moins
-M[1:-1,:]               -&gt; (1, 4)  deux lignes en moins
-</pre></div>
-</div>
-</div>
 </div>
 <p><strong>Dérivation et moyenne donnent la même taille</strong> : c’est ce qui permet de les multiplier entre elles, comme dans <code class="docutils literal notranslate"><span class="pre">D</span> <span class="pre">*</span> <span class="pre">(s[:,1:]-s[:,:-1])/dx</span></code> où <code class="docutils literal notranslate"><span class="pre">D</span></code> provient d’une moyenne.</p>
 <p>Enchaînons-les comme dans un vrai modèle 2D, en surveillant la taille à chaque ligne :</p>
@@ -697,13 +681,6 @@ M[1:-1,:]               -&gt; (1, 4)  deux lignes en moins
 <span class="n">S</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">divx</span><span class="p">)</span>      <span class="c1"># on met a jour l&#39;interieur SELON X</span>
 <span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">divy</span><span class="p">)</span>      <span class="c1"># puis l&#39;interieur SELON Y</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S garde sa taille :&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>qx : (40, 59) (entre les colonnes)   qy : (39, 60) (entre les lignes)
-divx : (40, 58)   divy : (38, 60)  &lt;- tailles DIFFERENTES !
-S garde sa taille : (40, 60)
 </pre></div>
 </div>
 </div>

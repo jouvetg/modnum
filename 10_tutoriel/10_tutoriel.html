@@ -649,16 +649,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>h  : (101,)  la solution, sur les noeuds
-hm : (100,)  entre les noeuds : une cellule de moins
-D  : (100,)  comme le flux
-qx : (100,)
-
--&gt; la mise a jour s&#39;ecrit :  h[1:-1] += - dt * ( qx[1:] - qx[:-1] )/dx
-</pre></div>
-</div>
-</div>
 </div>
 <p>On pourrait écrire <code class="docutils literal notranslate"><span class="pre">D</span> <span class="pre">=</span> <span class="pre">k*h[:-1]**2</span></code> : la taille serait correcte et Python ne dirait rien. Mais ce choix <strong>privilégie la cellule de gauche</strong> dans un problème sans aucune asymétrie, et le dépôt se met à <strong>dériver</strong>. Le code tourne, le résultat <em>a l’air</em> plausible — d’où le réflexe : <strong>si le problème est symétrique, vérifiez que la solution l’est aussi.</strong></p>
 </section>
@@ -687,11 +677,6 @@ qx : (100,)
         <span class="k">break</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;il a fallu&quot;</span><span class="p">,</span> <span class="n">it</span><span class="p">,</span> <span class="s2">&quot;iterations pour simuler&quot;</span><span class="p">,</span> <span class="n">duree</span><span class="p">,</span> <span class="s2">&quot;ans&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>il a fallu 1050 iterations pour simuler 20000.0 ans
 </pre></div>
 </div>
 </div>

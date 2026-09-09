@@ -655,16 +655,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  boucle for, i = 0
-  boucle for, i = 1
-  boucle for, i = 2
-apres la boucle
-i = 3, inferieur a 5
-apres la boucle while, i = 3
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="indexation-et-assignement">
@@ -712,12 +702,6 @@ apres la boucle while, i = 3
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>premier : red  dernier : black  avant-dernier : white
-apres modification : [&#39;pink&#39;, &#39;green&#39;, &#39;blue&#39;, &#39;yellow&#39;, &#39;white&#39;, &#39;grey&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="slicing-decoupage">
@@ -751,17 +735,6 @@ apres modification : [&#39;pink&#39;, &#39;green&#39;, &#39;blue&#39;, &#39;yell
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x      = [0 1 2 3 4 5 6 7 8]
-x[1:]  = [1 2 3 4 5 6 7 8]   tout sauf le premier
-x[3:5] = [3 4]         de l&#39;indice 3 a 4 : la fin est exclue
-x[:-1] = [0 1 2 3 4 5 6 7]   tout sauf le dernier
-x[::2] = [0 2 4 6 8]       un element sur deux
-elements &gt; 5 : [7 9 6]
-apres         : [3 1 2 1 4 1]
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="incrementation">
@@ -774,15 +747,6 @@ apres         : [3 1 2 1 4 1]
 <span class="k">for</span> <span class="n">pas</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="n">position</span> <span class="o">+=</span> <span class="n">vitesse</span> <span class="o">*</span> <span class="n">dt</span>        <span class="c1"># mise a jour a chaque pas de temps</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pas </span><span class="si">{</span><span class="n">pas</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> : position = </span><span class="si">{</span><span class="n">position</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pas 1 : position = 0.20
-pas 2 : position = 0.40
-pas 3 : position = 0.60
-pas 4 : position = 0.80
-pas 5 : position = 1.00
 </pre></div>
 </div>
 </div>
@@ -810,12 +774,6 @@ pas 5 : position = 1.00
 <span class="c1"># l&#39;operation la plus utilisee du cours : la difference entre cellules voisines</span>
 <span class="n">dA</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A  :&quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;  dA = A[1:] - A[:-1] :&quot;</span><span class="p">,</span> <span class="n">dA</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; &lt;- une cellule de moins&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4. 3. 0. 3. 3. 8. 3. 3. 3. 3.]
-A  : (10,)   dA = A[1:] - A[:-1] : (9,)  &lt;- une cellule de moins
 </pre></div>
 </div>
 </div>
