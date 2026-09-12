@@ -30,7 +30,7 @@ Le premier dossier permet aux étudiants d'acquérir les notions essentielles de
 | **Type d'activité**       | **Détails**                                                   |
 |---------------------------|---------------------------------------------------------------|
 | **Cours**                 | en salle Géopolis-2137 le vendredi 10.15-11.00                |
-| **Travaux pratiques**     | encadrés au Géopolis 2145+2153+2138 le vendredi 11.00-13.00   |
+| **Travaux pratiques**     | en salle informatique (Géopolis 2145+2153+2138) le vendredi 11.00-13.00, consiste un tutoriel interactif (< 15 min) et un exercise / un code à construire (compter env. 2 heures) encadré par des assitants     |
 | **Contrôle continu**      | Test I : 40 % , Test II : 60%                                 | 
 
 ## Page Moodle 
@@ -43,18 +43,18 @@ Chaque séance comprend un **cours**, un **tutoriel** (courte mise en train prat
 
 | **Séance** | **Cours** | **Tutoriel** | **Exercice** |
 |---|---|---|---|
-| 1 | Introduction, initialisation et règle de mise à jour, solution analytique vs. numérique | Notions fondamentales de Python pour ce cours | Le compte en banque |
+| 1 | Introduction, initialisation et règle de mise à jour, solution analytique vs. numérique | Notions fondamentales de Python, et un premier code complet | Le compte en banque |
 | 2 | Équation du mouvement en 1D, discrétisation temporelle, approximation d'une dérivée | Se familiariser avec les figures interactives | Trajectoire d'une voiture en 1D puis en 2D |
-| 3 | Bonnes pratiques de programmation, équations d'un projectile en 2D | La structure d'un code : la seiche du Léman | Trajectoire d'une bombe volcanique |
-| 4 | Équation de diffusion, EDP, discrétisation spatiale | Discrétisation spatiale et dérivées | Diffusion d'une concentration ; fuite chimique de Daillens |
-| 5 | Diffusion de la température, conditions aux bords, condition d'arrêt | Se familiariser avec les conditions aux bords | Intrusion magmatique |
+| 3 | Bonnes pratiques de programmation, équations d'un projectile en 2D | Conditions d'arrêt et détection d'événement | Trajectoire d'une bombe volcanique |
+| 4 | Équation de diffusion, EDP, discrétisation spatiale | Slicing, discrétisation spatiale et dérivées | Diffusion d'une concentration ; fuite chimique de Daillens |
+| 5 | Diffusion de la température, conditions aux bords, condition d'arrêt | Des tailles cohérentes en 1D, et un code pour plusieurs questions | Intrusion magmatique |
 | 6 | Diffusion-advection-réaction 1D, méthode de splitting, schéma upwind | Le décentrage « upwind » | Contamination d'une rivière au cyanure |
 |  | **Test I** |  |  |
 |  | _Pause_ |  |  |
 | 7 | Diffusion 2D, conditions aux bords de Dirichlet | Affichage interactif de résultats 2D | Permafrost du Cervin |
 | 8 | Diffusion-advection 2D, advection uniforme, conditions de Neumann | Construire des matrices 2D avec `np.meshgrid` | Température de la croûte terrestre |
-| 9 | Diffusion-advection-réaction 2D, advection non uniforme | Champs de vitesse 2D et matrices de booléens | Contamination d'un lac |
-| 10 | Équation de la glace 1D, diffusion non linéaire | Diffusivité variable et flux aux interfaces | Modélisation d'un glacier synthétique |
+| 9 | Diffusion-advection-réaction 2D, advection non uniforme | Advection 2D : vitesses non uniformes et masques booléens | Contamination d'un lac |
+| 10 | Équation de la glace 1D, diffusion non linéaire | Une diffusivité qui dépend de la solution | Modélisation d'un glacier synthétique |
 |  | **Test II** |  |  |
 
 > 🧭 **Séance 11 — hors-programme, pour les curieux.** L'équation de la glace **en 2D** (diffusion non linéaire en deux dimensions) et la modélisation d'un glacier réel, le **glacier du Gorner** (VS), ne font **pas partie de la matière évaluée** et ne sont pas traitées en séance. Le cours, le tutoriel et l'exercice restent disponibles en ligne pour qui souhaite aller plus loin : ils réutilisent tout ce qui a été vu aux séances 7 à 10 et constituent un bon projet personnel.

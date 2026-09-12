@@ -212,7 +212,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -262,11 +261,11 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -616,6 +615,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-7">
 <h1>Tutoriel 7<a class="headerlink" href="#tutoriel-7" title="Link to this heading">#</a></h1>
+<p><a class="reference download internal" download="" href="../_downloads/f35c4b1053fc2e7231b16b3eef963ec7/07_tutoriel.zip"><span class="xref download myst">Télécharger le tutoriel</span></a></p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="affichage-interactif-de-resultats-2d-en-temps-reel">
 <h1>Affichage interactif de résultats 2D en temps réel<a class="headerlink" href="#affichage-interactif-de-resultats-2d-en-temps-reel" title="Link to this heading">#</a></h1>
@@ -644,7 +644,7 @@ document.write(`
 </section>
 <section id="labels-avec-unites-et-temps-arrondi">
 <h3>✓ 5. Labels avec unités et temps arrondi<a class="headerlink" href="#labels-avec-unites-et-temps-arrondi" title="Link to this heading">#</a></h3>
-<p>Toujours indiquer les unités. Et sans arrondi, le titre affiche quinze décimales : écrivez <code class="docutils literal notranslate"><span class="pre">f't</span> <span class="pre">=</span> <span class="pre">{temps:.1f}</span> <span class="pre">ans'</span></code>.</p>
+<p>Toujours indiquer les unités. Et sans arrondi, le titre affiche quinze décimales : écrivez <code class="docutils literal notranslate"><span class="pre">'t</span> <span class="pre">=</span> <span class="pre">'</span> <span class="pre">+</span> <span class="pre">str(round(temps,</span> <span class="pre">1))</span> <span class="pre">+</span> <span class="pre">'</span> <span class="pre">ans'</span></code>.</p>
 </section>
 </section>
 <section id="le-code-complet">
@@ -655,11 +655,15 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span>
 
-<span class="n">Lx</span><span class="p">,</span> <span class="n">Ly</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">80.0</span>      <span class="c1"># dimensions du domaine, m</span>
-<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">40</span>           <span class="c1"># nombre de points de grille</span>
+<span class="n">Lx</span> <span class="o">=</span> <span class="mf">100.0</span>      <span class="c1"># longueur du domaine, m</span>
+<span class="n">Ly</span> <span class="o">=</span> <span class="mf">80.0</span>       <span class="c1"># largeur du domaine, m</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="mi">50</span>         <span class="c1"># nombre de points de grille en x</span>
+<span class="n">ny</span> <span class="o">=</span> <span class="mi">40</span>         <span class="c1"># nombre de points de grille en y</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Lx</span><span class="p">,</span><span class="n">nx</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Ly</span><span class="p">,</span><span class="n">ny</span><span class="p">))</span>
 
-<span class="n">nt</span><span class="p">,</span> <span class="n">freq_affich</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span>     <span class="c1"># iterations, frequence d&#39;affichage, pas de temps (ans)</span>
+<span class="n">nt</span>          <span class="o">=</span> <span class="mi">100</span>     <span class="c1"># nombre d&#39;iterations</span>
+<span class="n">freq_affich</span> <span class="o">=</span> <span class="mi">10</span>      <span class="c1"># frequence d&#39;affichage</span>
+<span class="n">dt</span>          <span class="o">=</span> <span class="mf">0.5</span>     <span class="c1"># pas de temps, ans</span>
 
 <span class="c1"># figure ET colorbar creees AVANT la boucle</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.5</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
@@ -681,8 +685,9 @@ document.write(`
         <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance horizontale x (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Distance verticale y (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Température au temps t = </span><span class="si">{</span><span class="n">temps</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> années&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Température au temps t = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">temps</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; années&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -717,7 +722,7 @@ document.write(`
 <td><p>□</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Titre avec temps arrondi</strong></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">f'...</span> <span class="pre">t</span> <span class="pre">=</span> <span class="pre">{temps:.1f}</span> <span class="pre">...'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str(round(temps,</span> <span class="pre">1))</span></code></p></td>
 <td><p>□</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Labels des axes avec unité</strong></p></td>

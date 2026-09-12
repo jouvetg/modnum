@@ -13,14 +13,13 @@ color: white
 
 ---
 
-# Objectifs de ce cours
+# Objectifs du cours
 
 - Rappel sur la dérivée : illustration par un exemple dynamique
 - Équations aux dérivées partielles
 - Discrétisation (du monde “réel” *continu* au monde “numérique” *discret*)
-- Discrétisation temporelle
-- Structure d’un modèle numérique
-- Figures interactives (voir le tutoriel 2)
+- Discrétisation temporelle et erreur d'approximation
+- Structure d’un modèle numérique, boucle `for` ou `while`
 
 ---
 

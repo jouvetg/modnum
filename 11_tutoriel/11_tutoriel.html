@@ -214,7 +214,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -264,11 +263,11 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -608,6 +607,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-11">
 <h1>Tutoriel 11<a class="headerlink" href="#tutoriel-11" title="Link to this heading">#</a></h1>
+<p><a class="reference download internal" download="" href="../_downloads/bcef9e23b0ce4baef66ad110dec94814/11_tutoriel.zip"><span class="xref download myst">Télécharger le tutoriel</span></a></p>
 <blockquote>
 <div><p>🧭 <strong>Séance hors-programme, pour les curieux.</strong> Cette séance ne fait pas partie de la matière évaluée. Elle reprend tout ce qui a été vu aux séances 7 à 10 et constitue un bon projet personnel pour qui souhaite aller plus loin.</p>
 </div></blockquote>
@@ -666,7 +666,10 @@ document.write(`
 <p>Enchaînons-les comme dans un vrai modèle 2D, en surveillant la taille à chaque ligne :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ny</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">))</span>
 
 <span class="n">qx</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">S</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">S</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span> <span class="n">S</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">S</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="n">dx</span>    <span class="c1"># flux selon x</span>

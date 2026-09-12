@@ -214,7 +214,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -264,11 +263,11 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 4</a></li>
+
 
 
 
@@ -590,7 +589,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 4</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-de-ce-cours">Objectifs de ce cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-1-un-contaminant-se-diffuse">Exemple 1: Un contaminant se diffuse</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ex-2-pollution-des-sols-accident-de-daillens">Ex 2: Pollution des sols (accident de Daillens)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-3-temperature-dans-le-sol">Exemple 3:  Température dans le sol</a></li>
@@ -604,6 +603,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mise-en-equation-de-la-diffusion">Mise en équation de la diffusion</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-spatiale">Discrétisation spatiale</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-discretisee">Variable discrétisée</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rappel-sur-le-slicing-d-un-vecteur">Rappel sur le “Slicing” d’un vecteur</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-aux-noeuds-et-au-centre-des-cellules">Valeurs aux noeuds et au centre des cellules</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-numerique">Approximation numérique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-numerique-du-flux-qx">1) Approximation numérique du flux <code class="docutils literal notranslate"><span class="pre">qx</span></code></a></li>
@@ -631,16 +631,17 @@ document.write(`
 <p><img alt="" src="../_images/illu_mod_num_s.png" /></p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="objectifs-de-ce-cours">
-<h1>Objectifs de ce cours<a class="headerlink" href="#objectifs-de-ce-cours" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="objectifs-du-cours">
+<h1>Objectifs du cours<a class="headerlink" href="#objectifs-du-cours" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Introduction au modèle de diffusion en 1D</p></li>
 <li><p>Illustration par des exemples</p></li>
 <li><p>Principes physiques de la diffusion</p></li>
 <li><p>Formulation mathématique</p></li>
 <li><p>Discrétisation spatiale</p></li>
-<li><p>Approximation numérique</p></li>
+<li><p>Slicing et approximation numérique</p></li>
 <li><p>Implémentation en Python</p></li>
+<li><p>Conditions aux bords (aperçu) et utilisation d’un flag</p></li>
 <li><p>Stabilité et pas de temps</p></li>
 </ul>
 </section>
@@ -772,6 +773,26 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 <span class="n">C</span><span class="p">[</span><span class="n">ixp</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>             <span class="c1"># modification de la valeur en ce point</span>
 </pre></div>
 </div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="rappel-sur-le-slicing-d-un-vecteur">
+<h1>Rappel sur le “Slicing” d’un vecteur<a class="headerlink" href="#rappel-sur-le-slicing-d-un-vecteur" title="Link to this heading">#</a></h1>
+<p>Si l’on a un vecteur de taille 9:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                   <span class="o">|-----|-----|-----|-----|-----|-----|-----|-----|</span>
+</pre></div>
+</div>
+<p>alors nous obtenons les sous-vecteurs suivants:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                     <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>                                 <span class="o">|-----|-----|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>                                <span class="o">|-----|</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>                                <span class="o">|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>              <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>              <span class="o">|-----|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>              <span class="o">|-----------|-----------|-----------|-----------|</span>
+<span class="n">x</span><span class="p">[::</span><span class="mi">4</span><span class="p">]</span>              <span class="o">|-----------------------|-----------------------|</span>
+</pre></div>
+</div>
+<p><strong>Ces écritures servent à toutes les discrétisations qui suivent.</strong></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="valeurs-aux-noeuds-et-au-centre-des-cellules">
@@ -985,7 +1006,7 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 4</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-de-ce-cours">Objectifs de ce cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-1-un-contaminant-se-diffuse">Exemple 1: Un contaminant se diffuse</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ex-2-pollution-des-sols-accident-de-daillens">Ex 2: Pollution des sols (accident de Daillens)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-3-temperature-dans-le-sol">Exemple 3:  Température dans le sol</a></li>
@@ -999,6 +1020,7 @@ Source 2: <a class="reference external" href="https://en.wikipedia.org/wiki/Acti
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mise-en-equation-de-la-diffusion">Mise en équation de la diffusion</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-spatiale">Discrétisation spatiale</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-discretisee">Variable discrétisée</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rappel-sur-le-slicing-d-un-vecteur">Rappel sur le “Slicing” d’un vecteur</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-aux-noeuds-et-au-centre-des-cellules">Valeurs aux noeuds et au centre des cellules</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-numerique">Approximation numérique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-numerique-du-flux-qx">1) Approximation numérique du flux <code class="docutils literal notranslate"><span class="pre">qx</span></code></a></li>

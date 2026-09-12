@@ -18,7 +18,7 @@ color: white
 
 - Comprendre les mécanismes régissant l'évolution d'un glacier
 - Établir les principes physiques et formuler l'équation d'évolution en 1D
-- Discrétiser et résoudre l'équation en 1D
+- Discrétiser et résoudre l'équation en 1D : pas de temps adaptatif, nombre d'itérations inconnu
 - Implémenter l'équation 1D dans un code
 
 ---

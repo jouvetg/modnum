@@ -214,7 +214,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -264,11 +263,11 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -590,7 +589,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 1</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-de-ce-cours">Objectifs de ce cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#du-processus-a-la-resolution-numerique">Du processus à la résolution numérique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-1-le-mouvement-des-glaciers">Exemple 1 : Le mouvement des glaciers</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-2-rupture-d-iceberg-avec-tsunami">Exemple 2 : Rupture d’iceberg avec tsunami</a></li>
@@ -606,10 +605,9 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#series-de-bloc-code-et-texte-a-executer">Séries de bloc “code” et “texte” à exécuter</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#format-markdown">Format “markdown”</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notions-fondamentales-en-python-pour-ce-cours">Notions fondamentales en Python pour ce cours</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-de-librairies">Import de librairies</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-de-bibliotheques">Import de bibliothèques</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation">Indentation</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indexation">Indexation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisation-et-regle-de-mise-a-jour">Initialisation et règle de mise à jour</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tous-les-modeles-de-ce-cours-se-formalisent-par">Tous les modèles de ce cours se formalisent par</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tous-les-modeles-de-ce-cours-s-implementent">Tous les modèles de ce cours s’implémentent</a></li>
@@ -631,12 +629,13 @@ document.write(`
 <p><img alt="" src="../_images/illu_mod_num_s.png" /></p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="objectifs-de-ce-cours">
-<h1>Objectifs de ce cours<a class="headerlink" href="#objectifs-de-ce-cours" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="objectifs-du-cours">
+<h1>Objectifs du cours<a class="headerlink" href="#objectifs-du-cours" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Qu’est-ce qu’un modèle numérique ? Exemples issus de la recherche</p></li>
 <li><p>Présentation des outils : Python, VS Code, notebooks</p></li>
-<li><p>Initialisation et règle de mise à jour</p></li>
+<li><p>Notions fondamentales en Python : import, indentation, indexation</p></li>
+<li><p>Initialisation, règle de mise à jour et boucle temporelle</p></li>
 <li><p>Solution analytique versus solution numérique</p></li>
 </ul>
 </section>
@@ -756,22 +755,22 @@ Source : Candioti et al., 2022 (UNIL/FGSE)</p>
 <section class="tex2jax_ignore mathjax_ignore" id="notions-fondamentales-en-python-pour-ce-cours">
 <h1>Notions fondamentales en Python pour ce cours<a class="headerlink" href="#notions-fondamentales-en-python-pour-ce-cours" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p>Import de librairies</p></li>
+<li><p>Import de bibliothèques</p></li>
 <li><p>Indentation</p></li>
 <li><p>Indexation</p></li>
 <li><p>Slicing</p></li>
 </ul>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="import-de-librairies">
-<h1>Import de librairies<a class="headerlink" href="#import-de-librairies" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="import-de-bibliotheques">
+<h1>Import de bibliothèques<a class="headerlink" href="#import-de-bibliotheques" title="Link to this heading">#</a></h1>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span>
 </pre></div>
 </div>
-<p>Cela permet d’appeler la librairie mais aussi de lui donner un nom court (‘alias’).</p>
-<p>Nous utiliserons dans ce cours principalement ces 3 librairies : <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, et <code class="docutils literal notranslate"><span class="pre">IPython</span></code>.</p>
+<p>Cela permet d’appeler la bibliothèque mais aussi de lui donner un nom court (‘alias’).</p>
+<p>Nous utiliserons dans ce cours principalement ces 3 bibliothèques : <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, et <code class="docutils literal notranslate"><span class="pre">IPython</span></code>.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="indentation">
@@ -837,25 +836,6 @@ Source : Candioti et al., 2022 (UNIL/FGSE)</p>
 <p><strong>Attention: Python compte à partir de 0!</strong></p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="slicing">
-<h1>Slicing<a class="headerlink" href="#slicing" title="Link to this heading">#</a></h1>
-<p>Si l’on a un vecteur de taille 9:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                   <span class="o">|-----|-----|-----|-----|-----|-----|-----|-----|</span>
-</pre></div>
-</div>
-<p>alors nous obtenons les sous-vecteurs suivants:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                     <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>                                 <span class="o">|-----|-----|-----|-----|-----|</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>                                <span class="o">|-----|</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>                                <span class="o">|-----|-----|-----|</span>
-<span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>              <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
-<span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>              <span class="o">|-----|-----|-----|-----|</span>
-<span class="n">x</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>              <span class="o">|-----------|-----------|-----------|-----------|</span>
-<span class="n">x</span><span class="p">[::</span><span class="mi">4</span><span class="p">]</span>              <span class="o">|-----------------------|-----------------------|</span>
-</pre></div>
-</div>
-</section>
-<hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="initialisation-et-regle-de-mise-a-jour">
 <h1>Initialisation et règle de mise à jour<a class="headerlink" href="#initialisation-et-regle-de-mise-a-jour" title="Link to this heading">#</a></h1>
 <p>L’objectif de ce cours est d’implémenter l’évolution de phénomènes physiques. Nous serons donc amenés à <strong>initialiser</strong> et <strong>mettre à jour</strong> des variables. Dans l’exemple simple suivant, nous <strong>initialisons</strong> le temps à zéro. À chaque pas de temps, nous <strong>mettons à jour</strong> le temps en l’incrémentant du pas de temps <code class="docutils literal notranslate"><span class="pre">dt</span></code>.</p>
@@ -865,7 +845,7 @@ Source : Candioti et al., 2022 (UNIL/FGSE)</p>
 
 <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span> <span class="c1"># Fait une boucle qui itère 1000 fois</span>
   <span class="n">temps</span> <span class="o">+=</span> <span class="n">dt</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Itération </span><span class="si">{</span><span class="n">it</span><span class="si">}</span><span class="s2"> : le temps vaut </span><span class="si">{</span><span class="n">temps</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Itération&quot;</span><span class="p">,</span> <span class="n">it</span><span class="p">,</span> <span class="s2">&quot;: le temps vaut&quot;</span><span class="p">,</span> <span class="n">temps</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -902,7 +882,7 @@ Source : Candioti et al., 2022 (UNIL/FGSE)</p>
 <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
   <span class="n">temps</span> <span class="o">+=</span> <span class="n">dt</span>                          <span class="c1"># Mise à jour du temps</span>
   <span class="n">fortune</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">salaire</span> <span class="o">-</span> <span class="n">depense</span><span class="p">)</span>  <span class="c1"># Mise à jour de la fortune</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ma fortune après </span><span class="si">{</span><span class="n">temps</span><span class="si">}</span><span class="s2"> mois est de </span><span class="si">{</span><span class="n">fortune</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ma fortune après&quot;</span><span class="p">,</span> <span class="n">temps</span><span class="p">,</span> <span class="s2">&quot;mois est de&quot;</span><span class="p">,</span> <span class="n">fortune</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -980,7 +960,7 @@ Source : Candioti et al., 2022 (UNIL/FGSE)</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 1</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-de-ce-cours">Objectifs de ce cours</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#du-processus-a-la-resolution-numerique">Du processus à la résolution numérique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-1-le-mouvement-des-glaciers">Exemple 1 : Le mouvement des glaciers</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-2-rupture-d-iceberg-avec-tsunami">Exemple 2 : Rupture d’iceberg avec tsunami</a></li>
@@ -996,10 +976,9 @@ Source : Candioti et al., 2022 (UNIL/FGSE)</p>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#series-de-bloc-code-et-texte-a-executer">Séries de bloc “code” et “texte” à exécuter</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#format-markdown">Format “markdown”</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notions-fondamentales-en-python-pour-ce-cours">Notions fondamentales en Python pour ce cours</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-de-librairies">Import de librairies</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-de-bibliotheques">Import de bibliothèques</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation">Indentation</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indexation">Indexation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisation-et-regle-de-mise-a-jour">Initialisation et règle de mise à jour</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tous-les-modeles-de-ce-cours-se-formalisent-par">Tous les modèles de ce cours se formalisent par</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tous-les-modeles-de-ce-cours-s-implementent">Tous les modèles de ce cours s’implémentent</a></li>

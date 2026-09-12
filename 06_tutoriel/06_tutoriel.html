@@ -214,7 +214,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -264,11 +263,11 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -592,8 +591,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 6</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#se-familiariser-avec-le-decentrage-upwind">Se familiariser avec le décentrage « upwind »</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-terme-d-advection-fait-perdre-une-cellule">1. Le terme d’advection fait perdre une cellule</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-bon-choix-depend-du-sens-du-courant">2. Le bon choix dépend du sens du courant</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-experimenter">À expérimenter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-bon-choix-depend-du-sens-du-courant-upwind">2. Le bon choix dépend du sens du courant (“upwind”)</a></li>
 </ul>
 </li>
 </ul>
@@ -610,6 +608,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-6">
 <h1>Tutoriel 6<a class="headerlink" href="#tutoriel-6" title="Link to this heading">#</a></h1>
+<p><a class="reference download internal" download="" href="../_downloads/781b2e4e7f8a3a6951422404b8bae55e/06_tutoriel.zip"><span class="xref download myst">Télécharger le tutoriel</span></a></p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="se-familiariser-avec-le-decentrage-upwind">
 <h1>Se familiariser avec le décentrage « upwind »<a class="headerlink" href="#se-familiariser-avec-le-decentrage-upwind" title="Link to this heading">#</a></h1>
@@ -620,16 +619,16 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dCdt_a</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Vx</span> <span class="o">*</span> <span class="p">(</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>      <span class="c1"># taille nx-1</span>
 </pre></div>
 </div>
-<p>Le résultat est de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>, alors que <code class="docutils literal notranslate"><span class="pre">C</span></code> est de taille <code class="docutils literal notranslate"><span class="pre">nx</span></code>. (Rappel : la diffusion fait intervenir <strong>deux</strong> dérivées imbriquées, on y perd donc deux cellules et la mise à jour porte sur <code class="docutils literal notranslate"><span class="pre">C[1:-1]</span></code>.)</p>
+<p>Le résultat est de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>, alors que <code class="docutils literal notranslate"><span class="pre">C</span></code> est de taille <code class="docutils literal notranslate"><span class="pre">nx</span></code>.</p>
 <p>Il faut donc choisir <strong>quelles</strong> cellules de <code class="docutils literal notranslate"><span class="pre">C</span></code> mettre à jour, et il n’y a que deux possibilités :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dCdt_a</span>      <span class="c1"># on decale vers la droite</span>
 <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dCdt_a</span>      <span class="c1"># on decale vers la gauche</span>
 </pre></div>
 </div>
-<p><strong>Les deux écritures sont numériquement valides</strong> — Python ne signalera aucune erreur. C’est ce qui rend le piège si vicieux : c’est la <strong>physique</strong> qui doit trancher, pas Python.</p>
+<p><strong>Les deux écritures sont numériquement valides</strong> — Python ne signalera aucune erreur.</p>
 </section>
-<section id="le-bon-choix-depend-du-sens-du-courant">
-<h2>2. Le bon choix dépend du sens du courant<a class="headerlink" href="#le-bon-choix-depend-du-sens-du-courant" title="Link to this heading">#</a></h2>
+<section id="le-bon-choix-depend-du-sens-du-courant-upwind">
+<h2>2. Le bon choix dépend du sens du courant (“upwind”)<a class="headerlink" href="#le-bon-choix-depend-du-sens-du-courant-upwind" title="Link to this heading">#</a></h2>
 <p>L’idée du décentrage « upwind » (littéralement <em>face au vent</em>) est d’aller chercher l’information <strong>en amont</strong>, là d’où le courant arrive :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -641,66 +640,88 @@ document.write(`
 \end{split}\]</div>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p></p></th>
+<tr class="row-odd"><th class="head"><p>Choix</p></th>
+<th class="head"><p></p></th>
 <th class="head"><p>mise à jour</p></th>
 <th class="head"><p></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(V_x &gt; 0\)</span>, le courant va vers la <strong>droite</strong></p></td>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><span class="math notranslate nohighlight">\(V_x &gt; 0\)</span>, le courant va vers la <strong>droite</strong></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">C[1:]</span> <span class="pre">+=</span> <span class="pre">dt</span> <span class="pre">*</span> <span class="pre">dCdt_a</span></code></p></td>
 <td><p>indices <code class="docutils literal notranslate"><span class="pre">1:</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(V_x &lt; 0\)</span>, le courant va vers la <strong>gauche</strong></p></td>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><span class="math notranslate nohighlight">\(V_x &lt; 0\)</span>, le courant va vers la <strong>gauche</strong></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">C[:-1]</span> <span class="pre">+=</span> <span class="pre">dt</span> <span class="pre">*</span> <span class="pre">dCdt_a</span></code></p></td>
 <td><p>indices <code class="docutils literal notranslate"><span class="pre">:-1</span></code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Un polluant a été déversé dans une rivière et forme un pic de concentration ; le courant l’emporte vers l’aval à <code class="docutils literal notranslate"><span class="pre">Vx</span> <span class="pre">=</span> <span class="pre">0.5</span></code> m/s. Le bon choix est donc <code class="docutils literal notranslate"><span class="pre">C[1:]</span></code>. Faisons tourner les <strong>deux</strong> versions.</p>
+<p>Un polluant a été déversé dans une rivière et forme un pic de concentration ; le courant l’emporte vers l’aval à <code class="docutils literal notranslate"><span class="pre">Vx</span> <span class="pre">=</span> <span class="pre">0.5</span></code> m/s. Le bon choix est donc <code class="docutils literal notranslate"><span class="pre">C[1:]</span></code>.</p>
+<p><strong>À vous de vérifier les deux.</strong> Dans la cellule ci-dessous, la variable <code class="docutils literal notranslate"><span class="pre">choix</span></code> décide de la mise à jour utilisée : <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code> pour <code class="docutils literal notranslate"><span class="pre">C[1:]</span></code>, <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">2</span></code> pour <code class="docutils literal notranslate"><span class="pre">C[:-1]</span></code>. Exécutez la cellule telle quelle, puis passez <code class="docutils literal notranslate"><span class="pre">choix</span></code> à <code class="docutils literal notranslate"><span class="pre">2</span></code> et ré-exécutez.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span>
 
-<span class="n">Lx</span><span class="p">,</span> <span class="n">Vx</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">201</span>      <span class="c1"># riviere (m), courant (m/s), nombre de points</span>
+<span class="n">choix</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># &lt;&lt;&lt; CHANGEZ CETTE LIGNE :  1 -&gt; C[1:]   ou   2 -&gt; C[:-1]</span>
+
+<span class="c1"># parametres physiques</span>
+<span class="n">Lx</span> <span class="o">=</span> <span class="mf">100.0</span>      <span class="c1"># longueur du troncon de riviere, m</span>
+<span class="n">Vx</span> <span class="o">=</span> <span class="mf">0.5</span>        <span class="c1"># vitesse du courant, m/s</span>
+
+<span class="c1"># parametres numeriques</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="mi">201</span>        <span class="c1"># nombre de points</span>
+<span class="n">freq_affich</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># initialisation</span>
 <span class="n">x</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
 <span class="n">dx</span>    <span class="o">=</span> <span class="n">Lx</span><span class="o">/</span><span class="p">(</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">dt</span>    <span class="o">=</span> <span class="n">dx</span><span class="o">/</span><span class="p">(</span><span class="mf">2.1</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">Vx</span><span class="p">))</span>          <span class="c1"># contrainte de stabilite de l&#39;advection</span>
-<span class="n">nt</span>    <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">100.0</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>             <span class="c1"># 100 secondes simulees</span>
-<span class="n">C_ini</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">18</span><span class="p">)</span> <span class="c1"># un pic de polluant centre a x = 20 m</span>
+<span class="n">dt</span>    <span class="o">=</span> <span class="n">dx</span><span class="o">/</span><span class="p">(</span><span class="mf">2.1</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">Vx</span><span class="p">))</span>            <span class="c1"># contrainte de stabilite de l&#39;advection</span>
+<span class="n">nt</span>    <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">100.0</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>               <span class="c1"># 100 secondes simulees</span>
+<span class="n">C_ini</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">18</span><span class="p">)</span>   <span class="c1"># un pic de polluant centre a x = 20 m</span>
+<span class="n">C</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">C_ini</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mf">3.5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mf">3.5</span><span class="p">))</span>
 
-<span class="k">for</span> <span class="n">choix</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;C[1:]&#39;</span><span class="p">,</span> <span class="n">ax1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;C[:-1]&#39;</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)]:</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
 
-    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">C_ini</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
-        <span class="n">dCdt_a</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Vx</span><span class="o">*</span><span class="p">(</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="n">dx</span>
-        <span class="k">if</span> <span class="n">choix</span> <span class="o">==</span> <span class="s1">&#39;C[1:]&#39;</span><span class="p">:</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="n">dCdt_a</span>     <span class="c1"># upwind correct pour Vx &gt; 0</span>
-        <span class="k">else</span><span class="p">:</span>                <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="n">dCdt_a</span>     <span class="c1"># decalage a contresens</span>
+    <span class="n">dCdt_a</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Vx</span><span class="o">*</span><span class="p">(</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="n">dx</span>
+    <span class="k">if</span> <span class="n">choix</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="n">dCdt_a</span>         <span class="c1"># on decale vers la droite</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="n">dCdt_a</span>         <span class="c1"># on decale vers la gauche</span>
 
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">C_ini</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="k">if</span> <span class="n">choix</span> <span class="o">==</span> <span class="s1">&#39;C[1:]&#39;</span> <span class="k">else</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">choix</span><span class="p">)</span> <span class="p">;</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;distance, m&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="n">freq_affich</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">maxi</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">C</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">C_ini</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">110</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;distance le long de la riviere, m&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;concentration, g/m3&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;t = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">it</span><span class="o">*</span><span class="n">dt</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; s    |    max = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">maxi</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; g/m3&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
 
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;concentration, g/m3&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">110</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/7d8491e60ecf983df481ac24db178b7fc47033514a3072b31d3c316f6d4781fc.png" src="../_images/7d8491e60ecf983df481ac24db178b7fc47033514a3072b31d3c316f6d4781fc.png" />
 </div>
-<p>À gauche, le pic s’est déplacé de <span class="math notranslate nohighlight">\(V_x \times t = 0.5 \times 100 = 50\)</span> m vers l’aval : c’est exactement ce que l’on attendait.</p>
-<p>À droite, <strong>regardez l’échelle de l’axe vertical</strong> : les concentrations atteignent des valeurs astronomiques, positives et négatives. Le modèle a explosé — et une concentration négative n’a évidemment aucun sens physique.</p>
+</div>
+<p>Avec <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code>, le pic traverse tranquillement la rivière et se déplace de <span class="math notranslate nohighlight">\(V_x \times t = 0.5 \times 100 = 50\)</span> m vers l’aval : c’est exactement ce que l’on attendait, et le maximum affiché dans le titre reste de l’ordre de 100 g/m³.</p>
+<p>Avec <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">2</span></code>, <strong>regardez le maximum dans le titre défiler</strong> : il grimpe à des valeurs astronomiques en quelques dizaines d’itérations, et la courbe sort immédiatement du cadre. Le modèle a explosé — et les concentrations négatives qu’il produit n’ont évidemment aucun sens physique.</p>
 <p><strong>Retenez ce réflexe : si votre modèle d’advection explose ou produit des valeurs négatives, vérifiez d’abord le sens du décalage.</strong></p>
-</section>
-<section id="a-experimenter">
-<h2>À expérimenter<a class="headerlink" href="#a-experimenter" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Passez <code class="docutils literal notranslate"><span class="pre">Vx</span></code> à <code class="docutils literal notranslate"><span class="pre">-0.5</span></code>. Le pic doit remonter la rivière : quel panneau est maintenant le bon ? Les rôles des deux écritures se sont inversés.</p></li>
-<li><p>Toujours avec <code class="docutils literal notranslate"><span class="pre">Vx</span> <span class="pre">=</span> <span class="pre">-0.5</span></code>, à quelle distance le pic se retrouve-t-il après 100 s ? Est-ce cohérent ?</p></li>
-</ol>
 </section>
 </section>
 
@@ -771,8 +792,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 6</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#se-familiariser-avec-le-decentrage-upwind">Se familiariser avec le décentrage « upwind »</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-terme-d-advection-fait-perdre-une-cellule">1. Le terme d’advection fait perdre une cellule</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-bon-choix-depend-du-sens-du-courant">2. Le bon choix dépend du sens du courant</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-experimenter">À expérimenter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-bon-choix-depend-du-sens-du-courant-upwind">2. Le bon choix dépend du sens du courant (“upwind”)</a></li>
 </ul>
 </li>
 </ul>

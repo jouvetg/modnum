@@ -214,7 +214,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -264,11 +263,11 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -624,13 +623,9 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1-les-generateurs-aleatoires">Exercice 1 : Les générateurs aléatoires</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-vous-de-faire">✅ <strong>À vous de faire !</strong></a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1-les-generateurs-aleatoires">Exercice 1 : Les générateurs aléatoires</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2-calcul-element-par-element-mesure-du-coefficient-de-friction">Exercice 2 : Calcul élément par élément: mesure du coéfficient de friction</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapes-a-suivre">Étapes à suivre</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ <strong>À vous de faire !</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -1635,8 +1630,6 @@ document.write(`
 <li><p>La quatrième paire contient des nombres aléatoires <strong>distribués normalement</strong> autour d’une moyenne de 50 avec un écart-type de 30.</p></li>
 </ul>
 <p>En utilisant la commande <code class="docutils literal notranslate"><span class="pre">plt.subplot</span></code>, créez une figure divisée en quatre (2 x 2) et tracez chaque paire de vecteurs dans chacune des cases sous forme de nuages de points (<code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code>) pour représenter leur distribution spatiale. Essayez de réduire le nombre de lignes au maximum en utilisant une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> pour itérer sur les quatre cas sans répéter les commandes de plot 4 fois.</p>
-<section id="a-vous-de-faire">
-<h2>✅ <strong>À vous de faire !</strong><a class="headerlink" href="#a-vous-de-faire" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -1663,14 +1656,13 @@ document.write(`
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">), B(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;A(&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;), B(&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="exercice-2-calcul-element-par-element-mesure-du-coefficient-de-friction">
 <h1>Exercice 2 : Calcul élément par élément: mesure du coéfficient de friction<a class="headerlink" href="#exercice-2-calcul-element-par-element-mesure-du-coefficient-de-friction" title="Link to this heading">#</a></h1>
@@ -1734,9 +1726,6 @@ Utilisez la fonction <code class="docutils literal notranslate"><span class="pre
 </ul>
 </li>
 </ol>
-</section>
-<section id="id1">
-<h2>✅ <strong>À vous de faire !</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1871,13 +1860,9 @@ Utilisez la fonction <code class="docutils literal notranslate"><span class="pre
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1-les-generateurs-aleatoires">Exercice 1 : Les générateurs aléatoires</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-vous-de-faire">✅ <strong>À vous de faire !</strong></a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1-les-generateurs-aleatoires">Exercice 1 : Les générateurs aléatoires</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2-calcul-element-par-element-mesure-du-coefficient-de-friction">Exercice 2 : Calcul élément par élément: mesure du coéfficient de friction</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapes-a-suivre">Étapes à suivre</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ <strong>À vous de faire !</strong></a></li>
 </ul>
 </li>
 </ul>

@@ -15,10 +15,10 @@ color: white
 
 # Objectifs du cours
 
-- Discrétiser un espace en 2D
+- Discrétiser un domaine 2D, représenter un champ par une matrice
 - Modéliser un problème de diffusion en 2D
 - Discrétiser les équations en 2D
-- Implémenter de la diffusion en Python
+- Implémenter la diffusion 2D en Python
 - Conditions aux bords de Dirichlet
 - Conditions de stabilité
 

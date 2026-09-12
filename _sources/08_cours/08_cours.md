@@ -15,10 +15,11 @@ color: white
 
 # Objectifs du cours
 
+- Retour sur les dimensions des matrices
 - Condition initiale
 - Problème d'advection-diffusion en 2D avec advection uniforme
 - Discrétisation du terme d'advection en 2D
-- Conditions aux bords de Neumann
+- Conditions aux bords de Neumann : flux nul, flux imposé
 - Conditions de stabilité
 
 ---

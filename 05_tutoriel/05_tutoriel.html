@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05_tutoriel/05_tutoriel';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -214,7 +212,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -264,11 +261,11 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -590,12 +587,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 5</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#se-familiariser-avec-les-conditions-aux-bords">Se familiariser avec les conditions aux bords</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-les-bords-sont-a-part">1. Pourquoi les bords sont à part</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-trois-types-de-conditions">2. Les trois types de conditions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ou-les-ecrire-dans-le-code">3. Où les écrire dans le code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ce-que-chaque-choix-produit">4. Ce que chaque choix produit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-experimenter">À expérimenter</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#des-tailles-coherentes-en-1d">Des tailles cohérentes en 1D</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-trois-operations">1. Les trois opérations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-enchainement-d-un-modele">2. L’enchaînement d’un modèle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-seul-code-pour-plusieurs-questions">3. Un seul code pour plusieurs questions</a></li>
 </ul>
 </li>
 </ul>
@@ -612,123 +607,149 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-5">
 <h1>Tutoriel 5<a class="headerlink" href="#tutoriel-5" title="Link to this heading">#</a></h1>
+<p><a class="reference download internal" download="" href="../_downloads/e321698d5c7ad62f35268d5d083a268b/05_tutoriel.zip"><span class="xref download myst">Télécharger le tutoriel</span></a></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="se-familiariser-avec-les-conditions-aux-bords">
-<h1>Se familiariser avec les conditions aux bords<a class="headerlink" href="#se-familiariser-avec-les-conditions-aux-bords" title="Link to this heading">#</a></h1>
-<p>L’équation de diffusion décrit ce qui se passe <strong>à l’intérieur</strong> du domaine. Elle ne dit rien de ce qui se passe à ses deux extrémités : c’est le rôle des <strong>conditions aux bords</strong>. Ce sont elles qui décident si un mur se refroidit ou reste chaud, si un polluant s’échappe ou reste piégé.</p>
-<p>Ce tutoriel ne construit pas de modèle : il montre uniquement <strong>comment on implémente</strong> chaque type de condition.</p>
-<section id="pourquoi-les-bords-sont-a-part">
-<h2>1. Pourquoi les bords sont à part<a class="headerlink" href="#pourquoi-les-bords-sont-a-part" title="Link to this heading">#</a></h2>
-<p>La discrétisation de la diffusion se fait en trois étapes :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">qx</span>      <span class="o">=</span> <span class="o">-</span> <span class="n">D</span> <span class="o">*</span> <span class="p">(</span> <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">T</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>   <span class="c1"># taille nx-1</span>
-<span class="n">dTdt</span>    <span class="o">=</span> <span class="o">-</span> <span class="p">(</span> <span class="n">qx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">qx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>     <span class="c1"># taille nx-2</span>
-<span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dTdt</span> <span class="o">*</span> <span class="n">dt</span>                      <span class="c1"># taille nx-2</span>
-</pre></div>
-</div>
-<p><strong>Regardez la troisième ligne : la mise à jour porte sur <code class="docutils literal notranslate"><span class="pre">T[1:-1]</span></code>, donc sur tous les points sauf le premier et le dernier.</strong> Les deux points de bord ne sont <strong>jamais</strong> touchés par l’équation.</p>
-<p>Conséquence : si l’on n’écrit aucune condition aux bords, <code class="docutils literal notranslate"><span class="pre">T[0]</span></code> et <code class="docutils literal notranslate"><span class="pre">T[-1]</span></code> gardent leur valeur initiale pendant toute la simulation. <strong>Ne rien écrire, c’est donc quand même imposer une condition</strong> — un Dirichlet figé, que l’on n’a pas choisi.</p>
-</section>
-<section id="les-trois-types-de-conditions">
-<h2>2. Les trois types de conditions<a class="headerlink" href="#les-trois-types-de-conditions" title="Link to this heading">#</a></h2>
-<p>Pour le bord de gauche (<code class="docutils literal notranslate"><span class="pre">T[0]</span></code>) ; le bord de droite s’écrit symétriquement avec <code class="docutils literal notranslate"><span class="pre">T[-1]</span></code> et <code class="docutils literal notranslate"><span class="pre">T[-2]</span></code>.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="des-tailles-coherentes-en-1d">
+<h1>Des tailles cohérentes en 1D<a class="headerlink" href="#des-tailles-coherentes-en-1d" title="Link to this heading">#</a></h1>
+<p>Dans un modèle numérique, la difficulté n’est presque jamais l’équation : c’est de <strong>garder des tailles compatibles</strong> d’une ligne à l’autre. Ce tutoriel ne résout aucune équation — on travaille sur un vecteur quelconque, et on n’imprime que des tailles.</p>
+<p>Trois opérations suffisent, et il n’y en a pas d’autres :</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Type</p></th>
-<th class="head"><p>Ce que l’on impose</p></th>
-<th class="head"><p>Code</p></th>
+<tr class="row-odd"><th class="head"><p>Opération</p></th>
+<th class="head"><p>Écriture</p></th>
+<th class="head"><p>Effet sur la taille</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>Dirichlet</strong></p></td>
-<td><p>la température vaut <span class="math notranslate nohighlight">\(a\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">T[0]</span> <span class="pre">=</span> <span class="pre">a</span></code></p></td>
+<tr class="row-even"><td><p><strong>dérivation</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">v[1:]</span> <span class="pre">-</span> <span class="pre">v[:-1]</span></code></p></td>
+<td><p>on perd une cellule</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Neumann</strong></p></td>
-<td><p>le gradient vaut <span class="math notranslate nohighlight">\(a\)</span> : <span class="math notranslate nohighlight">\(\frac{dT}{dx}(0) = a\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">T[0]</span> <span class="pre">=</span> <span class="pre">T[1]</span> <span class="pre">-</span> <span class="pre">dx*a</span></code></p></td>
+<tr class="row-odd"><td><p><strong>moyenne</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.5*(v[1:]</span> <span class="pre">+</span> <span class="pre">v[:-1])</span></code></p></td>
+<td><p>on perd une cellule</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Neumann, flux nul</strong></p></td>
-<td><p>cas particulier <span class="math notranslate nohighlight">\(a = 0\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">T[0]</span> <span class="pre">=</span> <span class="pre">T[1]</span></code></p></td>
+<tr class="row-even"><td><p><strong>troncation</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">v[1:-1]</span></code></p></td>
+<td><p>on en perd <strong>deux</strong></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Le Neumann se retrouve en discrétisant la dérivée : <span class="math notranslate nohighlight">\(\frac{dT}{dx}(0) = a\)</span> devient <span class="math notranslate nohighlight">\(\frac{T_1 - T_0}{dx} = a\)</span>, qui se réécrit <span class="math notranslate nohighlight">\(T_0 = T_1 - a\,dx\)</span>.</p>
-<p><strong>Attention :</strong> c’est bien <code class="docutils literal notranslate"><span class="pre">dx</span></code>, le pas d’<strong>espace</strong>, qui intervient — et non <code class="docutils literal notranslate"><span class="pre">dt</span></code>.</p>
-<p>Voyons concrètement ce que chaque ligne fait au premier point d’un vecteur :</p>
+<section id="les-trois-operations">
+<h2>1. Les trois opérations<a class="headerlink" href="#les-trois-operations" title="Link to this heading">#</a></h2>
+<p>La <strong>dérivation</strong> et la <strong>moyenne</strong> donnent la même taille, <code class="docutils literal notranslate"><span class="pre">n-1</span></code>. Ce n’est pas un hasard : toutes deux combinent deux cellules voisines, et le résultat ne vit plus <em>sur</em> les points de la grille mais <strong>entre</strong> eux. C’est précisément ce qui permet de les multiplier l’une par l’autre, comme dans <code class="docutils literal notranslate"><span class="pre">D</span> <span class="pre">*</span> <span class="pre">(v[1:]</span> <span class="pre">-</span> <span class="pre">v[:-1])</span></code>.</p>
+<p>La <strong>troncation</strong>, elle, ne combine rien : elle renonce simplement à la première et à la dernière cellule.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">dx</span> <span class="o">=</span> <span class="mf">0.01</span>                                    <span class="c1"># pas d&#39;espace, m</span>
-<span class="n">T</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">35.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">,</span> <span class="mf">22.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">])</span>   <span class="c1"># une temperature quelconque</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;au depart                :&quot;</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
-
-<span class="n">T_dir</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="p">;</span> <span class="n">T_dir</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span>          <span class="c1"># Dirichlet : on impose la valeur</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dirichlet  T[0] = 5      :&quot;</span><span class="p">,</span> <span class="n">T_dir</span><span class="p">)</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mf">100.0</span>                                   <span class="c1"># gradient impose, degres/m</span>
-<span class="n">T_neu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="p">;</span> <span class="n">T_neu</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">T_neu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">dx</span><span class="o">*</span><span class="n">a</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Neumann    dT/dx = -100  :&quot;</span><span class="p">,</span> <span class="n">T_neu</span><span class="p">)</span>
-
-<span class="n">T_nul</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="p">;</span> <span class="n">T_nul</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">T_nul</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>     <span class="c1"># flux nul : le bord copie son voisin</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;flux nul   dT/dx = 0     :&quot;</span><span class="p">,</span> <span class="n">T_nul</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="mf">1.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v                      :&quot;</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v[1:] - v[:-1]         :&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; derivation  -&gt; une cellule en moins&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;0.5*(v[1:] + v[:-1])   :&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; moyenne     -&gt; une cellule en moins&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v[1:-1]                :&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; troncation  -&gt; deux cellules en moins&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>v                      : (9,)
+v[1:] - v[:-1]         : (8,)  derivation  -&gt; une cellule en moins
+0.5*(v[1:] + v[:-1])   : (8,)  moyenne     -&gt; une cellule en moins
+v[1:-1]                : (7,)  troncation  -&gt; deux cellules en moins
 </pre></div>
 </div>
 </div>
 </div>
-<p>Trois lignes, trois comportements. Le Dirichlet <strong>écrase</strong> la valeur du bord ; le Neumann la <strong>calcule</strong> à partir du voisin et du gradient voulu ; le flux nul <strong>recopie</strong> simplement le voisin, de sorte que la pente au bord soit nulle et que rien ne traverse.</p>
 </section>
-<section id="ou-les-ecrire-dans-le-code">
-<h2>3. Où les écrire dans le code<a class="headerlink" href="#ou-les-ecrire-dans-le-code" title="Link to this heading">#</a></h2>
-<p>Les conditions aux bords agissent <strong>à tout instant</strong> : il faut donc les ré-appliquer <strong>à chaque itération</strong>, juste après la mise à jour de l’équation.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
-
-    <span class="c1"># 1) equation de diffusion, a l&#39;interieur du domaine</span>
-    <span class="n">qx</span>      <span class="o">=</span> <span class="o">-</span> <span class="n">D</span> <span class="o">*</span> <span class="p">(</span> <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">T</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
-    <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span> <span class="n">qx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">qx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
-
-    <span class="c1"># 2) conditions aux bords, sur les deux points restants</span>
-    <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="n">T_gauche</span>        <span class="c1"># Dirichlet a gauche</span>
-    <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>           <span class="c1"># flux nul a droite</span>
+<section id="l-enchainement-d-un-modele">
+<h2>2. L’enchaînement d’un modèle<a class="headerlink" href="#l-enchainement-d-un-modele" title="Link to this heading">#</a></h2>
+<p>Dans tous les modèles du cours, ces opérations s’enchaînent toujours de la même façon : on dérive une fois pour obtenir un <strong>flux</strong>, une seconde fois pour obtenir un <strong>taux de variation</strong>, et on met à jour ce qui reste.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v</span>                              <span class="o">|-----|-----|-----|-----|-----|-----|</span>     <span class="n">n</span>
+<span class="n">qx</span>   <span class="o">=</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>        <span class="o">|-----|-----|-----|-----|-----|</span>       <span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">dvdt</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">qx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">qx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>        <span class="o">|-----|-----|-----|-----|</span>          <span class="n">n</span><span class="o">-</span><span class="mi">2</span>
+<span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dvdt</span>                 <span class="o">|-----|-----|-----|-----|</span>          <span class="n">n</span><span class="o">-</span><span class="mi">2</span>
 </pre></div>
 </div>
-<p>Rien n’oblige à mettre le même type des deux côtés : ce sont les conditions <strong>mixtes</strong>, et c’est le cas le plus fréquent en pratique.</p>
-</section>
-<section id="ce-que-chaque-choix-produit">
-<h2>4. Ce que chaque choix produit<a class="headerlink" href="#ce-que-chaque-choix-produit" title="Link to this heading">#</a></h2>
-<p>Sur un mur dont la moitié gauche est chaude et la moitié droite froide, les quatre combinaisons donnent des solutions <strong>complètement différentes</strong> :</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Conditions</p></th>
-<th class="head"><p>Ce qui se passe</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Dirichlet / Dirichlet</p></td>
-<td><p>le profil tend vers une <strong>droite</strong> entre les deux températures imposées</p></td>
-</tr>
-<tr class="row-odd"><td><p>flux nul / flux nul</p></td>
-<td><p>domaine fermé : la marche s’aplatit vers la <strong>moyenne</strong>, et la chaleur totale est <strong>conservée</strong></p></td>
-</tr>
-<tr class="row-even"><td><p>flux imposé / flux nul</p></td>
-<td><p>on injecte en permanence sans rien laisser sortir : la température <strong>monte sans se stabiliser</strong></p></td>
-</tr>
-<tr class="row-odd"><td><p>Dirichlet / flux nul</p></td>
-<td><p>tout le mur finit à la température <strong>imposée à gauche</strong></p></td>
-</tr>
-</tbody>
-</table>
+<p>La dernière ligne est celle qui pose problème : <code class="docutils literal notranslate"><span class="pre">dvdt</span></code> a la taille <code class="docutils literal notranslate"><span class="pre">n-2</span></code>, il faut donc l’ajouter à <strong>exactement</strong> <code class="docutils literal notranslate"><span class="pre">n-2</span></code> cellules de <code class="docutils literal notranslate"><span class="pre">v</span></code>, et aux bonnes. Trois écritures sont possibles, et une seule est correcte :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code> → <code class="docutils literal notranslate"><span class="pre">v[1:-1]</span> <span class="pre">+=</span> <span class="pre">...</span></code> : les <code class="docutils literal notranslate"><span class="pre">n-2</span></code> cellules <strong>du milieu</strong> ;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">2</span></code> → <code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">+=</span> <span class="pre">...</span></code> : les <code class="docutils literal notranslate"><span class="pre">n</span></code> cellules, donc une taille incompatible .</p></li>
+</ul>
+<p>Exécutez avec <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code>, puis essayez <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choix</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># &lt;&lt;&lt; CHANGEZ CETTE LIGNE :  1 ou 2</span>
+
+<span class="n">dx</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">v</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>                            <span class="c1"># un pic au centre, tout le reste a zero</span>
+<span class="n">v_ini</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+<span class="n">qx</span>   <span class="o">=</span> <span class="p">(</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="n">dx</span>          <span class="c1"># taille n-1</span>
+<span class="n">dvdt</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span> <span class="n">qx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">qx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="n">dx</span>       <span class="c1"># taille n-2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tailles :  v&quot;</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;  qx&quot;</span><span class="p">,</span> <span class="n">qx</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;  dvdt&quot;</span><span class="p">,</span> <span class="n">dvdt</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">choix</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dvdt</span>              <span class="c1"># les n-2 cellules du milieu</span>
+<span class="k">elif</span> <span class="n">choix</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">v</span>       <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dvdt</span>              <span class="c1"># n cellules contre n-2 : incompatible</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>  <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dvdt</span>              <span class="c1"># n-2 cellules, mais decalees</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;avant   :&quot;</span><span class="p">,</span> <span class="n">v_ini</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;apres   :&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
 </div>
-<p>D’où un contrôle très utile : surveiller la quantité totale <code class="docutils literal notranslate"><span class="pre">np.sum(T)*dx</span></code>. Si votre domaine est censé être fermé et que ce nombre dérive au fil des itérations, vos conditions aux bords sont fausses.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tailles :  v (9,)   qx (8,)   dvdt (7,)
+avant   : [0. 0. 0. 0. 1. 0. 0. 0. 0.]
+apres   : [ 0.   0.  -0.1  0.2  0.9  0.   0.   0.   0. ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les trois écritures se comportent très différemment.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code></strong> donne <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">-0.1,</span> <span class="pre">1.2,</span> <span class="pre">-0.1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code> : la modification est <strong>centrée sur le pic</strong>, et symétrique — ce que l’on attend d’un problème symétrique.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">2</span></code></strong> s’arrête sur</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span><span class="p">:</span> <span class="n">operands</span> <span class="n">could</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">broadcast</span> <span class="n">together</span> <span class="k">with</span> <span class="n">shapes</span> <span class="p">(</span><span class="mi">9</span><span class="p">,)</span> <span class="p">(</span><span class="mi">7</span><span class="p">,)</span>
+</pre></div>
+</div>
+<p>C’est une <strong>bonne nouvelle</strong> : Python refuse de mélanger des tailles incompatibles, et le message donne directement les deux tailles en conflit. La plupart des erreurs de dimensions se signalent ainsi.</p>
+<blockquote>
+<div><p><strong>Le réflexe à prendre :</strong> une erreur de <em>broadcast</em> est un cadeau. Le vrai danger, ce sont les tailles qui tombent juste par hasard — d’où l’intérêt d’imprimer les <code class="docutils literal notranslate"><span class="pre">.shape</span></code> quand un résultat surprend, et de vérifier qu’un problème symétrique donne une solution symétrique.</p>
+</div></blockquote>
 </section>
-<section id="a-experimenter">
-<h2>À expérimenter<a class="headerlink" href="#a-experimenter" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Dans la cellule ci-dessus, changez le gradient <code class="docutils literal notranslate"><span class="pre">a</span></code> de <code class="docutils literal notranslate"><span class="pre">-100</span></code> à <code class="docutils literal notranslate"><span class="pre">+100</span></code>. Le bord devient-il plus chaud ou plus froid que son voisin ? Dans quel sens la chaleur entre-t-elle ?</p></li>
-<li><p>Que donnerait la condition de flux nul au bord <strong>droit</strong> ? Écrivez-la et vérifiez sur le vecteur.</p></li>
-</ol>
+<section id="un-seul-code-pour-plusieurs-questions">
+<h2>3. Un seul code pour plusieurs questions<a class="headerlink" href="#un-seul-code-pour-plusieurs-questions" title="Link to this heading">#</a></h2>
+<p>Un exercice pose souvent deux ou trois questions qui ne diffèrent que par quelques paramètres. Plutôt que de dupliquer tout le code, on définit une variable <code class="docutils literal notranslate"><span class="pre">Q</span></code> en tête et on ne branche que la portion concernée :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># &lt;&lt;&lt; CHANGEZ CETTE LIGNE : numero de la question, 1 ou 2</span>
+
+<span class="k">if</span> <span class="n">Q</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">duree</span> <span class="o">=</span> <span class="mf">600.0</span>        <span class="c1"># duree pour la question 1</span>
+    <span class="n">titre</span> <span class="o">=</span> <span class="s2">&quot;Question 1 : regime long&quot;</span>
+<span class="k">elif</span> <span class="n">Q</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">duree</span> <span class="o">=</span> <span class="mf">90.0</span>         <span class="c1"># duree pour la question 2</span>
+    <span class="n">titre</span> <span class="o">=</span> <span class="s2">&quot;Question 2 : regime court&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">titre</span><span class="p">,</span> <span class="s2">&quot;-&gt; duree =&quot;</span><span class="p">,</span> <span class="n">duree</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Question 1 : regime long -&gt; duree = 600.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tout le reste du code — initialisation, boucle temporelle, figure — <strong>reste identique</strong>. Seule change la poignée de lignes qui dépend de la question, et le titre de la figure peut reprendre <code class="docutils literal notranslate"><span class="pre">titre</span></code> pour qu’on sache toujours ce que l’on regarde.</p>
+<p><strong>Attention :</strong> on écrit <code class="docutils literal notranslate"><span class="pre">Q</span></code> en majuscule, car <code class="docutils literal notranslate"><span class="pre">qx</span></code> désigne déjà un flux.</p>
+<p>L’intérêt est double : votre rendu tient en un seul fichier, et une correction faite dans la boucle profite automatiquement à toutes les questions.</p>
 </section>
 </section>
 
@@ -797,12 +818,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 5</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#se-familiariser-avec-les-conditions-aux-bords">Se familiariser avec les conditions aux bords</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-les-bords-sont-a-part">1. Pourquoi les bords sont à part</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-trois-types-de-conditions">2. Les trois types de conditions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ou-les-ecrire-dans-le-code">3. Où les écrire dans le code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ce-que-chaque-choix-produit">4. Ce que chaque choix produit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-experimenter">À expérimenter</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#des-tailles-coherentes-en-1d">Des tailles cohérentes en 1D</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-trois-operations">1. Les trois opérations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-enchainement-d-un-modele">2. L’enchaînement d’un modèle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-seul-code-pour-plusieurs-questions">3. Un seul code pour plusieurs questions</a></li>
 </ul>
 </li>
 </ul>

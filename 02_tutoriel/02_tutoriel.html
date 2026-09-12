@@ -212,7 +212,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -262,11 +261,11 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -593,7 +592,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequence-d-affichage">2. Fréquence d’affichage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-complete">3. Structure complète</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-une-particule-sur-le-cercle-trigonometrique">4. Exemple : une particule sur le cercle trigonométrique</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plusieurs-sous-figures">5. Plusieurs sous-figures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-experimenter">À expérimenter</a></li>
 </ul>
 </li>
@@ -611,6 +609,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-2">
 <h1>Tutoriel 2<a class="headerlink" href="#tutoriel-2" title="Link to this heading">#</a></h1>
+<p><a class="reference download internal" download="" href="../_downloads/6c12bc8e514762f4a9981429228d7fd5/02_tutoriel.zip"><span class="xref download myst">Télécharger le tutoriel</span></a></p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="se-familiariser-avec-les-figures-interactives">
 <h1>Se familiariser avec les figures interactives<a class="headerlink" href="#se-familiariser-avec-les-figures-interactives" title="Link to this heading">#</a></h1>
@@ -677,7 +676,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span>
 
 <span class="n">nt</span>          <span class="o">=</span> <span class="mi">300</span>      <span class="c1"># nombre total d&#39;iterations</span>
-<span class="n">freq_affich</span> <span class="o">=</span> <span class="mi">10</span>       <span class="c1"># frequence d&#39;affichage</span>
+<span class="n">freq_affich</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># frequence d&#39;affichage</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>     <span class="c1"># figure creee AVANT la boucle</span>
 <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -692,42 +691,19 @@ document.write(`
         <span class="n">ax</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span> <span class="p">;</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>   <span class="c1"># limites FIXES</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>   <span class="c1"># limites FIXES </span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>   <span class="c1"># limites FIXES</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Itération </span><span class="si">{</span><span class="n">it</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">nt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Itération &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">nt</span><span class="p">))</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span> 
+        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-</div>
-</section>
-<section id="plusieurs-sous-figures">
-<h2>5. Plusieurs sous-figures<a class="headerlink" href="#plusieurs-sous-figures" title="Link to this heading">#</a></h2>
-<p>On peut découper la fenêtre avec <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">(ax1,</span> <span class="pre">ax2)</span> <span class="pre">=</span> <span class="pre">plt.subplots(2,</span> <span class="pre">1)</span></code>. Il faut alors nettoyer <strong>chaque</strong> axe (<code class="docutils literal notranslate"><span class="pre">ax1.cla()</span></code>, <code class="docutils literal notranslate"><span class="pre">ax2.cla()</span></code>) et les remplir séparément.</p>
-<p><strong>⚠️ Important</strong> : en figure interactive, il est <strong>essentiel de fixer les limites des axes</strong> avec <code class="docutils literal notranslate"><span class="pre">ax.set_xlim()</span></code> et <code class="docutils literal notranslate"><span class="pre">ax.set_ylim()</span></code>. Sans cela, les axes se réajustent à chaque itération, ce qui crée un effet de « zoom » gênant et empêche de suivre l’évolution des données.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">nt</span><span class="p">,</span> <span class="n">freq_affich</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">10</span>
-
-<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
-
-    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">it</span><span class="o">*</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="n">freq_affich</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">ax1</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span> <span class="p">;</span> <span class="n">ax2</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
-        <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;x(t)&#39;</span><span class="p">)</span>
-        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y(t)&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;temps&#39;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">]:</span>
-            <span class="n">a</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span> <span class="p">;</span> <span class="n">a</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">])</span> <span class="p">;</span> <span class="n">a</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> <span class="p">;</span> <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span> <span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d617b32b1bc84bd2fea8b0e8d7ed6611b2e1e93c263c3323157954d5b5a887ac.png" src="../_images/d617b32b1bc84bd2fea8b0e8d7ed6611b2e1e93c263c3323157954d5b5a887ac.png" />
 </div>
 </div>
 </section>
@@ -736,7 +712,6 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Passez <code class="docutils literal notranslate"><span class="pre">freq_affich</span></code> à 1, puis à 100. Est-ce le <strong>résultat</strong> qui change, ou seulement la fluidité de l’animation ?</p></li>
 <li><p>Commentez la ligne <code class="docutils literal notranslate"><span class="pre">ax.cla()</span></code> de la section 4. Que se passe-t-il, et pourquoi ?</p></li>
-<li><p>Supprimez les <code class="docutils literal notranslate"><span class="pre">set_xlim</span></code> / <code class="docutils literal notranslate"><span class="pre">set_ylim</span></code> de la section 5 : voit-on encore l’évolution ?</p></li>
 </ol>
 </section>
 </section>
@@ -811,7 +786,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequence-d-affichage">2. Fréquence d’affichage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-complete">3. Structure complète</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-une-particule-sur-le-cercle-trigonometrique">4. Exemple : une particule sur le cercle trigonométrique</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plusieurs-sous-figures">5. Plusieurs sous-figures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-experimenter">À expérimenter</a></li>
 </ul>
 </li>

@@ -214,7 +214,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -264,11 +263,11 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -694,6 +693,71 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
+<p>Pour résoudre l’exercice, veuillez utiliser la structure de code suivante. Complétez les paramètres, l’initialisation de la matrice <code class="docutils literal notranslate"><span class="pre">T</span></code>, l’implémentation des flux et de la mise à jour de <code class="docutils literal notranslate"><span class="pre">T</span></code>, ainsi que les conditions aux bords.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
+
+<span class="c1"># Paramètres physiques</span>
+<span class="n">D</span>        <span class="o">=</span> <span class="o">...</span>  <span class="c1"># diffusivité, m2/an</span>
+<span class="n">Lx</span>       <span class="o">=</span> <span class="o">...</span>  <span class="c1"># longueur du domaine en x, m</span>
+<span class="n">Ly</span>       <span class="o">=</span> <span class="o">...</span>  <span class="c1"># longueur du domaine en y, m</span>
+<span class="n">T0</span>       <span class="o">=</span> <span class="o">...</span>  <span class="c1"># température initiale, degC</span>
+<span class="n">duree</span>    <span class="o">=</span> <span class="o">...</span>  <span class="c1"># durée totale, ans</span>
+<span class="n">T_bas</span>    <span class="o">=</span> <span class="o">...</span>  <span class="c1"># condition aux bords, bas</span>
+<span class="n">T_haut</span>   <span class="o">=</span> <span class="o">...</span>  <span class="c1"># condition aux bords, haut</span>
+<span class="n">T_gauche</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># condition aux bords, gauche</span>
+<span class="n">T_droit</span>  <span class="o">=</span> <span class="o">...</span>  <span class="c1"># condition aux bords, droite</span>
+
+<span class="c1"># Paramètres numériques</span>
+<span class="n">nx</span>          <span class="o">=</span> <span class="o">...</span>                         <span class="c1"># nombre de nœuds en x</span>
+<span class="n">ny</span>          <span class="o">=</span> <span class="o">...</span>                         <span class="c1"># nombre de nœuds en y</span>
+<span class="n">dx</span>          <span class="o">=</span> <span class="n">Lx</span> <span class="o">/</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>               <span class="c1"># taille d&#39;une cellule en x</span>
+<span class="n">dy</span>          <span class="o">=</span> <span class="n">Ly</span> <span class="o">/</span> <span class="p">(</span><span class="n">ny</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>               <span class="c1"># taille d&#39;une cellule en y</span>
+<span class="n">x</span>           <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>      <span class="c1"># coordonnées des nœuds en x</span>
+<span class="n">y</span>           <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>      <span class="c1"># coordonnées des nœuds en y</span>
+<span class="n">dt_max</span>      <span class="o">=</span> <span class="mf">1.0</span>                         <span class="c1"># pas de temps maximal, an</span>
+<span class="n">dt_diff</span>     <span class="o">=</span> <span class="o">...</span>                         <span class="c1"># contrainte de la diffusion (en 2D !)</span>
+<span class="n">dt</span>          <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dt_max</span><span class="p">,</span> <span class="n">dt_diff</span><span class="p">)</span>        <span class="c1"># pas de temps retenu</span>
+<span class="n">nt</span>          <span class="o">=</span> <span class="o">...</span>                         <span class="c1"># nombre de pas de temps</span>
+<span class="n">freq_affich</span> <span class="o">=</span> <span class="mi">50</span>                          <span class="c1"># fréquence d&#39;affichage</span>
+
+<span class="c1"># Initialisation : matrice de taille (ny, nx)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># création de la figure à l&#39;extérieur de la boucle</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">s</span>    <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Température, °C&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">)</span>
+
+<span class="c1"># boucle temporelle</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
+    <span class="c1"># mise à jour des flux qx et qy en fonction de T</span>
+    <span class="n">qx</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="n">qy</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="c1"># mise à jour de dTdt (attention aux tailles des matrices)</span>
+    <span class="n">dTdt</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="c1"># mise à jour de T à l&#39;intérieur du domaine</span>
+    <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="o">...</span>
+
+    <span class="c1"># conditions aux bords</span>
+    <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>  <span class="o">=</span> <span class="o">...</span>
+    <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="o">...</span>
+    <span class="n">T</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+
+    <span class="c1"># affichage</span>
+    <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="n">freq_affich</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Température après &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">it</span> <span class="o">*</span> <span class="n">dt</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; ans&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance horizontale en x, m&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Distance horizontale en y, m&#39;</span><span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
 </div>
 </section>
 <section id="a-vous-de-faire">

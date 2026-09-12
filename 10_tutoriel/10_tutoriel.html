@@ -214,7 +214,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -264,11 +263,11 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -590,11 +589,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 10</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#diffusivite-variable-et-flux-aux-interfaces">Diffusivité variable et flux aux interfaces</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-n-a-plus-la-taille-de-la-solution">1. <code class="docutils literal notranslate"><span class="pre">D</span></code> n’a plus la taille de la solution</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#une-diffusivite-qui-depend-de-la-solution">Une diffusivité qui dépend de la solution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ou-vit-d">1. Où vit <code class="docutils literal notranslate"><span class="pre">D</span></code> ?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-pas-de-temps-change-a-chaque-iteration">2. Le pas de temps change à chaque itération</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-nombre-d-iterations-n-est-plus-connu-a-l-avance">3. Le nombre d’itérations n’est plus connu à l’avance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-experimenter">À expérimenter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-nombre-d-iterations-est-inconnu">3. Le nombre d’itérations est inconnu</a></li>
 </ul>
 </li>
 </ul>
@@ -611,32 +609,46 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-10">
 <h1>Tutoriel 10<a class="headerlink" href="#tutoriel-10" title="Link to this heading">#</a></h1>
+<p><a class="reference download internal" download="" href="../_downloads/75de082547873f68ac65a1106b1be408/10_tutoriel.zip"><span class="xref download myst">Télécharger le tutoriel</span></a></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="diffusivite-variable-et-flux-aux-interfaces">
-<h1>Diffusivité variable et flux aux interfaces<a class="headerlink" href="#diffusivite-variable-et-flux-aux-interfaces" title="Link to this heading">#</a></h1>
-<p>Depuis le début du cours, <code class="docutils literal notranslate"><span class="pre">D</span></code> était une <strong>constante</strong>. À partir de cette semaine, <code class="docutils literal notranslate"><span class="pre">D</span></code> <strong>dépend de la solution elle-même</strong>, ce qui change trois choses dans la structure du code — trois sources d’erreur classiques.</p>
-<p>Nous l’illustrons sur un <strong>cône d’éboulis</strong> : au pied d’une falaise, les blocs accumulés <strong>fluent</strong> sous leur propre poids et s’étalent sur des milliers d’années.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="une-diffusivite-qui-depend-de-la-solution">
+<h1>Une diffusivité qui dépend de la solution<a class="headerlink" href="#une-diffusivite-qui-depend-de-la-solution" title="Link to this heading">#</a></h1>
+<p>Ce tutoriel permet de traiter une diffusivité non constante, utile à l’exercice de cette semaine. L’équation de diffusion s’écrit toujours</p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial h}{\partial t} = - \frac{\partial q_x}{\partial x}, \qquad q_x = -D(h) \frac{\partial h}{\partial x}, \qquad D(h) = k\, h^2\]</div>
-<p>Toute la différence est dans la troisième expression : <strong>plus le dépôt est épais, plus il flue vite</strong>. C’est la structure de l’équation des glaciers de cette semaine, où <span class="math notranslate nohighlight">\(D\)</span> dépend de l’épaisseur de glace à la puissance 5.</p>
-<section id="d-n-a-plus-la-taille-de-la-solution">
-<h2>1. <code class="docutils literal notranslate"><span class="pre">D</span></code> n’a plus la taille de la solution<a class="headerlink" href="#d-n-a-plus-la-taille-de-la-solution" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">D</span></code> sert à calculer un <strong>flux</strong>, c’est-à-dire ce qui passe d’une cellule à sa voisine : il ne vit pas <em>sur</em> un point de la grille mais <em>entre</em> deux points, et il est de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>. Mais <code class="docutils literal notranslate"><span class="pre">h</span></code> est de taille <code class="docutils literal notranslate"><span class="pre">nx</span></code> : <strong>quelle épaisseur utiliser entre les points <span class="math notranslate nohighlight">\(i\)</span> et <span class="math notranslate nohighlight">\(i+1\)</span> ?</strong> La <strong>moyenne des deux</strong>.</p>
+\[\frac{\partial h}{\partial t} = - \frac{\partial q_x}{\partial x}, \qquad q_x = - D \frac{\partial h}{\partial x},\]</div>
+<p>mais <code class="docutils literal notranslate"><span class="pre">D</span></code> n’est plus un nombre fixé une fois pour toutes : il <strong>dépend de la solution elle-même</strong>, disons <span class="math notranslate nohighlight">\(D = k\,h^2\)</span> pour fixer les idées. L’équation devient alors <strong>non linéaire</strong>, et <code class="docutils literal notranslate"><span class="pre">D</span></code> doit être recalculé à chaque itération.</p>
+<p>Trois choses changent dans la structure du code :</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">D</span></code> n’a plus la <strong>taille</strong> de la solution ;</p></li>
+<li><p>le <strong>pas de temps</strong> doit être recalculé dans la boucle ;</p></li>
+<li><p>le <strong>nombre d’itérations</strong> n’est plus connu à l’avance.</p></li>
+</ol>
+<section id="ou-vit-d">
+<h2>1. Où vit <code class="docutils literal notranslate"><span class="pre">D</span></code> ?<a class="headerlink" href="#ou-vit-d" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">D</span></code> sert à calculer un <strong>flux</strong>, c’est-à-dire ce qui passe d’une cellule à sa voisine : il ne vit pas <em>sur</em> un point de la grille, mais <em>entre</em> deux points. Il est donc de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>, comme la dérivée qu’il multiplie.</p>
+<p>Or <code class="docutils literal notranslate"><span class="pre">h</span></code> est de taille <code class="docutils literal notranslate"><span class="pre">nx</span></code>. <strong>Quelle valeur de <code class="docutils literal notranslate"><span class="pre">h</span></code> utiliser entre les points <span class="math notranslate nohighlight">\(i\)</span> et <span class="math notranslate nohighlight">\(i+1\)</span> ?</strong> La <strong>moyenne des deux</strong> :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                               <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>   <span class="o">...</span>  <span class="n">Taille</span>
 <span class="n">h</span>                              <span class="o">|-----|-----|-----|-----|-----|----...</span>    <span class="n">nx</span>
                                   <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
 <span class="n">hm</span>   <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">h</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>         <span class="o">|-----|-----|-----|-----|-----|-...</span>   <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
 </pre></div>
 </div>
+<p>C’est exactement la même moyenne de deux cellules voisines que celle du tutoriel 9 pour placer les vitesses aux interfaces.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="n">Lx</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mi">101</span>              <span class="c1"># domaine (m), coefficient de fluage (1/an)</span>
-<span class="n">x</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span> <span class="p">;</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">Lx</span><span class="o">/</span><span class="p">(</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">h</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span> <span class="p">;</span> <span class="n">h</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">Lx</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span>    <span class="c1"># un depot de 5 m au milieu</span>
+<span class="n">Lx</span> <span class="o">=</span> <span class="mf">1.0</span>                                  <span class="c1"># taille du domaine</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="mi">101</span>                                  <span class="c1"># nombre de points</span>
+<span class="n">k</span>  <span class="o">=</span> <span class="mf">1.0</span>                                  <span class="c1"># coefficient de la diffusivite</span>
 
-<span class="n">hm</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">h</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>               <span class="c1"># l&#39;epaisseur ENTRE les points</span>
+<span class="n">x</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">Lx</span><span class="o">/</span><span class="p">(</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">h</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>
+<span class="n">h</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>              <span class="c1"># une solution de depart, symetrique</span>
+
+<span class="n">hm</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">h</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>               <span class="c1"># la valeur ENTRE les points</span>
 <span class="n">D</span>  <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">hm</span><span class="o">**</span><span class="mi">2</span>                            <span class="c1"># la diffusivite, la ou vit le flux</span>
 <span class="n">qx</span> <span class="o">=</span> <span class="o">-</span> <span class="n">D</span> <span class="o">*</span> <span class="p">(</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">h</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="n">dx</span>          <span class="c1"># le flux</span>
 
@@ -649,47 +661,97 @@ document.write(`
 </pre></div>
 </div>
 </div>
-</div>
-<p>On pourrait écrire <code class="docutils literal notranslate"><span class="pre">D</span> <span class="pre">=</span> <span class="pre">k*h[:-1]**2</span></code> : la taille serait correcte et Python ne dirait rien. Mais ce choix <strong>privilégie la cellule de gauche</strong> dans un problème sans aucune asymétrie, et le dépôt se met à <strong>dériver</strong>. Le code tourne, le résultat <em>a l’air</em> plausible — d’où le réflexe : <strong>si le problème est symétrique, vérifiez que la solution l’est aussi.</strong></p>
-</section>
-<section id="le-pas-de-temps-change-a-chaque-iteration">
-<h2>2. Le pas de temps change à chaque itération<a class="headerlink" href="#le-pas-de-temps-change-a-chaque-iteration" title="Link to this heading">#</a></h2>
-<p>Puisque <code class="docutils literal notranslate"><span class="pre">D</span></code> dépend de <code class="docutils literal notranslate"><span class="pre">h</span></code> qui évolue, la contrainte de stabilité évolue aussi et doit être recalculée <strong>dans</strong> la boucle :</p>
-<div class="math notranslate nohighlight">
-\[ dt_\mathrm{diff} = \frac{dx^2}{2.1 \times \max|D|}, \qquad dt = \min(dt_\mathrm{max},\, dt_\mathrm{diff}).\]</div>
-<p>On prend le <strong>maximum</strong> de <code class="docutils literal notranslate"><span class="pre">D</span></code>, car l’endroit le plus « rapide » contraint tout le domaine. Et <code class="docutils literal notranslate"><span class="pre">D</span></code> vaut <strong>zéro</strong> là où il n’y a pas de dépôt, ce qui rendrait <code class="docutils literal notranslate"><span class="pre">dt_diff</span></code> infini : c’est ici que <code class="docutils literal notranslate"><span class="pre">dt_max</span></code> devient indispensable.</p>
-</section>
-<section id="le-nombre-d-iterations-n-est-plus-connu-a-l-avance">
-<h2>3. Le nombre d’itérations n’est plus connu à l’avance<a class="headerlink" href="#le-nombre-d-iterations-n-est-plus-connu-a-l-avance" title="Link to this heading">#</a></h2>
-<p>Jusqu’ici on écrivait <code class="docutils literal notranslate"><span class="pre">nt</span> <span class="pre">=</span> <span class="pre">int(duree/dt)</span></code> avant la boucle. Ce n’est plus possible : <code class="docutils literal notranslate"><span class="pre">dt</span></code> change à chaque tour, donc le nombre d’itérations nécessaires est inconnu.</p>
-<p>La solution : lancer la boucle sur un nombre volontairement très grand, et en <strong>sortir</strong> avec un <code class="docutils literal notranslate"><span class="pre">break</span></code> dès que le temps simulé est atteint.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_max</span><span class="p">,</span> <span class="n">duree</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">20000.0</span>     <span class="c1"># pas de temps maximal (ans), duree a simuler (ans)</span>
-<span class="n">temps</span> <span class="o">=</span> <span class="mf">0.0</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>h  : (101,)  la solution, sur les noeuds
+hm : (100,)  entre les noeuds : une cellule de moins
+D  : (100,)  comme le flux
+qx : (100,)
 
-<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>           <span class="c1"># un nombre volontairement tres grand</span>
-
-    <span class="n">dt</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dt_max</span><span class="p">,</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mf">2.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">D</span><span class="p">))))</span>    <span class="c1"># recalcule a chaque tour</span>
-    <span class="n">temps</span> <span class="o">+=</span> <span class="n">dt</span>
-
-    <span class="k">if</span> <span class="n">temps</span> <span class="o">&gt;</span> <span class="n">duree</span><span class="p">:</span>              <span class="c1"># on sort des que la duree voulue est atteinte</span>
-        <span class="k">break</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;il a fallu&quot;</span><span class="p">,</span> <span class="n">it</span><span class="p">,</span> <span class="s2">&quot;iterations pour simuler&quot;</span><span class="p">,</span> <span class="n">duree</span><span class="p">,</span> <span class="s2">&quot;ans&quot;</span><span class="p">)</span>
+-&gt; la mise a jour s&#39;ecrit :  h[1:-1] += - dt * ( qx[1:] - qx[:-1] )/dx
 </pre></div>
 </div>
 </div>
 </div>
-<p>Une boucle <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">temps</span> <span class="pre">&lt;</span> <span class="pre">duree:</span></code> ferait exactement la même chose, en plus direct ; la version <code class="docutils literal notranslate"><span class="pre">for</span></code> + <code class="docutils literal notranslate"><span class="pre">break</span></code> a l’avantage de garantir une sortie au bout de 100 000 itérations même si <code class="docutils literal notranslate"><span class="pre">dt</span></code> devenait nul par erreur.</p>
-<p>Notez qu’ici <code class="docutils literal notranslate"><span class="pre">D</span></code> n’est pas remis à jour, donc <code class="docutils literal notranslate"><span class="pre">dt</span></code> reste constant. Dans le modèle complet, <code class="docutils literal notranslate"><span class="pre">D</span></code> est recalculé à chaque tour à partir de <code class="docutils literal notranslate"><span class="pre">h</span></code>, <code class="docutils literal notranslate"><span class="pre">dt</span></code> augmente à mesure que le dépôt s’aplatit, et <code class="docutils literal notranslate"><span class="pre">dt_max</span></code> finit par prendre le relais.</p>
 </section>
-<section id="a-experimenter">
-<h2>À expérimenter<a class="headerlink" href="#a-experimenter" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Remplacez <code class="docutils literal notranslate"><span class="pre">hm</span> <span class="pre">=</span> <span class="pre">0.5*(h[1:]</span> <span class="pre">+</span> <span class="pre">h[:-1])</span></code> par <code class="docutils literal notranslate"><span class="pre">hm</span> <span class="pre">=</span> <span class="pre">h[:-1]</span></code> dans la première cellule. Les tailles sont-elles toujours correctes ? Python signale-t-il quoi que ce soit ?</p></li>
-<li><p>Doublez <code class="docutils literal notranslate"><span class="pre">nx</span></code>. Que devient <code class="docutils literal notranslate"><span class="pre">dt</span></code> ? Et le nombre d’itérations nécessaires ?</p></li>
-</ol>
+<section id="le-pas-de-temps-change-a-chaque-iteration">
+<h2>2. Le pas de temps change à chaque itération<a class="headerlink" href="#le-pas-de-temps-change-a-chaque-iteration" title="Link to this heading">#</a></h2>
+<p>La contrainte de stabilité dépend de <code class="docutils literal notranslate"><span class="pre">D</span></code>, donc de la solution : elle doit être recalculée <strong>dans</strong> la boucle.</p>
+<div class="math notranslate nohighlight">
+\[ dt_\mathrm{diff} = \frac{dx^2}{2.1 \times \max|D|}, \qquad dt = \min(dt_\mathrm{max},\, dt_\mathrm{diff})\]</div>
+<p>On prend le <strong>maximum</strong> de <code class="docutils literal notranslate"><span class="pre">D</span></code> sur tout le domaine, car l’endroit le plus « rapide » contraint tout le monde. Et <code class="docutils literal notranslate"><span class="pre">D</span></code> vaut <strong>zéro</strong> là où la solution est nulle : <span class="math notranslate nohighlight">\(dt_\mathrm{diff}\)</span> serait alors infini. C’est ici que <code class="docutils literal notranslate"><span class="pre">dt_max</span></code> cesse d’être un confort pour devenir indispensable.</p>
+</section>
+<section id="le-nombre-d-iterations-est-inconnu">
+<h2>3. Le nombre d’itérations est inconnu<a class="headerlink" href="#le-nombre-d-iterations-est-inconnu" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">nt</span> <span class="pre">=</span> <span class="pre">int(duree/dt)</span></code> n’a plus de sens, puisque <code class="docutils literal notranslate"><span class="pre">dt</span></code> change à chaque tour. On lance donc la boucle sur un nombre volontairement très grand, et on en <strong>sort</strong> avec un <code class="docutils literal notranslate"><span class="pre">break</span></code> dès que la durée voulue est atteinte.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>      <span class="c1"># un nombre volontairement tres grand</span>
+    <span class="o">...</span>
+    <span class="n">temps</span> <span class="o">+=</span> <span class="n">dt</span>
+    <span class="k">if</span> <span class="n">temps</span> <span class="o">&gt;</span> <span class="n">duree</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+<p><strong>Et si l’on se trompait de moyenne ?</strong> Écrire <code class="docutils literal notranslate"><span class="pre">hm</span> <span class="pre">=</span> <span class="pre">h[:-1]</span></code> donnerait une taille correcte, et Python ne signalerait rien — mais ce choix privilégie arbitrairement la cellule de gauche. Vérifions-le : <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code> prend la moyenne des deux cellules, <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">2</span></code> prend celle de gauche. Comme la solution de départ est symétrique, son <strong>centre de masse</strong> doit rester en <span class="math notranslate nohighlight">\(x = 0.5\)</span>. Exécutez la cellule, puis passez <code class="docutils literal notranslate"><span class="pre">choix</span></code> à <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choix</span> <span class="o">=</span>  <span class="mi">1</span>       <span class="c1"># &lt;&lt;&lt; CHANGEZ CETTE LIGNE :  1 -&gt; moyenne des deux   ou   2 -&gt; cellule de gauche</span>
+
+<span class="n">dt_max</span> <span class="o">=</span> <span class="mf">0.01</span>      <span class="c1"># pas de temps maximal</span>
+<span class="n">duree</span>  <span class="o">=</span> <span class="mf">1.0</span>       <span class="c1"># duree a simuler</span>
+<span class="n">temps</span>  <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>
+<span class="n">h</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">h_ini</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>                   <span class="c1"># un nombre volontairement tres grand</span>
+
+    <span class="k">if</span> <span class="n">choix</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">hm</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">h</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>        <span class="c1"># la moyenne des deux cellules</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hm</span> <span class="o">=</span> <span class="n">h</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>                        <span class="c1"># seulement celle de gauche</span>
+
+    <span class="n">D</span>  <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">hm</span><span class="o">**</span><span class="mi">2</span>                         <span class="c1"># D depend de la solution : recalcule a chaque tour</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dt_max</span><span class="p">,</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mf">2.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">D</span><span class="p">))))</span>
+    <span class="k">if</span> <span class="n">it</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">dt_debut</span> <span class="o">=</span> <span class="n">dt</span>
+
+    <span class="n">qx</span>       <span class="o">=</span> <span class="o">-</span> <span class="n">D</span> <span class="o">*</span> <span class="p">(</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">h</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="n">dx</span>
+    <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="o">-</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span> <span class="n">qx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">qx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="n">dx</span>
+    <span class="n">temps</span>   <span class="o">+=</span> <span class="n">dt</span>
+
+    <span class="k">if</span> <span class="n">temps</span> <span class="o">&gt;</span> <span class="n">duree</span><span class="p">:</span>                      <span class="c1"># on sort des que la duree est atteinte</span>
+        <span class="k">break</span>
+
+<span class="n">centre</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">h</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;iterations :&quot;</span><span class="p">,</span> <span class="n">it</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dt est passe de&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">dt_debut</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;centre de masse :&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">centre</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="s2">&quot;  (il devrait valoir 0.5)&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h_ini</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;au depart&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;a la fin&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">centre</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;centre de masse&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iterations : 2656
+dt est passe de 4.8e-05 a 0.000713
+centre de masse : 0.5   (il devrait valoir 0.5)
+</pre></div>
+</div>
+<img alt="../_images/a5483508491ff410222f35a97987696c849183cf8e6163c483a6e3b32049cdd4.png" src="../_images/a5483508491ff410222f35a97987696c849183cf8e6163c483a6e3b32049cdd4.png" />
+</div>
+</div>
+<p>Avec <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code>, le centre de masse reste à <strong>0.5000</strong> : la solution est restée symétrique, comme le problème qu’elle décrit. Le pas de temps, lui, a augmenté d’un facteur 15 au fil des itérations — la solution s’aplatit, <code class="docutils literal notranslate"><span class="pre">D</span></code> diminue, et la contrainte de stabilité se relâche. C’est exactement ce qu’aucun <code class="docutils literal notranslate"><span class="pre">nt</span></code> calculé à l’avance n’aurait pu prévoir.</p>
+<p>Avec <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">2</span></code>, le centre de masse a dérivé à <strong>0.6590</strong> : le modèle a inventé un mouvement d’ensemble qui n’existe pas dans l’équation.</p>
+<p>Et surtout, <strong>rien n’a explosé</strong> : aucune erreur n’a été levée, le nombre d’itérations est resté raisonnable, et le profil final a l’air parfaitement plausible. C’est ce qui rend cette erreur bien plus dangereuse que celle du tutoriel 9, où le calcul partait immédiatement à l’infini.</p>
+<p><strong>D’où le réflexe : quand le problème est symétrique, vérifiez que la solution l’est aussi.</strong></p>
 </section>
 </section>
 
@@ -758,11 +820,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 10</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#diffusivite-variable-et-flux-aux-interfaces">Diffusivité variable et flux aux interfaces</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-n-a-plus-la-taille-de-la-solution">1. <code class="docutils literal notranslate"><span class="pre">D</span></code> n’a plus la taille de la solution</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#une-diffusivite-qui-depend-de-la-solution">Une diffusivité qui dépend de la solution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ou-vit-d">1. Où vit <code class="docutils literal notranslate"><span class="pre">D</span></code> ?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-pas-de-temps-change-a-chaque-iteration">2. Le pas de temps change à chaque itération</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-nombre-d-iterations-n-est-plus-connu-a-l-avance">3. Le nombre d’itérations n’est plus connu à l’avance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-experimenter">À expérimenter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-nombre-d-iterations-est-inconnu">3. Le nombre d’itérations est inconnu</a></li>
 </ul>
 </li>
 </ul>
