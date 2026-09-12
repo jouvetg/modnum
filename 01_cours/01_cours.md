@@ -12,11 +12,12 @@ color: white
 
 ---
 
-# Objectifs de ce cours
+# Objectifs du cours
 
 - Qu'est-ce qu'un modèle numérique ? Exemples issus de la recherche
 - Présentation des outils : Python, VS Code, notebooks
-- Initialisation et règle de mise à jour
+- Notions fondamentales en Python : import, indentation, indexation
+- Initialisation, règle de mise à jour et boucle temporelle
 - Solution analytique versus solution numérique
 
  ---
@@ -153,23 +154,23 @@ On peut aussi écrire du texte, afficher une image, des équations …
 
 # Notions fondamentales en Python pour ce cours
 
-- Import de librairies
+- Import de bibliothèques
 - Indentation
 - Indexation
 - Slicing
 
 ---
 
-# Import de librairies
+# Import de bibliothèques
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 from IPython.display import clear_output, display
 ```
-Cela permet d’appeler la librairie mais aussi de lui donner un nom court (‘alias’).
+Cela permet d’appeler la bibliothèque mais aussi de lui donner un nom court (‘alias’).
 
-Nous utiliserons dans ce cours principalement ces 3 librairies : `numpy`, `matplotlib`, et `IPython`.
+Nous utiliserons dans ce cours principalement ces 3 bibliothèques : `numpy`, `matplotlib`, et `IPython`.
 
 ---
 
@@ -216,27 +217,6 @@ alors, on peut accéder à chaque élément à partir du début ou de la fin:
 
 ---
 
-# Slicing
-
-Si l'on a un vecteur de taille 9:
-```
-x                   |-----|-----|-----|-----|-----|-----|-----|-----|
-```
-alors nous obtenons les sous-vecteurs suivants:
-```
-x[1:]                     |-----|-----|-----|-----|-----|-----|-----|
-x[3:]                                 |-----|-----|-----|-----|-----|
-x[3:5]                                |-----|
-x[3:7]                                |-----|-----|-----|
-x[:-1]              |-----|-----|-----|-----|-----|-----|-----|
-x[:-4]              |-----|-----|-----|-----|
-x[::2]              |-----------|-----------|-----------|-----------|
-x[::4]              |-----------------------|-----------------------|
-```
-
-
----
-
 # Initialisation et règle de mise à jour
 
 L'objectif de ce cours est d'implémenter l'évolution de phénomènes physiques. Nous serons donc amenés à **initialiser** et **mettre à jour** des variables. Dans l'exemple simple suivant, nous **initialisons** le temps à zéro. À chaque pas de temps, nous **mettons à jour** le temps en l'incrémentant du pas de temps `dt`.
@@ -248,7 +228,7 @@ nt   = 1000
 
 for it in range(nt): # Fait une boucle qui itère 1000 fois
   temps += dt
-  print(f"Itération {it} : le temps vaut {temps}")
+  print("Itération", it, ": le temps vaut", temps)
 ```
 
 ---
@@ -288,7 +268,7 @@ nt      = 36    # 36 pas de temps (période de modélisation : 3 ans)
 for it in range(nt):
   temps += dt                          # Mise à jour du temps
   fortune += dt * (salaire - depense)  # Mise à jour de la fortune
-  print(f"Ma fortune après {temps} mois est de {fortune}")
+  print("Ma fortune après", temps, "mois est de", fortune)
 ```
 
 ---

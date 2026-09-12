@@ -5,6 +5,9 @@
 # zip the exercice folders
 sh utils/zip-exercices.sh
 
+# zip the tutoriel folders
+sh utils/zip-tutoriels.sh
+
 # git add, commit, push ...
 
 # rm the _build folder

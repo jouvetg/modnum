@@ -13,15 +13,16 @@ color: white
 
 ---
 
-# Objectifs de ce cours
+# Objectifs du cours
 
 - Introduction au modèle de diffusion en 1D
 - Illustration par des exemples
 - Principes physiques de la diffusion
 - Formulation mathématique
 - Discrétisation spatiale
-- Approximation numérique
+- Slicing et approximation numérique
 - Implémentation en Python
+- Conditions aux bords (aperçu) et utilisation d'un flag
 - Stabilité et pas de temps
 
 ---
@@ -184,6 +185,28 @@ xp = 0.6
 ixp = round((xp-a)/dx) # indice de la composante la plus proche de xp
 C[ixp] = 6             # modification de la valeur en ce point
 ```
+
+---
+
+# Rappel sur le "Slicing" d'un vecteur
+
+Si l'on a un vecteur de taille 9:
+```
+x                   |-----|-----|-----|-----|-----|-----|-----|-----|
+```
+alors nous obtenons les sous-vecteurs suivants:
+```
+x[1:]                     |-----|-----|-----|-----|-----|-----|-----|
+x[3:]                                 |-----|-----|-----|-----|-----|
+x[3:5]                                |-----|
+x[3:7]                                |-----|-----|-----|
+x[:-1]              |-----|-----|-----|-----|-----|-----|-----|
+x[:-4]              |-----|-----|-----|-----|
+x[::2]              |-----------|-----------|-----------|-----------|
+x[::4]              |-----------------------|-----------------------|
+```
+
+**Ces écritures servent à toutes les discrétisations qui suivent.**
 
 ---
 

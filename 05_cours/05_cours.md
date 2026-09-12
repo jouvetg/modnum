@@ -16,7 +16,7 @@ color: white
 # Objectifs du cours
 
 - Équation de diffusion de la température
-- Conditions aux bords
+- Conditions aux bords : Dirichlet, Neumann, mixtes
 - Condition d'arrêt d'un modèle
 - Code multi-questions
 

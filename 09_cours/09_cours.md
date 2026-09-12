@@ -19,7 +19,7 @@ color: white
 - Illustration d'un champ complexe d'advection
 - Problème d'advection-diffusion-réaction en 2D
 - Advection non uniforme
-- Discrétisation du terme d'advection en 2D (cas général)
+- Discrétisation du terme d'advection en 2D (cas général, matrices de booléens)
 - Discrétisation du terme de réaction
 - Conditions de stabilité
 

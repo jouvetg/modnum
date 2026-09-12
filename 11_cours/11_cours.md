@@ -17,7 +17,7 @@ color: white
 # Objectifs du cours
 
 - Formuler l'équation de la glace en 2D
-- Résoudre l'équation en 2D
+- Résoudre l'équation en 2D : traitement de la grille et des dimensions
 - Implémenter l'équation 2D dans un code
 
 ---

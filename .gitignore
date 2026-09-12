@@ -4,3 +4,5 @@ _build/
 ??_cours.html
 # notes de travail locales laissees a la racine
 /[A-Z]*.md
+# archive of the solution notebooks (gitignored like the notebooks themselves)
+solutions.zip

@@ -12,10 +12,11 @@ color: white
 
 ---
 
-# Objectifs de ce cours
+# Objectifs du cours
 
 - Conseils et bonnes pratiques pour coder
-- Équations d'un projectile en 2D
+- Check-list et grille d'évaluation d'un code
+- Équations d'un projectile en 2D : discrétisation et conditions initiales
 
 ---
 
