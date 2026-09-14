@@ -4,8 +4,8 @@ on:
     branches:
       - main
 
-# Sans cela, le GITHUB_TOKEN est en lecture seule et ghp-import
-# ne peut pas pousser sur la branche gh-pages.
+# Sans cela, le GITHUB_TOKEN est en lecture seule et la publication
+# sur la branche gh-pages est refusee.
 permissions:
   contents: write
 
@@ -23,16 +23,27 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install jupyter-book ghp-import
+          pip install jupyter-book
 
       - name: Build Jupyter Book
         run: jupyter-book build .
 
-      # ghp-import cree un commit : il lui faut une identite git.
-      - name: Configure git
+      # Equivalent de "ghp-import -n -p -f _build/html", mais en git explicite :
+      # le jeton est passe dans l'URL, et chaque commande est visible dans le log.
+      - name: Publish to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -x
+          test -d _build/html
+          touch _build/html/.nojekyll
+          cd _build/html
+          git init -q
+          git checkout -q -b gh-pages
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Publish to GitHub Pages
-        run: ghp-import -n -p -f _build/html
+          git add -A
+          git commit -q -m "Update documentation"
+          git push -f \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            gh-pages
