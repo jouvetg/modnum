@@ -168,7 +168,7 @@ dt      = min(dt_max, dt_diff, dt_adv)
 
 <!-- _class: invert pratique -->
 
-# Séance 9 — la séance pratique
+# La séance pratique
 
 ![](../09_exercice/fig/ex_2.png)
 

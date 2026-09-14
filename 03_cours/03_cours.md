@@ -182,7 +182,7 @@ Les conditions initiales (et aux bords en général) peuvent être aussi (voire 
 
 <!-- _class: invert pratique -->
 
-# Séance 3 — la séance pratique
+# La séance pratique
 
 ![](./fig/bombe.png)
 

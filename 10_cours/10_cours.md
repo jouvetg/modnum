@@ -113,7 +113,7 @@ b = np.minimum(b_grad * (s - s_ELA), b_max)
 # Équation non-linéaire
 
 L'équation de la glace est une équation de diffusion ; sa spécificité est que la diffusivité n'est plus un paramètre constant, mais dépend de la solution :
-$$D(h) = f_d (\rho g)^3 h^5 \left( \frac{\partial s}{\partial x} \right)^2.$$
+$$ D(h) = f_d (\rho g)^3 h^5 \left( \frac{\partial s}{\partial x} \right)^2. $$
 
 # Résolution numérique
 
@@ -191,7 +191,7 @@ et donc $[D] = m^2 y^{-1}$, ce qui est cohérent.
 
 <!-- _class: invert pratique -->
 
-# Séance 10 — la séance pratique
+# La séance pratique
 
 ![](../10_exercice/fig/sol_glacier_1D.png)
 

@@ -415,7 +415,7 @@ Sans la variable "flag", la variable `temps_passage_seuil` serait réécrite à 
 
 <!-- _class: invert pratique -->
 
-# Séance 4 — la séance pratique
+# La séance pratique
 
 ![](../04_exercice/fig/fuite_chimique_shema_s5.png)
 

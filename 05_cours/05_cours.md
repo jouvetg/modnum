@@ -282,7 +282,7 @@ Le but n'est pas de construire un nouveau code (quasiment identique à l'origina
 
 <!-- _class: invert pratique -->
 
-# Séance 5 — la séance pratique
+# La séance pratique
 
 ![](../05_exercice/fig/dykes.png)
 
