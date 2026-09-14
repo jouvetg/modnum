@@ -4,6 +4,19 @@ theme: default
 class: invert
 backgroundColor: black
 color: white
+style: |
+  section.pratique { font-size: 22px; }
+  section.pratique h1 { font-size: 38px; margin: 0 0 0.3em 0; }
+  section.pratique p, section.pratique ul { max-width: 58%; margin: 0.4em 0; }
+  section.pratique li { margin-bottom: 0.1em; }
+  section.pratique p:nth-of-type(1) {
+    position: absolute; right: 50px; top: 122px;
+    width: 38%; max-width: none; margin: 0; text-align: center; }
+  section.pratique p:nth-of-type(1) img {
+    max-width: 100%; max-height: 385px; width: auto; height: auto; }
+  section.pratique p:last-of-type {
+    position: absolute; right: 50px; bottom: 50px;
+    width: 38%; max-width: none; margin: 0; }
 ---
 
 # Cours 7
@@ -197,3 +210,23 @@ où `x` et `y` sont les vecteurs de coordonnées déjà construits avec `np.lins
 
 
 ![width:600px](./fig/modele_elementaire_s9.png)
+
+---
+
+<!-- _class: invert pratique -->
+
+# Séance 7 — la séance pratique
+
+![](../07_exercice/fig/matterhorn.png)
+
+**Que veut-on modéliser ?** — la température à l'intérieur d'une montagne, et le recul du permafrost sous le réchauffement.
+
+**Ce qui est nouveau**
+- le passage à la **2D** : une matrice `(ny, nx)`
+- **deux flux**, $q_x$ et $q_y$, et la troncature qui les rend compatibles
+- $dt_\mathrm{diff} = \min(dx,dy)^2/(4.1\,D)$, plus sévère qu'en 1D
+- Dirichlet sur les **quatre** bords
+
+**L'exercice** — suivre la migration de l'isotherme $0\,°$C, et en déduire l'étendue des pentes qui se déstabilisent.
+
+**Le tutoriel** — une figure 2D interactive, et le piège classique après `ax.cla()`.

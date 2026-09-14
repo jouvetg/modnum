@@ -5,6 +5,19 @@ class: invert
 backgroundColor: black
 color: white
 
+style: |
+  section.pratique { font-size: 22px; }
+  section.pratique h1 { font-size: 38px; margin: 0 0 0.3em 0; }
+  section.pratique p, section.pratique ul { max-width: 58%; margin: 0.4em 0; }
+  section.pratique li { margin-bottom: 0.1em; }
+  section.pratique p:nth-of-type(1) {
+    position: absolute; right: 50px; top: 122px;
+    width: 38%; max-width: none; margin: 0; text-align: center; }
+  section.pratique p:nth-of-type(1) img {
+    max-width: 100%; max-height: 385px; width: auto; height: auto; }
+  section.pratique p:last-of-type {
+    position: absolute; right: 50px; bottom: 50px;
+    width: 38%; max-width: none; margin: 0; }
 ---
 
 # Cours 6
@@ -252,3 +265,22 @@ dt      = min(dt_max, dt_diff, dt_adv)   # pas de temps retenu
 
 → On voit immédiatement **quel processus** limite le pas de temps.
 
+---
+
+<!-- _class: invert pratique -->
+
+# Séance 6 — la séance pratique
+
+![](../06_exercice/fig/cyanide.png)
+
+**Que veut-on modéliser ?** — un polluant lâché dans une rivière, qui se diffuse, est emporté par le courant, et se dégrade.
+
+**Ce qui est nouveau**
+- l'**advection** : le polluant est transporté, pas seulement étalé
+- le **splitting** : traiter chaque processus l'un après l'autre
+- le **décentrage upwind**, et ce qui arrive si l'on se trompe de sens
+- $dt = \min(dt_\mathrm{max},\ dt_\mathrm{diff},\ dt_\mathrm{adv})$
+
+**L'exercice** — suivre le panache vers l'aval, et dire quand la ville en aval repasse sous le seuil de potabilité.
+
+**Le tutoriel** — le décentrage upwind, avec le cas correct et le cas qui explose, à comparer soi-même.

@@ -5,6 +5,19 @@ class: invert
 backgroundColor: black
 color: white
 
+style: |
+  section.pratique { font-size: 22px; }
+  section.pratique h1 { font-size: 38px; margin: 0 0 0.3em 0; }
+  section.pratique p, section.pratique ul { max-width: 58%; margin: 0.4em 0; }
+  section.pratique li { margin-bottom: 0.1em; }
+  section.pratique p:nth-of-type(1) {
+    position: absolute; right: 50px; top: 122px;
+    width: 38%; max-width: none; margin: 0; text-align: center; }
+  section.pratique p:nth-of-type(1) img {
+    max-width: 100%; max-height: 385px; width: auto; height: auto; }
+  section.pratique p:last-of-type {
+    position: absolute; right: 50px; bottom: 50px;
+    width: 38%; max-width: none; margin: 0; }
 ---
 
 # Cours 9
@@ -150,3 +163,23 @@ dt_diff = min(dx, dy)**2 / (4.1 * D)
 dt_adv  = min(dx / (2.1 * np.max(np.abs(Vx))), dy / (2.1 * np.max(np.abs(Vy))))
 dt      = min(dt_max, dt_diff, dt_adv)
 ```
+
+---
+
+<!-- _class: invert pratique -->
+
+# Séance 9 — la séance pratique
+
+![](../09_exercice/fig/ex_2.png)
+
+**Que veut-on modéliser ?** — un panache de polluant dans un lac, parcouru par un courant qui change d'un point à l'autre.
+
+**Ce qui est nouveau**
+- des vitesses **non uniformes** : le sens du décentrage change selon l'endroit
+- les tailles décalées `(ny, nx-1)` et `(ny-1, nx)`
+- les **masques booléens** `Vx > 0` et `Vx < 0`, pour traiter les deux cas d'un coup
+- un terme de **réaction** : le polluant se dégrade
+
+**L'exercice** — comparer la forme du panache sous un courant uniforme, puis sous un courant qui s'inverse en cours de route.
+
+**Le tutoriel** — l'advection 2D à vitesse non uniforme, et les masques booléens.

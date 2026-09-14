@@ -4,6 +4,19 @@ theme: default
 class: invert
 backgroundColor: black
 color: white
+style: |
+  section.pratique { font-size: 22px; }
+  section.pratique h1 { font-size: 38px; margin: 0 0 0.3em 0; }
+  section.pratique p, section.pratique ul { max-width: 58%; margin: 0.4em 0; }
+  section.pratique li { margin-bottom: 0.1em; }
+  section.pratique p:nth-of-type(1) {
+    position: absolute; right: 50px; top: 122px;
+    width: 38%; max-width: none; margin: 0; text-align: center; }
+  section.pratique p:nth-of-type(1) img {
+    max-width: 100%; max-height: 385px; width: auto; height: auto; }
+  section.pratique p:last-of-type {
+    position: absolute; right: 50px; bottom: 50px;
+    width: 38%; max-width: none; margin: 0; }
 ---
 
 # Cours 1
@@ -282,3 +295,22 @@ Il existe deux manières de résoudre un modèle :
 **2. Numériquement** : lorsque l'on peut implémenter un algorithme qui approchera la solution à l'aide d'une méthode numérique itérative, ce qui est moins précis mais beaucoup plus général.
 
 L'objectif principal du cours de modélisation numérique est d'apprendre à calculer des solutions **numériques** pour des problèmes inspirés de la physique.
+
+---
+
+<!-- _class: invert pratique -->
+
+# Séance 1 — la séance pratique
+
+![](./fig/banque.png)
+
+**Que veut-on modéliser ?** — l'évolution d'une épargne, année après année.
+
+**Ce qui est nouveau**
+- la **règle de mise à jour** : l'état de demain se déduit de celui d'aujourd'hui
+- **solution analytique** (une formule) contre **solution numérique** (une boucle)
+- stocker toute l'évolution dans un vecteur, pour pouvoir la tracer
+
+**L'exercice** — passer de la formule exacte à la boucle, puis ajouter un taux d'intérêt aléatoire et une dépense imprévue — deux cas où la formule ne suffit plus.
+
+**Le tutoriel** — les fondamentaux de Python, puis un premier code complet à faire tourner : la seiche du Léman.

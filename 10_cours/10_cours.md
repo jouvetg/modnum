@@ -5,6 +5,19 @@ class: invert
 backgroundColor: black
 color: white
 
+style: |
+  section.pratique { font-size: 22px; }
+  section.pratique h1 { font-size: 38px; margin: 0 0 0.3em 0; }
+  section.pratique p, section.pratique ul { max-width: 58%; margin: 0.4em 0; }
+  section.pratique li { margin-bottom: 0.1em; }
+  section.pratique p:nth-of-type(1) {
+    position: absolute; right: 50px; top: 122px;
+    width: 38%; max-width: none; margin: 0; text-align: center; }
+  section.pratique p:nth-of-type(1) img {
+    max-width: 100%; max-height: 385px; width: auto; height: auto; }
+  section.pratique p:last-of-type {
+    position: absolute; right: 50px; bottom: 50px;
+    width: 38%; max-width: none; margin: 0; }
 ---
 
 # Cours 10
@@ -173,3 +186,23 @@ Notons que les unités sont cohérentes:
 
 nous avons $[f_d (\rho g)^3 ] = Pa^{-3} \, y^{-1} \, Pa^3 \, m^{-3} = m^{-3} y^{-1}$
 et donc $[D] = m^2 y^{-1}$, ce qui est cohérent.
+
+---
+
+<!-- _class: invert pratique -->
+
+# Séance 10 — la séance pratique
+
+![](../10_exercice/fig/sol_glacier_1D.png)
+
+**Que veut-on modéliser ?** — la croissance d'un glacier dans une vallée, puis son recul quand le climat se réchauffe.
+
+**Ce qui est nouveau**
+- une **diffusivité qui dépend de la solution** : $D(h) \propto h^5$
+- $D$ vit **entre** les cellules : il faut moyenner, pas tronquer
+- `dt` **recalculé à chaque pas**, puisque $D$ change
+- une boucle `while` : on ne sait pas d'avance combien de pas
+
+**L'exercice** — faire croître le glacier jusqu'à l'équilibre, puis le faire reculer en remontant la ligne d'équilibre.
+
+**Le tutoriel** — une diffusivité qui dépend de la solution — pourquoi la moyenne, et pas `h[:-1]`.
