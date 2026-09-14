@@ -5,6 +5,19 @@ class: invert
 backgroundColor: black
 color: white
 
+style: |
+  section.pratique { font-size: 22px; }
+  section.pratique h1 { font-size: 38px; margin: 0 0 0.3em 0; }
+  section.pratique p, section.pratique ul { max-width: 58%; margin: 0.4em 0; }
+  section.pratique li { margin-bottom: 0.1em; }
+  section.pratique p:nth-of-type(1) {
+    position: absolute; right: 50px; top: 122px;
+    width: 38%; max-width: none; margin: 0; text-align: center; }
+  section.pratique p:nth-of-type(1) img {
+    max-width: 100%; max-height: 385px; width: auto; height: auto; }
+  section.pratique p:last-of-type {
+    position: absolute; right: 50px; bottom: 50px;
+    width: 38%; max-width: none; margin: 0; }
 ---
 
 # Cours 8
@@ -217,3 +230,23 @@ dt_diff = min(dx, dy)**2 / (4.1 * D)
 dt_adv  = min(dx / (2.1 * np.abs(Vx)), dy / (2.1 * np.abs(Vy)))
 dt      = min(dt_max, dt_diff, dt_adv)
 ```
+
+---
+
+<!-- _class: invert pratique -->
+
+# Séance 8 — la séance pratique
+
+![](../08_exercice/fig/ex_1.png)
+
+**Que veut-on modéliser ?** — le géotherme de la croûte terrestre, déformé par la remontée des roches et par la chaleur venue du manteau.
+
+**Ce qui est nouveau**
+- l'**advection en 2D**, mais dans une seule direction
+- Neumann **non nul** : on impose l'échange, plus l'état
+- la température au fond devient un **résultat**
+- un domaine rectangulaire : `dx` et `dz` différents
+
+**L'exercice** — comparer trois scénarios tectoniques, et voir la différence entre une température imposée au fond et une température qui résulte d'un flux.
+
+**Le tutoriel** — construire des champs 2D avec `np.meshgrid`, sans écrire de boucle.

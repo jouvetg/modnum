@@ -4,6 +4,19 @@ theme: default
 class: invert
 backgroundColor: black
 color: white
+style: |
+  section.pratique { font-size: 22px; }
+  section.pratique h1 { font-size: 38px; margin: 0 0 0.3em 0; }
+  section.pratique p, section.pratique ul { max-width: 58%; margin: 0.4em 0; }
+  section.pratique li { margin-bottom: 0.1em; }
+  section.pratique p:nth-of-type(1) {
+    position: absolute; right: 50px; top: 122px;
+    width: 38%; max-width: none; margin: 0; text-align: center; }
+  section.pratique p:nth-of-type(1) img {
+    max-width: 100%; max-height: 385px; width: auto; height: auto; }
+  section.pratique p:last-of-type {
+    position: absolute; right: 50px; bottom: 50px;
+    width: 38%; max-width: none; margin: 0; }
 ---
 
 # Cours 2
@@ -246,3 +259,22 @@ $$x^{\text{new}} = x^{\text{old}} + V \, dt.$$
 x += V * dt
 ```
 
+---
+
+<!-- _class: invert pratique -->
+
+# Séance 2 — la séance pratique
+
+![](./fig/voiture.png)
+
+**Que veut-on modéliser ?** — le trajet d'une voiture qui fait des allers-retours, d'abord sur une ligne, puis en zig-zag dans un plan.
+
+**Ce qui est nouveau**
+- **discrétiser le temps** : choisir `dt`, compter les pas
+- la règle $x^{\mathrm{new}} = x^{\mathrm{old}} + V\,dt$, dans une boucle
+- une figure **mise à jour dans la boucle**, aux axes figés
+- convertir les unités **avant** de commencer
+
+**L'exercice** — construire la boucle temporelle, voir l'effet du pas de temps sur le trajet, puis passer en 2D en décomposant la vitesse.
+
+**Le tutoriel** — les figures interactives : `clear_output`, `ax.cla`, `display`, et pourquoi il faut figer les axes.

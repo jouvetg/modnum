@@ -212,6 +212,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -221,6 +222,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -257,6 +259,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -265,6 +268,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -314,6 +318,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -322,6 +327,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 6</a></li>
+
 
 
 
@@ -358,6 +364,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -366,6 +373,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -394,6 +402,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -402,6 +411,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -603,6 +613,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-de-reaction">Discrétisation du terme de réaction</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite-le-minimum">Condition de stabilité: le minimum</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#seance-6-la-seance-pratique">Séance 6 — la séance pratique</a></li>
 </ul>
 
             </nav>
@@ -814,6 +825,22 @@ C^{n+1}  &amp; = C^{n+2/3} &amp; - \left( \gamma C \right)^n  \times dt  \\
 </pre></div>
 </div>
 <p>→ On voit immédiatement <strong>quel processus</strong> limite le pas de temps.</p>
+<hr class="docutils" />
+<!-- _class: invert pratique -->
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="seance-6-la-seance-pratique">
+<h1>Séance 6 — la séance pratique<a class="headerlink" href="#seance-6-la-seance-pratique" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/cyanide.png" /></p>
+<p><strong>Que veut-on modéliser ?</strong> — un polluant lâché dans une rivière, qui se diffuse, est emporté par le courant, et se dégrade.</p>
+<p><strong>Ce qui est nouveau</strong></p>
+<ul class="simple">
+<li><p>l’<strong>advection</strong> : le polluant est transporté, pas seulement étalé</p></li>
+<li><p>le <strong>splitting</strong> : traiter chaque processus l’un après l’autre</p></li>
+<li><p>le <strong>décentrage upwind</strong>, et ce qui arrive si l’on se trompe de sens</p></li>
+<li><p><span class="math notranslate nohighlight">\(dt = \min(dt_\mathrm{max},\ dt_\mathrm{diff},\ dt_\mathrm{adv})\)</span></p></li>
+</ul>
+<p><strong>L’exercice</strong> — suivre le panache vers l’aval, et dire quand la ville en aval repasse sous le seuil de potabilité.</p>
+<p><strong>Le tutoriel</strong> — le décentrage upwind, avec le cas correct et le cas qui explose, à comparer soi-même.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -896,6 +923,7 @@ C^{n+1}  &amp; = C^{n+2/3} &amp; - \left( \gamma C \right)^n  \times dt  \\
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-de-reaction">Discrétisation du terme de réaction</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite-le-minimum">Condition de stabilité: le minimum</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#seance-6-la-seance-pratique">Séance 6 — la séance pratique</a></li>
 </ul>
 
   </nav></div>

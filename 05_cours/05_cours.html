@@ -212,6 +212,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -221,6 +222,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -257,6 +259,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -265,6 +268,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -314,6 +318,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -322,6 +327,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -358,6 +364,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -366,6 +373,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -394,6 +402,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -402,6 +411,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -603,6 +613,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilite-et-pas-de-temps">Stabilité et pas de temps</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-d-arret-d-un-modele">Condition d’arrêt d’un modèle</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#code-avec-plusieurs-variantes">Code avec plusieurs variantes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#seance-5-la-seance-pratique">Séance 5 — la séance pratique</a></li>
 </ul>
 
             </nav>
@@ -830,6 +841,22 @@ dt = \min \left( dt_\mathrm{max}, \ dt_\mathrm{diff} \right)\]</div>
 <p><strong>Attention:</strong> on utilise <code class="docutils literal notranslate"><span class="pre">Q</span></code> en majuscule, car <code class="docutils literal notranslate"><span class="pre">qx</span></code> désigne déjà un flux.</p>
 <p>Le but n’est pas de construire un nouveau code (quasiment identique à l’original), mais de ne modifier que la portion de code concernée.</p>
 <p>→ Cela rend votre rendu / code bien plus concis!</p>
+<hr class="docutils" />
+<!-- _class: invert pratique -->
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="seance-5-la-seance-pratique">
+<h1>Séance 5 — la séance pratique<a class="headerlink" href="#seance-5-la-seance-pratique" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/dykes.png" /></p>
+<p><strong>Que veut-on modéliser ?</strong> — la chaleur de deux intrusions magmatiques successives, qui se diffuse dans la roche encaissante.</p>
+<p><strong>Ce qui est nouveau</strong></p>
+<ul class="simple">
+<li><p>les <strong>conditions aux bords</strong> : Dirichlet, Neumann, flux nul</p></li>
+<li><p>un <strong>événement au milieu</strong> du calcul : la seconde intrusion arrive</p></li>
+<li><p>un <strong>code unique</strong> pour plusieurs questions, piloté par <code class="docutils literal notranslate"><span class="pre">Q</span></code></p></li>
+<li><p>une <strong>condition d’arrêt</strong> sur une sonde posée dans le domaine</p></li>
+</ul>
+<p><strong>L’exercice</strong> — dater le moment où la sonde franchit son seuil de température, puis voir comment ce moment dépend des conditions aux bords.</p>
+<p><strong>Le tutoriel</strong> — des tailles cohérentes en 1D, et comment écrire un seul code pour plusieurs questions.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -912,6 +939,7 @@ dt = \min \left( dt_\mathrm{max}, \ dt_\mathrm{diff} \right)\]</div>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilite-et-pas-de-temps">Stabilité et pas de temps</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-d-arret-d-un-modele">Condition d’arrêt d’un modèle</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#code-avec-plusieurs-variantes">Code avec plusieurs variantes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#seance-5-la-seance-pratique">Séance 5 — la séance pratique</a></li>
 </ul>
 
   </nav></div>

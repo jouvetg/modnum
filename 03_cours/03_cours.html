@@ -212,6 +212,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -221,6 +222,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -257,6 +259,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -265,6 +268,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -314,6 +318,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -322,6 +327,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -358,6 +364,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -366,6 +373,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -394,6 +402,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -402,6 +411,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -598,6 +608,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-du-mouvement-d-un-projectile-en-2d">Équation du mouvement d’un projectile en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-modele-de-projectile-en-2d">Discrétisation du modèle de projectile en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-initiales">Conditions initiales</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#seance-3-la-seance-pratique">Séance 3 — la séance pratique</a></li>
 </ul>
 
             </nav>
@@ -757,6 +768,22 @@ v_y(t_{0}) = v_{y,0}.
 \end{align}
 \end{split}\]</div>
 <p>Les conditions initiales (et aux bords en général) peuvent être aussi (voire plus) influentes que l’équation sur la solution.</p>
+<hr class="docutils" />
+<!-- _class: invert pratique -->
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="seance-3-la-seance-pratique">
+<h1>Séance 3 — la séance pratique<a class="headerlink" href="#seance-3-la-seance-pratique" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/bombe.png" /></p>
+<p><strong>Que veut-on modéliser ?</strong> — la trajectoire d’une bombe éjectée par un volcan, jusqu’à sa retombée en mer.</p>
+<p><strong>Ce qui est nouveau</strong></p>
+<ul class="simple">
+<li><p>deux équations <strong>couplées</strong>, avec <span class="math notranslate nohighlight">\(dV_y/dt = -g\)</span></p></li>
+<li><p>la <strong>solution analytique comme cible</strong> : le modèle doit la retrouver</p></li>
+<li><p>l’effet du <strong>pas de temps</strong> sur la précision</p></li>
+<li><p>s’arrêter au bon moment</p></li>
+</ul>
+<p><strong>L’exercice</strong> — retrouver numériquement la trajectoire exacte, dire où et quand la bombe retombe, et regarder la précision se dégrader quand <code class="docutils literal notranslate"><span class="pre">dt</span></code> grandit.</p>
+<p><strong>Le tutoriel</strong> — les conditions d’arrêt : un <code class="docutils literal notranslate"><span class="pre">flag</span></code> pour repérer la <strong>première</strong> fois qu’un seuil est franchi.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -834,6 +861,7 @@ v_y(t_{0}) = v_{y,0}.
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-du-mouvement-d-un-projectile-en-2d">Équation du mouvement d’un projectile en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-modele-de-projectile-en-2d">Discrétisation du modèle de projectile en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-initiales">Conditions initiales</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#seance-3-la-seance-pratique">Séance 3 — la séance pratique</a></li>
 </ul>
 
   </nav></div>

@@ -5,6 +5,19 @@ class: invert
 backgroundColor: black
 color: white
 
+style: |
+  section.pratique { font-size: 22px; }
+  section.pratique h1 { font-size: 38px; margin: 0 0 0.3em 0; }
+  section.pratique p, section.pratique ul { max-width: 58%; margin: 0.4em 0; }
+  section.pratique li { margin-bottom: 0.1em; }
+  section.pratique p:nth-of-type(1) {
+    position: absolute; right: 50px; top: 122px;
+    width: 38%; max-width: none; margin: 0; text-align: center; }
+  section.pratique p:nth-of-type(1) img {
+    max-width: 100%; max-height: 385px; width: auto; height: auto; }
+  section.pratique p:last-of-type {
+    position: absolute; right: 50px; bottom: 50px;
+    width: 38%; max-width: none; margin: 0; }
 ---
 
 # Cours 4
@@ -398,8 +411,22 @@ for it in range(nt):
 ```
 Sans la variable "flag", la variable `temps_passage_seuil` serait réécrite à chaque pas de temps (car la condition reste satisfaite), et l'on perdrait l'information du moment où cette condition a été remplie pour la première fois. Alternativement, on aurait pu utiliser un `break`.
 
+---
 
+<!-- _class: invert pratique -->
 
+# Séance 4 — la séance pratique
 
+![](../04_exercice/fig/fuite_chimique_shema_s5.png)
 
+**Que veut-on modéliser ?** — un polluant qui diffuse dans le sol depuis le lieu d'un accident, jusqu'à la rivière voisine.
 
+**Ce qui est nouveau**
+- une **dérivée spatiale**, et le flux $q_x = -D\,\partial C/\partial x$
+- des tableaux de **tailles différentes** : $n$, $n-1$, $n-2$
+- la contrainte de stabilité $dt_\mathrm{diff} = dx^2/(2.1\,D)$
+- un `flag` pour dater le franchissement d'un seuil
+
+**L'exercice** — dater l'arrivée du polluant dans la rivière, puis le moment où le flux qui s'y déverse commence enfin à décroître.
+
+**Le tutoriel** — discrétisation spatiale, slicing, indexation et assignation, et l'approximation d'une dérivée.

@@ -212,6 +212,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -221,6 +222,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -257,6 +259,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -265,6 +268,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -314,6 +318,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -322,6 +327,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -358,6 +364,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -366,6 +373,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 8</a></li>
+
 
 
 
@@ -394,6 +402,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -402,6 +411,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -600,6 +610,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-flux-nul-alpha-beta-0">Condition de flux nul (<span class="math notranslate nohighlight">\(\alpha=\beta=0\)</span>)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#imposer-un-flux-plutot-qu-un-gradient">Imposer un flux plutôt qu’un gradient</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#seance-8-la-seance-pratique">Séance 8 — la séance pratique</a></li>
 </ul>
 
             </nav>
@@ -785,6 +796,22 @@ dt_\mathrm{adv} = \min \left( \frac{dx}{2.1 \times |V_x|} , \frac{dy}{2.1 \times
 <span class="n">dt</span>      <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dt_max</span><span class="p">,</span> <span class="n">dt_diff</span><span class="p">,</span> <span class="n">dt_adv</span><span class="p">)</span>
 </pre></div>
 </div>
+<hr class="docutils" />
+<!-- _class: invert pratique -->
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="seance-8-la-seance-pratique">
+<h1>Séance 8 — la séance pratique<a class="headerlink" href="#seance-8-la-seance-pratique" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/ex_1.png" /></p>
+<p><strong>Que veut-on modéliser ?</strong> — le géotherme de la croûte terrestre, déformé par la remontée des roches et par la chaleur venue du manteau.</p>
+<p><strong>Ce qui est nouveau</strong></p>
+<ul class="simple">
+<li><p>l’<strong>advection en 2D</strong>, mais dans une seule direction</p></li>
+<li><p>Neumann <strong>non nul</strong> : on impose l’échange, plus l’état</p></li>
+<li><p>la température au fond devient un <strong>résultat</strong></p></li>
+<li><p>un domaine rectangulaire : <code class="docutils literal notranslate"><span class="pre">dx</span></code> et <code class="docutils literal notranslate"><span class="pre">dz</span></code> différents</p></li>
+</ul>
+<p><strong>L’exercice</strong> — comparer trois scénarios tectoniques, et voir la différence entre une température imposée au fond et une température qui résulte d’un flux.</p>
+<p><strong>Le tutoriel</strong> — construire des champs 2D avec <code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code>, sans écrire de boucle.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -864,6 +891,7 @@ dt_\mathrm{adv} = \min \left( \frac{dx}{2.1 \times |V_x|} , \frac{dy}{2.1 \times
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-flux-nul-alpha-beta-0">Condition de flux nul (<span class="math notranslate nohighlight">\(\alpha=\beta=0\)</span>)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#imposer-un-flux-plutot-qu-un-gradient">Imposer un flux plutôt qu’un gradient</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#seance-8-la-seance-pratique">Séance 8 — la séance pratique</a></li>
 </ul>
 
   </nav></div>

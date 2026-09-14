@@ -212,6 +212,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -221,6 +222,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 2</a></li>
+
 
 
 
@@ -257,6 +259,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -265,6 +268,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -314,6 +318,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -322,6 +327,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -358,6 +364,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -366,6 +373,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -394,6 +402,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -402,6 +411,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -605,6 +615,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#application-a-la-vitesse-dun-objet-en-1d">Application à la vitesse d’un objet en 1D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#erreurs-induites-par-l-approximation">Erreurs induites par l’approximation</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-continues-versus-discretisees">Équations “continues” versus “discrétisées”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#seance-2-la-seance-pratique">Séance 2 — la séance pratique</a></li>
 </ul>
 
             </nav>
@@ -823,6 +834,22 @@ $<span class="math notranslate nohighlight">\(\frac{dx(t)}{dt} = v(t)\)</span>$<
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+=</span> <span class="n">V</span> <span class="o">*</span> <span class="n">dt</span>
 </pre></div>
 </div>
+<hr class="docutils" />
+<!-- _class: invert pratique -->
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="seance-2-la-seance-pratique">
+<h1>Séance 2 — la séance pratique<a class="headerlink" href="#seance-2-la-seance-pratique" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/voiture.png" /></p>
+<p><strong>Que veut-on modéliser ?</strong> — le trajet d’une voiture qui fait des allers-retours, d’abord sur une ligne, puis en zig-zag dans un plan.</p>
+<p><strong>Ce qui est nouveau</strong></p>
+<ul class="simple">
+<li><p><strong>discrétiser le temps</strong> : choisir <code class="docutils literal notranslate"><span class="pre">dt</span></code>, compter les pas</p></li>
+<li><p>la règle <span class="math notranslate nohighlight">\(x^{\mathrm{new}} = x^{\mathrm{old}} + V\,dt\)</span>, dans une boucle</p></li>
+<li><p>une figure <strong>mise à jour dans la boucle</strong>, aux axes figés</p></li>
+<li><p>convertir les unités <strong>avant</strong> de commencer</p></li>
+</ul>
+<p><strong>L’exercice</strong> — construire la boucle temporelle, voir l’effet du pas de temps sur le trajet, puis passer en 2D en décomposant la vitesse.</p>
+<p><strong>Le tutoriel</strong> — les figures interactives : <code class="docutils literal notranslate"><span class="pre">clear_output</span></code>, <code class="docutils literal notranslate"><span class="pre">ax.cla</span></code>, <code class="docutils literal notranslate"><span class="pre">display</span></code>, et pourquoi il faut figer les axes.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -907,6 +934,7 @@ $<span class="math notranslate nohighlight">\(\frac{dx(t)}{dt} = v(t)\)</span>$<
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#application-a-la-vitesse-dun-objet-en-1d">Application à la vitesse d’un objet en 1D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#erreurs-induites-par-l-approximation">Erreurs induites par l’approximation</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-continues-versus-discretisees">Équations “continues” versus “discrétisées”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#seance-2-la-seance-pratique">Séance 2 — la séance pratique</a></li>
 </ul>
 
   </nav></div>

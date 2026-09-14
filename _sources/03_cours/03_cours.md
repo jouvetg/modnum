@@ -4,6 +4,19 @@ theme: default
 class: invert
 backgroundColor: black
 color: white
+style: |
+  section.pratique { font-size: 22px; }
+  section.pratique h1 { font-size: 38px; margin: 0 0 0.3em 0; }
+  section.pratique p, section.pratique ul { max-width: 58%; margin: 0.4em 0; }
+  section.pratique li { margin-bottom: 0.1em; }
+  section.pratique p:nth-of-type(1) {
+    position: absolute; right: 50px; top: 122px;
+    width: 38%; max-width: none; margin: 0; text-align: center; }
+  section.pratique p:nth-of-type(1) img {
+    max-width: 100%; max-height: 385px; width: auto; height: auto; }
+  section.pratique p:last-of-type {
+    position: absolute; right: 50px; bottom: 50px;
+    width: 38%; max-width: none; margin: 0; }
 ---
 
 # Cours 3
@@ -164,3 +177,23 @@ v_y(t_{0}) = v_{y,0}.
 $$
 
 Les conditions initiales (et aux bords en général) peuvent être aussi (voire plus) influentes que l'équation sur la solution.
+
+---
+
+<!-- _class: invert pratique -->
+
+# Séance 3 — la séance pratique
+
+![](./fig/bombe.png)
+
+**Que veut-on modéliser ?** — la trajectoire d'une bombe éjectée par un volcan, jusqu'à sa retombée en mer.
+
+**Ce qui est nouveau**
+- deux équations **couplées**, avec $dV_y/dt = -g$
+- la **solution analytique comme cible** : le modèle doit la retrouver
+- l'effet du **pas de temps** sur la précision
+- s'arrêter au bon moment
+
+**L'exercice** — retrouver numériquement la trajectoire exacte, dire où et quand la bombe retombe, et regarder la précision se dégrader quand `dt` grandit.
+
+**Le tutoriel** — les conditions d'arrêt : un `flag` pour repérer la **première** fois qu'un seuil est franchi.

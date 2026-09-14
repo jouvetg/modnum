@@ -4,6 +4,19 @@ theme: default
 class: invert
 backgroundColor: black
 color: white
+style: |
+  section.pratique { font-size: 22px; }
+  section.pratique h1 { font-size: 38px; margin: 0 0 0.3em 0; }
+  section.pratique p, section.pratique ul { max-width: 58%; margin: 0.4em 0; }
+  section.pratique li { margin-bottom: 0.1em; }
+  section.pratique p:nth-of-type(1) {
+    position: absolute; right: 50px; top: 122px;
+    width: 38%; max-width: none; margin: 0; text-align: center; }
+  section.pratique p:nth-of-type(1) img {
+    max-width: 100%; max-height: 385px; width: auto; height: auto; }
+  section.pratique p:last-of-type {
+    position: absolute; right: 50px; bottom: 50px;
+    width: 38%; max-width: none; margin: 0; }
 ---
 
 # Cours 1
@@ -30,11 +43,10 @@ color: white
 
 # Exemple 1 : Le mouvement des glaciers
 
-Le mouvement de la glace ressemble à celui d'un **fluide** (très) visqueux.
-
+Le mouvement de la glace ressemble à celui d'un **fluide** (très) visqueux. 
 La modélisation des glaciers fait donc appel à la **mécanique des fluides**.
 
-![](./fig/steps_s1.png)
+![height:350](./fig/steps_s1.png)
 
 Voir des modélisations sur https://jouvetg.github.io/the-aletsch-glacier-module/
 
@@ -43,7 +55,7 @@ Voir des modélisations sur https://jouvetg.github.io/the-aletsch-glacier-module
 
 # Exemple 2 : Rupture d'iceberg avec tsunami
 
-![height:250px](./fig/ex_velage_s1.jpg) ![height:250px](./fig/ex_velage2_s1.png)
+![height:400px](./fig/ex_velage2_s1.png)
 
 Source: J. Gaume, animation: https://youtu.be/7IC_ehdH7ZM
 
@@ -58,6 +70,7 @@ Source: J. Gaume, animation: https://youtu.be/YQ7e06-MZec
 ---
 
 # Exemple 4: Modèles climatiques
+
 ![](fig/ex_mod_climatique_s1.png)
 Source: http://www.windy.com/
 
@@ -73,7 +86,7 @@ Source : Candioti et al., 2022 (UNIL/FGSE)
 
 ![height:350px](./fig/evol_paysage_s3.png)
 
-La formation des paysages fait intervenir i) la tectonique des plaques, ii) l’érosion fluviale, iii) les processus de versant, iv) l’érosion glaciaire, v) le transport de sédiments.
+La formation des paysages fait intervenir i) tectonique des plaques, ii) érosion fluviale, iii)processus de versant, iv) érosion glaciaire, v) transport de sédiments.
 
 Source : Campforts et al., 2017, Esurf
 
@@ -121,7 +134,7 @@ Les exercices du cours sont donnés sous forme de "Jupyter Notebooks".
   - Très utilisé pour le calcul scientifique, l'analyse de données, etc.
 
 - **Fonctionnalités :**
-  - Les cellules de code peuvent être exécutées indépendamment (Shift + Enter).
+  - Cellules de code peuvent être exécutées indépendamment (Shift + Enter).
   - Possibilité d'ajouter des explications en Markdown.
   - Visualisation de graphiques et résultats directement dans le notebook.
 
@@ -282,3 +295,22 @@ Il existe deux manières de résoudre un modèle :
 **2. Numériquement** : lorsque l'on peut implémenter un algorithme qui approchera la solution à l'aide d'une méthode numérique itérative, ce qui est moins précis mais beaucoup plus général.
 
 L'objectif principal du cours de modélisation numérique est d'apprendre à calculer des solutions **numériques** pour des problèmes inspirés de la physique.
+
+---
+
+<!-- _class: invert pratique -->
+
+# Séance 1 — la séance pratique
+
+![](./fig/banque.png)
+
+**Que veut-on modéliser ?** — l'évolution d'une épargne, année après année.
+
+**Ce qui est nouveau**
+- la **règle de mise à jour** : l'état de demain se déduit de celui d'aujourd'hui
+- **solution analytique** (une formule) contre **solution numérique** (une boucle)
+- stocker toute l'évolution dans un vecteur, pour pouvoir la tracer
+
+**L'exercice** — passer de la formule exacte à la boucle, puis ajouter un taux d'intérêt aléatoire et une dépense imprévue — deux cas où la formule ne suffit plus.
+
+**Le tutoriel** — les fondamentaux de Python, puis un premier code complet à faire tourner : la seiche du Léman.

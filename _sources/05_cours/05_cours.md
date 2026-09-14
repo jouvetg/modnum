@@ -4,6 +4,19 @@ theme: default
 class: invert
 backgroundColor: black
 color: white
+style: |
+  section.pratique { font-size: 22px; }
+  section.pratique h1 { font-size: 38px; margin: 0 0 0.3em 0; }
+  section.pratique p, section.pratique ul { max-width: 58%; margin: 0.4em 0; }
+  section.pratique li { margin-bottom: 0.1em; }
+  section.pratique p:nth-of-type(1) {
+    position: absolute; right: 50px; top: 122px;
+    width: 38%; max-width: none; margin: 0; text-align: center; }
+  section.pratique p:nth-of-type(1) img {
+    max-width: 100%; max-height: 385px; width: auto; height: auto; }
+  section.pratique p:last-of-type {
+    position: absolute; right: 50px; bottom: 50px;
+    width: 38%; max-width: none; margin: 0; }
 ---
 
 # Cours 5
@@ -265,10 +278,22 @@ Le but n'est pas de construire un nouveau code (quasiment identique à l'origina
 
 → Cela rend votre rendu / code bien plus concis!
 
+---
 
+<!-- _class: invert pratique -->
 
+# Séance 5 — la séance pratique
 
+![](../05_exercice/fig/dykes.png)
 
+**Que veut-on modéliser ?** — la chaleur de deux intrusions magmatiques successives, qui se diffuse dans la roche encaissante.
 
+**Ce qui est nouveau**
+- les **conditions aux bords** : Dirichlet, Neumann, flux nul
+- un **événement au milieu** du calcul : la seconde intrusion arrive
+- un **code unique** pour plusieurs questions, piloté par `Q`
+- une **condition d'arrêt** sur une sonde posée dans le domaine
 
+**L'exercice** — dater le moment où la sonde franchit son seuil de température, puis voir comment ce moment dépend des conditions aux bords.
 
+**Le tutoriel** — des tailles cohérentes en 1D, et comment écrire un seul code pour plusieurs questions.
