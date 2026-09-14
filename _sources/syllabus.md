@@ -57,7 +57,7 @@ Chaque séance comprend un **cours**, un **tutoriel** (courte mise en train prat
 | 10 | Équation de la glace 1D, diffusion non linéaire | Une diffusivité qui dépend de la solution | Modélisation d'un glacier synthétique |
 |  | **Test II** |  |  |
 
-> 🧭 **Séance 11 — hors-programme, pour les curieux.** L'équation de la glace **en 2D** (diffusion non linéaire en deux dimensions) et la modélisation d'un glacier réel, le **glacier du Gorner** (VS), ne font **pas partie de la matière évaluée** et ne sont pas traitées en séance. Le cours, le tutoriel et l'exercice restent disponibles en ligne pour qui souhaite aller plus loin : ils réutilisent tout ce qui a été vu aux séances 7 à 10 et constituent un bon projet personnel.
+> 🧭 **Séance 11 — hors-programme.** L'équation de la glace **en 2D** (diffusion non linéaire en deux dimensions) et la modélisation d'un glacier réel, le **glacier du Gorner** (VS), ne font **pas partie de la matière évaluée** et ne sont pas traitées en séance. Le cours, le tutoriel et l'exercice restent disponibles en ligne pour qui souhaite aller plus loin : ils réutilisent tout ce qui a été vu aux séances 7 à 10 et constituent un bon projet personnel.
 
  
 ## Grille d'évaluation d'un code

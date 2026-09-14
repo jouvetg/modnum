@@ -206,16 +206,9 @@ où `x` et `y` sont les vecteurs de coordonnées déjà construits avec `np.lins
 
 ---
 
-# Tutoriel 7 sur la construction de figure 2D interactives
-
-
-![width:600px](./fig/modele_elementaire_s9.png)
-
----
-
 <!-- _class: invert pratique -->
 
-# Séance 7 — la séance pratique
+# La séance pratique
 
 ![](../07_exercice/fig/matterhorn.png)
 

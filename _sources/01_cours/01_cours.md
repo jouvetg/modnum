@@ -300,7 +300,7 @@ L'objectif principal du cours de modélisation numérique est d'apprendre à cal
 
 <!-- _class: invert pratique -->
 
-# Séance 1 — la séance pratique
+# La séance pratique
 
 ![](./fig/banque.png)
 

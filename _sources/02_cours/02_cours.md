@@ -263,7 +263,7 @@ x += V * dt
 
 <!-- _class: invert pratique -->
 
-# Séance 2 — la séance pratique
+# La séance pratique
 
 ![](./fig/voiture.png)
 

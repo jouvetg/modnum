@@ -8,7 +8,7 @@ color: white
 
 # Cours 11
 
-**Hors-programme — pour les curieux**
+**Hors-programme**
 
 ![](../illu_mod_num_s.png)
 

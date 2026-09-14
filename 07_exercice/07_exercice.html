@@ -364,7 +364,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices 7</a></li>
@@ -431,7 +430,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../10_exercice/10_exercice.html">Exercices 10</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11 — hors-programme, pour les curieux</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 11 — hors-programme</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../11_cours/11_cours.html">Cours 11</a></li>
 
@@ -776,6 +775,8 @@ document.write(`
 <section id="modele-realiste-du-cervin">
 <h2>2. Modèle réaliste du Cervin<a class="headerlink" href="#modele-realiste-du-cervin" title="Link to this heading">#</a></h2>
 <p>Afin de modéliser le Cervin simplement, nous réduirons sa géométrie à un carré, qu’il faudra imaginer tourné d’un angle de 45°. Nous reprendrons le code du modèle élémentaire.</p>
+<p><img alt="" src="../_images/matterhorn.png" /></p>
+<p><em>Le Cervin réduit à un carré : à gauche la montagne en coupe, à droite le même domaine redressé, tel qu’il apparaît dans le code. Les deux faces exposées portent les conditions aux bords qui varient le long du bord ; les deux autres restent à 10 °C.</em></p>
 <p>Nous créons deux vecteurs de conditions aux bords qui représentent les faces nord et sud de la montagne. Le <strong>sommet</strong> correspond au coin supérieur gauche du domaine, en <span class="math notranslate nohighlight">\((x=0,\ y=L_y)\)</span> :</p>
 <ul class="simple">
 <li><p>la <strong>face nord</strong> est le bord supérieur (<code class="docutils literal notranslate"><span class="pre">T[-1,:]</span></code>) : sa température va de <span class="math notranslate nohighlight">\(-15\)</span>°C au sommet (<span class="math notranslate nohighlight">\(x=0\)</span>) à <span class="math notranslate nohighlight">\(10\)</span>°C au pied (<span class="math notranslate nohighlight">\(x=L_x\)</span>) ;</p></li>
@@ -830,8 +831,6 @@ document.write(`
 <blockquote>
 <div><p>⚠️ <strong>Attention aux unités !</strong> Les paramètres ne vous sont pas tous donnés dans des unités compatibles entre elles. Convertissez-les explicitement dans votre code, avant la boucle temporelle.</p>
 </div></blockquote>
-<p><img alt="" src="../_images/matterhorn.png" /></p>
-<p><em>Le Cervin réduit à un carré : à gauche la montagne en coupe, à droite le même domaine redressé, tel qu’il apparaît dans le code. Les deux faces exposées portent les conditions aux bords qui varient le long du bord ; les deux autres restent à 10 °C.</em></p>
 <section id="id1">
 <h3>✅ <strong>À vous de faire !</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 </section>

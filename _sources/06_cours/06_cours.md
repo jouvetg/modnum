@@ -269,7 +269,7 @@ dt      = min(dt_max, dt_diff, dt_adv)   # pas de temps retenu
 
 <!-- _class: invert pratique -->
 
-# Séance 6 — la séance pratique
+# La séance pratique
 
 ![](../06_exercice/fig/cyanide.png)
 
