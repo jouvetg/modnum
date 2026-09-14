@@ -185,8 +185,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Installer VS Code + Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
 <ul class="nav bd-sidenav">
@@ -347,6 +345,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 7</a></li>
+
 
 
 
@@ -600,6 +599,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#troncature-pour-assurer-la-compatibilite">Troncature pour assurer la compatibilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-aux-bords-de-dirichlet">Conditions aux bords de Dirichlet</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tracer-une-ligne-de-niveau">Tracer une ligne de niveau</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tutoriel-7-sur-la-construction-de-figure-2d-interactives">Tutoriel 7 sur la construction de figure 2D interactives</a></li>
 </ul>
 
@@ -758,6 +758,15 @@ En 2D, nous modélisons un rectangle, ce qui implique de prendre en compte les q
 </div>
 </section>
 <hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="tracer-une-ligne-de-niveau">
+<h1>Tracer une ligne de niveau<a class="headerlink" href="#tracer-une-ligne-de-niveau" title="Link to this heading">#</a></h1>
+<p>Sur un champ 2D, il est souvent parlant de faire ressortir <strong>une valeur particulière</strong> : l’isotherme <span class="math notranslate nohighlight">\(0\)</span>°C qui sépare la roche gelée de la roche dégelée, par exemple. La commande <code class="docutils literal notranslate"><span class="pre">ax.contour</span></code> trace la ou les lignes de niveau demandées par <code class="docutils literal notranslate"><span class="pre">levels</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>   <span class="c1"># la ligne T = 0 degC, en noir</span>
+</pre></div>
+</div>
+<p>où <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> sont les vecteurs de coordonnées déjà construits avec <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code>. <code class="docutils literal notranslate"><span class="pre">levels</span></code> attend une <strong>liste</strong> : <code class="docutils literal notranslate"><span class="pre">levels=[0]</span></code> ne trace qu’une ligne, <code class="docutils literal notranslate"><span class="pre">levels=[-5,</span> <span class="pre">0,</span> <span class="pre">5]</span></code> en trace trois. On peut superposer plusieurs <code class="docutils literal notranslate"><span class="pre">contour</span></code> de couleurs différentes, par exemple l’état initial et l’état courant, pour visualiser le déplacement de la limite.</p>
+</section>
+<hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-7-sur-la-construction-de-figure-2d-interactives">
 <h1>Tutoriel 7 sur la construction de figure 2D interactives<a class="headerlink" href="#tutoriel-7-sur-la-construction-de-figure-2d-interactives" title="Link to this heading">#</a></h1>
 <p><img alt="width:600px" src="../_images/modele_elementaire_s9.png" /></p>
@@ -839,6 +848,7 @@ En 2D, nous modélisons un rectangle, ce qui implique de prendre en compte les q
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#troncature-pour-assurer-la-compatibilite">Troncature pour assurer la compatibilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-aux-bords-de-dirichlet">Conditions aux bords de Dirichlet</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tracer-une-ligne-de-niveau">Tracer une ligne de niveau</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tutoriel-7-sur-la-construction-de-figure-2d-interactives">Tutoriel 7 sur la construction de figure 2D interactives</a></li>
 </ul>
 

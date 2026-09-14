@@ -90,9 +90,9 @@ Source : Campforts et al., 2017, Esurf
 
 ---
 
-# Document "introduction à Python"
+# Page "introduction à Python"
 
-![](fig/doc_intro_s1.png)
+https://jouvetg.github.io/modnum/00_intro_python/00_intro_python.html
 
 ---
 

@@ -185,8 +185,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Installer VS Code + Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
 <ul class="nav bd-sidenav">
@@ -347,6 +345,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../07_cours/07_cours.html">Cours 7</a></li>
+
 
 
 
@@ -613,7 +612,7 @@ document.write(`
 <h1>Intrusion magmatique<a class="headerlink" href="#intrusion-magmatique" title="Link to this heading">#</a></h1>
 <p>Le but de cet exercice est de modéliser deux intrusions magmatiques successives qui réchauffent la roche environnante en résolvant un problème de diffusion. Ce problème peut être simplifié en une dimension (1D) où la dimension <span class="math notranslate nohighlight">\(x\)</span> représente la distance orthogonale aux intrusions.</p>
 <p><img alt="" src="../_images/dykes.png" /></p>
-<p><em>Figure 1 : représentation des deux intrusions successives et de la diffusion de leur chaleur dans la roche environnante.</em></p>
+<p><em>Figure 1 : les deux intrusions successives et la diffusion de leur chaleur dans la roche encaissante, aux quatre moments clés du modèle.</em></p>
 <p>Les deux intrusions s’infiltrent l’une après l’autre à une profondeur d’environ 1 km, où la roche encaissante a une température de 30°C. La température initiale des intrusions est de 1000°C, et le magma commence à refroidir dès son arrivée à cet emplacement. La seconde intrusion s’infiltre 180 mois plus tard, à 30 m à droite de la première (mesurée entre leurs centres). La première intrusion a une épaisseur de 24 m, tandis que la seconde mesure 10 m d’épaisseur. La simulation débute immédiatement après la formation de la première intrusion. Aux deux extrémités (gauche et droite) de l’espace à modéliser, la roche est fracturée et traversée par un flux d’eau important, ce qui y maintient une température constante de 30°C.</p>
 <p>Pour résoudre ce problème, il faut discrétiser et implémenter les mêmes équations de diffusion thermique :</p>
 <div class="math notranslate nohighlight">

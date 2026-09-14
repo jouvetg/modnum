@@ -185,8 +185,6 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Installer VS Code + Python</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction à Python</a></li>
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
 <ul class="nav bd-sidenav">
@@ -347,6 +345,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../07_cours/07_cours.html">Cours 7</a></li>
+
 
 
 
@@ -588,7 +587,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction à Python</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fondamentaux">1 Fondamentaux</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apercu">1.1 Aperçu</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#premiers-pas">1.2 Premiers Pas</a></li>
@@ -606,9 +604,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forme-shape-d-un-array-numpy">2.2 Forme (shape) d’un array numpy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acces-indices-slicing-incrementation">2.3 Accés indices, slicing, incrémentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">2.4 Opérations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nombres-aleatoires">2.5 Nombres aléatoires</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importer-des-donnees-a-partir-d-un-fichier">2.6 Importer des données à partir d’un fichier</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-fonction-np-copy">2.7 La fonction np.copy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduire-un-tableau-max-min-somme-moyenne">2.5 Réduire un tableau : max, min, somme, moyenne</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nombres-aleatoires">2.6 Nombres aléatoires</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importer-des-donnees-a-partir-d-un-fichier">2.7 Importer des données à partir d’un fichier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-fonction-np-copy">2.8 La fonction np.copy</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-avec-matplotlib">3 Visualisation avec <em>matplotlib</em></a><ul class="nav section-nav flex-column">
@@ -622,14 +621,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1-les-generateurs-aleatoires">Exercice 1 : Les générateurs aléatoires</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2-calcul-element-par-element-mesure-du-coefficient-de-friction">Exercice 2 : Calcul élément par élément: mesure du coéfficient de friction</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapes-a-suivre">Étapes à suivre</a></li>
-</ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -1300,8 +1291,48 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="reduire-un-tableau-max-min-somme-moyenne">
+<h3>2.5 Réduire un tableau : max, min, somme, moyenne<a class="headerlink" href="#reduire-un-tableau-max-min-somme-moyenne" title="Link to this heading">#</a></h3>
+<p>Les fonctions précédentes s’appliquent terme à terme et renvoient un tableau de la même taille. Il est souvent utile de faire l’inverse : <strong>résumer tout un tableau en un seul nombre</strong>. C’est le rôle de <code class="docutils literal notranslate"><span class="pre">np.max</span></code>, <code class="docutils literal notranslate"><span class="pre">np.min</span></code>, <code class="docutils literal notranslate"><span class="pre">np.sum</span></code> et <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>. La fonction <code class="docutils literal notranslate"><span class="pre">np.abs</span></code> (valeur absolue), elle, reste terme à terme.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;le plus grand    :&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;le plus petit    :&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la somme         :&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la moyenne       :&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;valeurs absolues :&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>       <span class="c1"># terme a terme : un tableau</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la plus grande valeur absolue :&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">A</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cette dernière combinaison, <code class="docutils literal notranslate"><span class="pre">np.max(np.abs(...))</span></code>, reviendra souvent : elle donne la plus grande valeur d’un champ <strong>quel que soit son signe</strong>, ce dont nous aurons besoin pour calculer un pas de temps.</p>
+<p><strong>Attention à ne pas confondre <code class="docutils literal notranslate"><span class="pre">min</span></code> et <code class="docutils literal notranslate"><span class="pre">np.minimum</span></code>.</strong> Ce sont deux fonctions différentes :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">min(a,</span> <span class="pre">b)</span></code> compare <strong>deux nombres</strong> et renvoie le plus petit. C’est la fonction de base de Python.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.minimum(A,</span> <span class="pre">b)</span></code> compare <strong>un tableau terme à terme</strong> avec <code class="docutils literal notranslate"><span class="pre">b</span></code> et renvoie un tableau de la même taille.</p></li>
+</ul>
+<p>Appliquer <code class="docutils literal notranslate"><span class="pre">min</span></code> à un tableau ne fonctionne pas : Python ne sait pas dire si un tableau entier est « plus petit » qu’un nombre, et s’arrête sur l’erreur</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span><span class="p">:</span> <span class="n">The</span> <span class="n">truth</span> <span class="n">value</span> <span class="n">of</span> <span class="n">an</span> <span class="n">array</span> <span class="k">with</span> <span class="n">more</span> <span class="n">than</span> <span class="n">one</span> <span class="n">element</span> <span class="ow">is</span> <span class="n">ambiguous</span>
+</pre></div>
+</div>
+<p>Il faut alors <code class="docutils literal notranslate"><span class="pre">np.minimum</span></code> (et de même <code class="docutils literal notranslate"><span class="pre">np.maximum</span></code> pour l’autre sens) :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;plus petit des deux nombres :&quot;</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">))</span>   <span class="c1"># deux nombres : min</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;plafonner le tableau a 4    :&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">))</span>  <span class="c1"># un tableau : np.minimum</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;plancher du tableau a 4     :&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="nombres-aleatoires">
-<h3>2.5 Nombres aléatoires<a class="headerlink" href="#nombres-aleatoires" title="Link to this heading">#</a></h3>
+<h3>2.6 Nombres aléatoires<a class="headerlink" href="#nombres-aleatoires" title="Link to this heading">#</a></h3>
 <p>NumPy possède un module spécifique pour ce type de fonctions : il s’agit de <code class="docutils literal notranslate"><span class="pre">np.random</span></code>. Ce sont des fonctions très utiles pour modéliser des systèmes naturels ayant des caractéristiques d’apparence aléatoire, par exemple le déclenchement de glissements de terrain dans un paysage.</p>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">np.random.uniform(x,</span> <span class="pre">y,</span> <span class="pre">(a,</span> <span class="pre">b))</span></code> génère une matrice de <code class="docutils literal notranslate"><span class="pre">a</span></code> lignes et <code class="docutils literal notranslate"><span class="pre">b</span></code> colonnes remplie de <strong>nombres aléatoires distribués uniformément</strong> entre <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> :</p>
 <div class="cell docutils container">
@@ -1353,7 +1384,7 @@ document.write(`
 </div>
 </section>
 <section id="importer-des-donnees-a-partir-d-un-fichier">
-<h3>2.6 Importer des données à partir d’un fichier<a class="headerlink" href="#importer-des-donnees-a-partir-d-un-fichier" title="Link to this heading">#</a></h3>
+<h3>2.7 Importer des données à partir d’un fichier<a class="headerlink" href="#importer-des-donnees-a-partir-d-un-fichier" title="Link to this heading">#</a></h3>
 <p>Il est fréquent de devoir lire des données mesurées stockées dans un fichier texte. Supposons que l’on dispose d’un fichier <code class="docutils literal notranslate"><span class="pre">donnees.txt</span></code> contenant une liste de chiffres sur deux lignes :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span>  <span class="mf">2.3</span>  <span class="mf">9.8</span> <span class="o">-</span><span class="mf">5.9</span>  <span class="mf">3.1</span>  <span class="mf">4.</span>  <span class="o">-</span><span class="mf">8.7</span>  <span class="mf">0.6</span>
 <span class="mf">12.</span> <span class="o">-</span><span class="mf">7.</span>  <span class="o">-</span><span class="mf">3.5</span>  <span class="mf">0.1</span>  <span class="mf">6.</span>   <span class="mf">7.4</span> <span class="o">-</span><span class="mf">3.3</span>  <span class="mf">7.</span>
@@ -1386,7 +1417,7 @@ document.write(`
 <p>Notons que l’opération inverse, l’écriture d’une matrice dans un fichier texte, se fait avec <code class="docutils literal notranslate"><span class="pre">np.savetxt('mon_fichier.txt',</span> <span class="pre">X)</span></code>. Ces commandes ne sont pas exécutées ici, faute de fichier de données ; nous les utiliserons le moment venu dans les exercices du cours.</p>
 </section>
 <section id="la-fonction-np-copy">
-<h3>2.7 La fonction np.copy<a class="headerlink" href="#la-fonction-np-copy" title="Link to this heading">#</a></h3>
+<h3>2.8 La fonction np.copy<a class="headerlink" href="#la-fonction-np-copy" title="Link to this heading">#</a></h3>
 <p>Lorsque l’on crée un objet <code class="docutils literal notranslate"><span class="pre">A</span></code> qui est un <code class="docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">array</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span></code> pointe en fait sur l’espace mémoire où est stocké l’objet. De fait, si l’on définit un objet <code class="docutils literal notranslate"><span class="pre">B</span></code> avec <code class="docutils literal notranslate"><span class="pre">B=A</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code> n’est qu’une copie de l’<strong>adresse</strong> de <code class="docutils literal notranslate"><span class="pre">A</span></code> : si l’on modifie <code class="docutils literal notranslate"><span class="pre">B</span></code>, totalement ou partiellement, <code class="docutils literal notranslate"><span class="pre">A</span></code> sera également modifié !</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1620,146 +1651,6 @@ document.write(`
 </section>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="exercice-1-les-generateurs-aleatoires">
-<h1>Exercice 1 : Les générateurs aléatoires<a class="headerlink" href="#exercice-1-les-generateurs-aleatoires" title="Link to this heading">#</a></h1>
-<p>Dans ce premier exercice, vous allez utiliser deux générateurs de nombres aléatoires qui sont très utiles dans la modélisation numérique pour simuler le comportement aléatoire de systèmes naturels. Commencez par créer quatre paires de vecteurs contenant chacune 500 valeurs aléatoires, via les fonctions <code class="docutils literal notranslate"><span class="pre">np.random.uniform</span></code> et <code class="docutils literal notranslate"><span class="pre">np.random.normal</span></code> (ou, de manière équivalente, via <code class="docutils literal notranslate"><span class="pre">np.random.rand</span></code> et <code class="docutils literal notranslate"><span class="pre">np.random.randn</span></code> en transformant les valeurs obtenues).</p>
-<ul class="simple">
-<li><p>La première paire (par exemple <code class="docutils literal notranslate"><span class="pre">A1</span></code> et <code class="docutils literal notranslate"><span class="pre">B1</span></code>) contient des nombres aléatoires <strong>distribués uniformément</strong> entre 0 et 1.</p></li>
-<li><p>La deuxième paire (par exemple <code class="docutils literal notranslate"><span class="pre">A2</span></code> et <code class="docutils literal notranslate"><span class="pre">B2</span></code>) contient des nombres aléatoires <strong>distribués uniformément</strong> entre -7 et 2.</p></li>
-<li><p>La troisième paire contient des nombres aléatoires <strong>distribués normalement</strong> autour d’une moyenne de 10 avec un écart-type de 5.</p></li>
-<li><p>La quatrième paire contient des nombres aléatoires <strong>distribués normalement</strong> autour d’une moyenne de 50 avec un écart-type de 30.</p></li>
-</ul>
-<p>En utilisant la commande <code class="docutils literal notranslate"><span class="pre">plt.subplot</span></code>, créez une figure divisée en quatre (2 x 2) et tracez chaque paire de vecteurs dans chacune des cases sous forme de nuages de points (<code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code>) pour représenter leur distribution spatiale. Essayez de réduire le nombre de lignes au maximum en utilisant une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> pour itérer sur les quatre cas sans répéter les commandes de plot 4 fois.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="n">A1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
-<span class="n">B1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
-
-<span class="n">A2</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">-</span> <span class="mi">7</span>
-<span class="n">B2</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">-</span> <span class="mi">7</span>
-
-<span class="n">A3</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span>
-<span class="n">B3</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span>
-
-<span class="n">A4</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">+</span> <span class="mi">50</span>
-<span class="n">B4</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">+</span> <span class="mi">50</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">,</span><span class="n">A3</span><span class="p">,</span><span class="n">A4</span><span class="p">]</span>
-<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="n">B1</span><span class="p">,</span><span class="n">B2</span><span class="p">,</span><span class="n">B3</span><span class="p">,</span><span class="n">B4</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;A(&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;), B(&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="exercice-2-calcul-element-par-element-mesure-du-coefficient-de-friction">
-<h1>Exercice 2 : Calcul élément par élément: mesure du coéfficient de friction<a class="headerlink" href="#exercice-2-calcul-element-par-element-mesure-du-coefficient-de-friction" title="Link to this heading">#</a></h1>
-<p>Le coefficient de friction, <span class="math notranslate nohighlight">\(\mu\)</span>, entre deux surfaces peut être déterminé expérimentalement en mesurant la force nécessaire pour faire glisser des objets de même nature mais de masses <span class="math notranslate nohighlight">\(m\)</span> différentes. L’équation de friction est donnée par :</p>
-<div class="math notranslate nohighlight">
-\[ F_r = \mu F_n \]</div>
-<p>où :</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(F_r\)</span> est la force de résistance à la friction, c’est-à-dire la force nécessaire pour faire glisser l’objet,</p></li>
-<li><p><span class="math notranslate nohighlight">\(F_n = m \cdot g\)</span> est la force normale, soit le poids de l’objet, où <span class="math notranslate nohighlight">\(g\)</span> représente l’accélération due à la gravité (environ 9.81 m/s²).</p></li>
-</ul>
-<p>Des résultats expérimentaux sont fournis dans le tableau ci-dessous (Ron Kurtus, School of Champions, 2007):</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Mesure no.</p></th>
-<th class="head"><p>1</p></th>
-<th class="head"><p>2</p></th>
-<th class="head"><p>3</p></th>
-<th class="head"><p>4</p></th>
-<th class="head"><p>5</p></th>
-<th class="head"><p>6</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Masse de l’objet <span class="math notranslate nohighlight">\(m\)</span> (kg)</p></td>
-<td><p>3</p></td>
-<td><p>7</p></td>
-<td><p>9</p></td>
-<td><p>25</p></td>
-<td><p>30</p></td>
-<td><p>55</p></td>
-</tr>
-<tr class="row-odd"><td><p>Force <span class="math notranslate nohighlight">\(F_r\)</span> (N)</p></td>
-<td><p>12.5</p></td>
-<td><p>23.5</p></td>
-<td><p>30</p></td>
-<td><p>61</p></td>
-<td><p>117</p></td>
-<td><p>294</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<section id="etapes-a-suivre">
-<h2>Étapes à suivre<a class="headerlink" href="#etapes-a-suivre" title="Link to this heading">#</a></h2>
-<p><strong>Creez un bloc code</strong> pour implémenter les choses suivantes:</p>
-<ol class="arabic">
-<li><p><strong>Calculer le coefficient de friction pour chaque mesure</strong> :
-Utilisez la formule :</p>
-<div class="math notranslate nohighlight">
-\[ \mu = \frac{F_r}{F_n} \]</div>
-<p>avec <span class="math notranslate nohighlight">\(F_n = m \cdot g\)</span>.</p>
-</li>
-<li><p><strong>Calculer le coefficient de friction moyen</strong> :
-Utilisez la fonction <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code> pour obtenir la valeur moyenne des coefficients de friction.</p></li>
-<li><p><strong>Créer une figure illustrant les coefficients de friction</strong> :</p>
-<ul class="simple">
-<li><p>Utilisez <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> pour afficher les coefficients de friction pour chaque mesure.</p></li>
-<li><p>Ajoutez une ligne horizontale pour la valeur moyenne avec <code class="docutils literal notranslate"><span class="pre">plt.axhline()</span></code>.</p></li>
-<li><p>Étiquetez les axes, ajoutez un titre, et incluez une légende.</p></li>
-</ul>
-</li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-
-<span class="c1"># Masse et force résistante</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">55</span><span class="p">])</span>  <span class="c1"># masse, kg</span>
-<span class="n">F_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">12.5</span><span class="p">,</span> <span class="mf">23.5</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">117</span><span class="p">,</span> <span class="mi">294</span><span class="p">])</span>  <span class="c1"># force résistante, N</span>
-<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>  <span class="c1"># accélération gravitationnelle, m/s^2</span>
-
-<span class="c1"># Calcul de la force normale et du coefficient de frottement</span>
-<span class="n">F_n</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="n">g</span>  <span class="c1"># Force normale (poids)</span>
-<span class="n">mu</span> <span class="o">=</span> <span class="n">F_r</span> <span class="o">/</span> <span class="n">F_n</span>  <span class="c1"># Coefficient de frottement</span>
-
-<span class="c1"># Calcul de la valeur moyenne du coefficient de frottement</span>
-<span class="n">mu_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
-
-<span class="c1"># Tracé des coefficients de frottement</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mesures&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">mu_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Valeur moyenne&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Coefficient de Frottement&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mesure #&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Coefficient de Frottement&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1825,7 +1716,6 @@ Utilisez la fonction <code class="docutils literal notranslate"><span class="pre
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction à Python</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fondamentaux">1 Fondamentaux</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apercu">1.1 Aperçu</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#premiers-pas">1.2 Premiers Pas</a></li>
@@ -1843,9 +1733,10 @@ Utilisez la fonction <code class="docutils literal notranslate"><span class="pre
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forme-shape-d-un-array-numpy">2.2 Forme (shape) d’un array numpy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acces-indices-slicing-incrementation">2.3 Accés indices, slicing, incrémentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">2.4 Opérations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nombres-aleatoires">2.5 Nombres aléatoires</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importer-des-donnees-a-partir-d-un-fichier">2.6 Importer des données à partir d’un fichier</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-fonction-np-copy">2.7 La fonction np.copy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduire-un-tableau-max-min-somme-moyenne">2.5 Réduire un tableau : max, min, somme, moyenne</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nombres-aleatoires">2.6 Nombres aléatoires</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importer-des-donnees-a-partir-d-un-fichier">2.7 Importer des données à partir d’un fichier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-fonction-np-copy">2.8 La fonction np.copy</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-avec-matplotlib">3 Visualisation avec <em>matplotlib</em></a><ul class="nav section-nav flex-column">
@@ -1859,14 +1750,6 @@ Utilisez la fonction <code class="docutils literal notranslate"><span class="pre
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1-les-generateurs-aleatoires">Exercice 1 : Les générateurs aléatoires</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2-calcul-element-par-element-mesure-du-coefficient-de-friction">Exercice 2 : Calcul élément par élément: mesure du coéfficient de friction</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etapes-a-suivre">Étapes à suivre</a></li>
-</ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>

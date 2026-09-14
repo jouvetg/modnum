@@ -181,6 +181,18 @@ T[:, -1] = T_droit   # derniere colonne
 
 ---
 
+# Tracer une ligne de niveau
+
+Sur un champ 2D, il est souvent parlant de faire ressortir **une valeur particulière** : l'isotherme $0$°C qui sépare la roche gelée de la roche dégelée, par exemple. La commande `ax.contour` trace la ou les lignes de niveau demandées par `levels` :
+
+```python
+ax.contour(x, y, T, levels=[0], colors='k')   # la ligne T = 0 degC, en noir
+```
+
+où `x` et `y` sont les vecteurs de coordonnées déjà construits avec `np.linspace`. `levels` attend une **liste** : `levels=[0]` ne trace qu'une ligne, `levels=[-5, 0, 5]` en trace trois. On peut superposer plusieurs `contour` de couleurs différentes, par exemple l'état initial et l'état courant, pour visualiser le déplacement de la limite.
+
+---
+
 # Tutoriel 7 sur la construction de figure 2D interactives
 
 

@@ -185,8 +185,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Installer VS Code + Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
 <ul class="nav bd-sidenav">
@@ -347,6 +345,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../07_cours/07_cours.html">Cours 7</a></li>
+
 
 
 
@@ -677,6 +676,11 @@ D(h) = f_d (\rho g)^3 h^5 \left( \frac{\partial s}{\partial x} \right)^2,\]</div
 <div class="math notranslate nohighlight">
 \[b(s) = \min ( b_\mathrm{grad} (s-s_\mathrm{ELA}), b_\mathrm{max} )\]</div>
 <p>où <span class="math notranslate nohighlight">\(s_\mathrm{ELA}\)</span> est l’altitude de la ligne d’équilibre, qui sépare les zones d’ablation et d’accumulation, <span class="math notranslate nohighlight">\(b_\mathrm{grad}\)</span> est le gradient du bilan de masse, et <span class="math notranslate nohighlight">\(b_\mathrm{max}\)</span> est une valeur max. d’accumulation.</p>
+<p>En Python, ce <span class="math notranslate nohighlight">\(\min\)</span> s’écrit <code class="docutils literal notranslate"><span class="pre">np.minimum</span></code>, et surtout <strong>pas</strong> <code class="docutils literal notranslate"><span class="pre">min</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">b_grad</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">s_ELA</span><span class="p">),</span> <span class="n">b_max</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Attention:</strong> <code class="docutils literal notranslate"><span class="pre">min(a,</span> <span class="pre">b)</span></code> compare deux <strong>nombres</strong> (c’est ce que nous utilisons pour <code class="docutils literal notranslate"><span class="pre">dt</span></code>), tandis que <code class="docutils literal notranslate"><span class="pre">np.minimum(A,</span> <span class="pre">b)</span></code> compare un <strong>tableau</strong> terme à terme avec <code class="docutils literal notranslate"><span class="pre">b</span></code>. Écrire <code class="docutils literal notranslate"><span class="pre">min(b_grad</span> <span class="pre">*</span> <span class="pre">(s</span> <span class="pre">-</span> <span class="pre">s_ELA),</span> <span class="pre">b_max)</span></code> ici arrête Python sur une erreur, car <code class="docutils literal notranslate"><span class="pre">s</span></code> est un tableau.</p>
 <p><img alt="width:350px" src="../_images/smb.png" /></p>
 </section>
 <hr class="docutils" />

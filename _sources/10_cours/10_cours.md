@@ -85,6 +85,14 @@ $$b(s) = \min ( b_\mathrm{grad} (s-s_\mathrm{ELA}), b_\mathrm{max} )$$
 
 où $s_\mathrm{ELA}$ est l'altitude de la ligne d'équilibre, qui sépare les zones d'ablation et d'accumulation, $b_\mathrm{grad}$ est le gradient du bilan de masse, et $b_\mathrm{max}$ est une valeur max. d'accumulation.
 
+En Python, ce $\min$ s'écrit `np.minimum`, et surtout **pas** `min` :
+
+```python
+b = np.minimum(b_grad * (s - s_ELA), b_max)
+```
+
+**Attention:** `min(a, b)` compare deux **nombres** (c'est ce que nous utilisons pour `dt`), tandis que `np.minimum(A, b)` compare un **tableau** terme à terme avec `b`. Écrire `min(b_grad * (s - s_ELA), b_max)` ici arrête Python sur une erreur, car `s` est un tableau.
+
 ![width:350px](./fig/smb.png)
 
 ---

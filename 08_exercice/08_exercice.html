@@ -185,8 +185,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../00_install/00_install.html">Installer VS Code + Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../00_intro_python/00_intro_python.html">Introduction à Python</a></li>
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 1</span></p>
 <ul class="nav bd-sidenav">
@@ -347,6 +345,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 7</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../07_cours/07_cours.html">Cours 7</a></li>
+
 
 
 
@@ -619,7 +618,7 @@ document.write(`
 <p>La température initiale varie linéairement entre les valeurs données en surface et au fond du domaine modélisé. Tous les paramètres sont donnés dans la Table 1.</p>
 <p>Puisque l’exhumation des roches s’effectue dans la seule direction <span class="math notranslate nohighlight">\(z\)</span> (verticale), nous n’avons besoin de résoudre l’advection que dans la dimension <span class="math notranslate nohighlight">\(z\)</span>. Pour cela, il faut créer une matrice contenant les vitesses <code class="docutils literal notranslate"><span class="pre">Vz</span></code> de taille <code class="docutils literal notranslate"><span class="pre">(nz-1,</span> <span class="pre">nx)</span></code>. Ceci afin que les vitesses se situent à l’interface entre deux cellules de température <code class="docutils literal notranslate"><span class="pre">T</span></code>, par analogie avec les flux.</p>
 <p><img alt="" src="../_images/ex_1.png" /></p>
-<p><em>Figure : le but de l’exercice est de modéliser le géotherme de la croûte terrestre avec deux taux d’exhumation différents.</em></p>
+<p><em>Les trois variantes du modèle. Le fond coloré montre le géotherme initial, les flèches blanches l’exhumation, et les flèches rouges le flux de chaleur imposé à la base en Q3.</em></p>
 <p>Deux dimensions compliquent aussi le calcul de <code class="docutils literal notranslate"><span class="pre">dt</span></code>. La contrainte de diffusion prend en compte le plus petit des deux pas d’espace <code class="docutils literal notranslate"><span class="pre">dx</span></code> et <code class="docutils literal notranslate"><span class="pre">dz</span></code>, et la contrainte d’advection porte sur la direction <code class="docutils literal notranslate"><span class="pre">z</span></code> (la seule où il y a advection) :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dt_diff</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dz</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mf">4.1</span> <span class="o">*</span> <span class="n">D</span><span class="p">)</span>          <span class="c1"># contrainte de la diffusion</span>
 <span class="n">dt_adv</span>  <span class="o">=</span> <span class="n">dz</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Vz</span><span class="p">)))</span>     <span class="c1"># contrainte de l&#39;advection</span>
