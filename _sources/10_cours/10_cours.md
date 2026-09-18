@@ -71,7 +71,7 @@ Nous introduisons les notations suivantes:
 
 - $h$ est la **h**auteur de glace,
 - $l$ est l'altitude du **l**it rocheux,
-- $s=l+h$ est l'**a**ltitude de la **s**urface du glacier,
+- $s=l+h$ est l'altitude de la **s**urface du glacier,
 - $b$ est le **b**ilan de masse.
 
 ---
