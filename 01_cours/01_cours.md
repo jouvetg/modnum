@@ -33,9 +33,9 @@ style: |
 - Initialisation, règle de mise à jour et boucle temporelle
 - Solution analytique versus solution numérique
 
- ---
+---
 
- # Du processus à la résolution numérique
+# Du processus à la résolution numérique
 
 ![](./fig/framework.png)
 
@@ -57,7 +57,7 @@ Voir des modélisations sur https://jouvetg.github.io/the-aletsch-glacier-module
 
 ![height:400px](./fig/ex_velage2_s1.png)
 
-Source: J. Gaume, animation: https://youtu.be/7IC_ehdH7ZM
+Source : J. Gaume, animation: https://youtu.be/7IC_ehdH7ZM
 
 ---
 
@@ -65,28 +65,28 @@ Source: J. Gaume, animation: https://youtu.be/7IC_ehdH7ZM
 
 ![height:350px](./fig/ex_avalanche_s1.png)
 
-Source: J. Gaume, animation: https://youtu.be/YQ7e06-MZec
+Source : J. Gaume, animation: https://youtu.be/YQ7e06-MZec
 
 ---
 
-# Exemple 4: Modèles climatiques
+# Exemple 4 : Modèles climatiques
 
 ![](fig/ex_mod_climatique_s1.png)
-Source: http://www.windy.com/
+Source : http://www.windy.com/
 
 ---
 
-# Exemple 5: Tectonique des plaques
+# Exemple 5 : Tectonique des plaques
 ![](fig/subduction_s3.png)
 Source : Candioti et al., 2022 (UNIL/FGSE)
 
 ---
 
-# Exemple 6: Évolution du paysage
+# Exemple 6 : Évolution du paysage
 
 ![height:350px](./fig/evol_paysage_s3.png)
 
-La formation des paysages fait intervenir i) tectonique des plaques, ii) érosion fluviale, iii)processus de versant, iv) érosion glaciaire, v) transport de sédiments.
+La formation des paysages fait intervenir i) tectonique des plaques, ii) érosion fluviale, iii) processus de versant, iv) érosion glaciaire, v) transport de sédiments.
 
 Source : Campforts et al., 2017, Esurf
 
@@ -117,11 +117,11 @@ https://jouvetg.github.io/modnum/00_intro_python/00_intro_python.html
 
 # Tips pour VS Code
 
-- À l'ouverture de VS Code, un dossier `Code` sur le bureau vous permet d'accéder à vos notebooks. Ce dossier est sauvegardé.
+1) À l'ouverture de VS Code, un dossier `Code` sur le bureau vous permet d'accéder à vos notebooks. Ce dossier est sauvegardé.
 
-- L'éditeur peut être séparé en deux pour voir les données (à gauche) et le code (à droite).
+2) L'éditeur peut être séparé en deux pour voir les données (à gauche) et le code (à droite).
 
-- Veuillez charger un "kernel" Python comme interpréteur.
+3) Veuillez charger un "kernel" Python comme interpréteur.
 
 ---
 
@@ -170,7 +170,7 @@ On peut aussi écrire du texte, afficher une image, des équations …
 - Import de bibliothèques
 - Indentation
 - Indexation
-- Slicing
+- Incrémentation `+=`
 
 ---
 
@@ -230,17 +230,34 @@ alors, on peut accéder à chaque élément à partir du début ou de la fin:
 
 ---
 
-# Initialisation et règle de mise à jour
+# Incrémentation
 
-L'objectif de ce cours est d'implémenter l'évolution de phénomènes physiques. Nous serons donc amenés à **initialiser** et **mettre à jour** des variables. Dans l'exemple simple suivant, nous **initialisons** le temps à zéro. À chaque pas de temps, nous **mettons à jour** le temps en l'incrémentant du pas de temps `dt`.
+Pour augmenter une variable de la valeur d'une autre, Python offre un raccourci :
 
 ```python
+temps = temps + dt   # forme longue
+temps += dt          # forme courte, strictement équivalente
+```
+
+C'est l'opération que nous ferons à chaque pas de temps, pour le temps comme pour toutes les variables du modèle.
+
+---
+
+# Initialisation et règle de mise à jour
+
+L'objectif de ce cours est d'implémenter l'évolution de phénomènes physiques. 
+
+Nous serons donc amenés à **initialiser** et **mettre à jour** des variables:
+
+```python
+# INITIALISATION
 temps = 0 # seconde
-dt   = 1 # seconde
+dt   = 1  # seconde
 nt   = 1000
 
 for it in range(nt): # Fait une boucle qui itère 1000 fois
-  temps += dt
+  # MISE A JOUR
+  temps += dt # seconde
   print("Itération", it, ": le temps vaut", temps)
 ```
 
@@ -248,14 +265,14 @@ for it in range(nt): # Fait une boucle qui itère 1000 fois
 
 # Tous les modèles de ce cours se formalisent par
 
-$$ \frac{\partial f}{\partial t} = {\rm qlq \; chose} $$
+$$ \frac{d f}{d t} = {\rm taux \; de \; changement} $$
 
 Par exemple:
 
 $$
 \begin{align}
-\frac{\partial F}{\partial t} & = {\rm Salaire} - {\rm Depense} & \textrm{(Équation de la "fortune" F)} \\
- \frac{\partial X}{\partial t} & = {\rm Vitesse} & \textrm{(Équation de la "position" X )} \\
+\frac{d F}{d t} & = {\rm Salaire} - {\rm Dépense} & \textrm{(Équation de la "fortune" F)} \\
+ \frac{d X}{d t} & = {\rm Vitesse} & \textrm{(Équation de la "position" X )} \\
  \frac{\partial C}{\partial t} & = D \frac{\partial^2 C}{\partial x^2}  & \textrm{(Équation de diffusion pour la "concentration" C)} \\
  \frac{\partial T}{\partial t} & =  D \frac{\partial^2 T}{\partial x^2} - V \frac{\partial T}{\partial x}  &\textrm{(Équation de diffusion-advection pour la "température" T)}
 \end{align}
@@ -265,7 +282,7 @@ $$
 
 # Tous les modèles de ce cours s'implémentent
 
-$$ f_{new} = f_{old} + dt \times {\rm qlq \; chose} $$
+$$ f_{new} = f_{old} + dt \times {\rm taux \; de \; changement} $$
 
 Un exemple en python (qui utilise l'incrémentation `+=`):
 
@@ -288,13 +305,10 @@ for it in range(nt):
 
 # Solution analytique versus numérique
 
-Il existe deux manières de résoudre un modèle :
+![height:430px](./fig/analytique_vs_numerique.png)
 
-**1. Analytiquement** : lorsque l'on peut trouver une solution exacte (c'est-à-dire une formule), ce qui est rarement le cas en pratique.
-
-**2. Numériquement** : lorsque l'on peut implémenter un algorithme qui approchera la solution à l'aide d'une méthode numérique itérative, ce qui est moins précis mais beaucoup plus général.
-
-L'objectif principal du cours de modélisation numérique est d'apprendre à calculer des solutions **numériques** pour des problèmes inspirés de la physique.
+Une formule exacte n'existe que rarement!
+Ce cours apprend à **approcher la solution numériquement**.
 
 ---
 

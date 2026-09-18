@@ -277,4 +277,4 @@ x += V * dt
 
 **L'exercice** — construire la boucle temporelle, voir l'effet du pas de temps sur le trajet, puis passer en 2D en décomposant la vitesse.
 
-**Le tutoriel** — les figures interactives : `clear_output`, `ax.cla`, `display`, et pourquoi il faut figer les axes.
+**Le tutoriel** — les figures interactives.
