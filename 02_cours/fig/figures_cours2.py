@@ -214,7 +214,60 @@ def fig_continu_discret():
     sauver(fig, "espaces_continus_discrets_s2")
 
 
+# ---------------------------------------------------------------------------
+# 4. Erreur d'approximation : x_new = x_old + V dt, pour deux pas de temps
+# ---------------------------------------------------------------------------
+def fig_erreur():
+    ROUGE = "#ff6b6b"
+    f = lambda t: 3.2 * (1 - np.exp(-0.55 * t))
+    df = lambda t: 3.2 * 0.55 * np.exp(-0.55 * t)
+    t0 = 1.0
+
+    fig, axs = plt.subplots(1, 2, figsize=(14, 5.2))
+    for ax, dt, titre in [(axs[0], 2.1, "grand $dt$"), (axs[1], 1.1, "petit $dt$")]:
+        ax.set_xlim(0, 5.4)
+        ax.set_ylim(0, 3.9)
+        t1 = t0 + dt
+        xold, xnew, xex = f(t0), f(t0) + df(t0) * dt, f(t1)
+
+        tt = np.linspace(0, 5.0, 300)
+        ax.plot(tt, f(tt), color=BLANC, lw=3, zorder=3)
+        ax.text(5.05, f(5.0), r"$x(t)$", fontsize=22, va="center")
+
+        tg = np.array([0.2, t0 + 2.9])
+        ax.plot(tg, xold + df(t0) * (tg - t0), color=BLEU, lw=2.5, zorder=2)
+
+        for t, lab in [(t0, r"$t^{old}$"), (t1, r"$t^{new}$")]:
+            ax.plot([t, t], [0, max(f(t), xold + df(t0) * (t - t0))], ls=":", color=GRIS, lw=1.3)
+            ax.text(t, -0.1, lab, ha="center", va="top", fontsize=22)
+        ax.plot([t0, t1], [xold] * 2, ls="--", color=GRIS, lw=1.3)
+        ax.text((t0 + t1) / 2, xold - 0.08, r"$dt$", ha="center", va="top", fontsize=20)
+
+        ax.plot(t0, xold, "o", color=BLANC, ms=10, zorder=5)
+        ax.text(t0 - 0.12, xold + 0.05, r"$x^{old}$", ha="right", va="bottom", fontsize=22)
+        ax.plot(t1, xnew, "o", color=ORANGE, ms=10, zorder=5)
+        ax.text(t1 - 0.12, xnew + 0.05, r"$x^{new}$", ha="right", va="bottom",
+                fontsize=22, color=ORANGE)
+        ax.plot(t1, xex, "o", color=BLANC, ms=8, mfc="black", mew=2, zorder=5)
+
+        # erreur
+        ax.annotate("", xy=(t1 + 0.12, xnew), xytext=(t1 + 0.12, xex),
+                    arrowprops=dict(arrowstyle="<|-|>", color=ROUGE, lw=2, mutation_scale=14,
+                                    shrinkA=0, shrinkB=0))
+        ax.text(t1 + 0.22, (xnew + xex) / 2, "erreur", color=ROUGE, fontsize=19, va="center")
+
+        ax.set_title(titre, fontsize=24, pad=10)
+        axes_fleches(ax)
+
+    axs[1].text(0.25, 3.55, r"$x^{new} = x^{old} + V(t^{old})\,dt$", color=ORANGE,
+                fontsize=21, ha="left")
+    axs[1].text(0.25, 3.05, r"pente $V(t^{old})$", color=BLEU, fontsize=18, ha="left")
+    fig.tight_layout(w_pad=4)
+    sauver(fig, "erreur_derivee_s2")
+
+
 if __name__ == "__main__":
     fig_derivee()
     fig_trajet()
     fig_continu_discret()
+    fig_erreur()
