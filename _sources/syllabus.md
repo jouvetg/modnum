@@ -60,11 +60,9 @@ Chaque séance comprend un **cours**, un **tutoriel** (courte mise en train prat
 > 🧭 **Séance 11 — hors-programme.** L'équation de la glace **en 2D** (diffusion non linéaire en deux dimensions) et la modélisation d'un glacier réel, le **glacier du Gorner** (VS), ne font **pas partie de la matière évaluée** et ne sont pas traitées en séance. Le cours, le tutoriel et l'exercice restent disponibles en ligne pour qui souhaite aller plus loin : ils réutilisent tout ce qui a été vu aux séances 7 à 10 et constituent un bon projet personnel.
 
  
-## Grille d'évaluation d'un code
+## Check liste d'un code
 
-Cette grille sert à relire son propre code lors des exercices et de base pour l'évaluation des tests :
-
-| **Code** | **Critère** | **Questions à se poser** |
+|  | **Critère** | **Questions à se poser** |
 |---|---|---|
 | | **Présentation générale** | |
 | **RU** | Le code fonctionne | Le code s'exécute-t-il sans erreur, pour toutes les questions ? Toutes les variables sont-elles définies avant usage ? |

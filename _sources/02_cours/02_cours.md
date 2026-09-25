@@ -48,7 +48,7 @@ On peut écrire aussi la dérivée: $\frac{dx(t)}{dt} = \lim_{dt \to 0} \frac{x(
 
 # Signification physique de la dérivée
 
-Une voiture parcourt le trajet Genève-Lausanne-Berne-Zurich-Saint-Gall : la distance parcourue est $x(t)$, et sa vitesse est la dérivée de la position par rapport au temps.
+Une voiture parcourt le trajet de Genève à Saint-Gall : la distance parcourue est $x(t)$, et sa vitesse est la dérivée de la position $x$ par rapport au temps $t$.
 
 
 ![height:400px](./fig/geneve-zurich.png)
@@ -136,6 +136,7 @@ for it in range(nt):
 # Discrétisation d’une dérivée
 
 Dérivée continue
+
 $$\frac{df(t)}{dt} = \lim_{dt \to 0} \frac{f(t + dt) - f(t)}{dt}$$
 
 Dérivée discrétisée dans l’espace temporel discret suivant
@@ -225,11 +226,15 @@ La vitesse d'un objet est définie comme un changement de position $x$ par temps
 
 $$\frac{\partial x(t)}{\partial t} = V(t)$$
 
-**Connaissant** au temps $t$ la position d’un objet $x(t)$ ainsi que sa vitesse $V(t)$, on peut **approcher** sa **position** au temps suivant $t^{new} = t^{old} + dt$ avec la règle de mise à jour :
-$$x^{\text{new}} =x^{\text{old}} + V \times dt, $$
-où $dt$ est le pas de temps.
+**Connaissant** au temps $t$ la position d’un objet $x(t)$ ainsi que sa vitesse $V(t)$, on peut **approcher** sa **position** au temps suivant $t^{new}$ avec la règle de mise à jour :
 
-Si j'avance à 4 km/h, je serai $(4\ \mathrm{km/h}) \times (0.5\ \mathrm{h}) = 2\ \mathrm{km}$ plus loin après une demi-heure.
+$$x^{\text{new}} =x^{\text{old}} + V \times dt,$$
+
+où $t^{new} = t^{old} + dt$ et $dt$ est le pas de temps.
+
+Si j'avance à 4 km/h, je serai 2 km plus loin après une 0.5 h:
+
+$$ 2\ \mathrm{km} = 0\ \mathrm{km} + (4\ \mathrm{km/h}) \times (0.5\ \mathrm{h})  $$
 
 ---
 
@@ -250,11 +255,13 @@ Tout au long du cours, il faudra veiller à toujours prendre des pas de temps $d
 **Attention à ne pas confondre:**
 
 - les équations continues (**celles-ci ne s’implémentent pas directement**):
+
 $$\frac{dx(t)}{dt} = v(t)$$
 
 - les équations discrétisées (**celles-ci permettent l’implémentation dans le code python qui suit**):
 
 $$x^{\text{new}} = x^{\text{old}} + V \, dt.$$
+
 ```python
 x += V * dt
 ```
