@@ -113,9 +113,11 @@ for it in range(10000):
 
 ---
 
-# Check-list et grille d'évaluation d'un code
+# Check-list d'un code
 
-![width:900px](./fig/check-list.png)
+![width:800px](./fig/check-list.png)
+
+Voir aussi https://jouvetg.github.io/modnum
 
 ---
 

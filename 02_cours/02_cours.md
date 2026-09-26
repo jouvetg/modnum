@@ -232,9 +232,9 @@ $$x^{\text{new}} =x^{\text{old}} + V \times dt,$$
 
 où $t^{new} = t^{old} + dt$ et $dt$ est le pas de temps.
 
-Si j'avance à 4 km/h, je serai 2 km plus loin après une 0.5 h:
+Si j'avance à 4 m/s, je serai 2 m plus loin après une 0.5 s:
 
-$$ 2\ \mathrm{km} = 0\ \mathrm{km} + (4\ \mathrm{km/h}) \times (0.5\ \mathrm{h})  $$
+$$ 2\ \mathrm{m} = 0\ \mathrm{m} + (4\ \mathrm{m/s}) \times (0.5\ \mathrm{s})  $$
 
 ---
 
