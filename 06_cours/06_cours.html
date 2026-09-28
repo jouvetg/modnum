@@ -214,6 +214,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -223,6 +225,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -261,6 +264,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -269,6 +274,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -320,6 +326,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -328,6 +336,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 6</a></li>
+
 
 
 
@@ -365,6 +374,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -373,6 +384,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -403,6 +415,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -411,6 +424,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -606,6 +620,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-polluant-dans-une-riviere">Exemple : polluant dans une rivière</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-de-splitting-1-2">Méthode de “splitting” (1/2)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-de-splitting-2-2">Méthode de “splitting” (2/2)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#le-splitting-etape-par-etape">Le splitting, étape par étape</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-d-advection">Discrétisation du terme d’advection</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-upwind">Méthode “upwind”</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dans-le-cas-v-x-0">Dans le cas <span class="math notranslate nohighlight">\(V_x&gt;0\)</span></a></li>
@@ -714,10 +729,10 @@ F^{n+1} &amp; = F^{n+2/3} &amp; + c \times dt
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="methode-de-splitting-2-2">
 <h1>Méthode de “splitting” (2/2)<a class="headerlink" href="#methode-de-splitting-2-2" title="Link to this heading">#</a></h1>
-<p>Appliqué à l’équation d’advection-diffusion</p>
+<p>Appliqué à l’équation d’advection-diffusion-réaction</p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial C}{\partial t}=-\frac{\partial q_x}{\partial x}-V_x\frac{\partial C}{\partial x}, \]</div>
-<p>cela revient à mettre à jour d’abord <span class="math notranslate nohighlight">\(C\)</span> pour la diffusion, puis pour l’advection:</p>
+\[\frac{\partial C}{\partial t}=-\frac{\partial q_x}{\partial x}-V_x\frac{\partial C}{\partial x} - \gamma C, \]</div>
+<p>on met à jour <span class="math notranslate nohighlight">\(C\)</span> successivement pour la diffusion, l’advection et la réaction :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -727,6 +742,11 @@ C^{n+1}  &amp; = C^{n+2/3} &amp; - \left( \gamma C \right)^n  \times dt  \\
 \end{align}
 \end{split}\]</div>
 <p>Le “splitting” permet de découpler le traitement des termes de l’équation (diffus., advect. et réaction), et de résoudre les problèmes d’incompatibilité de taille.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="le-splitting-etape-par-etape">
+<h1>Le splitting, étape par étape<a class="headerlink" href="#le-splitting-etape-par-etape" title="Link to this heading">#</a></h1>
+<p><img alt="height:470px" src="../_images/splitting_s6.svg" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="discretisation-du-terme-d-advection">
@@ -916,6 +936,7 @@ C^{n+1}  &amp; = C^{n+2/3} &amp; - \left( \gamma C \right)^n  \times dt  \\
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-polluant-dans-une-riviere">Exemple : polluant dans une rivière</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-de-splitting-1-2">Méthode de “splitting” (1/2)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-de-splitting-2-2">Méthode de “splitting” (2/2)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#le-splitting-etape-par-etape">Le splitting, étape par étape</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-d-advection">Discrétisation du terme d’advection</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-upwind">Méthode “upwind”</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dans-le-cas-v-x-0">Dans le cas <span class="math notranslate nohighlight">\(V_x&gt;0\)</span></a></li>

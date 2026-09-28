@@ -214,6 +214,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -223,6 +225,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -261,6 +264,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -269,6 +274,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -320,6 +326,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -328,6 +336,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -365,6 +374,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -373,6 +384,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -403,6 +415,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -411,6 +424,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 10</a></li>
+
 
 
 
@@ -605,6 +619,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notations">Notations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-la-glace-en-1d">Équation de la glace en 1D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fonction-bilan-de-masse-b-s">Fonction bilan de masse <span class="math notranslate nohighlight">\(b(s)\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bilan-de-masse-et-forme-du-glacier">Bilan de masse et forme du glacier</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-non-lineaire">Équation non-linéaire</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-numerique">Résolution numérique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pas-de-temps-et-stabilite">Pas de temps et stabilité</a></li>
@@ -695,6 +710,11 @@ D(h) = f_d (\rho g)^3 h^5 \left( \frac{\partial s}{\partial x} \right)^2,\]</div
 <p><img alt="width:350px" src="../_images/smb.png" /></p>
 </section>
 <hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="bilan-de-masse-et-forme-du-glacier">
+<h1>Bilan de masse et forme du glacier<a class="headerlink" href="#bilan-de-masse-et-forme-du-glacier" title="Link to this heading">#</a></h1>
+<p><img alt="height:480px" src="../_images/bilan_masse_s10.svg" /></p>
+</section>
+<hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equation-non-lineaire">
 <h1>Équation non-linéaire<a class="headerlink" href="#equation-non-lineaire" title="Link to this heading">#</a></h1>
 <p>L’équation de la glace est une équation de diffusion ; sa spécificité est que la diffusivité n’est plus un paramètre constant, mais dépend de la solution :
@@ -727,16 +747,7 @@ dt = \min \left( dt_\mathrm{max} , \ dt_\mathrm{diff} \right). \]</div>
 <h1>Traitement de la grille et des dimensions<a class="headerlink" href="#traitement-de-la-grille-et-des-dimensions" title="Link to this heading">#</a></h1>
 <p>Puisque <span class="math notranslate nohighlight">\(D\)</span> est une valeur qui s’applique à un flux, elle est placée entre les cellules du vecteur <span class="math notranslate nohighlight">\(h\)</span>, et le vecteur <span class="math notranslate nohighlight">\(D\)</span> aura ainsi une taille de <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>.</p>
 <p>Il faudra donc que la hauteur de glace <span class="math notranslate nohighlight">\(h\)</span> utilisée pour calculer <span class="math notranslate nohighlight">\(D\)</span> soit la moyenne des deux cellules adjacentes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                               <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>   <span class="o">...</span>  <span class="n">Taille</span>
-<span class="n">h</span>                              <span class="o">|-----|-----|-----|-----|-----|----...</span>    <span class="n">nx</span>
-                                 <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-<span class="n">hm</span>   <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">h</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>        <span class="o">|-----|-----|-----|-----|-----|-...</span>   <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
-                                  <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-<span class="n">dsdx</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">s</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>          <span class="o">|-----|-----|-----|-----|-----|-...</span>   <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
-                                  <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-<span class="n">D</span><span class="o">=</span><span class="n">f_d</span><span class="o">*</span><span class="p">(</span><span class="n">rho</span><span class="o">*</span><span class="n">g</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="o">*</span><span class="n">hm</span><span class="o">**</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">dsdx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>  <span class="o">|-----|-----|-----|-----|-----|-...</span>   <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
-</pre></div>
-</div>
+<p><img alt="height:320px" src="../_images/grille_D_s10.svg" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="conditions-aux-bords-bilan-de-masse-epaisseur-0">
@@ -854,6 +865,7 @@ et donc <span class="math notranslate nohighlight">\([D] = m^2 y^{-1}\)</span>, 
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notations">Notations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-la-glace-en-1d">Équation de la glace en 1D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fonction-bilan-de-masse-b-s">Fonction bilan de masse <span class="math notranslate nohighlight">\(b(s)\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bilan-de-masse-et-forme-du-glacier">Bilan de masse et forme du glacier</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-non-lineaire">Équation non-linéaire</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-numerique">Résolution numérique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pas-de-temps-et-stabilite">Pas de temps et stabilité</a></li>

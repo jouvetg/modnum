@@ -214,6 +214,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -223,6 +225,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 2</a></li>
+
 
 
 
@@ -261,6 +264,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -269,6 +274,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -320,6 +326,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -328,6 +336,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -365,6 +374,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -373,6 +384,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -403,6 +415,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -411,6 +424,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -607,10 +621,11 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#espaces-continus-et-discrets">Espaces continus et discrets</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-avec-la-modelisation-des-glaciers">Illustration avec la modélisation des glaciers</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-initialisation-et-boucle">Discrétisation, initialisation et boucle</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisation-et-boucle-temporelle">Initialisation et boucle temporelle</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-dun-modele">Structure d’un modèle</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-dune-derivee">Discrétisation d’une dérivée</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#en-initialisation-ou-dans-la-boucle">En initialisation ou dans la boucle ?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#boucle-temporelle-via-for-ou-while">Boucle temporelle via <code class="docutils literal notranslate"><span class="pre">for</span></code> ou <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#en-initialisation-ou-dans-la-boucle-exerice-1">En initialisation ou dans la boucle ? (exerice 1)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#for-ou-while"><code class="docutils literal notranslate"><span class="pre">for</span></code> ou <code class="docutils literal notranslate"><span class="pre">while</span></code> ?</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-dun-modele-dynamique">Structure d’un modèle dynamique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#application-a-la-vitesse-dun-objet-en-1d">Application à la vitesse d’un objet en 1D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#erreurs-induites-par-l-approximation">Erreurs induites par l’approximation</a></li>
@@ -696,10 +711,12 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="discretisation-initialisation-et-boucle">
 <h1>Discrétisation, initialisation et boucle<a class="headerlink" href="#discretisation-initialisation-et-boucle" title="Link to this heading">#</a></h1>
-<p>Pour résoudre numériquement une équation d’évolution (c’est le cas pour tous les exemples de ce cours), il nous faut construire une <strong>discrétisation</strong> du temps en créant des points de temps, c’est-à-dire</p>
-<div class="math notranslate nohighlight">
-\[t_0 = 0, \qquad t_1, \ldots, \ldots \qquad  t_{n-1} = 1000\]</div>
-<p>espacés de <span class="math notranslate nohighlight">\(dt\)</span> (le pas de temps), avec lesquels nous mettons à jour le temps.</p>
+<p>Pour résoudre numériquement une équation d’évolution (c’est le cas pour tous les exemples de ce cours), il nous faut construire une <strong>discrétisation</strong> du temps en créant des points de temps espacés de <span class="math notranslate nohighlight">\(dt\)</span> (le pas de temps), avec lesquels nous mettons à jour le temps :</p>
+<p><img alt="height:330px" src="../_images/frise_temps_s2.svg" /></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="initialisation-et-boucle-temporelle">
+<h1>Initialisation et boucle temporelle<a class="headerlink" href="#initialisation-et-boucle-temporelle" title="Link to this heading">#</a></h1>
 <p>Les modèles sont toujours présentés de la même manière, avec une partie d’<strong>initialisation</strong> et une <strong>boucle temporelle</strong> :</p>
 <ul class="simple">
 <li><p>On <strong>initialise</strong> les variables au temps initial.</p></li>
@@ -741,46 +758,14 @@ document.write(`
 <p>où <span class="math notranslate nohighlight">\(dt\)</span> est le pas de temps.</p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="en-initialisation-ou-dans-la-boucle">
-<h1>En initialisation ou dans la boucle ?<a class="headerlink" href="#en-initialisation-ou-dans-la-boucle" title="Link to this heading">#</a></h1>
-<p>Il faudra souvent se poser la question de savoir où doivent aller les instructions.</p>
-<p>Pour déterminer si les instructions que vous souhaitez inclure doivent être</p>
-<ul class="simple">
-<li><p>dans l’<strong>initialisation</strong></p></li>
-<li><p>OU dans la <strong>boucle</strong>,</p></li>
-</ul>
-<p>Pour le savoir, demandez-vous si cette instruction doit-elle être mise à jour dans le temps ? Si oui, elle doit être dans la boucle ; sinon, elle doit être à l’initialisation.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># par exemple, l&#39;évolution du taux d&#39;interet dans l&#39;évolution de la fortune</span>
-<span class="c1"># doit être mis DANS la boucle, car le taux d&#39;interet varie chaque année</span>
-<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">duree</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">interet</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-    <span class="n">fortune</span> <span class="o">=</span> <span class="p">(</span><span class="n">fortune</span> <span class="o">+</span> <span class="n">M_save</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">interet</span><span class="p">)</span>
-</pre></div>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="en-initialisation-ou-dans-la-boucle-exerice-1">
+<h1>En initialisation ou dans la boucle ? (exerice 1)<a class="headerlink" href="#en-initialisation-ou-dans-la-boucle-exerice-1" title="Link to this heading">#</a></h1>
+<p><img alt="height:555px" src="../_images/init_ou_boucle_s2.svg" /></p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="boucle-temporelle-via-for-ou-while">
-<h1>Boucle temporelle via <code class="docutils literal notranslate"><span class="pre">for</span></code> ou <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#boucle-temporelle-via-for-ou-while" title="Link to this heading">#</a></h1>
-<p>Il est possible de stopper la boucle quand une condition est remplie:</p>
-<ul class="simple">
-<li><p>en utilisant un <code class="docutils literal notranslate"><span class="pre">break</span></code>:</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temps</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">duree</span> <span class="o">=</span> <span class="mi">500</span>
-<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
-    <span class="n">temps</span> <span class="o">+=</span> <span class="n">dt</span>
-    <span class="k">if</span> <span class="n">temps</span> <span class="o">&gt;</span> <span class="n">duree</span><span class="p">:</span>
-        <span class="k">break</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>en utilisant la commande <code class="docutils literal notranslate"><span class="pre">while</span></code>:</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">temps</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">duree</span> <span class="o">=</span> <span class="mi">500</span>
-<span class="k">while</span> <span class="n">temps</span> <span class="o">&lt;</span> <span class="n">duree</span><span class="p">:</span>
-    <span class="n">it</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">temps</span> <span class="o">+=</span> <span class="n">dt</span>
-</pre></div>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="for-ou-while">
+<h1><code class="docutils literal notranslate"><span class="pre">for</span></code> ou <code class="docutils literal notranslate"><span class="pre">while</span></code> ?<a class="headerlink" href="#for-ou-while" title="Link to this heading">#</a></h1>
+<p><img alt="height:500px" src="../_images/for_while_s2.svg" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="structure-dun-modele-dynamique">
@@ -813,9 +798,9 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[x^{\text{new}} =x^{\text{old}} + V \times dt,\]</div>
 <p>où <span class="math notranslate nohighlight">\(t^{new} = t^{old} + dt\)</span> et <span class="math notranslate nohighlight">\(dt\)</span> est le pas de temps.</p>
-<p>Si j’avance à 4 km/h, je serai 2 km plus loin après une 0.5 h:</p>
+<p>Si j’avance à 4 m/s, je serai 2 m plus loin après une 0.5 s:</p>
 <div class="math notranslate nohighlight">
-\[ 2\ \mathrm{km} = 0\ \mathrm{km} + (4\ \mathrm{km/h}) \times (0.5\ \mathrm{h})  \]</div>
+\[ 2\ \mathrm{m} = 0\ \mathrm{m} + (4\ \mathrm{m/s}) \times (0.5\ \mathrm{s})  \]</div>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="erreurs-induites-par-l-approximation">
@@ -933,10 +918,11 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#espaces-continus-et-discrets">Espaces continus et discrets</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-avec-la-modelisation-des-glaciers">Illustration avec la modélisation des glaciers</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-initialisation-et-boucle">Discrétisation, initialisation et boucle</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisation-et-boucle-temporelle">Initialisation et boucle temporelle</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-dun-modele">Structure d’un modèle</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-dune-derivee">Discrétisation d’une dérivée</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#en-initialisation-ou-dans-la-boucle">En initialisation ou dans la boucle ?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#boucle-temporelle-via-for-ou-while">Boucle temporelle via <code class="docutils literal notranslate"><span class="pre">for</span></code> ou <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#en-initialisation-ou-dans-la-boucle-exerice-1">En initialisation ou dans la boucle ? (exerice 1)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#for-ou-while"><code class="docutils literal notranslate"><span class="pre">for</span></code> ou <code class="docutils literal notranslate"><span class="pre">while</span></code> ?</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-dun-modele-dynamique">Structure d’un modèle dynamique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#application-a-la-vitesse-dun-objet-en-1d">Application à la vitesse d’un objet en 1D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#erreurs-induites-par-l-approximation">Erreurs induites par l’approximation</a></li>

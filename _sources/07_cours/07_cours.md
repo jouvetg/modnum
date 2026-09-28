@@ -68,6 +68,12 @@ T = np.ones((ny,nx)) * Tinit # initialisation d'une temperature constante
 
 ---
 
+# Grille 2D : nœuds et intervalles
+
+![height:480px](./fig/discretisation_2d_s7.svg)
+
+---
+
 # Matrice représentant un champ 2D ($T$ ou $C$)
 
 
@@ -76,6 +82,12 @@ T = np.ones((ny,nx)) * Tinit # initialisation d'une temperature constante
 **Conventions:**
 1. Nous travaillerons dans un repère dont l'origine est le coin Sud-Ouest.
 2. Les lignes varient selon l'axe 0 (ordonnée $y$), les colonnes selon l'axe 1 (abscisse $x$).
+
+---
+
+# Matrice ou carte ? L'affichage avec `imshow`
+
+![height:480px](./fig/matrice_carte_s7.svg)
 
 ---
 

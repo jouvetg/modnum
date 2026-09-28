@@ -214,6 +214,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -223,6 +225,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -261,6 +264,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -269,6 +274,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -320,6 +326,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -328,6 +336,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -365,6 +374,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -373,6 +384,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -403,6 +415,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -411,6 +424,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -627,6 +641,7 @@ document.write(`
 <section id="construire-les-matrices-x-et-y">
 <h2>1. Construire les matrices <code class="docutils literal notranslate"><span class="pre">X</span></code> et <code class="docutils literal notranslate"><span class="pre">Y</span></code><a class="headerlink" href="#construire-les-matrices-x-et-y" title="Link to this heading">#</a></h2>
 <p><strong>Le principe</strong> : <code class="docutils literal notranslate"><span class="pre">np.meshgrid(x,</span> <span class="pre">y)</span></code> transforme deux vecteurs de coordonnées 1D en deux matrices <code class="docutils literal notranslate"><span class="pre">X</span></code> et <code class="docutils literal notranslate"><span class="pre">Y</span></code> de taille <code class="docutils literal notranslate"><span class="pre">(ny,</span> <span class="pre">nx)</span></code>. <code class="docutils literal notranslate"><span class="pre">X[j,</span> <span class="pre">i]</span></code> contient la coordonnée <strong>x</strong> du point de grille <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">j)</span></code>, et <code class="docutils literal notranslate"><span class="pre">Y[j,</span> <span class="pre">i]</span></code> sa coordonnée <strong>y</strong>. Autrement dit, <code class="docutils literal notranslate"><span class="pre">X</span></code> et <code class="docutils literal notranslate"><span class="pre">Y</span></code> donnent en chaque point ses coordonnées spatiales réelles.</p>
+<p><img alt="" src="../_images/meshgrid_s81.svg" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -668,6 +683,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[d_\mathrm{disque} = \sqrt{(x - x_0)^2 + (y - y_0)^2} \qquad\text{et}\qquad d_\mathrm{carr\acute{e}} = \max(|x - x_0|,\, |y - y_0|)\]</div>
 <p>La première découpe un <strong>disque</strong>, la seconde un <strong>carré</strong>. Le carré est plus simple à définir et suffit souvent pour une condition initiale ; le disque est plus réaliste pour une source ponctuelle.</p>
+<p><img alt="" src="../_images/meshgrid_usage_s8.svg" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span>    <span class="o">=</span> <span class="mf">5.0</span>     <span class="c1"># centre de reference, m</span>

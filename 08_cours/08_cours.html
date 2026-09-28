@@ -214,6 +214,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -223,6 +225,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -261,6 +264,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -269,6 +274,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -320,6 +326,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -328,6 +336,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -365,6 +374,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -373,6 +384,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 8</a></li>
+
 
 
 
@@ -403,6 +415,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -411,6 +424,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -601,6 +615,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#retour-sur-les-dimensions-des-matrices">Retour sur les dimensions des matrices</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-initiale">Condition initiale</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#np-meshgrid-des-coordonnees-en-chaque-point"><code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code> : des coordonnées en chaque point</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-d-advection-diffusion-en-2d">Équation d’advection-diffusion en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-numerique-de-l-advection-diffusion">Résolution numérique de l’advection-diffusion</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-numerique-de-l-advection-2d">Résolution numérique de l’advection 2D</a></li>
@@ -666,6 +681,11 @@ document.write(`
 </pre></div>
 </div>
 <p>Par commodité, nous utilisons des lettres minuscules pour désigner des vecteurs (c.-à-d. des tableaux 1D) et des lettres majuscules pour des matrices (c.-à-d. des tableaux 2D).</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="np-meshgrid-des-coordonnees-en-chaque-point">
+<h1><code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code> : des coordonnées en chaque point<a class="headerlink" href="#np-meshgrid-des-coordonnees-en-chaque-point" title="Link to this heading">#</a></h1>
+<p><img alt="height:480px" src="../_images/meshgrid_s8.svg" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equation-d-advection-diffusion-en-2d">
@@ -882,6 +902,7 @@ dt_\mathrm{adv} = \min \left( \frac{dx}{2.1 \times |V_x|} , \frac{dy}{2.1 \times
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#retour-sur-les-dimensions-des-matrices">Retour sur les dimensions des matrices</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-initiale">Condition initiale</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#np-meshgrid-des-coordonnees-en-chaque-point"><code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code> : des coordonnées en chaque point</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-d-advection-diffusion-en-2d">Équation d’advection-diffusion en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-numerique-de-l-advection-diffusion">Résolution numérique de l’advection-diffusion</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-numerique-de-l-advection-2d">Résolution numérique de l’advection 2D</a></li>

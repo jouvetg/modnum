@@ -214,6 +214,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -223,6 +225,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -261,6 +264,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -269,6 +274,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -320,6 +326,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -328,6 +336,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -365,6 +374,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -373,6 +384,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -403,6 +415,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -411,6 +424,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -601,7 +615,9 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-modeliser-en-2d">Pourquoi modéliser en 2D?</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-d-un-domaine-rectangulaire">Discrétisation d’un domaine rectangulaire</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#grille-2d-noeuds-et-intervalles">Grille 2D : nœuds et intervalles</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-representant-un-champ-2d-t-ou-c">Matrice représentant un champ 2D (<span class="math notranslate nohighlight">\(T\)</span> ou <span class="math notranslate nohighlight">\(C\)</span>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-ou-carte-l-affichage-avec-imshow">Matrice ou carte ? L’affichage avec <code class="docutils literal notranslate"><span class="pre">imshow</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-diffusion-en-2d">Équation de diffusion en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-des-derivees-partielles-en-2d">Approximation des dérivées partielles en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-des-flux-q-x-et-q-y">Discrétisation des flux <span class="math notranslate nohighlight">\(q_x\)</span> et <span class="math notranslate nohighlight">\(q_y\)</span></a></li>
@@ -664,6 +680,11 @@ document.write(`
 </div>
 </section>
 <hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="grille-2d-noeuds-et-intervalles">
+<h1>Grille 2D : nœuds et intervalles<a class="headerlink" href="#grille-2d-noeuds-et-intervalles" title="Link to this heading">#</a></h1>
+<p><img alt="height:480px" src="../_images/discretisation_2d_s7.svg" /></p>
+</section>
+<hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="matrice-representant-un-champ-2d-t-ou-c">
 <h1>Matrice représentant un champ 2D (<span class="math notranslate nohighlight">\(T\)</span> ou <span class="math notranslate nohighlight">\(C\)</span>)<a class="headerlink" href="#matrice-representant-un-champ-2d-t-ou-c" title="Link to this heading">#</a></h1>
 <p><img alt="width:450px" src="../_images/convention2d.png" /></p>
@@ -672,6 +693,11 @@ document.write(`
 <li><p>Nous travaillerons dans un repère dont l’origine est le coin Sud-Ouest.</p></li>
 <li><p>Les lignes varient selon l’axe 0 (ordonnée <span class="math notranslate nohighlight">\(y\)</span>), les colonnes selon l’axe 1 (abscisse <span class="math notranslate nohighlight">\(x\)</span>).</p></li>
 </ol>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="matrice-ou-carte-l-affichage-avec-imshow">
+<h1>Matrice ou carte ? L’affichage avec <code class="docutils literal notranslate"><span class="pre">imshow</span></code><a class="headerlink" href="#matrice-ou-carte-l-affichage-avec-imshow" title="Link to this heading">#</a></h1>
+<p><img alt="height:480px" src="../_images/matrice_carte_s7.svg" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equation-de-diffusion-en-2d">
@@ -861,7 +887,9 @@ En 2D, nous modélisons un rectangle, ce qui implique de prendre en compte les q
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-modeliser-en-2d">Pourquoi modéliser en 2D?</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-d-un-domaine-rectangulaire">Discrétisation d’un domaine rectangulaire</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#grille-2d-noeuds-et-intervalles">Grille 2D : nœuds et intervalles</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-representant-un-champ-2d-t-ou-c">Matrice représentant un champ 2D (<span class="math notranslate nohighlight">\(T\)</span> ou <span class="math notranslate nohighlight">\(C\)</span>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-ou-carte-l-affichage-avec-imshow">Matrice ou carte ? L’affichage avec <code class="docutils literal notranslate"><span class="pre">imshow</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-diffusion-en-2d">Équation de diffusion en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-des-derivees-partielles-en-2d">Approximation des dérivées partielles en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-des-flux-q-x-et-q-y">Discrétisation des flux <span class="math notranslate nohighlight">\(q_x\)</span> et <span class="math notranslate nohighlight">\(q_y\)</span></a></li>

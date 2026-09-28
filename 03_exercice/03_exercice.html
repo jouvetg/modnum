@@ -214,6 +214,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -223,6 +225,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -261,6 +264,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices 3</a></li>
@@ -269,6 +274,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -320,6 +326,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -328,6 +336,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -365,6 +374,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -373,6 +384,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -403,6 +415,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -411,6 +424,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -605,7 +619,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-effet-du-pas-de-temps">2. L’effet du pas de temps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-si-l-on-ajoute-le-vent-facultatif">3. Et si l’on ajoute le vent ? <em>(facultatif)</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-si-l-on-ajoute-le-vent">3. Et si l’on ajoute le vent ?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ <strong>À vous de faire !</strong></a></li>
 </ul>
 </li>
@@ -783,11 +797,12 @@ document.write(`
 <p>Reprenez le code de la question 1 et refaites-le tourner en ne changeant <strong>que la ligne <code class="docutils literal notranslate"><span class="pre">dt</span> <span class="pre">=</span> <span class="pre">...</span></code></strong> : essayez <code class="docutils literal notranslate"><span class="pre">dt</span> <span class="pre">=</span> <span class="pre">0.1</span></code> s, puis <code class="docutils literal notranslate"><span class="pre">dt</span> <span class="pre">=</span> <span class="pre">0.5</span></code> s. Observez à chaque fois l’écart entre vos points et la courbe grise.</p>
 <p><strong>Que constatez-vous ? Et quel est le prix à payer pour une meilleure précision ?</strong></p>
 </section>
-<section id="et-si-l-on-ajoute-le-vent-facultatif">
-<h2>3. Et si l’on ajoute le vent ? <em>(facultatif)</em><a class="headerlink" href="#et-si-l-on-ajoute-le-vent-facultatif" title="Link to this heading">#</a></h2>
+<section id="et-si-l-on-ajoute-le-vent">
+<h2>3. Et si l’on ajoute le vent ?<a class="headerlink" href="#et-si-l-on-ajoute-le-vent" title="Link to this heading">#</a></h2>
 <p>Jusqu’ici, la bombe ne subit que la pesanteur — et c’est bien pour cela qu’une solution exacte existe. Ajoutons maintenant un <strong>vent horizontal</strong>, qui emporte la bombe pendant son vol. Le vent n’est pas uniforme — <strong>il est plus fort en altitude qu’au sol</strong>. Prenons le modèle le plus simple, une croissance linéaire avec l’altitude :</p>
 <div class="math notranslate nohighlight">
 \[V_\mathrm{vent}(y) = V_\mathrm{ref}\, \frac{y}{y_\mathrm{ref}}, \qquad V_\mathrm{ref} = 50~\mathrm{km/h} \ \text{ à } \ y_\mathrm{ref} = 480~\mathrm{m}.\]</div>
+<p><img alt="" src="../_images/profil_vent.svg" /></p>
 <p><strong>Ce qui change par rapport à la question 1 :</strong> une seule des quatre équations. La bombe se déplace horizontalement à sa propre vitesse <strong>plus celle du vent</strong> :</p>
 <div class="math notranslate nohighlight">
 \[\frac{dx}{dt} = V_x + V_\mathrm{vent}(y).\]</div>
@@ -877,7 +892,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-effet-du-pas-de-temps">2. L’effet du pas de temps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-si-l-on-ajoute-le-vent-facultatif">3. Et si l’on ajoute le vent ? <em>(facultatif)</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-si-l-on-ajoute-le-vent">3. Et si l’on ajoute le vent ?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ <strong>À vous de faire !</strong></a></li>
 </ul>
 </li>

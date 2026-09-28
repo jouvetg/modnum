@@ -212,6 +212,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -221,6 +223,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -259,6 +262,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -267,6 +272,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -318,6 +324,8 @@
 
 
 
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -326,6 +334,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -363,6 +372,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -371,6 +382,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -401,6 +413,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -409,6 +422,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -683,12 +697,13 @@ v[1:-1]                : (7,)  troncation  -&gt; deux cellules en moins
 <p>La dernière ligne est celle qui pose problème : <code class="docutils literal notranslate"><span class="pre">dvdt</span></code> a la taille <code class="docutils literal notranslate"><span class="pre">n-2</span></code>, il faut donc l’ajouter à <strong>exactement</strong> <code class="docutils literal notranslate"><span class="pre">n-2</span></code> cellules de <code class="docutils literal notranslate"><span class="pre">v</span></code>, et aux bonnes. Trois écritures sont possibles, et une seule est correcte :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code> → <code class="docutils literal notranslate"><span class="pre">v[1:-1]</span> <span class="pre">+=</span> <span class="pre">...</span></code> : les <code class="docutils literal notranslate"><span class="pre">n-2</span></code> cellules <strong>du milieu</strong> ;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">2</span></code> → <code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">+=</span> <span class="pre">...</span></code> : les <code class="docutils literal notranslate"><span class="pre">n</span></code> cellules, donc une taille incompatible .</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">2</span></code> → <code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">+=</span> <span class="pre">...</span></code> : les <code class="docutils literal notranslate"><span class="pre">n</span></code> cellules, donc une taille incompatible ;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">3</span></code> → <code class="docutils literal notranslate"><span class="pre">v[:-2]</span> <span class="pre">+=</span> <span class="pre">...</span></code> : <code class="docutils literal notranslate"><span class="pre">n-2</span></code> cellules, mais décalées.</p></li>
 </ul>
-<p>Exécutez avec <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code>, puis essayez <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+<p>Exécutez avec <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code>, puis essayez <code class="docutils literal notranslate"><span class="pre">2</span></code> et <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choix</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># &lt;&lt;&lt; CHANGEZ CETTE LIGNE :  1 ou 2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choix</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># &lt;&lt;&lt; CHANGEZ CETTE LIGNE :  1, 2 ou 3</span>
 
 <span class="n">dx</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -731,6 +746,7 @@ apres   : [ 0.   0.  -0.1  0.2  0.9  0.   0.   0.   0. ]
 <blockquote>
 <div><p><strong>Le réflexe à prendre :</strong> une erreur de <em>broadcast</em> est un cadeau. Le vrai danger, ce sont les tailles qui tombent juste par hasard — d’où l’intérêt d’imprimer les <code class="docutils literal notranslate"><span class="pre">.shape</span></code> quand un résultat surprend, et de vérifier qu’un problème symétrique donne une solution symétrique.</p>
 </div></blockquote>
+<p><img alt="" src="../_images/tailles_s5.svg" /></p>
 </section>
 <section id="un-seul-code-pour-plusieurs-questions">
 <h2>3. Un seul code pour plusieurs questions<a class="headerlink" href="#un-seul-code-pour-plusieurs-questions" title="Link to this heading">#</a></h2>

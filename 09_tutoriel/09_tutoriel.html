@@ -214,6 +214,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -223,6 +225,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -261,6 +264,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -269,6 +274,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -320,6 +326,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -328,6 +336,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -365,6 +374,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -373,6 +384,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -403,6 +415,7 @@
 
 
 
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -411,6 +424,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -694,13 +708,7 @@ Vx est positive sur 50 % du domaine, negative sur le reste
 <h2>2. Les matrices de booléens<a class="headerlink" href="#les-matrices-de-booleens" title="Link to this heading">#</a></h2>
 <p>Comment appliquer <code class="docutils literal notranslate"><span class="pre">C[:,1:]</span> <span class="pre">+=</span> <span class="pre">...</span></code> là où la vitesse est positive et <code class="docutils literal notranslate"><span class="pre">C[:,:-1]</span> <span class="pre">+=</span> <span class="pre">...</span></code> là où elle est négative, alors que les deux cas coexistent dans la même matrice ?</p>
 <p>On écrit la comparaison sur <strong>toute la matrice d’un coup</strong>. <code class="docutils literal notranslate"><span class="pre">Vx</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> ne renvoie pas <code class="docutils literal notranslate"><span class="pre">True</span></code> ou <code class="docutils literal notranslate"><span class="pre">False</span></code>, mais une <strong>matrice de la même taille que <code class="docutils literal notranslate"><span class="pre">Vx</span></code></strong>, remplie de <code class="docutils literal notranslate"><span class="pre">True</span></code> et de <code class="docutils literal notranslate"><span class="pre">False</span></code> — que Python interprète comme des <code class="docutils literal notranslate"><span class="pre">1</span></code> et des <code class="docutils literal notranslate"><span class="pre">0</span></code> :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>         <span class="n">Vx</span>                <span class="n">Vx</span><span class="o">&gt;</span><span class="mi">0</span>               <span class="n">Vx</span><span class="o">&lt;</span><span class="mi">0</span>
- <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">5</span>       <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
- <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>       <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
-<span class="o">-</span><span class="mi">1</span>  <span class="mi">0</span> <span class="o">-</span><span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span>       <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
-<span class="o">-</span><span class="mi">3</span> <span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span>  <span class="mi">0</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>       <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span>
-</pre></div>
-</div>
+<p><img alt="" src="../_images/matrices_booleens_s91.svg" /></p>
 <p>En <strong>multipliant</strong> une mise à jour par ce masque, on l’annule là où le masque vaut 0 et on la laisse agir là où il vaut 1.</p>
 <blockquote>
 <div><p>⚠️ <strong>Piège de syntaxe.</strong> Écrivez <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">Vx</span> <span class="pre">*</span> <span class="pre">(Vx</span> <span class="pre">&lt;</span> <span class="pre">0)</span> <span class="pre">*</span> <span class="pre">...</span></code> et non <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">(Vx</span> <span class="pre">&lt;</span> <span class="pre">0)</span> <span class="pre">*</span> <span class="pre">Vx</span> <span class="pre">*</span> <span class="pre">...</span></code> : le moins s’appliquerait au booléen, et Python s’arrête sur <code class="docutils literal notranslate"><span class="pre">TypeError:</span> <span class="pre">The</span> <span class="pre">numpy</span> <span class="pre">boolean</span> <span class="pre">negative</span> <span class="pre">...</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">supported</span></code>.</p>

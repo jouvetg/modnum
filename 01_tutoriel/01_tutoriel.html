@@ -214,6 +214,8 @@
 
 
 
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -223,6 +225,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -261,6 +264,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -269,6 +274,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -320,6 +326,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -328,6 +336,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -365,6 +374,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -373,6 +384,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -403,6 +415,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -411,6 +424,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -678,37 +692,7 @@ apres la boucle while, i = 3
 <section id="indexation-et-assignement">
 <h2>3. Indexation et assignement<a class="headerlink" href="#indexation-et-assignement" title="Link to this heading">#</a></h2>
 <p><strong>⚠️ Attention : Python compte à partir de 0 !</strong> On accède aux éléments depuis le début (indices positifs) ou depuis la fin (indices négatifs).</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Index (positif)</p></th>
-<th class="head"><p>0</p></th>
-<th class="head"><p>1</p></th>
-<th class="head"><p>2</p></th>
-<th class="head"><p>3</p></th>
-<th class="head"><p>4</p></th>
-<th class="head"><p>5</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Index (négatif)</p></td>
-<td><p>-6</p></td>
-<td><p>-5</p></td>
-<td><p>-4</p></td>
-<td><p>-3</p></td>
-<td><p>-2</p></td>
-<td><p>-1</p></td>
-</tr>
-<tr class="row-odd"><td><p>Valeur</p></td>
-<td><p>‘red’</p></td>
-<td><p>‘green’</p></td>
-<td><p>‘blue’</p></td>
-<td><p>‘yellow’</p></td>
-<td><p>‘white’</p></td>
-<td><p>‘black’</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p><img alt="" src="../_images/indexation_s11.svg" /></p>
 <p>On modifie un élément en écrivant simplement <code class="docutils literal notranslate"><span class="pre">liste[indice]</span> <span class="pre">=</span> <span class="pre">valeur</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -855,6 +839,7 @@ pas 5 : position = 1.0
 </div>
 </div>
 <p>Ce que vous venez de simuler s’appelle une <strong>seiche</strong>. Quand une tempête souffle dans l’axe du Léman, le vent pousse l’eau vers Villeneuve ; le vent tombé, l’eau redescend, dépasse l’équilibre, remonte côté Genève — et le lac oscille lentement, comme l’eau d’une baignoire. Sa période mesurée est d’environ <strong>73 minutes</strong> ; le modèle en trouve 62, parce qu’il décrit le Léman comme une boîte rectangulaire de profondeur constante.</p>
+<p><img alt="" src="../_images/seiche_s1.svg" /></p>
 <p><strong>Relisez maintenant le code</strong> — non pas pour comprendre les équations, mais pour voir <strong>comment il est organisé</strong>. C’est la structure de <em>tous</em> les modèles du cours :</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>

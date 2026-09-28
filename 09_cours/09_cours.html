@@ -214,6 +214,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../01_tutoriel/01_tutoriel.html">Tutoriel 1</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../01_exercice/01_exercice.html">Exercices 1</a></li>
@@ -223,6 +225,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../02_cours/02_cours.html">Cours 2</a></li>
+
 
 
 
@@ -261,6 +264,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03_tutoriel/03_tutoriel.html">Tutoriel 3</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../03_exercice/03_exercice.html">Exercices 3</a></li>
@@ -269,6 +274,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../04_cours/04_cours.html">Cours 4</a></li>
+
 
 
 
@@ -320,6 +326,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -328,6 +336,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 6</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../06_cours/06_cours.html">Cours 6</a></li>
+
 
 
 
@@ -365,6 +374,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -373,6 +384,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 8</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../08_cours/08_cours.html">Cours 8</a></li>
+
 
 
 
@@ -403,6 +415,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09_tutoriel/09_tutoriel.html">Tutoriel 9</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../09_exercice/09_exercice.html">Exercices 9</a></li>
@@ -411,6 +424,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 10</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../10_cours/10_cours.html">Cours 10</a></li>
+
 
 
 
@@ -604,6 +618,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-d-advection-diffusion-reaction-2d">Équation d’advection-diffusion-réaction 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-de-l-advection-non-uniforme">Traitement de l’advection non uniforme</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrations-des-matrices-de-booleens">Illustrations des matrices de booléens</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#imposer-une-valeur-dans-une-zone">Imposer une valeur dans une zone</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-de-reaction">Discrétisation du terme de réaction</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#la-seance-pratique">La séance pratique</a></li>
@@ -704,17 +719,13 @@ q_x = - D \frac{\partial C}{\partial x} \: ; \: \: q_y = - D \frac{\partial C}{\
 <section class="tex2jax_ignore mathjax_ignore" id="illustrations-des-matrices-de-booleens">
 <h1>Illustrations des matrices de booléens<a class="headerlink" href="#illustrations-des-matrices-de-booleens" title="Link to this heading">#</a></h1>
 <p>Si <code class="docutils literal notranslate"><span class="pre">Vx</span></code> est une matrice arbitraire (représentant les composantes en <span class="math notranslate nohighlight">\(x\)</span> du champ de vitesse), alors les matrices <code class="docutils literal notranslate"><span class="pre">Vx</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">Vx</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> ou <code class="docutils literal notranslate"><span class="pre">Vx</span> <span class="pre">==</span> <span class="pre">0</span></code> (de la même taille que <code class="docutils literal notranslate"><span class="pre">Vx</span></code>) sont remplies de 1 là où la condition est remplie, et de 0 sinon:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>         <span class="n">Vx</span>                <span class="n">Vx</span><span class="o">&gt;</span><span class="mi">0</span>               <span class="n">Vx</span><span class="o">&lt;</span><span class="mi">0</span>             <span class="n">Vx</span><span class="o">==</span><span class="mi">0</span>
-
- <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">5</span>       <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
- <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>       <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
- <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>       <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>       <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
-<span class="o">-</span><span class="mi">1</span>  <span class="mi">0</span> <span class="o">-</span><span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span>       <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>       <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span>
-<span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">1</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span>       <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span>
-<span class="o">-</span><span class="mi">3</span> <span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span>  <span class="mi">0</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>       <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span>       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span>
-</pre></div>
-</div>
+<p><img alt="width:1150px" src="../_images/matrices_booleens_s9.svg" /></p>
 <p><strong>Note :</strong> En fait, ces matrices sont remplies de “booléens”, c’est-à-dire <code class="docutils literal notranslate"><span class="pre">True</span></code> ou <code class="docutils literal notranslate"><span class="pre">False</span></code>, mais Python les interprète en <code class="docutils literal notranslate"><span class="pre">1</span></code> ou <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="imposer-une-valeur-dans-une-zone">
+<h1>Imposer une valeur dans une zone<a class="headerlink" href="#imposer-une-valeur-dans-une-zone" title="Link to this heading">#</a></h1>
+<p><img alt="height:480px" src="../_images/masque_zone_s9.svg" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="discretisation-du-terme-de-reaction">
@@ -829,6 +840,7 @@ dt_\mathrm{adv} = \min \left( \frac{dx}{2.1 \times \max|V_x|} , \frac{dy}{2.1 \t
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-d-advection-diffusion-reaction-2d">Équation d’advection-diffusion-réaction 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-de-l-advection-non-uniforme">Traitement de l’advection non uniforme</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrations-des-matrices-de-booleens">Illustrations des matrices de booléens</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#imposer-une-valeur-dans-une-zone">Imposer une valeur dans une zone</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-de-reaction">Discrétisation du terme de réaction</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#la-seance-pratique">La séance pratique</a></li>

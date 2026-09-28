@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1166.4pt" height="590.4pt" viewBox="0 0 1166.4 590.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-27T23:43:14.846189</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.6.3, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 590.4 
+L 1166.4 590.4 
+L 1166.4 0 
+L 0 0 
+z
+"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 337.796301 522.755556 
+Q 377.485714 522.755556 417.175127 522.755556 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 342.596301 525.155556 
+L 337.796301 522.755556 
+L 342.596301 520.355556 
+L 342.596301 525.155556 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #ffffff; stroke: #ffffff; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 412.375127 520.355556 
+L 417.175127 522.755556 
+L 412.375127 525.155556 
+L 412.375127 520.355556 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #ffffff; stroke: #ffffff; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 153.257143 387.644444 
+L 190.285714 387.644444 
+L 190.285714 323.644444 
+L 153.257143 323.644444 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #1d3b57; stroke: #6cc3ff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 235.542857 387.644444 
+L 272.571429 387.644444 
+L 272.571429 323.644444 
+L 235.542857 323.644444 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #1d3b57; stroke: #6cc3ff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 317.828571 387.644444 
+L 354.857143 387.644444 
+L 354.857143 323.644444 
+L 317.828571 323.644444 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #1d3b57; stroke: #6cc3ff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 400.114286 387.644444 
+L 437.142857 387.644444 
+L 437.142857 323.644444 
+L 400.114286 323.644444 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #1d3b57; stroke: #6cc3ff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 482.4 387.644444 
+L 519.428571 387.644444 
+L 519.428571 323.644444 
+L 482.4 323.644444 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #1d3b57; stroke: #6cc3ff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 564.685714 387.644444 
+L 601.714286 387.644444 
+L 601.714286 323.644444 
+L 564.685714 323.644444 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #1d3b57; stroke: #6cc3ff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 646.971429 387.644444 
+L 684 387.644444 
+L 684 195.644444 
+L 646.971429 195.644444 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #ffb454; stroke: #ffb454; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 729.257143 387.644444 
+L 766.285714 387.644444 
+L 766.285714 323.644444 
+L 729.257143 323.644444 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #1d3b57; stroke: #6cc3ff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 811.542857 387.644444 
+L 848.571429 387.644444 
+L 848.571429 323.644444 
+L 811.542857 323.644444 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #1d3b57; stroke: #6cc3ff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 893.828571 387.644444 
+L 930.857143 387.644444 
+L 930.857143 323.644444 
+L 893.828571 323.644444 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #1d3b57; stroke: #6cc3ff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 976.114286 387.644444 
+L 1013.142857 387.644444 
+L 1013.142857 323.644444 
+L 976.114286 323.644444 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #1d3b57; stroke: #6cc3ff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 686.057143 117.422222 
+Q 662.895238 132.995556 669.116561 158.135357 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffb454; stroke-width: 1.8; stroke-linecap: round"/>
+    <path d="M 670.489324 152.026714 
+L 669.116561 158.135357 
+L 665.053305 153.371961 
+L 670.489324 152.026714 
+z
+" clip-path="url(#p31de5c28ba)" style="fill: #ffb454; stroke: #ffb454; stroke-width: 1.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 171.771429 398.311111 
+L 994.628571 398.311111 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 171.771429 406.844444 
+L 171.771429 389.777778 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 254.057143 406.844444 
+L 254.057143 389.777778 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 336.342857 406.844444 
+L 336.342857 389.777778 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 418.628571 406.844444 
+L 418.628571 389.777778 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 500.914286 406.844444 
+L 500.914286 389.777778 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 583.2 406.844444 
+L 583.2 389.777778 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_8">
+    <path d="M 665.485714 406.844444 
+L 665.485714 389.777778 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_9">
+    <path d="M 747.771429 406.844444 
+L 747.771429 389.777778 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_10">
+    <path d="M 830.057143 406.844444 
+L 830.057143 389.777778 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_11">
+    <path d="M 912.342857 406.844444 
+L 912.342857 389.777778 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_12">
+    <path d="M 994.628571 406.844444 
+L 994.628571 389.777778 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_13">
+    <path d="M 336.342857 531.288889 
+L 336.342857 501.422222 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke-dasharray: 0.8,1.32; stroke-dashoffset: 0; stroke: #9a9a9a; stroke-width: 0.8"/>
+   </g>
+   <g id="line2d_14">
+    <path d="M 418.628571 531.288889 
+L 418.628571 501.422222 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke-dasharray: 0.8,1.32; stroke-dashoffset: 0; stroke: #9a9a9a; stroke-width: 0.8"/>
+   </g>
+   <g id="line2d_15">
+    <path d="M 690.171429 106.755556 
+L 690.171429 398.311111 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #8be28b; stroke-width: 1.2"/>
+   </g>
+   <g id="text_1">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="171.771429" y="434.677344" transform="rotate(-0 171.771429 434.677344)">0</text>
+   </g>
+   <g id="text_2">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="171.771429" y="472.258142" transform="rotate(-0 171.771429 472.258142)">0.0</text>
+   </g>
+   <g id="text_3">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="254.057143" y="434.677344" transform="rotate(-0 254.057143 434.677344)">1</text>
+   </g>
+   <g id="text_4">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="254.057143" y="472.258142" transform="rotate(-0 254.057143 472.258142)">0.1</text>
+   </g>
+   <g id="text_5">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="336.342857" y="434.677344" transform="rotate(-0 336.342857 434.677344)">2</text>
+   </g>
+   <g id="text_6">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="336.342857" y="472.258142" transform="rotate(-0 336.342857 472.258142)">0.2</text>
+   </g>
+   <g id="text_7">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="418.628571" y="434.677344" transform="rotate(-0 418.628571 434.677344)">3</text>
+   </g>
+   <g id="text_8">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="418.628571" y="472.258142" transform="rotate(-0 418.628571 472.258142)">0.3</text>
+   </g>
+   <g id="text_9">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="500.914286" y="434.677344" transform="rotate(-0 500.914286 434.677344)">4</text>
+   </g>
+   <g id="text_10">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="500.914286" y="472.258142" transform="rotate(-0 500.914286 472.258142)">0.4</text>
+   </g>
+   <g id="text_11">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="583.2" y="434.677344" transform="rotate(-0 583.2 434.677344)">5</text>
+   </g>
+   <g id="text_12">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="583.2" y="472.258142" transform="rotate(-0 583.2 472.258142)">0.5</text>
+   </g>
+   <g id="text_13">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffb454; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="665.485714" y="434.677344" transform="rotate(-0 665.485714 434.677344)">6</text>
+   </g>
+   <g id="text_14">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="665.485714" y="472.258142" transform="rotate(-0 665.485714 472.258142)">0.6</text>
+   </g>
+   <g id="text_15">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="747.771429" y="434.677344" transform="rotate(-0 747.771429 434.677344)">7</text>
+   </g>
+   <g id="text_16">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="747.771429" y="472.258142" transform="rotate(-0 747.771429 472.258142)">0.7</text>
+   </g>
+   <g id="text_17">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="830.057143" y="434.677344" transform="rotate(-0 830.057143 434.677344)">8</text>
+   </g>
+   <g id="text_18">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="830.057143" y="472.258142" transform="rotate(-0 830.057143 472.258142)">0.8</text>
+   </g>
+   <g id="text_19">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="912.342857" y="434.677344" transform="rotate(-0 912.342857 434.677344)">9</text>
+   </g>
+   <g id="text_20">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="912.342857" y="472.258142" transform="rotate(-0 912.342857 472.258142)">0.9</text>
+   </g>
+   <g id="text_21">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="994.628571" y="434.677344" transform="rotate(-0 994.628571 434.677344)">10</text>
+   </g>
+   <g id="text_22">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="994.628571" y="472.258142" transform="rotate(-0 994.628571 472.258142)">1.0</text>
+   </g>
+   <g id="text_23">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: end" x="130.628571" y="434.677344" transform="rotate(-0 130.628571 434.677344)">i</text>
+   </g>
+   <g id="text_24">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: end" x="130.628571" y="472.258142" transform="rotate(-0 130.628571 472.258142)">x[i]</text>
+   </g>
+   <g id="text_25">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: italic 17px 'DejaVu Sans', sans-serif; text-anchor: end" x="155.314286" y="403.002049" transform="rotate(-0 155.314286 403.002049)">a</text>
+   </g>
+   <g id="text_26">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: italic 17px 'DejaVu Sans', sans-serif; text-anchor: start" x="1011.085714" y="403.002049" transform="rotate(-0 1011.085714 403.002049)">b</text>
+   </g>
+   <g id="text_27">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 14px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="377.485714" y="544.13441" transform="rotate(-0 377.485714 544.13441)">dx = 0.1</text>
+   </g>
+   <g id="text_28">
+    <text xml:space="preserve" style="white-space: pre; fill: #6cc3ff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="171.771429" y="313.82974" transform="rotate(-0 171.771429 313.82974)">2</text>
+   </g>
+   <g id="text_29">
+    <text xml:space="preserve" style="white-space: pre; fill: #6cc3ff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="254.057143" y="313.82974" transform="rotate(-0 254.057143 313.82974)">2</text>
+   </g>
+   <g id="text_30">
+    <text xml:space="preserve" style="white-space: pre; fill: #6cc3ff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="336.342857" y="313.82974" transform="rotate(-0 336.342857 313.82974)">2</text>
+   </g>
+   <g id="text_31">
+    <text xml:space="preserve" style="white-space: pre; fill: #6cc3ff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="418.628571" y="313.82974" transform="rotate(-0 418.628571 313.82974)">2</text>
+   </g>
+   <g id="text_32">
+    <text xml:space="preserve" style="white-space: pre; fill: #6cc3ff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="500.914286" y="313.82974" transform="rotate(-0 500.914286 313.82974)">2</text>
+   </g>
+   <g id="text_33">
+    <text xml:space="preserve" style="white-space: pre; fill: #6cc3ff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="583.2" y="313.82974" transform="rotate(-0 583.2 313.82974)">2</text>
+   </g>
+   <g id="text_34">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffb454; font: 700 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="665.485714" y="185.82974" transform="rotate(-0 665.485714 185.82974)">6</text>
+   </g>
+   <g id="text_35">
+    <text xml:space="preserve" style="white-space: pre; fill: #6cc3ff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="747.771429" y="313.82974" transform="rotate(-0 747.771429 313.82974)">2</text>
+   </g>
+   <g id="text_36">
+    <text xml:space="preserve" style="white-space: pre; fill: #6cc3ff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="830.057143" y="313.82974" transform="rotate(-0 830.057143 313.82974)">2</text>
+   </g>
+   <g id="text_37">
+    <text xml:space="preserve" style="white-space: pre; fill: #6cc3ff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="912.342857" y="313.82974" transform="rotate(-0 912.342857 313.82974)">2</text>
+   </g>
+   <g id="text_38">
+    <text xml:space="preserve" style="white-space: pre; fill: #6cc3ff; font: 13px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="994.628571" y="313.82974" transform="rotate(-0 994.628571 313.82974)">2</text>
+   </g>
+   <g id="text_39">
+    <text xml:space="preserve" style="white-space: pre; fill: #6cc3ff; font: 18px 'DejaVu Sans Mono', monospace; text-anchor: end" x="130.628571" y="344.659132" transform="rotate(-0 130.628571 344.659132)">C</text>
+   </g>
+   <g id="text_40">
+    <text xml:space="preserve" style="white-space: pre; fill: #8be28b; font: 15px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="690.171429" y="89.413802" transform="rotate(-0 690.171429 89.413802)">xp = 0.63</text>
+   </g>
+   <g id="text_41">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffb454; font: 14px 'DejaVu Sans Mono', monospace" transform="translate(764.228571 141.883885)">ixp = round((xp − a)/dx)</text>
+    <text xml:space="preserve" style="white-space: pre; fill: #ffb454; font: 14px 'DejaVu Sans Mono', monospace" transform="translate(764.228571 157.650073)">    = round(6.3) = 6</text>
+   </g>
+   <g id="text_42">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffb454; font: 14px 'DejaVu Sans Mono', monospace; text-anchor: start" x="764.228571" y="220.87809" transform="rotate(-0 764.228571 220.87809)">C[ixp] = 6</text>
+   </g>
+   <g id="text_43">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 14px 'DejaVu Sans Mono', monospace" transform="translate(48.342857 32.13441)">x = np.linspace(a, b, nx)     # a = 0, b = 1, nx = 11</text>
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 14px 'DejaVu Sans Mono', monospace" transform="translate(48.342857 51.114253)">C = np.ones(nx)*2</text>
+   </g>
+   <g id="line2d_16">
+    <path d="M 690.171429 398.311111 
+" clip-path="url(#p31de5c28ba)" style="fill: none; stroke: #8be28b; stroke-width: 1.5; stroke-linecap: square"/>
+    <defs>
+     <path id="m6e60b11e27" d="M -0 5.5 
+L 5.5 -5.5 
+L -5.5 -5.5 
+z
+" style="stroke: #8be28b; stroke-linejoin: miter"/>
+    </defs>
+    <g clip-path="url(#p31de5c28ba)">
+     <use xlink:href="#m6e60b11e27" x="690.171429" y="398.311111" style="fill: #8be28b; stroke: #8be28b; stroke-linejoin: miter"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p31de5c28ba">
+   <rect x="7.2" y="7.2" width="1152" height="576"/>
+  </clipPath>
+ </defs>
+</svg>
