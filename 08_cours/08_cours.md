@@ -76,6 +76,12 @@ Par commodité, nous utilisons des lettres minuscules pour désigner des vecteur
 
 ---
 
+# `np.meshgrid` : des coordonnées en chaque point
+
+![height:480px](./fig/meshgrid_s8.svg)
+
+---
+
 # Équation d'advection-diffusion en 2D
 
 Nous pouvons introduire des termes d'advection à côté de ceux de diffusion. Cela peut servir notamment à modéliser la propagation d'un polluant par diffusion et advection dans un espace 2D.

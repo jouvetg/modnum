@@ -124,11 +124,11 @@ $$
 
 # Méthode de "splitting" (2/2)
 
-Appliqué à l'équation d'advection-diffusion
+Appliqué à l'équation d'advection-diffusion-réaction
 
-$$\frac{\partial C}{\partial t}=-\frac{\partial q_x}{\partial x}-V_x\frac{\partial C}{\partial x}, $$
+$$\frac{\partial C}{\partial t}=-\frac{\partial q_x}{\partial x}-V_x\frac{\partial C}{\partial x} - \gamma C, $$
 
-cela revient à mettre à jour d'abord $C$ pour la diffusion, puis pour l'advection:
+on met à jour $C$ successivement pour la diffusion, l'advection et la réaction :
 
 $$
 \begin{align}
@@ -140,6 +140,12 @@ $$
 
 Le "splitting" permet de découpler le traitement des termes de l'équation (diffus., advect. et réaction), et de résoudre les problèmes d'incompatibilité de taille.
 
+
+---
+
+# Le splitting, étape par étape
+
+![height:470px](./fig/splitting_s6.svg)
 
 ---
 

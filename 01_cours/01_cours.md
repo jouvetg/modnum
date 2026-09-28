@@ -191,18 +191,7 @@ Nous utiliserons dans ce cours principalement ces 3 bibliothèques : `numpy`, `m
 
 L'alignement depuis le début de ligne détermine ce qui est inclus dans la boucle. En effet, chaque ligne indentée indique qu'elle fait partie du même bloc de code, ce qui permet à Python de comprendre la structure logique de votre programme.
 
-```python
-for i in range(10):                    # Ne pas oublier le ":"
-    print(i)                           # Ne pas oublier l'indentation
-
-if i == 0:
-    print("i est égal à zéro")
-
-i = 0
-while i < 10:
-    print(i)
-    i += 1
-```
+![height:300px](./fig/indentation_s1.svg)
 
 **Attention :** une fois que le nombre d'espaces pour l'indentation est défini, il doit être respecté tout au long de votre bloc d'instruction.
 
@@ -212,21 +201,14 @@ while i < 10:
 
 Si nous avons une liste (ou un vecteur `numpy`) :
 
-```python
-colors = ['red', 'green', 'blue', 'yellow', 'white', 'black']
-```
+![height:280px](./fig/indexation_s1.svg)
+
 
 alors, on peut accéder à chaque élément à partir du début ou de la fin:
 
 - `colors[0]` retournera `'red'`,  `colors[1]` retournera `'green'`
 - `colors[-1]` retournera `'black'`, `colors[-2]` retournera `'white'`
 
-| Indice (positif) | 0     | 1       | 2      | 3        | 4       | 5       |
-|------------------|-------|---------|--------|----------|---------|---------|
-| Indice (négatif) | -6    | -5      | -4     | -3       | -2      | -1      |
-| Valeur           | 'red' | 'green' | 'blue' | 'yellow' | 'white' | 'black' |
-
-**Attention: Python compte à partir de 0!**
 
 ---
 
@@ -260,6 +242,12 @@ for it in range(nt): # Fait une boucle qui itère 1000 fois
   temps += dt # seconde
   print("Itération", it, ": le temps vaut", temps)
 ```
+
+---
+
+# La boucle, vue de l'intérieur
+
+![height:480px](./fig/boucle_s1.svg)
 
 ---
 
@@ -300,6 +288,14 @@ for it in range(nt):
   fortune += dt * (salaire - depense)  # Mise à jour de la fortune
   print("Ma fortune après", temps, "mois est de", fortune)
 ```
+
+---
+
+# Sauver l'historique ou écraser la solution ?
+
+![height:400px](./fig/historique_s1.svg)
+
+On peut vouloir sauver la solution dans un **vecteur**, p.e. pour **tracer** l'évolution.
 
 ---
 

@@ -98,11 +98,13 @@ En général, les équations différentielles ou aux dérivées partielles issue
 
 # Discrétisation, initialisation et boucle
 
-Pour résoudre numériquement une équation d'évolution (c'est le cas pour tous les exemples de ce cours), il nous faut construire une **discrétisation** du temps en créant des points de temps, c'est-à-dire
+Pour résoudre numériquement une équation d'évolution (c'est le cas pour tous les exemples de ce cours), il nous faut construire une **discrétisation** du temps en créant des points de temps espacés de $dt$ (le pas de temps), avec lesquels nous mettons à jour le temps :
 
-$$t_0 = 0, \qquad t_1, \ldots, \ldots \qquad  t_{n-1} = 1000$$
+![height:330px](./fig/frise_temps_s2.svg)
 
-espacés de $dt$ (le pas de temps), avec lesquels nous mettons à jour le temps.
+---
+
+# Initialisation et boucle temporelle
 
 Les modèles sont toujours présentés de la même manière, avec une partie d'**initialisation** et une **boucle temporelle** :
 
@@ -151,49 +153,17 @@ où $dt$ est le pas de temps.
 
 ---
 
-# En initialisation ou dans la boucle ?
-
-Il faudra souvent se poser la question de savoir où doivent aller les instructions.
-
-Pour déterminer si les instructions que vous souhaitez inclure doivent être
-
-- dans l'**initialisation**
-- OU dans la **boucle**,
-
-Pour le savoir, demandez-vous si cette instruction doit-elle être mise à jour dans le temps ? Si oui, elle doit être dans la boucle ; sinon, elle doit être à l'initialisation.
-
-```python
-# par exemple, l'évolution du taux d'interet dans l'évolution de la fortune
-# doit être mis DANS la boucle, car le taux d'interet varie chaque année
-for it in range(1, duree+1):
-    interet = np.random.normal(0.005, 0.01)
-    fortune = (fortune + M_save) * (1 + interet)
-```
+# En initialisation ou dans la boucle ? (exerice 1)
+ 
+![height:555px](./fig/init_ou_boucle_s2.svg)
+ 
 
 ---
 
-# Boucle temporelle via `for` ou `while`
+# `for` ou `while` ?
 
-Il est possible de stopper la boucle quand une condition est remplie:
-
-- en utilisant un `break`:
-
-```python
-temps = 0 ; duree = 500
-for it in range(nt):
-    temps += dt
-    if temps > duree:
-        break
-```
-
-- en utilisant la commande `while`:
-
-```python
-it = 0 ; temps = 0 ; duree = 500
-while temps < duree:
-    it += 1
-    temps += dt
-```
+![height:500px](./fig/for_while_s2.svg)
+ 
 
 ---
 

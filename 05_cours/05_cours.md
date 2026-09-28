@@ -130,10 +130,6 @@ Celles-ci peuvent influencer énormément la solution !
 $$C(0) = a, \qquad\qquad\qquad\qquad
 \qquad\qquad\qquad\qquad\qquad\qquad C(1) = b$$
 
-```
-     0                                                            1
-     |------------------------------------------------------------|
-```
 
 → Dans le code, cela sera:
 ```python
@@ -152,10 +148,6 @@ C[-1] = b
 $$\frac{dC}{dx}(0) = a, \qquad\qquad\qquad\qquad
 \qquad\qquad\qquad\qquad\qquad\qquad \frac{dC}{dx}(1) =b$$
 
-```
-     0                                                            1
-     |------------------------------------------------------------|
-```
 
 → Dans le code, cela sera:
 ```python
@@ -176,10 +168,6 @@ En effet $\frac{dC}{dx}(0) = a$ se discrétise $\frac{C_1 - C_0}{dx} = a$, ce qu
 → Condition sur la dérivée de T ou C, p.e.
 $$\frac{dC}{dx}(0) = 0, \qquad\qquad\qquad\qquad
 \qquad\qquad\qquad\qquad\qquad\qquad \frac{dC}{dx}(1) =0$$
-```
-     0                                                            1
-     |------------------------------------------------------------|
-```
 
 → Dans le code, cela sera:
 ```python
@@ -188,6 +176,12 @@ C[-1] = C[-2]
 ```
 
 En effet $\frac{dC}{dx}(0) = 0$ se discrétise $\frac{C_1 - C_0}{dx} = 0$, ce qui se ré-écrit $C_0 = C_1$.
+
+---
+
+# Récapitulatif : trois conditions aux bords
+
+![height:500px](./fig/trois_conditions_s5.svg)
 
 ---
 
@@ -258,6 +252,12 @@ Notons qu'en Python, il est nécessaire de demander une copie via `T_old = np.co
 
 ---
 
+# Condition d'arrêt : un exemple
+
+![height:480px](./fig/condition_arret_s5.svg)
+
+---
+
 # Code avec plusieurs variantes
 
 Souvent, nous créons un code contenant plusieurs variantes (pour les différentes questions). Pour cela, il est pratique d'utiliser une variable `Q` comme suit :
@@ -284,7 +284,7 @@ Le but n'est pas de construire un nouveau code (quasiment identique à l'origina
 
 # La séance pratique
 
-![](../05_exercice/fig/dykes.png)
+![](../05_exercice/fig/intrusions.svg)
 
 **Que veut-on modéliser ?** — la chaleur de deux intrusions magmatiques successives, qui se diffuse dans la roche encaissante.
 

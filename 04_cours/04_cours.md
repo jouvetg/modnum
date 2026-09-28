@@ -166,10 +166,8 @@ $$ \frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2}.$$
 
 # Discrétisation spatiale
 
-Pour modéliser l'évolution spatio-temporelle d'une quantité physique comme la concentration, il est nécessaire de discrétiser le temps et l'espace, c'est-à-dire de diviser le domaine spatial de modélisation en intervalles avec un ensemble de points où la solution sera calculée :
-```
-|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
-```
+Pour modéliser l'évolution spatio-temporelle d'une quantité physique comme la concentration, il est nécessaire de discrétiser le temps et l'espace, c'est-à-dire de diviser le domaine spatial de modélisation en intervalles avec un ensemble de points où la solution sera calculée.
+
 Par exemple: $x_0 = 0, x_1 = 0.1, x_2 = 0.2, ..., x_{10} = 1$
 
 avec une longueur d'intervalle $dx = 0.1$. Cette discrétisation se code ainsi:
@@ -201,23 +199,15 @@ C[ixp] = 6             # modification de la valeur en ce point
 
 ---
 
+# Grille, indices et valeurs
+
+![height:500px](./fig/grille_1d_s4.svg)
+
+---
+
 # Rappel sur le "Slicing" d'un vecteur
 
-Si l'on a un vecteur de taille 9:
-```
-x                   |-----|-----|-----|-----|-----|-----|-----|-----|
-```
-alors nous obtenons les sous-vecteurs suivants:
-```
-x[1:]                     |-----|-----|-----|-----|-----|-----|-----|
-x[3:]                                 |-----|-----|-----|-----|-----|
-x[3:5]                                |-----|
-x[3:7]                                |-----|-----|-----|
-x[:-1]              |-----|-----|-----|-----|-----|-----|-----|
-x[:-4]              |-----|-----|-----|-----|
-x[::2]              |-----------|-----------|-----------|-----------|
-x[::4]              |-----------------------|-----------------------|
-```
+![height:470px](./fig/slicing_s4.svg)
 
 **Ces écritures servent à toutes les discrétisations qui suivent.**
 
@@ -321,17 +311,7 @@ C[1:-1] += dCdt * dt
 La mise à jour de la concentration $C$ par diffusion est le résultat de deux dérivées successives. À chaque dérivée, on perd une cellule. Pour $n_x$ nœuds, il y aura $n_x - 1$ flux entre eux, et $n_x - 2$ valeurs pour `dCdt`.
 
 
-```
-Vecteur                                                               Taille
-
-C                         |-----|-----|-----|-----|-----|-----|-----|  nx
-C[1:]                           |-----|-----|-----|-----|-----|-----|
-C[:-1]                    |-----|-----|-----|-----|-----|-----|
-
-qx = -D*(C[1:]-C[:-1])/dx    |-----|-----|-----|-----|-----|-----|     nx-1
-dCdt = -(qx[1:]-qx[:-1])/dx     |-----|-----|-----|-----|-----|        nx-2
-C[1:-1] += dCdt * dt            |-----|-----|-----|-----|-----|        nx-2
-```
+![height:330px](./fig/grille_decalee_s4.svg)
 
 
 **Attention :** il faut faire des opérations sur des vecteurs de tailles compatibles !

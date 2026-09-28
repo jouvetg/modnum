@@ -70,18 +70,7 @@ temperature = temps + distance
 
 - Est-ce que les opérations sont compatibles avec les dimensions des vecteurs ?
 
-Voici des exemples qui fonctionnent (car les deux ont la même dimension).
-```python
-T = np.ones(nx)*2
-L = np.zeros(nx)
-U = T + L
-```
-Un exemple qui ne fonctionne pas (car les deux n'ont pas la même dimension) :
-```python
-T = np.ones(nx)*2
-L = np.zeros(nx-1)
-U = T + L
-```
+![height:330px](./fig/tailles_incompatibles_s3.svg)
 
 **Important :** Très souvent, Python plante quand l'opération est impossible, mais il donne aussi une indication de ce qui ne va pas. Il faut donc lire ce que Python dit !
 
@@ -138,6 +127,12 @@ $$ \frac{\partial v_y}{\partial t} = -g.  $$
 
 ---
 
+# Les vitesses le long de la trajectoire
+
+![height:480px](./fig/vecteurs_vitesse_s3.svg)
+
+---
+
 # Discrétisation du modèle de projectile en 2D
 
 Comme dans les exercices précédents, la position d'un projectile peut-être discrétisée et exprimée en fonction de sa position précédente:
@@ -155,6 +150,12 @@ $$ v_{y, t+dt} = v_{y, t} - g \times dt.  $$
 
 Ces équations correspondent à la forme discrétisées des équations continues ci-dessus, et nous permettent d'implémenter le modèle numérique.
 
+
+---
+
+# Un pas de temps, dans l'ordre du code
+
+![height:460px](./fig/chaine_pas_de_temps_s3.svg)
 
 ---
 

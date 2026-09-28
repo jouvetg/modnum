@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1032.092308pt" height="543.6pt" viewBox="0 0 1032.092308 543.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-27T23:43:11.573800</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.6.3, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 543.6 
+L 1032.092308 543.6 
+L 1032.092308 0 
+L 0 0 
+z
+"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 81.830769 146.284615 
+L 434.630769 146.284615 
+Q 441.415385 146.284615 441.415385 139.5 
+L 441.415385 105.576923 
+Q 441.415385 98.792308 434.630769 98.792308 
+L 81.830769 98.792308 
+Q 75.046154 98.792308 75.046154 105.576923 
+L 75.046154 139.5 
+Q 75.046154 146.284615 81.830769 146.284615 
+z
+" clip-path="url(#p0374e992ec)" style="fill: #1d3b57; stroke: #6cc3ff; stroke-width: 1.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 125.930769 227.7 
+L 258.230769 176.815385 
+L 390.530769 227.7 
+L 258.230769 278.584615 
+z
+" clip-path="url(#p0374e992ec)" style="stroke: #8be28b; stroke-width: 2.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 142.892308 393.923077 
+L 373.569231 393.923077 
+Q 380.353846 393.923077 380.353846 387.138462 
+L 380.353846 326.076923 
+Q 380.353846 319.292308 373.569231 319.292308 
+L 142.892308 319.292308 
+Q 136.107692 319.292308 136.107692 326.076923 
+L 136.107692 387.138462 
+Q 136.107692 393.923077 142.892308 393.923077 
+z
+" clip-path="url(#p0374e992ec)" style="fill: #3a2a12; stroke: #ffb454; stroke-width: 1.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 353.215385 519.438462 
+L 461.769231 519.438462 
+Q 468.553846 519.438462 468.553846 512.653846 
+L 468.553846 478.730769 
+Q 468.553846 471.946154 461.769231 471.946154 
+L 353.215385 471.946154 
+Q 346.430769 471.946154 346.430769 478.730769 
+L 346.430769 512.653846 
+Q 346.430769 519.438462 353.215385 519.438462 
+z
+" clip-path="url(#p0374e992ec)" style="stroke: #ffffff; stroke-width: 1.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 136.107692 356.607692 
+L 85.223077 356.607692 
+" clip-path="url(#p0374e992ec)" style="fill: none; stroke: #8be28b; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 85.223077 356.607692 
+L 85.223077 227.7 
+" clip-path="url(#p0374e992ec)" style="fill: none; stroke: #8be28b; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 390.530769 227.7 
+L 407.492308 227.7 
+" clip-path="url(#p0374e992ec)" style="fill: none; stroke: #ff6b6b; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 516.046154 516.046154 
+L 516.046154 27.553846 
+" clip-path="url(#p0374e992ec)" style="fill: none; stroke: #555555; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 597.461538 146.284615 
+L 950.261538 146.284615 
+Q 957.046154 146.284615 957.046154 139.5 
+L 957.046154 105.576923 
+Q 957.046154 98.792308 950.261538 98.792308 
+L 597.461538 98.792308 
+Q 590.676923 98.792308 590.676923 105.576923 
+L 590.676923 139.5 
+Q 590.676923 146.284615 597.461538 146.284615 
+z
+" clip-path="url(#p0374e992ec)" style="fill: #1d3b57; stroke: #6cc3ff; stroke-width: 1.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 641.561538 227.7 
+L 773.861538 176.815385 
+L 906.161538 227.7 
+L 773.861538 278.584615 
+z
+" clip-path="url(#p0374e992ec)" style="stroke: #8be28b; stroke-width: 2.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 658.523077 393.923077 
+L 889.2 393.923077 
+Q 895.984615 393.923077 895.984615 387.138462 
+L 895.984615 326.076923 
+Q 895.984615 319.292308 889.2 319.292308 
+L 658.523077 319.292308 
+Q 651.738462 319.292308 651.738462 326.076923 
+L 651.738462 387.138462 
+Q 651.738462 393.923077 658.523077 393.923077 
+z
+" clip-path="url(#p0374e992ec)" style="fill: #3a2a12; stroke: #ffb454; stroke-width: 1.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 868.846154 519.438462 
+L 977.4 519.438462 
+Q 984.184615 519.438462 984.184615 512.653846 
+L 984.184615 478.730769 
+Q 984.184615 471.946154 977.4 471.946154 
+L 868.846154 471.946154 
+Q 862.061538 471.946154 862.061538 478.730769 
+L 862.061538 512.653846 
+Q 862.061538 519.438462 868.846154 519.438462 
+z
+" clip-path="url(#p0374e992ec)" style="stroke: #ffffff; stroke-width: 1.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 651.738462 356.607692 
+L 600.853846 356.607692 
+" clip-path="url(#p0374e992ec)" style="fill: none; stroke: #8be28b; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 600.853846 356.607692 
+L 600.853846 227.7 
+" clip-path="url(#p0374e992ec)" style="fill: none; stroke: #8be28b; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 906.161538 227.7 
+L 923.123077 227.7 
+" clip-path="url(#p0374e992ec)" style="fill: none; stroke: #ff6b6b; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 700 21px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="258.230769" y="30.946154" transform="rotate(-0 258.230769 30.946154)">for it in range(nt):</text>
+   </g>
+   <g id="text_2">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans', sans-serif; text-anchor: middle" x="258.230769" y="64.869231" transform="rotate(-0 258.230769 64.869231)">on connaît le nombre de pas</text>
+   </g>
+   <g id="text_3">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 16px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="258.230769" y="126.995962" transform="rotate(-0 258.230769 126.995962)">temps = 0 ; nt = int(duree / dt)</text>
+   </g>
+   <g id="text_4">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 16px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="258.230769" y="232.1575" transform="rotate(-0 258.230769 232.1575)">reste-t-il un it ?</text>
+   </g>
+   <g id="text_5">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 16px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="258.230769" y="361.065192" transform="rotate(-0 258.230769 361.065192)">temps += dt</text>
+   </g>
+   <g id="text_6">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 16px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="407.492308" y="500.149808" transform="rotate(-0 407.492308 500.149808)">sortie</text>
+   </g>
+   <g id="patch_10">
+    <path d="M 258.230769 146.284615 
+Q 258.230769 161.55 258.230769 174.579317 
+" style="fill: none; stroke: #9a9a9a; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 261.830769 167.379317 
+L 258.230769 174.579317 
+L 254.630769 167.379317 
+L 261.830769 167.379317 
+z
+" style="fill: #9a9a9a; stroke: #9a9a9a; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 258.230769 278.584615 
+Q 258.230769 298.938462 258.230769 317.05624 
+" style="fill: none; stroke: #8be28b; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 261.830769 309.85624 
+L 258.230769 317.05624 
+L 254.630769 309.85624 
+L 261.830769 309.85624 
+z
+" style="fill: #8be28b; stroke: #8be28b; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_7">
+    <text xml:space="preserve" style="white-space: pre; fill: #8be28b; font: 17px 'DejaVu Sans', sans-serif; text-anchor: start" x="268.407692" y="300.237091" transform="rotate(-0 268.407692 300.237091)">oui</text>
+   </g>
+   <g id="patch_12">
+    <path d="M 85.223077 227.7 
+Q 105.576923 227.7 123.694701 227.7 
+" style="fill: none; stroke: #8be28b; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 116.494701 224.1 
+L 123.694701 227.7 
+L 116.494701 231.3 
+L 116.494701 224.1 
+z
+" style="fill: #8be28b; stroke: #8be28b; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_8">
+    <text xml:space="preserve" style="white-space: pre; fill: #8be28b; font: 14px 'DejaVu Sans'" transform="translate(75.526899 333.534784) rotate(-90)">on continue</text>
+   </g>
+   <g id="patch_13">
+    <path d="M 407.492308 227.7 
+Q 407.492308 349.823077 407.492308 469.710086 
+" style="fill: none; stroke: #ff6b6b; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 411.092308 462.510086 
+L 407.492308 469.710086 
+L 403.892308 462.510086 
+L 411.092308 462.510086 
+z
+" style="fill: #ff6b6b; stroke: #ff6b6b; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_9">
+    <text xml:space="preserve" style="white-space: pre; fill: #ff6b6b; font: 17px 'DejaVu Sans', sans-serif; text-anchor: start" x="397.315385" y="212.630685" transform="rotate(-0 397.315385 212.630685)">non</text>
+   </g>
+   <g id="text_10">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 14px 'DejaVu Sans'" transform="translate(123.126647 467.97081)">it prend les valeurs</text>
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 14px 'DejaVu Sans'" transform="translate(139.179615 483.647748)">0, 1, …, nt − 1</text>
+   </g>
+   <g id="text_11">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 700 21px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="773.861538" y="30.946154" transform="rotate(-0 773.861538 30.946154)">while temps &lt; duree:</text>
+   </g>
+   <g id="text_12">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 15px 'DejaVu Sans', sans-serif; text-anchor: middle" x="773.861538" y="64.869231" transform="rotate(-0 773.861538 64.869231)">on connaît la condition d'arrêt</text>
+   </g>
+   <g id="text_13">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 16px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="773.861538" y="126.995962" transform="rotate(-0 773.861538 126.995962)">it = 0 ; temps = 0</text>
+   </g>
+   <g id="text_14">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 16px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="773.861538" y="232.1575" transform="rotate(-0 773.861538 232.1575)">temps &lt; duree ?</text>
+   </g>
+   <g id="text_15">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 16px 'DejaVu Sans Mono', monospace" transform="translate(740.147788 352.055942)">it += 1</text>
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 16px 'DejaVu Sans Mono', monospace" transform="translate(720.882788 370.074442)">temps += dt</text>
+   </g>
+   <g id="text_16">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffffff; font: 16px 'DejaVu Sans Mono', monospace; text-anchor: middle" x="923.123077" y="500.149808" transform="rotate(-0 923.123077 500.149808)">sortie</text>
+   </g>
+   <g id="patch_14">
+    <path d="M 773.861538 146.284615 
+Q 773.861538 161.55 773.861538 174.579317 
+" style="fill: none; stroke: #9a9a9a; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 777.461538 167.379317 
+L 773.861538 174.579317 
+L 770.261538 167.379317 
+L 777.461538 167.379317 
+z
+" style="fill: #9a9a9a; stroke: #9a9a9a; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 773.861538 278.584615 
+Q 773.861538 298.938462 773.861538 317.05624 
+" style="fill: none; stroke: #8be28b; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 777.461538 309.85624 
+L 773.861538 317.05624 
+L 770.261538 309.85624 
+L 777.461538 309.85624 
+z
+" style="fill: #8be28b; stroke: #8be28b; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_17">
+    <text xml:space="preserve" style="white-space: pre; fill: #8be28b; font: 17px 'DejaVu Sans', sans-serif; text-anchor: start" x="784.038462" y="300.237091" transform="rotate(-0 784.038462 300.237091)">oui</text>
+   </g>
+   <g id="patch_16">
+    <path d="M 600.853846 227.7 
+Q 621.207692 227.7 639.32547 227.7 
+" style="fill: none; stroke: #8be28b; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 632.12547 224.1 
+L 639.32547 227.7 
+L 632.12547 231.3 
+L 632.12547 224.1 
+z
+" style="fill: #8be28b; stroke: #8be28b; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_18">
+    <text xml:space="preserve" style="white-space: pre; fill: #8be28b; font: 14px 'DejaVu Sans'" transform="translate(591.157668 333.534784) rotate(-90)">on continue</text>
+   </g>
+   <g id="patch_17">
+    <path d="M 923.123077 227.7 
+Q 923.123077 349.823077 923.123077 469.710086 
+" style="fill: none; stroke: #ff6b6b; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 926.723077 462.510086 
+L 923.123077 469.710086 
+L 919.523077 462.510086 
+L 926.723077 462.510086 
+z
+" style="fill: #ff6b6b; stroke: #ff6b6b; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_19">
+    <text xml:space="preserve" style="white-space: pre; fill: #ff6b6b; font: 17px 'DejaVu Sans', sans-serif; text-anchor: start" x="912.946154" y="212.630685" transform="rotate(-0 912.946154 212.630685)">non</text>
+   </g>
+   <g id="text_20">
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 14px 'DejaVu Sans'" transform="translate(667.363353 467.97081)">test AVANT</text>
+    <text xml:space="preserve" style="white-space: pre; fill: #9a9a9a; font: 14px 'DejaVu Sans'" transform="translate(649.997885 483.647748)">le pas de temps</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p0374e992ec">
+   <rect x="7.2" y="7.2" width="1017.692308" height="529.2"/>
+  </clipPath>
+ </defs>
+</svg>

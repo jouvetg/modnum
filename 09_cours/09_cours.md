@@ -120,18 +120,15 @@ où les matrices (de booléens) `Vx < 0` et `Vx > 0` sont expliquées au slide s
 
 Si `Vx` est une matrice arbitraire (représentant les composantes en $x$ du champ de vitesse), alors les matrices `Vx < 0`, `Vx > 0` ou `Vx == 0` (de la même taille que `Vx`) sont remplies de 1 là où la condition est remplie, et de 0 sinon:
 
-```
-         Vx                Vx>0               Vx<0             Vx==0
-
- 2  3  2  3  4  5       1 1 1 1 1 1       0 0 0 0 0 0       0 0 0 0 0 0
- 1  2  1  2  3  4       1 1 1 1 1 1       0 0 0 0 0 0       0 0 0 0 0 0
- 0  1  0  1  2  3       0 1 0 1 1 1       0 0 0 0 0 0       1 0 1 0 0 0
--1  0 -1  0  1  2       0 0 0 0 1 1       1 0 1 0 0 0       0 1 0 1 0 0
--2 -1 -2 -1  0  1       0 0 0 0 0 1       1 1 1 1 0 0       0 0 0 0 1 0
--3 -2 -1 -2 -1  0       0 0 0 0 0 0       1 1 1 1 1 0       0 0 0 0 0 1
-```
+![width:1150px](./fig/matrices_booleens_s9.svg)
 
 **Note :** En fait, ces matrices sont remplies de "booléens", c'est-à-dire `True` ou `False`, mais Python les interprète en `1` ou `0`.
+
+---
+
+# Imposer une valeur dans une zone
+
+![height:480px](./fig/masque_zone_s9.svg)
 
 ---
 
