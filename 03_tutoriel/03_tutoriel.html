@@ -614,8 +614,9 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 3</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-d-arret-et-detection-d-evenement">Conditions d’arrêt et détection d’événement</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arreter-la-boucle-break">1. Arrêter la boucle : <code class="docutils literal notranslate"><span class="pre">break</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retenir-une-valeur-sans-arreter-le-drapeau">2. Retenir une valeur sans arrêter : le drapeau</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retenir-une-valeur-sans-arreter-le-flag">2. Retenir une valeur sans arrêter : le flag</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparer-avec-l-iteration-precedente">3. Comparer avec l’itération précédente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-si-la-quantite-est-un-tableau">4. Et si la quantité est un tableau ?</a></li>
 </ul>
 </li>
 </ul>
@@ -697,15 +698,15 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="retenir-une-valeur-sans-arreter-le-drapeau">
-<h2>2. Retenir une valeur sans arrêter : le drapeau<a class="headerlink" href="#retenir-une-valeur-sans-arreter-le-drapeau" title="Link to this heading">#</a></h2>
+<section id="retenir-une-valeur-sans-arreter-le-flag">
+<h2>2. Retenir une valeur sans arrêter : le flag<a class="headerlink" href="#retenir-une-valeur-sans-arreter-le-flag" title="Link to this heading">#</a></h2>
 <p>Souvent, on ne veut <strong>pas</strong> arrêter le modèle : on note l’instant de l’événement et la simulation continue. Le réflexe naturel,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="n">seuil</span><span class="p">:</span>
     <span class="n">t_seuil</span> <span class="o">=</span> <span class="n">temps</span>
 </pre></div>
 </div>
 <p>est <strong>faux</strong> : la condition reste vraie aux itérations suivantes, donc <code class="docutils literal notranslate"><span class="pre">t_seuil</span></code> est réécrit à chaque tour et retient le <strong>dernier</strong> instant au-dessus du seuil, pas le premier.</p>
-<p>La solution est un <strong>drapeau</strong>, qui retient que l’événement a déjà eu lieu :</p>
+<p>La solution est un <strong>flag</strong>, qui retient que l’événement a déjà eu lieu :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span>                            <span class="c1"># avant la boucle</span>
 
 <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="n">seuil</span> <span class="ow">and</span> <span class="n">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>         <span class="c1"># dans la boucle</span>
@@ -714,70 +715,84 @@ document.write(`
 </pre></div>
 </div>
 <p>Il sert aussi <strong>après</strong> la boucle : <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">flag</span> <span class="pre">==</span> <span class="pre">1:</span></code> avant d’annoncer le résultat, sinon on affiche une valeur pour un événement qui ne s’est jamais produit.</p>
-</section>
-<section id="comparer-avec-l-iteration-precedente">
-<h2>3. Comparer avec l’itération précédente<a class="headerlink" href="#comparer-avec-l-iteration-precedente" title="Link to this heading">#</a></h2>
-<p>Certains événements ne se lisent pas sur la valeur courante seule. Pour repérer le <strong>maximum</strong>, il faut savoir si la quantité vient de commencer à diminuer — donc conserver la valeur du pas précédent, à la fin de chaque tour : <code class="docutils literal notranslate"><span class="pre">v_prec</span> <span class="pre">=</span> <span class="pre">v</span></code>.</p>
-<blockquote>
-<div><p>⚠️ <strong>Si la quantité comparée est un tableau</strong>, <code class="docutils literal notranslate"><span class="pre">v_prec</span> <span class="pre">=</span> <span class="pre">v</span></code> ne suffit plus : cette écriture ne copie que l’<strong>adresse</strong>, les deux noms désignent le même tableau, et la différence vaudrait toujours zéro. Il faut alors une copie physique — <code class="docutils literal notranslate"><span class="pre">T_prec</span> <span class="pre">=</span> <span class="pre">np.copy(T)</span></code> au début du tour, puis <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">np.sum(np.abs(T_prec</span> <span class="pre">-</span> <span class="pre">T))</span> <span class="pre">&lt;</span> <span class="pre">tol:</span> <span class="pre">break</span></code>. C’est la forme du critère d’état stationnaire, que vous retrouverez au cours 5.</p>
-</div></blockquote>
-<p>Le code ci-dessous réunit les trois mécanismes. <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code> utilise le drapeau, <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">2</span></code> s’en passe. Exécutez la cellule, puis passez <code class="docutils literal notranslate"><span class="pre">choix</span></code> à <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+<p>Le code ci-dessous compare les deux écritures : <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code> utilise le flag, <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">2</span></code> s’en passe. Exécutez la cellule, puis passez <code class="docutils literal notranslate"><span class="pre">choix</span></code> à <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choix</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># &lt;&lt;&lt; CHANGEZ CETTE LIGNE :  1 -&gt; avec drapeau   ou   2 -&gt; sans drapeau</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choix</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># &lt;&lt;&lt; CHANGEZ CETTE LIGNE :  1 -&gt; avec flag   ou   2 -&gt; sans flag</span>
 
-<span class="n">tol</span> <span class="o">=</span> <span class="mf">1e-6</span>      <span class="c1"># en dessous, on considere que la quantite n&#39;evolue plus</span>
+<span class="n">temps</span>   <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">flag</span>    <span class="o">=</span> <span class="mi">0</span>
+<span class="n">t_seuil</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-<span class="n">temps</span>      <span class="o">=</span> <span class="mf">0.0</span>
-<span class="n">flag_seuil</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">flag_max</span>   <span class="o">=</span> <span class="mi">0</span>
-<span class="n">t_seuil</span>    <span class="o">=</span> <span class="mf">0.0</span>
-<span class="n">t_max</span>      <span class="o">=</span> <span class="mf">0.0</span>
-<span class="n">v_prec</span>     <span class="o">=</span> <span class="mf">0.0</span>
-
-<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>                  <span class="c1"># borne de securite</span>
-
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1200</span><span class="p">):</span>                    <span class="c1"># jusqu&#39;a t = 60</span>
     <span class="n">temps</span> <span class="o">+=</span> <span class="n">dt</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">temps</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">temps</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
 
-    <span class="c1"># 1) premier passage au-dessus du seuil</span>
     <span class="k">if</span> <span class="n">choix</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="n">seuil</span> <span class="ow">and</span> <span class="n">flag_seuil</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="n">seuil</span> <span class="ow">and</span> <span class="n">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>       <span class="c1"># premier passage seulement</span>
             <span class="n">t_seuil</span> <span class="o">=</span> <span class="n">temps</span>
-            <span class="n">flag_seuil</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="n">seuil</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="n">seuil</span><span class="p">:</span>                     <span class="c1"># reecrit a chaque tour</span>
             <span class="n">t_seuil</span> <span class="o">=</span> <span class="n">temps</span>
 
-    <span class="c1"># 2) instant du maximum : il faut la valeur du pas precedent</span>
-    <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">v_prec</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="n">seuil</span> <span class="ow">and</span> <span class="n">flag_max</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">t_max</span> <span class="o">=</span> <span class="n">temps</span>
-        <span class="n">flag_max</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;passage au seuil date a t =&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">t_seuil</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Avec <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code>, le passage au seuil est daté à <strong>t = 2.60</strong>.</p>
+<p>Avec <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">2</span></code>, il est daté à <strong>t = 25.40</strong>, bien après le maximum de la courbe (vers t = 10, voir la figure du §1) : sans flag, <code class="docutils literal notranslate"><span class="pre">t_seuil</span></code> retient le moment où la quantité est <em>redescendue</em> sous le seuil.</p>
+<p><strong>Rien n’a explosé</strong> : valeur plausible, aucun message d’erreur. Seul un regard critique sur le résultat révèle l’erreur.</p>
+</section>
+<section id="comparer-avec-l-iteration-precedente">
+<h2>3. Comparer avec l’itération précédente<a class="headerlink" href="#comparer-avec-l-iteration-precedente" title="Link to this heading">#</a></h2>
+<p>Certains événements ne se lisent pas sur la valeur courante seule. Pour repérer le <strong>maximum</strong>, il faut savoir si la quantité vient de <strong>commencer à diminuer</strong>, donc comparer <code class="docutils literal notranslate"><span class="pre">v</span></code> à sa valeur au pas précédent. On conserve celle-ci dans <code class="docutils literal notranslate"><span class="pre">v_prec</span></code>, à la fin de chaque tour :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v_prec</span> <span class="o">=</span> <span class="mf">0.0</span>                    <span class="c1"># avant la boucle</span>
 
-    <span class="c1"># 3) arret quand la quantite n&#39;evolue plus</span>
-    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">v_prec</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="ow">and</span> <span class="n">temps</span> <span class="o">&gt;</span> <span class="n">tau</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">v_prec</span><span class="p">:</span>                  <span class="c1"># dans la boucle : v diminue, le maximum est passe</span>
+    <span class="o">...</span>
+<span class="n">v_prec</span> <span class="o">=</span> <span class="n">v</span>                      <span class="c1"># a la fin du tour, pour le tour suivant</span>
+</pre></div>
+</div>
+<p>La même comparaison donne un <strong>critère d’arrêt</strong> : quand <code class="docutils literal notranslate"><span class="pre">v</span></code> ne change presque plus d’un pas à l’autre, <code class="docutils literal notranslate"><span class="pre">abs(v</span> <span class="pre">-</span> <span class="pre">v_prec)</span> <span class="pre">&lt;</span> <span class="pre">tol</span></code>, le modèle n’évolue plus et on peut l’arrêter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tol</span> <span class="o">=</span> <span class="mf">1e-6</span>      <span class="c1"># en dessous, on considere que v n&#39;evolue plus</span>
+
+<span class="n">temps</span>  <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">v_prec</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">flag</span>   <span class="o">=</span> <span class="mi">0</span>
+<span class="n">t_max</span>  <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>                  <span class="c1"># borne de securite</span>
+    <span class="n">temps</span> <span class="o">+=</span> <span class="n">dt</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">temps</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">temps</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">v_prec</span> <span class="ow">and</span> <span class="n">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>          <span class="c1"># premier pas ou v diminue : le maximum</span>
+        <span class="n">t_max</span> <span class="o">=</span> <span class="n">temps</span>
+        <span class="n">flag</span>  <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">v_prec</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>             <span class="c1"># v n&#39;evolue presque plus : on arrete</span>
         <span class="k">break</span>
 
     <span class="n">v_prec</span> <span class="o">=</span> <span class="n">v</span>                            <span class="c1"># a la fin du tour, pour le tour suivant</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;maximum atteint vers t =&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">t_max</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;arret apres&quot;</span><span class="p">,</span> <span class="n">it</span><span class="p">,</span> <span class="s2">&quot;iterations, a t =&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">temps</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;passage au seuil :&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">t_seuil</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="k">if</span> <span class="n">flag_max</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;maximum atteint  :&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">t_max</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>arret apres 3164 iterations, a t = 158.3
-passage au seuil : 2.6
-maximum atteint  : 10.05
 </pre></div>
 </div>
 </div>
 </div>
-<p>Avec <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">1</span></code>, le seuil est daté à <strong>t = 2.60</strong> et le maximum à <strong>t = 10.05</strong> : l’ordre est cohérent.</p>
-<p>Avec <code class="docutils literal notranslate"><span class="pre">choix</span> <span class="pre">=</span> <span class="pre">2</span></code>, le seuil est daté à <strong>t = 25.40</strong>, soit <strong>après</strong> le maximum — ce qui n’a aucun sens. Sans drapeau, <code class="docutils literal notranslate"><span class="pre">t_seuil</span></code> retient le moment où la quantité est <em>redescendue</em> sous le seuil.</p>
-<p><strong>Rien n’a explosé</strong> : même nombre d’itérations, valeur plausible. Seule la confrontation des deux dates révèle l’erreur.</p>
+<p>Le maximum est daté à <strong>t = 10.05</strong>, soit un pas après le vrai maximum (t = τ = 10) : on ne voit que <code class="docutils literal notranslate"><span class="pre">v</span></code> a diminué qu’au pas suivant. La boucle s’arrête vers <strong>t = 158</strong>, quand <code class="docutils literal notranslate"><span class="pre">v</span></code> ne varie plus que d’un millionième par pas.</p>
+</section>
+<section id="et-si-la-quantite-est-un-tableau">
+<h2>4. Et si la quantité est un tableau ?<a class="headerlink" href="#et-si-la-quantite-est-un-tableau" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">v_prec</span> <span class="pre">=</span> <span class="pre">v</span></code> fonctionne ici parce que <code class="docutils literal notranslate"><span class="pre">v</span></code> est un <strong>nombre</strong>. Pour un tableau <code class="docutils literal notranslate"><span class="pre">T</span></code>, cette écriture ne copie que l’<strong>adresse</strong> : les deux noms désignent le même tableau, et la différence vaudrait toujours zéro. Il faut une vraie copie, au début du tour :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T_prec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>C’est le critère d’état stationnaire du cours 5.</p>
 </section>
 </section>
 
@@ -848,8 +863,9 @@ maximum atteint  : 10.05
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutoriel 3</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-d-arret-et-detection-d-evenement">Conditions d’arrêt et détection d’événement</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arreter-la-boucle-break">1. Arrêter la boucle : <code class="docutils literal notranslate"><span class="pre">break</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retenir-une-valeur-sans-arreter-le-drapeau">2. Retenir une valeur sans arrêter : le drapeau</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retenir-une-valeur-sans-arreter-le-flag">2. Retenir une valeur sans arrêter : le flag</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparer-avec-l-iteration-precedente">3. Comparer avec l’itération précédente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-si-la-quantite-est-un-tableau">4. Et si la quantité est un tableau ?</a></li>
 </ul>
 </li>
 </ul>
