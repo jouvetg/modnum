@@ -768,73 +768,21 @@ document.write(`
 </section>
 <section id="check-liste-d-un-code">
 <h2>Check liste d’un code<a class="headerlink" href="#check-liste-d-un-code" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p><strong>Critère</strong></p></th>
-<th class="head"><p><strong>Questions à se poser</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p></p></td>
-<td><p><strong>Présentation générale</strong></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>RU</strong></p></td>
-<td><p>Le code fonctionne</p></td>
-<td><p>Le code s’exécute-t-il sans erreur, pour toutes les questions ? Toutes les variables sont-elles définies avant usage ?</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>CO</strong></p></td>
-<td><p>Présentation du code</p></td>
-<td><p>Le code est-il bien structuré (paramètres → discrétisation → initialisation → boucle → figure) ? Un seul code pour toutes les questions ? Propre et bien commenté ? Chaque instruction est-elle au bon endroit (dans ou hors boucle) ?</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>DE</strong></p></td>
-<td><p>Définition des variables</p></td>
-<td><p>Tous les paramètres sont-ils définis en tête de code ? Les unités sont-elles adaptées ? Pas de « hard-coding » (valeurs écrites en dur) ?</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>FI</strong></p></td>
-<td><p>Figure</p></td>
-<td><p>Est-elle dans la boucle et mise à jour ? Temps dans le titre, arrondi et avec unité ? Labels et limites d’axes (ou colorbar) fixés ? Bonnes variables tracées ? Lisible ?</p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p><strong>Partie technique</strong></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><strong>IC</strong></p></td>
-<td><p>Condition initiale</p></td>
-<td><p>Bonne valeur sur toute la grille, bonnes dimensions ? Apparaît avant la boucle ?</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>PT</strong></p></td>
-<td><p>Pas de temps et boucle temporelle</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">dt</span></code> issu de la condition de stabilité ? Boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> si le nombre de pas est connu, <code class="docutils literal notranslate"><span class="pre">while</span></code> sinon ? Temps mis à jour à chaque pas ?</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>ED</strong></p></td>
-<td><p>Équation de diffusion</p></td>
-<td><p>Bien implémentée dans la boucle ? Sur les points intérieurs ? Avec le bon signe ? Adaptée à une diffusivité spatialement variable ou non linéaire ?</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>ER</strong></p></td>
-<td><p>Équation de réaction</p></td>
-<td><p>Bien implémentée dans la boucle ? Avec les bonnes dimensions ?</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>EA</strong></p></td>
-<td><p>Équation d’advection</p></td>
-<td><p>Bien implémentée dans la boucle ? Avec les bonnes dimensions ? Schéma « upwind » selon le signe de la vitesse ? Vitesses bien définies ?</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>BC</strong></p></td>
-<td><p>Conditions aux limites</p></td>
-<td><p>Bien implémentées dans la boucle ? Bon type à chaque bord (Dirichlet / Neumann), bonnes valeurs ?</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>FO</strong></p></td>
-<td><p>Forçage</p></td>
-<td><p>Bien implémenté dans la boucle ? Position bien convertie en indice ? Bonne valeur imposée ?</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>CA</strong></p></td>
-<td><p>Condition d’arrêt</p></td>
-<td><p>Bien implémentée dans la boucle ? Sur la bonne variable au bon indice, avec le bon opérateur ? Un « flag » identifie-t-il la première occurrence ?</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>|—|—|—|
+| | <strong>Présentation générale</strong> | |
+| <strong>RU</strong> | Le code fonctionne | Le code s’exécute-t-il sans erreur, pour toutes les questions ? Toutes les variables sont-elles définies avant usage ? |
+| <strong>CO</strong> | Présentation du code | Le code est-il bien structuré (paramètres → discrétisation → initialisation → boucle → figure) ? Un seul code pour toutes les questions ? Propre et bien commenté ? Chaque instruction est-elle au bon endroit (dans ou hors boucle) ? |
+| <strong>DE</strong> | Définition des variables | Tous les paramètres sont-ils définis en tête de code ? Les unités sont-elles adaptées ? Pas de « hard-coding » (valeurs écrites en dur) ? |
+| <strong>FI</strong> | Figure | Est-elle dans la boucle et mise à jour ? Temps dans le titre, arrondi et avec unité ? Labels et limites d’axes (ou colorbar) fixés ? Bonnes variables tracées ? Lisible ? |
+| | <strong>Partie technique</strong> | |
+| <strong>IC</strong> | Condition initiale | Bonne valeur sur toute la grille, bonnes dimensions ? Apparaît avant la boucle ? |
+| <strong>PT</strong> | Pas de temps et boucle temporelle | <code class="docutils literal notranslate"><span class="pre">dt</span></code> issu de la condition de stabilité ? Boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> si le nombre de pas est connu, <code class="docutils literal notranslate"><span class="pre">while</span></code> sinon ? Temps mis à jour à chaque pas ? |
+| <strong>ED</strong> | Équation de diffusion | Bien implémentée dans la boucle ? Sur les points intérieurs ? Avec le bon signe ? Adaptée à une diffusivité spatialement variable ou non linéaire ? |
+| <strong>ER</strong> | Équation de réaction | Bien implémentée dans la boucle ? Avec les bonnes dimensions ? |
+| <strong>EA</strong> | Équation d’advection | Bien implémentée dans la boucle ? Avec les bonnes dimensions ? Schéma « upwind » selon le signe de la vitesse ? Vitesses bien définies ? |
+| <strong>BC</strong> | Conditions aux limites | Bien implémentées dans la boucle ? Bon type à chaque bord (Dirichlet / Neumann), bonnes valeurs ? |
+| <strong>FO</strong> | Forçage | Bien implémenté dans la boucle ? Position bien convertie en indice ? Bonne valeur imposée ? |
+| <strong>CA</strong> | Condition d’arrêt | Bien implémentée dans la boucle ? Sur la bonne variable au bon indice, avec le bon opérateur ? Un « flag » identifie-t-il la première occurrence ? |</p>
 </section>
 <section id="auteurs">
 <h2>Auteurs<a class="headerlink" href="#auteurs" title="Link to this heading">#</a></h2>
