@@ -62,7 +62,6 @@ Chaque séance comprend un **cours**, un **tutoriel** (courte mise en train prat
  
 ## Check liste d'un code
 
-|  | **Critère** | **Questions à se poser** |
 |---|---|---|
 | | **Présentation générale** | |
 | **RU** | Le code fonctionne | Le code s'exécute-t-il sans erreur, pour toutes les questions ? Toutes les variables sont-elles définies avant usage ? |
