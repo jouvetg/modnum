@@ -6,3 +6,8 @@ _build/
 /[A-Z]*.md
 # archive of the solution notebooks (gitignored like the notebooks themselves)
 solutions.zip
+# scripts de figures qui contiennent du code des solutions d'exercices
+02_cours/fig/figures_s2.py
+03_cours/fig/figures_s3.py
+05_cours/fig/figures_s5.py
+10_cours/fig/figures_s10.py
