@@ -21,7 +21,8 @@ DEST = {
     '4.1_grille_1d': ['grille_1d_s4.svg', '../../04_tutoriel/fig/grille_1d_s4.svg'],
     '4.2_slicing': ['slicing_s4.svg', '../../04_tutoriel/fig/slicing_s4.svg'],
     '4.3_grille_decalee': ['grille_decalee_s4.svg'],
-    '4.4_conditions_bords': ['../../04_exercice/fig/conditions_bords.svg'],
+    '4.5_temperature_sol': ['temperature_sol_s4.svg'],
+    '4.6_conservation': ['principe_conservation_s4.svg'],
 }
 
 # couleurs de la figure fuite_chimique_shema_s5 (sol, molasse, rivière, polluant)
@@ -250,77 +251,109 @@ def fig_grille_decalee():
 
 
 # ---------------------------------------------------------------------------
-# 4.4 Conditions aux bords (Daillens)
+# 4.5 Le sol filtre les saisons : onde thermique saisonnière (solution exacte)
 # ---------------------------------------------------------------------------
-def fig_bords():
-    fig, (axg, axd) = plt.subplots(1, 2, figsize=(16, 7.4))
-    fig.subplots_adjust(left=0.03, right=0.97, top=0.9, bottom=0.14, wspace=0.12)
-    nn = 6
-    dxg = 1.0
+def fig_temperature_sol():
+    D = 1e-6                                  # diffusivité d'un sol courant, m2/s
+    an = 365.25 * 24 * 3600                   # une année, s
+    w = 2 * np.pi / an
+    d = np.sqrt(2 * D / w)                    # profondeur d'amortissement, ~3.2 m
+    Tm, A = 10.0, 10.0                        # moyenne annuelle et amplitude en surface, °C
+    t_froid = 15 / 365.25                     # le plus froid en surface : mi-janvier
 
-    # --- bord gauche : Neumann
-    ax = axg
-    xn = dxg * np.arange(nn)
-    Cg = np.array([1.0, 1.0, 1.35, 1.9, 2.55, 3.2])
-    ax.add_patch(Rectangle((-0.9, -0.35), 0.9, 4.3, fc=MOLASSE, ec=GRIS_BORD,
-                           hatch="//", lw=1))
-    ax.text(-0.45, 1.8, "molasse imperméable", rotation=90, ha="center", va="center",
-            fontsize=13, color=BLANC)
-    ax.add_patch(Rectangle((0, -0.35), xn[-1] + 0.6, 4.3, fc=SOL, ec="none", zorder=0))
-    ax.plot(xn, Cg, "-", color=POLLUANT, lw=2.2)
-    ax.plot(xn[1:], Cg[1:], "o", ms=12, mfc=BLEU_FOND, mec=BLEU, mew=2, zorder=4)
-    ax.plot(xn[0], Cg[0], "o", ms=13, mfc=VERT, mec=VERT, zorder=5)
-    ax.plot(xn[:2], Cg[:2], "-", color=VERT, lw=4, zorder=3)
-    for i, xi in enumerate(xn):
-        ax.text(xi, -0.55, f"C[{i}]", ha="center", va="top", fontsize=13, family=MONO,
-                color=VERT if i == 0 else BLEU)
-    ax.text(0.5, Cg[0] + 0.3, "pente nulle", ha="center", va="bottom", fontsize=13,
-            color=VERT)
-    # flux : rien ne sort
-    fleche(ax, (2.3, 0.55), (0.25, 0.55), color=GRIS, lw=1.6, ms=14)
-    ax.text(1.3, 0.2, "diffusion vers le mur", ha="center", va="top", fontsize=12,
-            color=GRIS)
-    ax.text(0.05, 3.25, "flux nul :\nrien ne sort", ha="left", va="center", fontsize=14,
-            color=VERT)
-    ax.set_xlim(-1.0, xn[-1] + 0.6)
-    ax.set_ylim(-1.1, 4.0)
-    ax.axis("off")
-    ax.set_title("Bord gauche : Neumann", fontsize=17, color=BLANC, pad=12)
-    ax.text(0.5, -0.07, "C[0] = C[1]", transform=ax.transAxes, ha="center", va="top",
-            fontsize=17, family=MONO, color=VERT)
+    def T(z, t_an):                           # t en années
+        return Tm - A * np.exp(-z / d) * np.cos(w * (t_an - t_froid) * an - z / d)
 
-    # --- bord droit : Dirichlet
-    ax = axd
-    xn = dxg * np.arange(nn)
-    Cd = np.array([2.6, 2.1, 1.6, 1.07, 0.54, 0.0])
-    ax.add_patch(Rectangle((-0.6, -0.35), xn[-1] + 0.6, 4.3, fc=SOL, ec="none", zorder=0))
-    ax.plot([xn[-1], xn[-1]], [-0.35, 3.95], color=GRIS, lw=1.2, ls="--")
-    ax.plot(xn, Cd, "-", color=POLLUANT, lw=2.2)
-    ax.plot(xn[:-1], Cd[:-1], "o", ms=12, mfc=BLEU_FOND, mec=BLEU, mew=2, zorder=4)
-    ax.plot(xn[-1], Cd[-1], "o", ms=13, mfc=VERT, mec=VERT, zorder=5)
-    labels = ["C[-6]", "C[-5]", "C[-4]", "C[-3]", "C[-2]", "C[-1]"]
-    for i, xi in enumerate(xn):
-        ax.text(xi, -0.55, labels[i], ha="center", va="top", fontsize=13, family=MONO,
-                color=VERT if i == nn - 1 else BLEU)
-    ax.text(xn[-1] + 0.15, 0.05, "C = 0\nimposé", ha="left", va="bottom", fontsize=13,
-            color=VERT)
-    fleche(ax, (xn[-1] - 1.6, 1.7), (xn[-1] + 1.1, 1.7), color=POLLUANT, lw=2.5, ms=20)
-    ax.text(xn[-1] - 0.35, 1.95, "le polluant sort", ha="center", va="bottom",
-            fontsize=14, color=POLLUANT)
-    ax.set_xlim(-0.6, xn[-1] + 1.2)
-    ax.set_ylim(-1.1, 4.0)
-    ax.axis("off")
-    ax.set_title("Bord droit : Dirichlet", fontsize=17, color=BLANC, pad=12)
-    ax.text(0.5, -0.07, "C[-1] = 0", transform=ax.transAxes, ha="center", va="top",
-            fontsize=17, family=MONO, color=VERT)
-    sauver_svg(fig, DOSSIER, DEST["4.4_conditions_bords"])
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(16, 7.2),
+                                 gridspec_kw=dict(width_ratios=[1, 1.45], wspace=0.28))
+    # --- gauche : profils T(z) aux quatre saisons, et enveloppe
+    z = np.linspace(0, 15, 300)
+    env = A * np.exp(-z / d)
+    a1.fill_betweenx(z, Tm - env, Tm + env, color="#22303d", lw=0)
+    a1.plot(Tm - env, z, color=GRIS, lw=1, ls="--")
+    a1.plot(Tm + env, z, color=GRIS, lw=1, ls="--")
+    saisons = [("mi-janvier", 15, BLEU), ("mi-avril", 105, VERT),
+               ("mi-juillet", 196, ORANGE), ("mi-octobre", 288, ROUGE)]
+    for nom, jour, col in saisons:
+        a1.plot(T(z, jour / 365.25), z, color=col, lw=2.6, label=nom)
+    a1.axvline(Tm, color=GRIS, lw=1, ls=":")
+    a1.set_ylim(15, 0)
+    a1.set_xlim(-1, 21)
+    a1.set_xlabel("température, °C", fontsize=15)
+    a1.set_ylabel("profondeur, m", fontsize=15)
+    a1.legend(loc="lower left", fontsize=13, frameon=False)
+    a1.text(Tm + 0.4, 12.6, "vers 10 m :\nquasi constante\n≈ moyenne annuelle", fontsize=13,
+            color=BLANC, va="center")
+    a1.set_title("profils de température aux 4 saisons", fontsize=16, pad=12)
+
+    # --- droite : T au cours de l'année, à plusieurs profondeurs
+    t = np.linspace(0, 1, 400)
+    mins = []
+    for zz, col, lw in [(0, BLANC, 2.6), (1, "#bfe3ff", 2.2), (3, BLEU, 2.2), (6, "#3d7fbf", 2.2)]:
+        a2.plot(t * 12, T(zz, t), color=col, lw=lw)
+        tmin = (t_froid + zz / d / (2 * np.pi)) % 1          # instant le plus froid à zz
+        mins.append((tmin * 12, T(zz, tmin)))
+        a2.plot(tmin * 12, T(zz, tmin), "o", color=col, ms=8, zorder=4)
+        a2.text(12.15, T(zz, 1.0), f"z = {zz} m", color=col, fontsize=14, va="center")
+    mx, my = zip(*mins)
+    a2.plot(mx, my, color=GRIS, lw=1.3, ls=":", zorder=3)
+    a2.text(mx[-1] + 0.25, my[-1] - 1.3, "le plus froid arrive\nde plus en plus tard",
+            fontsize=13, color=GRIS, va="top")
+    a2.set_xlim(0, 13.6)
+    a2.set_ylim(-1, 21)
+    a2.set_xticks(np.arange(0.5, 12, 1))
+    a2.set_xticklabels(list("JFMAMJJASOND"), fontsize=13)
+    a2.set_ylabel("température, °C", fontsize=15)
+    a2.set_title("température au cours de l'année, à différentes profondeurs", fontsize=16,
+                 pad=12)
+    for a in (a1, a2):
+        for sp in ("top", "right"):
+            a.spines[sp].set_visible(False)
+        a.tick_params(labelsize=12)
+
+    sauver_svg(fig, DOSSIER, DEST["4.5_temperature_sol"])
+
+
+# ---------------------------------------------------------------------------
+# 4.6 Principe de conservation : bilan de particules dans une cellule
+# ---------------------------------------------------------------------------
+def fig_conservation():
+    fig, ax = axes_vides((12, 5.6), (0, 12), (0, 5.6))
+    x0, x1, y0, y1 = 4.2, 7.8, 1.5, 3.4                 # la cellule
+    ax.add_patch(Rectangle((x0, y0), x1 - x0, y1 - y0, fc=GRIS_FOND, ec=BLANC, lw=2.5))
+    ax.text((x0 + x1) / 2, (y0 + y1) / 2 + 0.25, r"$n$ particules", ha="center",
+            va="center", fontsize=20)
+    ax.text((x0 + x1) / 2, (y0 + y1) / 2 - 0.35, r"$C = n\,/\,dx$", ha="center",
+            va="center", fontsize=17, color=GRIS)
+    # ce qui reste dans la cellule
+    ax.add_patch(Rectangle((x0, y1), x1 - x0, 0.75, fc="none", ec=VERT, lw=2, ls="--"))
+    ax.text((x0 + x1) / 2, y1 + 0.38, r"$\Delta n$", ha="center", va="center",
+            fontsize=21, color=VERT)
+    ax.text((x0 + x1) / 2, y1 + 1.05, "ce qui reste dans la cellule, pendant $dt$",
+            ha="center", va="center", fontsize=15, color=VERT)
+    # flux entrant et sortant
+    ym = (y0 + y1) / 2
+    fleche(ax, (1.6, ym), (x0 - 0.05, ym), color=ORANGE, lw=3, ms=22)
+    fleche(ax, (x1 + 0.05, ym), (10.4, ym), color=ORANGE, lw=3, ms=22)
+    ax.text((1.6 + x0) / 2, ym + 0.45, r"$q_x(x)$", ha="center", fontsize=20, color=ORANGE)
+    ax.text((1.6 + x0) / 2, ym - 0.6, "ce qui entre", ha="center", fontsize=14,
+            color=ORANGE)
+    ax.text((x1 + 10.4) / 2, ym + 0.45, r"$q_x(x+dx)$", ha="center", fontsize=20,
+            color=ORANGE)
+    ax.text((x1 + 10.4) / 2, ym - 0.6, "ce qui sort", ha="center", fontsize=14,
+            color=ORANGE)
+    # largeur de la cellule
+    fleche(ax, (x0, y0 - 0.35), (x1, y0 - 0.35), color=BLANC, lw=1.6, ms=14, style="<|-|>")
+    ax.text((x0 + x1) / 2, y0 - 0.7, r"$dx$", ha="center", va="top", fontsize=19)
+    sauver_svg(fig, DOSSIER, DEST["4.6_conservation"])
 
 
 def main():
     fig_grille_1d()
     fig_slicing()
     fig_grille_decalee()
-    fig_bords()
+    fig_temperature_sol()
+    fig_conservation()
 
 
 if __name__ == "__main__":

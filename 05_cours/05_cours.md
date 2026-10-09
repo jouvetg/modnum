@@ -95,6 +95,28 @@ T[1:-1] += dTdt * dt               # taille nx-2
 
 ---
 
+# Valeurs aux noeuds et au centre des cellules
+
+Pour obtenir des valeurs **entre** les nœuds, on moyenne deux points successifs :
+
+```python
+Tmid = (T[1:]+T[:-1])/2 # calcul de la température au milieu des cellules
+xmid = (x[1:]+x[:-1])/2 # calcul des coordonnées  au milieu des cellules
+```
+
+Visuellement :
+
+```
+x                   |-----|-----|-----|-----|-----|-----|-----|-----|
+x[1:]                     |-----|-----|-----|-----|-----|-----|-----|
+x[:-1]              |-----|-----|-----|-----|-----|-----|-----|
+(x[1:]+x[:-1])/2       |-----|-----|-----|-----|-----|-----|-----|
+```
+
+On perd une cellule : `(x[1:]+x[:-1])/2` est de taille $n_x - 1$.
+
+---
+
 # Les conditions aux bords
 
 Si les équations décrivent la diffusion à l'intérieur du domaine, il faut préciser ce qui se passe à ses bords via les conditions aux bords.
