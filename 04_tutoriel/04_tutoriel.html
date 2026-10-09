@@ -296,11 +296,6 @@
 
 
 
-
-
-
-
-
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutoriel 4</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04_exercice/04_exercice.html">Exercices 4</a></li>
@@ -310,6 +305,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 5</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../05_cours/05_cours.html">Cours 5</a></li>
+
 
 
 
@@ -648,7 +644,6 @@ document.write(`
 <p>Résoudre une équation en 1D suppose de <strong>discrétiser l’espace</strong> : on découpe le domaine <span class="math notranslate nohighlight">\([a,b]\)</span> en <code class="docutils literal notranslate"><span class="pre">nx</span></code> points <span class="math notranslate nohighlight">\(x_0, x_1, \ldots, x_{nx-1}\)</span>, séparés d’un pas constant <span class="math notranslate nohighlight">\(dx\)</span>, et on ne calcule la solution qu’en ces points.</p>
 <div class="math notranslate nohighlight">
 \[ dx = \frac{b-a}{nx-1} \]</div>
-<p><img alt="" src="../_images/grille_1d_s41.svg" /></p>
 <p>Attention au <span class="math notranslate nohighlight">\(nx-1\)</span> : <code class="docutils literal notranslate"><span class="pre">nx</span></code> points délimitent <code class="docutils literal notranslate"><span class="pre">nx-1</span></code> intervalles. On initialise ensuite sur cette grille la fonction à modéliser — ici une température, uniforme pour l’instant.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -679,7 +674,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>longueur de x : 51    dx = 0.02
 </pre></div>
 </div>
-<img alt="../_images/25b86808586a22241ad664ef924f94969e17963a8eacb935f6b6bf4978bfd9b1.png" src="../_images/25b86808586a22241ad664ef924f94969e17963a8eacb935f6b6bf4978bfd9b1.png" />
+<img alt="../_images/60fe127719542e73b81153e433b406bfc6d86c6ab75f357beac2f322013831e2.png" src="../_images/60fe127719542e73b81153e433b406bfc6d86c6ab75f357beac2f322013831e2.png" />
 </div>
 </div>
 </section>
@@ -687,9 +682,7 @@ document.write(`
 <h2>2. Indexation et assignation<a class="headerlink" href="#indexation-et-assignation" title="Link to this heading">#</a></h2>
 <p><strong>Lire une portion du vecteur.</strong> Le <strong>slicing</strong> extrait une portion d’un vecteur, avec la syntaxe <code class="docutils literal notranslate"><span class="pre">vecteur[début:fin]</span></code>.</p>
 <p><strong>⚠️ Attention : l’indice de début est inclus, l’indice de fin est exclu !</strong></p>
-<p>Voici les sous-vecteurs obtenus sur un vecteur de taille 9 :</p>
-<p><img alt="" src="../_images/slicing_s41.svg" /></p>
-<p>Ces écritures serviront à tout ce qui suit : imposer une valeur sur un intervalle (section 2), et surtout calculer une dérivée (section 3).</p>
+<p>Cela servira à tout ce qui suit : imposer une valeur sur un intervalle (section 2), et surtout calculer une dérivée (section 3).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
@@ -762,7 +755,7 @@ v[::2] = [0 2 4 6 8]       un element sur deux
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a6fa26051ac0ed3c6fdee6c08080687f0e518bc5c1f4dfbc1fd13b435e75a1ea.png" src="../_images/a6fa26051ac0ed3c6fdee6c08080687f0e518bc5c1f4dfbc1fd13b435e75a1ea.png" />
+<img alt="../_images/ff6d9430fa9d488e7525621e3ecc89b5efcf4e0d0a486505640a2d349ebd1860.png" src="../_images/ff6d9430fa9d488e7525621e3ecc89b5efcf4e0d0a486505640a2d349ebd1860.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T en x = 0.2 vaut 2.0
 </pre></div>
 </div>
@@ -806,7 +799,7 @@ v[::2] = [0 2 4 6 8]       un element sur deux
 taille de dFdx_appro : (50,)  &lt;- une cellule de moins
 </pre></div>
 </div>
-<img alt="../_images/a25f7a764b279b320b426dfb93082ea5d488dc8874eaa95f1c1183f1244c7a0d.png" src="../_images/a25f7a764b279b320b426dfb93082ea5d488dc8874eaa95f1c1183f1244c7a0d.png" />
+<img alt="../_images/6759070feb388e2dc171f0ab4c62bd679d681f09166c8c792c037fbcf13df48c.png" src="../_images/6759070feb388e2dc171f0ab4c62bd679d681f09166c8c792c037fbcf13df48c.png" />
 </div>
 </div>
 </section>

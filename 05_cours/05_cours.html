@@ -296,11 +296,6 @@
 
 
 
-
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="../04_tutoriel/04_tutoriel.html">Tutoriel 4</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04_exercice/04_exercice.html">Exercices 4</a></li>
@@ -310,6 +305,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 5</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cours 5</a></li>
+
 
 
 
@@ -617,6 +613,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#loi-de-fourier-pour-la-temperature-t-nouveau">Loi de Fourier pour la température <span class="math notranslate nohighlight">\(T\)</span> (nouveau)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-la-diffusion-thermique">Équation de la diffusion thermique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-de-la-diffusion-thermique">Discrétisation de la diffusion thermique</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-aux-noeuds-et-au-centre-des-cellules">Valeurs aux noeuds et au centre des cellules</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#les-conditions-aux-bords">Les conditions aux bords</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deux-categories-de-conditions-aux-bords">Deux catégories de conditions aux bords</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-aux-bords-de-dirichlet">Condition aux bords de Dirichlet</a></li>
@@ -703,6 +700,23 @@ En effet, plus la <strong>variation (dérivée) de température est grande</stro
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dTdt</span> <span class="o">*</span> <span class="n">dt</span>               <span class="c1"># taille nx-2</span>
 </pre></div>
 </div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="valeurs-aux-noeuds-et-au-centre-des-cellules">
+<h1>Valeurs aux noeuds et au centre des cellules<a class="headerlink" href="#valeurs-aux-noeuds-et-au-centre-des-cellules" title="Link to this heading">#</a></h1>
+<p>Pour obtenir des valeurs <strong>entre</strong> les nœuds, on moyenne deux points successifs :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Tmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">T</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># calcul de la température au milieu des cellules</span>
+<span class="n">xmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># calcul des coordonnées  au milieu des cellules</span>
+</pre></div>
+</div>
+<p>Visuellement :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                   <span class="o">|-----|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                     <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>              <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>       <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+</pre></div>
+</div>
+<p>On perd une cellule : <code class="docutils literal notranslate"><span class="pre">(x[1:]+x[:-1])/2</span></code> est de taille <span class="math notranslate nohighlight">\(n_x - 1\)</span>.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="les-conditions-aux-bords">
@@ -943,6 +957,7 @@ dt = \min \left( dt_\mathrm{max}, \ dt_\mathrm{diff} \right)\]</div>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#loi-de-fourier-pour-la-temperature-t-nouveau">Loi de Fourier pour la température <span class="math notranslate nohighlight">\(T\)</span> (nouveau)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-la-diffusion-thermique">Équation de la diffusion thermique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-de-la-diffusion-thermique">Discrétisation de la diffusion thermique</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-aux-noeuds-et-au-centre-des-cellules">Valeurs aux noeuds et au centre des cellules</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#les-conditions-aux-bords">Les conditions aux bords</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deux-categories-de-conditions-aux-bords">Deux catégories de conditions aux bords</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-aux-bords-de-dirichlet">Condition aux bords de Dirichlet</a></li>

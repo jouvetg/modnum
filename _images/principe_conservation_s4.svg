@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="878.4pt" height="417.6pt" viewBox="0 0 878.4 417.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-09T08:12:31.474694</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.6.3, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 417.6 
+L 878.4 417.6 
+L 878.4 0 
+L 0 0 
+z
+"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 309.6 302.4 
+L 568.8 302.4 
+L 568.8 165.6 
+L 309.6 165.6 
+z
+" clip-path="url(#p9e230dd341)" style="fill: #1a1a1a; stroke: #ffffff; stroke-width: 2.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 309.6 165.6 
+L 568.8 165.6 
+L 568.8 111.6 
+L 309.6 111.6 
+L 309.6 165.6 
+z
+" clip-path="url(#p9e230dd341)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #8be28b; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 122.4 234 
+Q 214.2 234 302.645898 234 
+" clip-path="url(#p9e230dd341)" style="fill: none; stroke: #ffb454; stroke-width: 3; stroke-linecap: round"/>
+    <path d="M 293.845898 229.6 
+L 302.645898 234 
+L 293.845898 238.4 
+L 293.845898 229.6 
+z
+" clip-path="url(#p9e230dd341)" style="fill: #ffb454; stroke: #ffb454; stroke-width: 3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 572.4 234 
+Q 664.2 234 752.645898 234 
+" clip-path="url(#p9e230dd341)" style="fill: none; stroke: #ffb454; stroke-width: 3; stroke-linecap: round"/>
+    <path d="M 743.845898 229.6 
+L 752.645898 234 
+L 743.845898 238.4 
+L 743.845898 229.6 
+z
+" clip-path="url(#p9e230dd341)" style="fill: #ffb454; stroke: #ffb454; stroke-width: 3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 311.388854 327.6 
+Q 439.2 327.6 567.011146 327.6 
+" clip-path="url(#p9e230dd341)" style="fill: none; stroke: #ffffff; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 316.988854 330.4 
+L 311.388854 327.6 
+L 316.988854 324.8 
+L 316.988854 330.4 
+z
+" clip-path="url(#p9e230dd341)" style="fill: #ffffff; stroke: #ffffff; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 561.411146 324.8 
+L 567.011146 327.6 
+L 561.411146 330.4 
+L 561.411146 324.8 
+z
+" clip-path="url(#p9e230dd341)" style="fill: #ffffff; stroke: #ffffff; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <!-- $n$ particules -->
+    <g style="fill: #ffffff" transform="translate(380.7 221.5)">
+     <text>
+      <tspan style="font: 20px 'cmmi10'" x="0" y="-0.796875">n</tspan>
+      <tspan style="font: 20px 'DejaVu Sans'" x="12.001953 18.359375 31.054688 43.310547 51.533203 59.375 64.931641 75.927734 88.603516 94.160156 106.464844" y="-0.796875"> particules</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_2">
+    <!-- $C = n\,/\,dx$ -->
+    <g style="fill: #9a9a9a" transform="translate(402.395 263.45)">
+     <text>
+      <tspan style="font: 17px 'cmmi10'" x="0 31.312207 44.001384 54.988902 63.829234" y="-0.25">Cn=dx</tspan>
+      <tspan style="font: 17px 'cmr10'" x="15.120703" y="-0.25">=</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_3">
+    <!-- $\Delta n$ -->
+    <g style="fill: #8be28b" transform="translate(424.08 144.034687)">
+     <text>
+      <tspan style="font: 21px 'cmr10'" x="0" y="-0.96875">¢</tspan>
+      <tspan style="font: 21px 'cmmi10'" x="17.493164" y="-0.96875">n</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_4">
+    <!-- ce qui reste dans la cellule, pendant $dt$ -->
+    <g style="fill: #8be28b" transform="translate(293.775 94.125)">
+     <text>
+      <tspan style="font: 15px 'DejaVu Sans'" x="0 8.24707 17.475586 22.243652 31.765137 41.271973 45.439453 50.20752 56.374512 65.603027 73.417969 79.299316 88.527832 93.295898 102.817383 112.009277 121.516113 129.331055 134.099121 138.266602 147.458496 152.226562 160.473633 169.702148 173.869629 178.037109 187.543945 191.711426 200.939941 205.708008 210.476074 219.997559 229.226074 238.73291 248.254395 257.446289 266.953125 272.834473" y="-0.609375">ce qui reste dans la cellule, pendant </tspan>
+      <tspan style="font: 15px 'cmmi10'" x="277.602539 285.402832" y="-0.609375">dt</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_5">
+    <!-- $q_x(x)$ -->
+    <g style="fill: #ffb454" transform="translate(193.4 201.6)">
+     <text>
+      <tspan style="font: 20px 'cmmi10'" x="0 25.946367" y="-0.0">qx</tspan>
+      <tspan style="font: 14px 'cmmi10'" x="8.916016" y="3.401250000000001">x</tspan>
+      <tspan style="font: 20px 'cmr10'" x="18.182695 37.362383" y="-0.0">()</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_6">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffb454; font: 14px 'DejaVu Sans', sans-serif; text-anchor: middle" x="216" y="277.2" transform="rotate(-0 216 277.2)">ce qui entre</text>
+   </g>
+   <g id="text_7">
+    <!-- $q_x(x+dx)$ -->
+    <g style="fill: #ffb454" transform="translate(617.6 201.6)">
+     <text>
+      <tspan style="font: 20px 'cmmi10'" x="0 25.946367 59.92293 70.32332" y="-0.0">qxdx</tspan>
+      <tspan style="font: 14px 'cmmi10'" x="8.916016" y="3.401250000000001">x</tspan>
+      <tspan style="font: 20px 'cmr10'" x="18.182695 40.874102 81.739336" y="-0.0">(+)</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_8">
+    <text xml:space="preserve" style="white-space: pre; fill: #ffb454; font: 14px 'DejaVu Sans', sans-serif; text-anchor: middle" x="662.4" y="277.2" transform="rotate(-0 662.4 277.2)">ce qui sort</text>
+   </g>
+   <g id="text_9">
+    <!-- $dx$ -->
+    <g style="fill: #ffffff" transform="translate(428.75 367.237031)">
+     <text>
+      <tspan style="font: 19px 'cmmi10'" x="0 9.880371" y="-0.8125">dx</tspan>
+     </text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p9e230dd341">
+   <rect x="7.2" y="7.2" width="864" height="403.2"/>
+  </clipPath>
+ </defs>
+</svg>
