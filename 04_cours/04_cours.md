@@ -34,7 +34,6 @@ style: |
 - Formulation mathématique
 - Discrétisation spatiale, implémentation en Python 
 - Stabilité et pas de temps
-- Slicing et approximation numérique
 
 ---
 
@@ -235,6 +234,13 @@ qx = - D * ( C[1:] - C[:-1] ) / dx
 ```
 
 **Attention :** `qx` a perdu une cellule (taille $n_x - 1$) : il est défini au **centre** des cellules, en `xmid = (x[1:]+x[:-1])/2`, alors que `C` (taille $n_x$) l'est aux nœuds.
+ 
+```
+C                   |-----|-----|-----|-----|-----|-----|-----|-----|
+C[1:]                     |-----|-----|-----|-----|-----|-----|-----|
+C[:-1]              |-----|-----|-----|-----|-----|-----|-----|
+C[1:] - C[:-1] ou qx   |-----|-----|-----|-----|-----|-----|-----|
+``` 
 
 ---
 
@@ -249,6 +255,14 @@ dCdt = - ( qx[1:] - qx[:-1] ) / dx
 ```
 
 On perd encore une cellule : `dCdt` est de taille $n_x - 2$, et revient aux nœuds (intérieurs) de $C$.
+
+```
+C                   |-----|-----|-----|-----|-----|-----|-----|-----|
+qx (etape precedente)  |-----|-----|-----|-----|-----|-----|-----|
+qx[1:]                       |-----|-----|-----|-----|-----|-----|
+qx[:-1]                |-----|-----|-----|-----|-----|-----|
+qx[1:]-qx[:-1] ou dCdt    |-----|-----|-----|-----|-----|-----|
+``` 
 
 ---
 
