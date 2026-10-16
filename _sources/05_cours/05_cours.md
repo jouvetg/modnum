@@ -29,7 +29,7 @@ style: |
 # Objectifs du cours
 
 - Équation de diffusion de la température
-- Conditions aux bords : Dirichlet, Neumann, mixtes
+- Conditions aux bords de Dirichlet ou Neumann
 - Condition d'arrêt d'un modèle
 - Code multi-questions
 
@@ -38,7 +38,8 @@ style: |
 # Loi de Fick pour la concentration $C$ (rappel)
 
 **Le flux de particules $q_x$ dépend de la dérivée de la concentration $C$**
-En effet, plus la **variation (dérivée) de concentration est grande**, plus les particules vont se **déplacer** (rapidement), plus il y a de **diffusion, cela se formalise  avec**
+
+Plus la **variation (dérivée) de concentration est grande**, plus les particules vont se **déplacer** (rapidement), plus il y a de **diffusion**:
 $$q_x = -D \frac{\partial C}{\partial x},$$
 où $D$ est le paramètre de diffusion.
 
@@ -49,7 +50,8 @@ où $D$ est le paramètre de diffusion.
 # Loi de Fourier pour la température $T$ (nouveau)
 
 **Le flux de chaleur $q_x$ dépend de la dérivée de la température $T$**
-En effet, plus la **variation (dérivée) de température est grande**, plus la chaleur va se **déplacer** (rapidement), plus il y a de **diffusion, cela se formalise  avec**
+
+Plus la **variation (dérivée) de température est grande**, plus la chaleur va se **déplacer** (rapidement), plus il y a de **diffusion**:
 
 $$q_x = -D \frac{\partial T}{\partial x},$$
 
@@ -62,11 +64,11 @@ où $D$ est le paramètre de diffusion.
 
 # Équation de la diffusion thermique
 
-→ Loi de Fourier
+→ **Loi de Fourier**
 
 $$q_x = -D \frac{\partial T}{\partial x},$$
 
-→ Principe de conservation
+→ **Principe de conservation**
 
 $$\frac{\partial T}{\partial t} = -\frac{\partial q_x}{\partial x} $$
 
@@ -92,54 +94,53 @@ dTdt  = - ( qx[1:] - qx[:-1] ) / dx  # taille nx-2
 ```python
 T[1:-1] += dTdt * dt               # taille nx-2
 ```
+---
+
+# Ou vivent `T`, `qx`, `dTdt` ?
+ 
+```
+T                   |-----|-----|-----|-----|-----|-----|-----|-----|
+T[1:]                     |-----|-----|-----|-----|-----|-----|-----|
+T[:-1]              |-----|-----|-----|-----|-----|-----|-----|
+qx                     |-----|-----|-----|-----|-----|-----|-----|
+dTdt                      |-----|-----|-----|-----|-----|-----|
+```
+
+Pour obtenir les coordonnées **entre** les nœuds, on moyenne 2 points successifs :
+
+```
+x                       |-----|-----|-----|-----|-----|-----|-----|-----|
+x[1:]                         |-----|-----|-----|-----|-----|-----|-----|
+x[:-1]                  |-----|-----|-----|-----|-----|-----|-----|
+xm = (x[1:]+x[:-1])/2      |-----|-----|-----|-----|-----|-----|-----|
+```
+
+On perd une cellule : `xm` est de taille $n_x - 1$.
+
+Par example, cela permetrait de tracer la fonction flux avec `plt.plot(xm,qx)`
 
 ---
 
-# Valeurs aux noeuds et au centre des cellules
+# Les conditions aux bords (CdB)
 
-Pour obtenir des valeurs **entre** les nœuds, on moyenne deux points successifs :
+Si les équations décrivent la diffusion à l'intérieur du domaine
 
-```python
-Tmid = (T[1:]+T[:-1])/2 # calcul de la température au milieu des cellules
-xmid = (x[1:]+x[:-1])/2 # calcul des coordonnées  au milieu des cellules
-```
-
-Visuellement :
+→ il faut préciser ce qui se passe à ses bords via les CdBs.
 
 ```
-x                   |-----|-----|-----|-----|-----|-----|-----|-----|
-x[1:]                     |-----|-----|-----|-----|-----|-----|-----|
-x[:-1]              |-----|-----|-----|-----|-----|-----|-----|
-(x[1:]+x[:-1])/2       |-----|-----|-----|-----|-----|-----|-----|
-```
-
-On perd une cellule : `(x[1:]+x[:-1])/2` est de taille $n_x - 1$.
-
----
-
-# Les conditions aux bords
-
-Si les équations décrivent la diffusion à l'intérieur du domaine, il faut préciser ce qui se passe à ses bords via les conditions aux bords.
-
-```
-     Condition aux bords gauche               Condition aux bords droit
+  CdB gauche                                                   CdB droite
      |------------------------------------------------------------|
 ```
 
 
 Celles-ci peuvent influencer énormément la solution !
 
----
 
-# Deux catégories de conditions aux bords
+- CbD **du type  “Dirichlet”** sur la **fonction** T ou C
+→ Fixe la **concentration** ou **température** sur les bords  
 
-- **du type  “Dirichlet”**
-→ Fixe la **concentration** ou **température** sur les bords
-→ Condition sur la **fonction** T ou C
-
-- **du type “Neumann”**
-→ Fixe le **flux** de concentration ou température sur les bords
-→ Condition sur la **dérivée** de T ou C
+- CbD **du type “Neumann”** sur la **dérivée** de T ou C
+→ Fixe le **flux** de concentration ou température sur les bords 
 
 ---
 
@@ -225,16 +226,15 @@ Les CDB agissent à tout moment : il faut donc les implémenter dans la boucle.
 
 ```python
 # Initialisation
-C         = np.ones(nx)*1000
-C[:int(nx/2)] = 0
+C = ...
 
 # Boucle temporelle
 for it in range(nt):
 
   # Mise a jour condition équation de diffusion
-  qx      = - D * (C[1:] - C[:-1]) / dx
-  dCdt    = - (qx[1:] - qx[:-1]) / dx
-  C[1:-1] += dCdt * dt
+  qx      = ...
+  dCdt    = ...
+  C[1:-1] += ...
 
   # Mise a jour condition aux bords
   C[0]    = C[1]
@@ -258,7 +258,9 @@ dt      = min(dt_max, dt_diff)  # pas de temps retenu
 
 # Condition d'arrêt d'un modèle
 
-Souvent, nous voulons arrêter notre modèle lorsque celui-ci n'évolue plus beaucoup. Pour cela, nous mesurons la différence entre l'ancienne et la nouvelle solution, ce qui suppose d'en faire une copie avant la mise à jour :
+Souvent, nous voulons arrêter notre modèle lorsque celui-ci n'évolue quasi plus. 
+
+Pour cela, nous mesurons la différence entre l'ancienne et la nouvelle solution, ce qui suppose d'en faire une copie avant la mise à jour :
 
 ```python
 T_old = np.copy(T)
@@ -270,7 +272,7 @@ if somme < tol:
      break
 ```
 
-Notons qu'en Python, il est nécessaire de demander une copie via `T_old = np.copy(T)`, puisque la commande `T_old = T` ne le fera pas : `T_old` serait modifié en même temps que `T` (Python copie par défaut des "adresses").
+Notons qu'en Python, il faut demander une copie via `T_old = np.copy(T)`, car la commande `T_old = T` ne le fera pas: `T_old` serait modifié avec `T` (*adresse*).
 
 ---
 
@@ -293,12 +295,10 @@ if Q == 1:
 elif Q == 2:
     ft = 90    # Paramètre de la question 2
 ```
-
-**Attention:** on utilise `Q` en majuscule, car `qx` désigne déjà un flux.
-
+ 
 Le but n'est pas de construire un nouveau code (quasiment identique à l'original), mais de ne modifier que la portion de code concernée.
 
-→ Cela rend votre rendu / code bien plus concis!
+→ Cela rend votre code bien plus **concis**!
 
 ---
 
@@ -308,10 +308,10 @@ Le but n'est pas de construire un nouveau code (quasiment identique à l'origina
 
 ![](../05_exercice/fig/intrusions.svg)
 
-**Que veut-on modéliser ?** — la chaleur de deux intrusions magmatiques successives, qui se diffuse dans la roche encaissante.
+**Que veut-on modéliser ?** — la chaleur de deux intrusions magmatiques successives, qui se diffuse dans la roche.
 
 **Ce qui est nouveau**
-- les **conditions aux bords** : Dirichlet, Neumann, flux nul
+- les **conditions aux bords** : Dirichlet, Neumann avc flux nul
 - un **événement au milieu** du calcul : la seconde intrusion arrive
 - un **code unique** pour plusieurs questions, piloté par `Q`
 - une **condition d'arrêt** sur une sonde posée dans le domaine

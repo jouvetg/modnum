@@ -323,7 +323,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -613,9 +612,8 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#loi-de-fourier-pour-la-temperature-t-nouveau">Loi de Fourier pour la température <span class="math notranslate nohighlight">\(T\)</span> (nouveau)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-la-diffusion-thermique">Équation de la diffusion thermique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-de-la-diffusion-thermique">Discrétisation de la diffusion thermique</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-aux-noeuds-et-au-centre-des-cellules">Valeurs aux noeuds et au centre des cellules</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#les-conditions-aux-bords">Les conditions aux bords</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deux-categories-de-conditions-aux-bords">Deux catégories de conditions aux bords</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ou-vivent-t-qx-dtdt">Ou vivent <code class="docutils literal notranslate"><span class="pre">T</span></code>, <code class="docutils literal notranslate"><span class="pre">qx</span></code>, <code class="docutils literal notranslate"><span class="pre">dTdt</span></code> ?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#les-conditions-aux-bords-cdb">Les conditions aux bords (CdB)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-aux-bords-de-dirichlet">Condition aux bords de Dirichlet</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-aux-bords-de-neumann">Condition aux bords de Neumann</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-flux-nul-neumann-cas-special">Condition de flux nul (Neumann, cas spécial)</a></li>
@@ -648,7 +646,7 @@ document.write(`
 <h1>Objectifs du cours<a class="headerlink" href="#objectifs-du-cours" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Équation de diffusion de la température</p></li>
-<li><p>Conditions aux bords : Dirichlet, Neumann, mixtes</p></li>
+<li><p>Conditions aux bords de Dirichlet ou Neumann</p></li>
 <li><p>Condition d’arrêt d’un modèle</p></li>
 <li><p>Code multi-questions</p></li>
 </ul>
@@ -656,8 +654,8 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="loi-de-fick-pour-la-concentration-c-rappel">
 <h1>Loi de Fick pour la concentration <span class="math notranslate nohighlight">\(C\)</span> (rappel)<a class="headerlink" href="#loi-de-fick-pour-la-concentration-c-rappel" title="Link to this heading">#</a></h1>
-<p><strong>Le flux de particules <span class="math notranslate nohighlight">\(q_x\)</span> dépend de la dérivée de la concentration <span class="math notranslate nohighlight">\(C\)</span></strong>
-En effet, plus la <strong>variation (dérivée) de concentration est grande</strong>, plus les particules vont se <strong>déplacer</strong> (rapidement), plus il y a de <strong>diffusion, cela se formalise  avec</strong>
+<p><strong>Le flux de particules <span class="math notranslate nohighlight">\(q_x\)</span> dépend de la dérivée de la concentration <span class="math notranslate nohighlight">\(C\)</span></strong></p>
+<p>Plus la <strong>variation (dérivée) de concentration est grande</strong>, plus les particules vont se <strong>déplacer</strong> (rapidement), plus il y a de <strong>diffusion</strong>:
 $<span class="math notranslate nohighlight">\(q_x = -D \frac{\partial C}{\partial x},\)</span><span class="math notranslate nohighlight">\(
 où \)</span>D$ est le paramètre de diffusion.</p>
 <p><img alt="width:550px" src="../_images/graph_concentration_s5.png" /></p>
@@ -665,8 +663,8 @@ où \)</span>D$ est le paramètre de diffusion.</p>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="loi-de-fourier-pour-la-temperature-t-nouveau">
 <h1>Loi de Fourier pour la température <span class="math notranslate nohighlight">\(T\)</span> (nouveau)<a class="headerlink" href="#loi-de-fourier-pour-la-temperature-t-nouveau" title="Link to this heading">#</a></h1>
-<p><strong>Le flux de chaleur <span class="math notranslate nohighlight">\(q_x\)</span> dépend de la dérivée de la température <span class="math notranslate nohighlight">\(T\)</span></strong>
-En effet, plus la <strong>variation (dérivée) de température est grande</strong>, plus la chaleur va se <strong>déplacer</strong> (rapidement), plus il y a de <strong>diffusion, cela se formalise  avec</strong></p>
+<p><strong>Le flux de chaleur <span class="math notranslate nohighlight">\(q_x\)</span> dépend de la dérivée de la température <span class="math notranslate nohighlight">\(T\)</span></strong></p>
+<p>Plus la <strong>variation (dérivée) de température est grande</strong>, plus la chaleur va se <strong>déplacer</strong> (rapidement), plus il y a de <strong>diffusion</strong>:</p>
 <div class="math notranslate nohighlight">
 \[q_x = -D \frac{\partial T}{\partial x},\]</div>
 <p>où <span class="math notranslate nohighlight">\(D\)</span> est le paramètre de diffusion.</p>
@@ -675,10 +673,10 @@ En effet, plus la <strong>variation (dérivée) de température est grande</stro
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equation-de-la-diffusion-thermique">
 <h1>Équation de la diffusion thermique<a class="headerlink" href="#equation-de-la-diffusion-thermique" title="Link to this heading">#</a></h1>
-<p>→ Loi de Fourier</p>
+<p>→ <strong>Loi de Fourier</strong></p>
 <div class="math notranslate nohighlight">
 \[q_x = -D \frac{\partial T}{\partial x},\]</div>
-<p>→ Principe de conservation</p>
+<p>→ <strong>Principe de conservation</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial T}{\partial t} = -\frac{\partial q_x}{\partial x} \]</div>
 <p>Diffusivité thermique (<span class="math notranslate nohighlight">\(m^2/s\)</span>) de l’aluminium (0.0001), du béton (0.0000005), de l’eau (0.0000001),  la glace (0.000001), …</p>
@@ -702,42 +700,40 @@ En effet, plus la <strong>variation (dérivée) de température est grande</stro
 </div>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="valeurs-aux-noeuds-et-au-centre-des-cellules">
-<h1>Valeurs aux noeuds et au centre des cellules<a class="headerlink" href="#valeurs-aux-noeuds-et-au-centre-des-cellules" title="Link to this heading">#</a></h1>
-<p>Pour obtenir des valeurs <strong>entre</strong> les nœuds, on moyenne deux points successifs :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Tmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">T</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># calcul de la température au milieu des cellules</span>
-<span class="n">xmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># calcul des coordonnées  au milieu des cellules</span>
+<section class="tex2jax_ignore mathjax_ignore" id="ou-vivent-t-qx-dtdt">
+<h1>Ou vivent <code class="docutils literal notranslate"><span class="pre">T</span></code>, <code class="docutils literal notranslate"><span class="pre">qx</span></code>, <code class="docutils literal notranslate"><span class="pre">dTdt</span></code> ?<a class="headerlink" href="#ou-vivent-t-qx-dtdt" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span>                   <span class="o">|-----|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                     <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">T</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>              <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">qx</span>                     <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">dTdt</span>                      <span class="o">|-----|-----|-----|-----|-----|-----|</span>
 </pre></div>
 </div>
-<p>Visuellement :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                   <span class="o">|-----|-----|-----|-----|-----|-----|-----|-----|</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                     <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
-<span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>              <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
-<span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>       <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<p>Pour obtenir les coordonnées <strong>entre</strong> les nœuds, on moyenne 2 points successifs :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                       <span class="o">|-----|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                         <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>                  <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">xm</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>      <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
 </pre></div>
 </div>
-<p>On perd une cellule : <code class="docutils literal notranslate"><span class="pre">(x[1:]+x[:-1])/2</span></code> est de taille <span class="math notranslate nohighlight">\(n_x - 1\)</span>.</p>
+<p>On perd une cellule : <code class="docutils literal notranslate"><span class="pre">xm</span></code> est de taille <span class="math notranslate nohighlight">\(n_x - 1\)</span>.</p>
+<p>Par example, cela permetrait de tracer la fonction flux avec <code class="docutils literal notranslate"><span class="pre">plt.plot(xm,qx)</span></code></p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="les-conditions-aux-bords">
-<h1>Les conditions aux bords<a class="headerlink" href="#les-conditions-aux-bords" title="Link to this heading">#</a></h1>
-<p>Si les équations décrivent la diffusion à l’intérieur du domaine, il faut préciser ce qui se passe à ses bords via les conditions aux bords.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">Condition</span> <span class="n">aux</span> <span class="n">bords</span> <span class="n">gauche</span>               <span class="n">Condition</span> <span class="n">aux</span> <span class="n">bords</span> <span class="n">droit</span>
+<section class="tex2jax_ignore mathjax_ignore" id="les-conditions-aux-bords-cdb">
+<h1>Les conditions aux bords (CdB)<a class="headerlink" href="#les-conditions-aux-bords-cdb" title="Link to this heading">#</a></h1>
+<p>Si les équations décrivent la diffusion à l’intérieur du domaine</p>
+<p>→ il faut préciser ce qui se passe à ses bords via les CdBs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">CdB</span> <span class="n">gauche</span>                                                   <span class="n">CdB</span> <span class="n">droite</span>
      <span class="o">|------------------------------------------------------------|</span>
 </pre></div>
 </div>
 <p>Celles-ci peuvent influencer énormément la solution !</p>
-</section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="deux-categories-de-conditions-aux-bords">
-<h1>Deux catégories de conditions aux bords<a class="headerlink" href="#deux-categories-de-conditions-aux-bords" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p><strong>du type  “Dirichlet”</strong>
-→ Fixe la <strong>concentration</strong> ou <strong>température</strong> sur les bords
-→ Condition sur la <strong>fonction</strong> T ou C</p></li>
-<li><p><strong>du type “Neumann”</strong>
-→ Fixe le <strong>flux</strong> de concentration ou température sur les bords
-→ Condition sur la <strong>dérivée</strong> de T ou C</p></li>
+<li><p>CbD <strong>du type  “Dirichlet”</strong> sur la <strong>fonction</strong> T ou C
+→ Fixe la <strong>concentration</strong> ou <strong>température</strong> sur les bords</p></li>
+<li><p>CbD <strong>du type “Neumann”</strong> sur la <strong>dérivée</strong> de T ou C
+→ Fixe le <strong>flux</strong> de concentration ou température sur les bords</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -804,16 +800,15 @@ $<span class="math notranslate nohighlight">\(\frac{dC}{dx}(0) = 0, \qquad\qquad
 <h1>Conditions aux bords (CDB)<a class="headerlink" href="#conditions-aux-bords-cdb" title="Link to this heading">#</a></h1>
 <p>Les CDB agissent à tout moment : il faut donc les implémenter dans la boucle.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialisation</span>
-<span class="n">C</span>         <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span>
-<span class="n">C</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">nx</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">C</span> <span class="o">=</span> <span class="o">...</span>
 
 <span class="c1"># Boucle temporelle</span>
 <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
 
   <span class="c1"># Mise a jour condition équation de diffusion</span>
-  <span class="n">qx</span>      <span class="o">=</span> <span class="o">-</span> <span class="n">D</span> <span class="o">*</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>
-  <span class="n">dCdt</span>    <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">qx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">qx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>
-  <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dCdt</span> <span class="o">*</span> <span class="n">dt</span>
+  <span class="n">qx</span>      <span class="o">=</span> <span class="o">...</span>
+  <span class="n">dCdt</span>    <span class="o">=</span> <span class="o">...</span>
+  <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="o">...</span>
 
   <span class="c1"># Mise a jour condition aux bords</span>
   <span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -836,7 +831,8 @@ dt = \min \left( dt_\mathrm{max}, \ dt_\mathrm{diff} \right)\]</div>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="condition-d-arret-d-un-modele">
 <h1>Condition d’arrêt d’un modèle<a class="headerlink" href="#condition-d-arret-d-un-modele" title="Link to this heading">#</a></h1>
-<p>Souvent, nous voulons arrêter notre modèle lorsque celui-ci n’évolue plus beaucoup. Pour cela, nous mesurons la différence entre l’ancienne et la nouvelle solution, ce qui suppose d’en faire une copie avant la mise à jour :</p>
+<p>Souvent, nous voulons arrêter notre modèle lorsque celui-ci n’évolue quasi plus.</p>
+<p>Pour cela, nous mesurons la différence entre l’ancienne et la nouvelle solution, ce qui suppose d’en faire une copie avant la mise à jour :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T_old</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -846,7 +842,7 @@ dt = \min \left( dt_\mathrm{max}, \ dt_\mathrm{diff} \right)\]</div>
      <span class="k">break</span>
 </pre></div>
 </div>
-<p>Notons qu’en Python, il est nécessaire de demander une copie via <code class="docutils literal notranslate"><span class="pre">T_old</span> <span class="pre">=</span> <span class="pre">np.copy(T)</span></code>, puisque la commande <code class="docutils literal notranslate"><span class="pre">T_old</span> <span class="pre">=</span> <span class="pre">T</span></code> ne le fera pas : <code class="docutils literal notranslate"><span class="pre">T_old</span></code> serait modifié en même temps que <code class="docutils literal notranslate"><span class="pre">T</span></code> (Python copie par défaut des “adresses”).</p>
+<p>Notons qu’en Python, il faut demander une copie via <code class="docutils literal notranslate"><span class="pre">T_old</span> <span class="pre">=</span> <span class="pre">np.copy(T)</span></code>, car la commande <code class="docutils literal notranslate"><span class="pre">T_old</span> <span class="pre">=</span> <span class="pre">T</span></code> ne le fera pas: <code class="docutils literal notranslate"><span class="pre">T_old</span></code> serait modifié avec <code class="docutils literal notranslate"><span class="pre">T</span></code> (<em>adresse</em>).</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="condition-d-arret-un-exemple">
@@ -866,19 +862,18 @@ dt = \min \left( dt_\mathrm{max}, \ dt_\mathrm{diff} \right)\]</div>
     <span class="n">ft</span> <span class="o">=</span> <span class="mi">90</span>    <span class="c1"># Paramètre de la question 2</span>
 </pre></div>
 </div>
-<p><strong>Attention:</strong> on utilise <code class="docutils literal notranslate"><span class="pre">Q</span></code> en majuscule, car <code class="docutils literal notranslate"><span class="pre">qx</span></code> désigne déjà un flux.</p>
 <p>Le but n’est pas de construire un nouveau code (quasiment identique à l’original), mais de ne modifier que la portion de code concernée.</p>
-<p>→ Cela rend votre rendu / code bien plus concis!</p>
+<p>→ Cela rend votre code bien plus <strong>concis</strong>!</p>
 <hr class="docutils" />
 <!-- _class: invert pratique -->
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="la-seance-pratique">
 <h1>La séance pratique<a class="headerlink" href="#la-seance-pratique" title="Link to this heading">#</a></h1>
 <p><img alt="" src="../_images/intrusions.svg" /></p>
-<p><strong>Que veut-on modéliser ?</strong> — la chaleur de deux intrusions magmatiques successives, qui se diffuse dans la roche encaissante.</p>
+<p><strong>Que veut-on modéliser ?</strong> — la chaleur de deux intrusions magmatiques successives, qui se diffuse dans la roche.</p>
 <p><strong>Ce qui est nouveau</strong></p>
 <ul class="simple">
-<li><p>les <strong>conditions aux bords</strong> : Dirichlet, Neumann, flux nul</p></li>
+<li><p>les <strong>conditions aux bords</strong> : Dirichlet, Neumann avc flux nul</p></li>
 <li><p>un <strong>événement au milieu</strong> du calcul : la seconde intrusion arrive</p></li>
 <li><p>un <strong>code unique</strong> pour plusieurs questions, piloté par <code class="docutils literal notranslate"><span class="pre">Q</span></code></p></li>
 <li><p>une <strong>condition d’arrêt</strong> sur une sonde posée dans le domaine</p></li>
@@ -957,9 +952,8 @@ dt = \min \left( dt_\mathrm{max}, \ dt_\mathrm{diff} \right)\]</div>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#loi-de-fourier-pour-la-temperature-t-nouveau">Loi de Fourier pour la température <span class="math notranslate nohighlight">\(T\)</span> (nouveau)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-la-diffusion-thermique">Équation de la diffusion thermique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-de-la-diffusion-thermique">Discrétisation de la diffusion thermique</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-aux-noeuds-et-au-centre-des-cellules">Valeurs aux noeuds et au centre des cellules</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#les-conditions-aux-bords">Les conditions aux bords</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deux-categories-de-conditions-aux-bords">Deux catégories de conditions aux bords</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ou-vivent-t-qx-dtdt">Ou vivent <code class="docutils literal notranslate"><span class="pre">T</span></code>, <code class="docutils literal notranslate"><span class="pre">qx</span></code>, <code class="docutils literal notranslate"><span class="pre">dTdt</span></code> ?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#les-conditions-aux-bords-cdb">Les conditions aux bords (CdB)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-aux-bords-de-dirichlet">Condition aux bords de Dirichlet</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-aux-bords-de-neumann">Condition aux bords de Neumann</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-flux-nul-neumann-cas-special">Condition de flux nul (Neumann, cas spécial)</a></li>

@@ -323,7 +323,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../05_tutoriel/05_tutoriel.html">Tutoriel 5</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05_exercice/05_exercice.html">Exercices 5</a></li>
@@ -656,7 +655,6 @@ document.write(`
 <li><p>Formulation mathématique</p></li>
 <li><p>Discrétisation spatiale, implémentation en Python</p></li>
 <li><p>Stabilité et pas de temps</p></li>
-<li><p>Slicing et approximation numérique</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -820,6 +818,12 @@ document.write(`
 </pre></div>
 </div>
 <p><strong>Attention :</strong> <code class="docutils literal notranslate"><span class="pre">qx</span></code> a perdu une cellule (taille <span class="math notranslate nohighlight">\(n_x - 1\)</span>) : il est défini au <strong>centre</strong> des cellules, en <code class="docutils literal notranslate"><span class="pre">xmid</span> <span class="pre">=</span> <span class="pre">(x[1:]+x[:-1])/2</span></code>, alors que <code class="docutils literal notranslate"><span class="pre">C</span></code> (taille <span class="math notranslate nohighlight">\(n_x\)</span>) l’est aux nœuds.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>                   <span class="o">|-----|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                     <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>              <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="n">ou</span> <span class="n">qx</span>   <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+</pre></div>
+</div>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="approximation-numerique-de-dcdt">
@@ -831,6 +835,13 @@ document.write(`
 </pre></div>
 </div>
 <p>On perd encore une cellule : <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> est de taille <span class="math notranslate nohighlight">\(n_x - 2\)</span>, et revient aux nœuds (intérieurs) de <span class="math notranslate nohighlight">\(C\)</span>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>                   <span class="o">|-----|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">qx</span> <span class="p">(</span><span class="n">etape</span> <span class="n">precedente</span><span class="p">)</span>  <span class="o">|-----|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">qx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                       <span class="o">|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">qx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>                <span class="o">|-----|-----|-----|-----|-----|-----|</span>
+<span class="n">qx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">qx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="n">ou</span> <span class="n">dCdt</span>    <span class="o">|-----|-----|-----|-----|-----|-----|</span>
+</pre></div>
+</div>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="regle-de-mise-a-jour">
