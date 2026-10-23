@@ -1,5 +1,7 @@
 #!/bin/bash
 
+python3 utils/fix_kernels.py   # kernel « Python 3 » partout, avant de regénérer
+
 for A in ??_exercice
 do
   cd $A
