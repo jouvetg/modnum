@@ -672,11 +672,15 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="reaction-mise-en-equation">
 <h1>Reaction : Mise en équation<a class="headerlink" href="#reaction-mise-en-equation" title="Link to this heading">#</a></h1>
-<p>Nous pouvons modéliser la diminution (dégradation) d’un polluant assez simplement en utilisant l’équation suivante, qui dit que la décroissance de la pollution (la dérivée de <span class="math notranslate nohighlight">\(C\)</span> par rapport à <span class="math notranslate nohighlight">\(t\)</span>) est proportionnelle à la concentration (plus la concentration est grande, plus elle se dégrade), ce qui donne :</p>
+<p>Nous pouvons modéliser la dégradation d’un polluant avec l’équation suivante:</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial C}{\partial t} = - \gamma C.\]</div>
+<p>qui dit que la décroissance de la pollution est proportionnelle à la concentration.
+(plus la concentration est grande, plus elle se dégrade)</p>
 <p>→ Nous appellerons l’équation ci-dessus une équation de <strong>réaction</strong>.</p>
-<p>Notons que l’équation ci-dessus peut se résoudre analytiquement : <span class="math notranslate nohighlight">\(C(t) = C_0 \, e^{-\gamma t}\)</span>. Ainsi, dans ce cas, le polluant se dégrade exponentiellement.</p>
+<p>Notons que l’équation ci-dessus peut se résoudre analytiquement :
+$<span class="math notranslate nohighlight">\( C(t) = C_0 \, e^{-\gamma t} \)</span>$</p>
+<p>Ainsi, dans ce cas, le polluant se dégrade exponentiellement.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equation-dadvection-diffusion-reaction">
@@ -750,14 +754,15 @@ C^{n+1}  &amp; = C^{n+2/3} &amp; - \left( \gamma C \right)^n  \times dt  \\
 <div class="math notranslate nohighlight">
 \[\frac{\partial C}{\partial t} = -V_x\frac{\partial C}{\partial x}, \]</div>
 <p>se discrétise avec <code class="docutils literal notranslate"><span class="pre">dCdt</span> <span class="pre">=</span> <span class="pre">-</span> <span class="pre">Vx</span> <span class="pre">*</span> <span class="pre">(</span> <span class="pre">C[1:]</span> <span class="pre">-</span> <span class="pre">C[:-1]</span> <span class="pre">)</span> <span class="pre">/</span> <span class="pre">dx</span></code></p>
-<p>La règle de mise à jour est différente de celle utilisée pour un terme de diffusion, car elle n’implique qu’une seule dérivée (donc <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> est de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>). Rappelons que le terme de diffusion fait intervenir une dérivée seconde, et <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> est de taille <code class="docutils literal notranslate"><span class="pre">nx-2</span></code> puisque l’on perd une cellule par dérivation.</p>
-<p>Pour mettre à jour <code class="docutils literal notranslate"><span class="pre">C</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx</span></code> avec le terme d’advection <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>, il y a deux options : décaler à gauche ou à droite. Pour faire le “bon” choix, nous utiliserons la méthode “upwind”.</p>
+<p>La règle de mise à jour n’implique qu’une seule dérivée (<code class="docutils literal notranslate"><span class="pre">dCdt</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>) contrairement à celle de la diffusion qui fait intervenir une dérivée 2nde (<code class="docutils literal notranslate"><span class="pre">nx-2</span></code>).</p>
+<p>Pour mettre à jour <code class="docutils literal notranslate"><span class="pre">C</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx</span></code> avec le terme d’advection <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>, il y a 2 options : décaler à <strong>gauche</strong> ou à <strong>droite</strong>.</p>
+<p>Pour faire le “bon” choix, nous utiliserons la méthode “upwind”.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="methode-upwind">
 <h1>Méthode “upwind”<a class="headerlink" href="#methode-upwind" title="Link to this heading">#</a></h1>
-<p>Avec deux choix possibles pour la dérivée, l’idée de la méthode “upwind” est d’aller chercher l’information “dans le sens du vent”. Ainsi, nous prenons celle qui est en amont dans la direction donnée par le champ d’advection <span class="math notranslate nohighlight">\(V_x\)</span>:</p>
-<p>On approche la concentration <span class="math notranslate nohighlight">\(C_i^n\)</span> au <span class="math notranslate nohighlight">\(i\)</span>-ème point <span class="math notranslate nohighlight">\(i \cdot dx\)</span> au <span class="math notranslate nohighlight">\(n\)</span>-ème temps avec:</p>
+<p>L’idée de la méthode “upwind” est de chercher l’information “dans le sens du vent.</p>
+<p>Ainsi, nous prenons celle en amont de la direction  du champ d’advection <span class="math notranslate nohighlight">\(V_x\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \frac{C_i^{n+1} - C_i^n}{dt} =
@@ -809,12 +814,12 @@ C^{n+1}  &amp; = C^{n+2/3} &amp; - \left( \gamma C \right)^n  \times dt  \\
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="discretisation-du-terme-de-reaction">
 <h1>Discrétisation du terme de réaction<a class="headerlink" href="#discretisation-du-terme-de-reaction" title="Link to this heading">#</a></h1>
-<p>Le terme de réaction ne pose aucun problème quant à lui, puisqu’il ne fait intervenir aucune dérivée :</p>
+<p>Sans dérivée, le terme de réaction ne pose aucun problème:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dCdt_r</span> <span class="o">=</span> <span class="o">-</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">C</span>
 <span class="n">C</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="n">dCdt_r</span>
 </pre></div>
 </div>
-<p>Ainsi, pour le terme de réaction, la mise à jour s’applique sur tout le vecteur, il n’y a pas de problème de dimensions.</p>
+<p>La mise à jour s’applique alors à tout le vecteur, aucun problème de dimensions.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="condition-de-stabilite">

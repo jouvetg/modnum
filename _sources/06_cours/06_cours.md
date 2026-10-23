@@ -61,13 +61,19 @@ $$\frac{\partial C}{\partial t} = - V_x \frac{\partial C}{\partial x}.$$
 
 # Reaction : Mise en équation
 
-Nous pouvons modéliser la diminution (dégradation) d'un polluant assez simplement en utilisant l'équation suivante, qui dit que la décroissance de la pollution (la dérivée de $C$ par rapport à $t$) est proportionnelle à la concentration (plus la concentration est grande, plus elle se dégrade), ce qui donne :
+Nous pouvons modéliser la dégradation d'un polluant avec l'équation suivante:
 
 $$\frac{\partial C}{\partial t} = - \gamma C.$$
 
+qui dit que la décroissance de la pollution est proportionnelle à la concentration.
+(plus la concentration est grande, plus elle se dégrade)
+
 → Nous appellerons l'équation ci-dessus une équation de **réaction**.
 
-Notons que l'équation ci-dessus peut se résoudre analytiquement : $C(t) = C_0 \, e^{-\gamma t}$. Ainsi, dans ce cas, le polluant se dégrade exponentiellement.
+Notons que l'équation ci-dessus peut se résoudre analytiquement : 
+$$ C(t) = C_0 \, e^{-\gamma t} $$
+
+Ainsi, dans ce cas, le polluant se dégrade exponentiellement.
 
 ---
 
@@ -157,17 +163,20 @@ $$\frac{\partial C}{\partial t} = -V_x\frac{\partial C}{\partial x}, $$
 
 se discrétise avec `dCdt = - Vx * ( C[1:] - C[:-1] ) / dx`
 
-La règle de mise à jour est différente de celle utilisée pour un terme de diffusion, car elle n'implique qu'une seule dérivée (donc `dCdt` est de taille `nx-1`). Rappelons que le terme de diffusion fait intervenir une dérivée seconde, et `dCdt` est de taille `nx-2` puisque l'on perd une cellule par dérivation.
+La règle de mise à jour n'implique qu'une seule dérivée (`dCdt` de taille `nx-1`) contrairement à celle de la diffusion qui fait intervenir une dérivée 2nde (`nx-2`).
 
-Pour mettre à jour `C` de taille `nx` avec le terme d'advection `dCdt` de taille `nx-1`, il y a deux options : décaler à gauche ou à droite. Pour faire le "bon" choix, nous utiliserons la méthode "upwind".
+Pour mettre à jour `C` de taille `nx` avec le terme d'advection `dCdt` de taille `nx-1`, il y a 2 options : décaler à **gauche** ou à **droite**. 
+
+Pour faire le "bon" choix, nous utiliserons la méthode "upwind".
 
 ---
 
 # Méthode "upwind"
 
-Avec deux choix possibles pour la dérivée, l'idée de la méthode "upwind" est d'aller chercher l'information "dans le sens du vent". Ainsi, nous prenons celle qui est en amont dans la direction donnée par le champ d'advection $V_x$:
+L'idée de la méthode "upwind" est de chercher l'information "dans le sens du vent. 
 
-On approche la concentration $C_i^n$ au $i$-ème point $i \cdot dx$ au $n$-ème temps avec:
+Ainsi, nous prenons celle en amont de la direction  du champ d'advection $V_x$:
+ 
 
 $$
 \frac{C_i^{n+1} - C_i^n}{dt} =
@@ -231,14 +240,14 @@ C[:-1] += dt*dCdt_a
 
 # Discrétisation du terme de réaction
 
-Le terme de réaction ne pose aucun problème quant à lui, puisqu'il ne fait intervenir aucune dérivée :
+Sans dérivée, le terme de réaction ne pose aucun problème:
 
 ```python
 dCdt_r = - gamma * C
 C += dt*dCdt_r
 ```
 
-Ainsi, pour le terme de réaction, la mise à jour s'applique sur tout le vecteur, il n'y a pas de problème de dimensions.
+La mise à jour s'applique alors à tout le vecteur, aucun problème de dimensions.
 
 ---
 

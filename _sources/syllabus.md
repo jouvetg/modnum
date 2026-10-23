@@ -62,6 +62,9 @@ Chaque séance comprend un **cours**, un **tutoriel** (courte mise en train prat
  
 ## Check liste d'un code
 
+Cette grille sert à relire son propre code lors des exercices, et de base à l'évaluation des tests :
+
+| **Code** | **Critère** | **Questions à se poser** |
 |---|---|---|
 | | **Présentation générale** | |
 | **RU** | Le code fonctionne | Le code s'exécute-t-il sans erreur, pour toutes les questions ? Toutes les variables sont-elles définies avant usage ? |
