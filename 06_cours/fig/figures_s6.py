@@ -9,7 +9,7 @@ import sys
 
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyArrowPatch, Rectangle
+from matplotlib.patches import FancyArrowPatch, FancyBboxPatch, Rectangle
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'utils'))
 from style_figures import *  # noqa: E402,F401,F403
@@ -19,6 +19,7 @@ DOSSIER = os.path.dirname(os.path.abspath(__file__))
 # figure -> fichiers SVG écrits (chemins relatifs à ce dossier)
 DEST = {
     '6.3_splitting': ['splitting_s6.svg'],
+    '6.5_upwind_slicing': ['upwind_slicing_s6.svg'],
     '6.7_domaine_riviere': ['../../06_exercice/fig/domaine_riviere.svg'],
 }
 
@@ -220,6 +221,99 @@ def panneau_riviere(ax, X0, Q):
         ax.text(xt, 1.65, eq, ha=ha, va="center", fontsize=17, color=VERT)
 
 
+# ---------------------------------------------------------------------------
+# 6.5 Upwind : du cas par cas au slicing
+# ---------------------------------------------------------------------------
+def boite(ax, xc, yc, w, h, coul_bord, coul_fond, lw=2.0):
+    b = FancyBboxPatch((xc - w / 2, yc - h / 2), w, h,
+                       boxstyle="round,pad=0,rounding_size=0.12",
+                       ec=coul_bord, fc=coul_fond, lw=lw)
+    ax.add_patch(b)
+    return b
+
+
+def panneau_upwind(ax, xc, positif):
+    """Un panneau : 5 cellules, les 4 ecarts entre elles, et qui recoit quoi."""
+    coul = ROSE if positif else CYAN
+    fond = "#3a1430" if positif else "#0e3838"
+    s, yc, yd = 1.75, 6.15, 4.25
+    x0 = xc - 2 * s
+
+    # titre + sens du vent
+    ax.text(xc - 1.3, 7.75, r"si $V_x > 0$" if positif else r"si $V_x < 0$",
+            ha="right", va="center", fontsize=23, color=coul, fontweight="bold")
+    xf, xf2 = xc - 0.9, xc + 0.6
+    p0, p1 = ((xf, 7.75), (xf2, 7.75)) if positif else ((xf2, 7.75), (xf, 7.75))
+    fleche(ax, p0, p1, color=coul, lw=2.2, ms=18)
+    ax.text(xc + 1.6, 7.75, "le vent va vers la droite" if positif
+            else "le vent va vers la gauche", ha="left", va="center",
+            fontsize=14, color=GRIS)
+
+    # ligne de cellules C[0] .. C[4]
+    for k in range(5):
+        actif = (k >= 1) if positif else (k <= 3)
+        boite(ax, x0 + k * s, yc, 1.3, 0.8, coul if actif else GRIS_BORD,
+              fond if actif else GRIS_FOND)
+        ax.text(x0 + k * s, yc, f"C[{k}]", ha="center", va="center", fontsize=16,
+                family=MONO, color=BLANC if actif else GRIS)
+    # la cellule laissee de cote, c'est le bord
+    xb = x0 + (0 if positif else 4) * s
+    ax.text(xb, yc + 0.78, "bord", ha="center", va="bottom", fontsize=13, color=GRIS)
+
+    # les nx-1 ecarts, poses entre les cellules
+    for k in range(4):
+        xd = x0 + (k + 0.5) * s
+        boite(ax, xd, yd, 1.55, 0.72, coul, "black", lw=1.6)
+        ax.text(xd, yd, f"C[{k+1}]-C[{k}]", ha="center", va="center", fontsize=13,
+                family=MONO, color=coul)
+        # fleche vers la cellule mise a jour
+        cible = x0 + (k + 1 if positif else k) * s
+        fleche(ax, (xd, yd + 0.38), (cible, yc - 0.42), color=coul, lw=2.0, ms=16,
+               rad=0.0)
+
+    # accolade : taille nx-1
+    xg, xdr = x0 + 0.5 * s - 0.8, x0 + 3.5 * s + 0.8
+    ax.plot([xg, xdr], [yd - 0.62] * 2, color=GRIS, lw=1.2)
+    for x in (xg, xdr):
+        ax.plot([x] * 2, [yd - 0.62, yd - 0.48], color=GRIS, lw=1.2)
+    ax.text(xc, yd - 0.72, "nx-1 écarts, un par intervalle",
+            ha="center", va="top", fontsize=13, color=GRIS)
+
+    # ce que dit l'accolade de la formule
+    eq = (r"$-V_x\,\frac{C_i^n - C_{i-1}^n}{dx}$" if positif
+          else r"$-V_x\,\frac{C_{i+1}^n - C_i^n}{dx}$")
+    ax.text(xc, 2.08, eq, ha="center", va="center", fontsize=25, color=coul)
+
+    # ce que ca donne en python
+    code = "C[1:] += dt*dCdt_a" if positif else "C[:-1] += dt*dCdt_a"
+    boite(ax, xc, 0.78, 5.6, 0.95, coul, fond, lw=2.0)
+    ax.text(xc, 0.78, code, ha="center", va="center", fontsize=19, family=MONO,
+            color=BLANC)
+    ax.text(xc, 2.95, "chaque écart met à jour la cellule de "
+            + ("droite" if positif else "gauche"),
+            ha="center", va="center", fontsize=15, color=coul)
+
+
+def fig_upwind_slicing():
+    fig, ax = axes_vides((20, 9.8), (0, 20), (0, 9.8))
+
+    # la ligne de calcul, commune aux deux cas
+    boite(ax, 10, 9.1, 13.0, 0.95, GRIS_BORD, GRIS_FOND, lw=1.6)
+    ax.text(10, 9.1, "dCdt_a = - Vx * ( C[1:] - C[:-1] ) / dx", ha="center",
+            va="center", fontsize=19, family=MONO, color=BLANC)
+    ax.text(10, 8.35, "la même ligne dans les deux cas : ce qui change, "
+            "c'est la cellule qui reçoit l'écart", ha="center", va="center",
+            fontsize=15, color=GRIS)
+
+    panneau_upwind(ax, 5.1, True)
+    panneau_upwind(ax, 14.9, False)
+    ax.plot([10, 10], [0.2, 8.0], color="#333333", lw=1)
+
+    fig.savefig(os.path.join(DOSSIER, "upwind_slicing_s6.png"), dpi=150,
+                bbox_inches="tight", facecolor="black")
+    sauver_svg(fig, DOSSIER, DEST["6.5_upwind_slicing"])
+
+
 def fig_domaine():
     fig, ax = axes_vides((18, 7.4), (0, 19.6), (1.2, 9.1))
     panneau_riviere(ax, 0.6, 1)
@@ -232,6 +326,7 @@ def fig_domaine():
 
 def main():
     fig_splitting()
+    fig_upwind_slicing()
     fig_domaine()
 
 

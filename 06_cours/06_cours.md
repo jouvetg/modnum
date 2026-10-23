@@ -6,6 +6,11 @@ backgroundColor: black
 color: white
 
 style: |
+  section.slicing h1 { font-size: 40px; margin: 0 0 0.25em 0; }
+  section.slicing p { margin: 0.25em 0; }
+  section.slicing p:last-of-type { font-size: 21px; }
+  section.slicing img { max-height: 450px; width: auto; }
+  section.slicing img, section.centre img { display: block; margin: 0 auto; }
   section.pratique { font-size: 22px; }
   section.pratique h1 { font-size: 38px; margin: 0 0 0.3em 0; }
   section.pratique p, section.pratique ul { max-width: 58%; margin: 0.4em 0; }
@@ -171,12 +176,12 @@ Pour faire le "bon" choix, nous utiliserons la méthode "upwind".
 
 ---
 
+<!-- _class: invert centre -->
+
 # Méthode "upwind"
 
-L'idée de la méthode "upwind" est de chercher l'information "dans le sens du vent. 
+L'idée est d'aller chercher l'information **en amont**, dans le sens du champ d'advection $V_x$ :
 
-Ainsi, nous prenons celle en amont de la direction  du champ d'advection $V_x$:
- 
 
 $$
 \frac{C_i^{n+1} - C_i^n}{dt} =
@@ -186,55 +191,17 @@ $$
 \end{cases}
 $$
 
-![width:750px](./fig/advection_v_s9.png)
+![width:700px](./fig/advection_v_s9.png)
 
 ---
 
-# Dans le cas $V_x>0$
+<!-- _class: invert slicing -->
 
-Nous avons la situation suivante
+# De l'accolade au slicing
 
-```
-                              0     1    ...   i-1    i    i+1   ...  Taille
-C                             |-----|-----|-----|-----|-----|----...    nx
-                                 0     1    ...   i-1    i    i+1
-dCdt_a=-Vx*(C[1:]-C[:-1])/dx     |-----|-----|-----|-----|-----|-...   nx-1
-                                    1          i-1    i    i+1
-C[1:]                               |-----|-----|-----|-----|----...   nx-1
-```
+![](./fig/upwind_slicing_s6.png)
 
-Ainsi, la mise à jour de l'advection se code:
-
-```python
-dCdt_a = - Vx * ( C[1:] - C[:-1] ) / dx
-C[1:] += dt*dCdt_a
-```
-
-→ La mise à jour agit sur les indices `1:`.
-
----
-
-# Dans le cas $V_x<0$
-
-Nous avons la situation suivante
-
-```
-                              0     1    ...   i-1    i    i+1   ...  Taille
-C                             |-----|-----|-----|-----|-----|----...    nx
-                                 0     1    ...   i-1    i    i+1
-dCdt_a=-Vx*(C[1:]-C[:-1])/dx     |-----|-----|-----|-----|-----|-...   nx-1
-                              0     1          i-1    i    i+1
-C[:-1]                        |-----|-----|-----|-----|----...         nx-1
-```
-
-Ainsi, la mise à jour de l'advection se code:
-
-```python
-dCdt_a = - Vx * ( C[1:] - C[:-1] ) / dx
-C[:-1] += dt*dCdt_a
-```
-
-→ La mise à jour agit sur les indices `:-1`.
+`C` est de taille `nx`, `dCdt_a` de taille `nx-1` : la mise à jour agit sur les indices `1:` si $V_x > 0$, sur `:-1` sinon.
 
 ---
 
