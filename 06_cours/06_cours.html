@@ -347,7 +347,6 @@
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../06_tutoriel/06_tutoriel.html">Tutoriel 6</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../06_exercice/06_exercice.html">Exercices 6</a></li>
@@ -618,8 +617,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#le-splitting-etape-par-etape">Le splitting, étape par étape</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-d-advection">Discrétisation du terme d’advection</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-upwind">Méthode “upwind”</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dans-le-cas-v-x-0">Dans le cas <span class="math notranslate nohighlight">\(V_x&gt;0\)</span></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Dans le cas <span class="math notranslate nohighlight">\(V_x&lt;0\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#de-l-accolade-au-slicing">De l’accolade au slicing</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-de-reaction">Discrétisation du terme de réaction</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite-le-minimum">Condition de stabilité: le minimum</a></li>
@@ -757,12 +755,12 @@ C^{n+1}  &amp; = C^{n+2/3} &amp; - \left( \gamma C \right)^n  \times dt  \\
 <p>La règle de mise à jour n’implique qu’une seule dérivée (<code class="docutils literal notranslate"><span class="pre">dCdt</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>) contrairement à celle de la diffusion qui fait intervenir une dérivée 2nde (<code class="docutils literal notranslate"><span class="pre">nx-2</span></code>).</p>
 <p>Pour mettre à jour <code class="docutils literal notranslate"><span class="pre">C</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx</span></code> avec le terme d’advection <code class="docutils literal notranslate"><span class="pre">dCdt</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code>, il y a 2 options : décaler à <strong>gauche</strong> ou à <strong>droite</strong>.</p>
 <p>Pour faire le “bon” choix, nous utiliserons la méthode “upwind”.</p>
-</section>
 <hr class="docutils" />
+<!-- _class: invert centre -->
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="methode-upwind">
 <h1>Méthode “upwind”<a class="headerlink" href="#methode-upwind" title="Link to this heading">#</a></h1>
-<p>L’idée de la méthode “upwind” est de chercher l’information “dans le sens du vent.</p>
-<p>Ainsi, nous prenons celle en amont de la direction  du champ d’advection <span class="math notranslate nohighlight">\(V_x\)</span>:</p>
+<p>L’idée est d’aller chercher l’information <strong>en amont</strong>, dans le sens du champ d’advection <span class="math notranslate nohighlight">\(V_x\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \frac{C_i^{n+1} - C_i^n}{dt} =
@@ -771,45 +769,14 @@ C^{n+1}  &amp; = C^{n+2/3} &amp; - \left( \gamma C \right)^n  \times dt  \\
 -V_x \frac{C_{i+1}^n - C_i^n}{dx} &amp; \text{sinon.}
 \end{cases}
 \end{split}\]</div>
-<p><img alt="width:750px" src="../_images/advection_v_s9.png" /></p>
-</section>
+<p><img alt="width:700px" src="../_images/advection_v_s9.png" /></p>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="dans-le-cas-v-x-0">
-<h1>Dans le cas <span class="math notranslate nohighlight">\(V_x&gt;0\)</span><a class="headerlink" href="#dans-le-cas-v-x-0" title="Link to this heading">#</a></h1>
-<p>Nous avons la situation suivante</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                              <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>   <span class="o">...</span>  <span class="n">Taille</span>
-<span class="n">C</span>                             <span class="o">|-----|-----|-----|-----|-----|----...</span>    <span class="n">nx</span>
-                                 <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-<span class="n">dCdt_a</span><span class="o">=-</span><span class="n">Vx</span><span class="o">*</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>     <span class="o">|-----|-----|-----|-----|-----|-...</span>   <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
-                                    <span class="mi">1</span>          <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-<span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>                               <span class="o">|-----|-----|-----|-----|----...</span>   <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
-</pre></div>
-</div>
-<p>Ainsi, la mise à jour de l’advection se code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dCdt_a</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Vx</span> <span class="o">*</span> <span class="p">(</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
-<span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="n">dCdt_a</span>
-</pre></div>
-</div>
-<p>→ La mise à jour agit sur les indices <code class="docutils literal notranslate"><span class="pre">1:</span></code>.</p>
+<!-- _class: invert slicing -->
 </section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>Dans le cas <span class="math notranslate nohighlight">\(V_x&lt;0\)</span><a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Nous avons la situation suivante</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                              <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>   <span class="o">...</span>  <span class="n">Taille</span>
-<span class="n">C</span>                             <span class="o">|-----|-----|-----|-----|-----|----...</span>    <span class="n">nx</span>
-                                 <span class="mi">0</span>     <span class="mi">1</span>    <span class="o">...</span>   <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-<span class="n">dCdt_a</span><span class="o">=-</span><span class="n">Vx</span><span class="o">*</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>     <span class="o">|-----|-----|-----|-----|-----|-...</span>   <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
-                              <span class="mi">0</span>     <span class="mi">1</span>          <span class="n">i</span><span class="o">-</span><span class="mi">1</span>    <span class="n">i</span>    <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-<span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>                        <span class="o">|-----|-----|-----|-----|----...</span>         <span class="n">nx</span><span class="o">-</span><span class="mi">1</span>
-</pre></div>
-</div>
-<p>Ainsi, la mise à jour de l’advection se code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dCdt_a</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Vx</span> <span class="o">*</span> <span class="p">(</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
-<span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="n">dCdt_a</span>
-</pre></div>
-</div>
-<p>→ La mise à jour agit sur les indices <code class="docutils literal notranslate"><span class="pre">:-1</span></code>.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="de-l-accolade-au-slicing">
+<h1>De l’accolade au slicing<a class="headerlink" href="#de-l-accolade-au-slicing" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/upwind_slicing_s6.png" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">C</span></code> est de taille <code class="docutils literal notranslate"><span class="pre">nx</span></code>, <code class="docutils literal notranslate"><span class="pre">dCdt_a</span></code> de taille <code class="docutils literal notranslate"><span class="pre">nx-1</span></code> : la mise à jour agit sur les indices <code class="docutils literal notranslate"><span class="pre">1:</span></code> si <span class="math notranslate nohighlight">\(V_x &gt; 0\)</span>, sur <code class="docutils literal notranslate"><span class="pre">:-1</span></code> sinon.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="discretisation-du-terme-de-reaction">
@@ -939,8 +906,7 @@ C^{n+1}  &amp; = C^{n+2/3} &amp; - \left( \gamma C \right)^n  \times dt  \\
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#le-splitting-etape-par-etape">Le splitting, étape par étape</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-d-advection">Discrétisation du terme d’advection</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-upwind">Méthode “upwind”</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dans-le-cas-v-x-0">Dans le cas <span class="math notranslate nohighlight">\(V_x&gt;0\)</span></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Dans le cas <span class="math notranslate nohighlight">\(V_x&lt;0\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#de-l-accolade-au-slicing">De l’accolade au slicing</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-du-terme-de-reaction">Discrétisation du terme de réaction</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite-le-minimum">Condition de stabilité: le minimum</a></li>
