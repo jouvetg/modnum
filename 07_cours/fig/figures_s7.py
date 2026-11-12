@@ -21,6 +21,7 @@ DOSSIER = os.path.dirname(os.path.abspath(__file__))
 DEST = {
     '7.2_matrice_carte': ['matrice_carte_s7.svg', '../../07_tutoriel/fig/matrice_carte_s7.svg'],
     '7.3_discretisation': ['discretisation_2d_s7.svg'],
+    '7.4_contour': ['contour_s7.svg'],
 }
 
 CX = "#e660aa"   # direction x : colonnes, axe 1, qx, dx
@@ -218,9 +219,49 @@ def fig_discretisation():
     sauver_svg(fig, DOSSIER, DEST["7.3_discretisation"])
 
 
+# ---------------------------------------------------------------------------
+# 7.4 Ligne de niveau : ax.contour(x, y, T, levels=[0]) sur imshow
+# ---------------------------------------------------------------------------
+def fig_contour():
+    Lx, Ly, nx, ny = 2000.0, 1000.0, 201, 101
+    x = np.linspace(0, Lx, nx)
+    y = np.linspace(0, Ly, ny)
+    X, Y = np.meshgrid(x, y)
+    surf = Ly * (1 - np.abs(X - Lx / 2) / (Lx / 2)) ** 0.9   # profil de montagne
+
+    def champ(t_surf, ep):
+        """Température : t_surf à la surface, réchauffement en profondeur (épaisseur ep)."""
+        prof = np.clip(surf - Y, 0, None)
+        return t_surf + 8 * (1 - np.exp(-prof / ep)) + 0.004 * prof
+
+    T0 = champ(-6.0, 350.0)
+    T1 = champ(-6.0, 150.0) + 3.0 * np.exp(-np.clip(surf - Y, 0, None) / 120)
+    hors = Y > surf
+    T0 = np.ma.masked_where(hors, T0)
+    T1 = np.ma.masked_where(hors, T1)
+
+    fig, ax = plt.subplots(figsize=(10, 5.2))
+    im = ax.imshow(T1, origin="lower", extent=[0, Lx, 0, Ly], cmap="coolwarm",
+                   vmin=-8, vmax=8, aspect="auto")
+    c0 = ax.contour(x, y, T0, levels=[0], colors=[GRIS], linestyles="--", linewidths=2)
+    c1 = ax.contour(x, y, T1, levels=[0], colors=[BLANC], linewidths=2.5)
+    ax.plot(x, surf[0], color=GRIS_BORD, lw=1)
+    ax.set_xlabel("x (m)")
+    ax.set_ylabel("y (m)")
+    cb = fig.colorbar(im, ax=ax, shrink=0.85)
+    cb.set_label("T (°C)")
+    ax.plot([], [], "--", color=GRIS, lw=2, label="0 °C initial")
+    ax.plot([], [], "-", color=BLANC, lw=2.5, label="0 °C courant")
+    leg = ax.legend(loc="upper right", frameon=False)
+    ax.text(0.02, 0.95, "ax.contour(x, y, T, levels=[0])", transform=ax.transAxes,
+            family=MONO, fontsize=13, color=ORANGE, va="top")
+    sauver_svg(fig, DOSSIER, DEST["7.4_contour"])
+
+
 def main():
     fig_matrice_carte()
     fig_discretisation()
+    fig_contour()
 
 
 if __name__ == "__main__":
