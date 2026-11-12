@@ -370,6 +370,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -695,11 +696,12 @@ document.write(`
 <span class="n">nx</span> <span class="o">=</span> <span class="mi">201</span>        <span class="c1"># nombre de points</span>
 <span class="n">freq_affich</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="c1"># initialisation</span>
 <span class="n">x</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
 <span class="n">dx</span>    <span class="o">=</span> <span class="n">Lx</span><span class="o">/</span><span class="p">(</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">dt</span>    <span class="o">=</span> <span class="n">dx</span><span class="o">/</span><span class="p">(</span><span class="mf">2.1</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">Vx</span><span class="p">))</span>            <span class="c1"># contrainte de stabilite de l&#39;advection</span>
 <span class="n">nt</span>    <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">100.0</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>               <span class="c1"># 100 secondes simulees</span>
+
+<span class="c1"># initialisation</span>
 <span class="n">C_ini</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">18</span><span class="p">)</span>   <span class="c1"># un pic de polluant centre a x = 20 m</span>
 <span class="n">C</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">C_ini</span><span class="p">)</span>
 

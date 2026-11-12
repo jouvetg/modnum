@@ -370,6 +370,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../07_tutoriel/07_tutoriel.html">Tutoriel 7</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../07_exercice/07_exercice.html">Exercices 7</a></li>
@@ -607,14 +608,15 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 7</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-modeliser-en-2d">Pourquoi modéliser en 2D?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#coder-pas-a-pas">Coder pas à pas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-modeliser-en-2d">Pourquoi modéliser en 2D ?</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-d-un-domaine-rectangulaire">Discrétisation d’un domaine rectangulaire</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#grille-2d-noeuds-et-intervalles">Grille 2D : nœuds et intervalles</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-representant-un-champ-2d-t-ou-c">Matrice représentant un champ 2D (<span class="math notranslate nohighlight">\(T\)</span> ou <span class="math notranslate nohighlight">\(C\)</span>)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-ou-carte-l-affichage-avec-imshow">Matrice ou carte ? L’affichage avec <code class="docutils literal notranslate"><span class="pre">imshow</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-diffusion-en-2d">Équation de diffusion en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-des-derivees-partielles-en-2d">Approximation des dérivées partielles en 2D</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-des-flux-q-x-et-q-y">Discrétisation des flux <span class="math notranslate nohighlight">\(q_x\)</span> et <span class="math notranslate nohighlight">\(q_y\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-des-flux-q-x-et-q-y-suivre-les-tailles">Discrétisation des flux <span class="math notranslate nohighlight">\(q_x\)</span> et <span class="math notranslate nohighlight">\(q_y\)</span> : suivre les tailles</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-graphique">Illustration graphique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#troncature-pour-assurer-la-compatibilite">Troncature pour assurer la compatibilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
@@ -641,6 +643,7 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="objectifs-du-cours">
 <h1>Objectifs du cours<a class="headerlink" href="#objectifs-du-cours" title="Link to this heading">#</a></h1>
 <ul class="simple">
+<li><p><strong>Coder pas à pas</strong> : lancer le code à chaque étape</p></li>
 <li><p>Discrétiser un domaine 2D, représenter un champ par une matrice</p></li>
 <li><p>Modéliser un problème de diffusion en 2D</p></li>
 <li><p>Discrétiser les équations en 2D</p></li>
@@ -650,19 +653,68 @@ document.write(`
 </ul>
 </section>
 <hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="coder-pas-a-pas">
+<h1>Coder pas à pas<a class="headerlink" href="#coder-pas-a-pas" title="Link to this heading">#</a></h1>
+<p><strong>Quelques lignes → ▶ Run → vérifier → continuer</strong></p>
+<ul class="simple">
+<li><p>Une erreur se voit <strong>tout de suite</strong>, là où on vient d’écrire</p></li>
+<li><p>✗ Tout écrire puis lancer : des erreurs mélangées, introuvables</p></li>
+</ul>
+<p>→ Exemple : une tache de colorant dans un canal, en <strong>8 étapes</strong></p>
+<hr class="docutils" />
+<p><img alt="bg contain" src="../_images/pas_a_pas_1_s7.svg" /></p>
+<hr class="docutils" />
+<p><img alt="bg contain" src="../_images/pas_a_pas_2_s7.svg" /></p>
+<hr class="docutils" />
+<p><img alt="bg contain" src="../_images/pas_a_pas_3_s7.svg" /></p>
+<hr class="docutils" />
+<p><img alt="bg contain" src="../_images/pas_a_pas_4_s7.svg" /></p>
+<hr class="docutils" />
+<p><img alt="bg contain" src="../_images/pas_a_pas_5_s7.svg" /></p>
+<hr class="docutils" />
+<p><img alt="bg contain" src="../_images/pas_a_pas_6_s7.svg" /></p>
+<hr class="docutils" />
+<p><img alt="bg contain" src="../_images/pas_a_pas_7_s7.svg" /></p>
+<hr class="docutils" />
+<p><img alt="bg contain" src="../_images/pas_a_pas_8_s7.svg" /></p>
+</section>
+<hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="pourquoi-modeliser-en-2d">
-<h1>Pourquoi modéliser en 2D?<a class="headerlink" href="#pourquoi-modeliser-en-2d" title="Link to this heading">#</a></h1>
-<p>Bien que nous vivions dans un monde en 3D, certains problèmes peuvent se modéliser dans un espace plus petit. Par exemple, une rivière peut être décrite comme un espace 1D.</p>
-<p>Toutefois, si l’on veut modéliser des phénomènes un peu plus complexes, le 1D ne suffira pas. Par exemple, la propagation d’un polluant dans un lac nécessitera une dimension supplémentaire (donc 2D). Si l’on souhaite également prendre en compte la profondeur, il faudrait le faire en 3D.</p>
-<p>Plus la dimension est grande, plus le problème devient complexe, coûteux à calculer pour un processeur, et demandant en espace mémoire qui doit être représenté dans les éléments d’un vecteur.</p>
+<h1>Pourquoi modéliser en 2D ?<a class="headerlink" href="#pourquoi-modeliser-en-2d" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Exemple</p></th>
+<th class="head"><p>Champ</p></th>
+<th class="head"><p>Nœuds (<span class="math notranslate nohighlight">\(n = 100\)</span> par direction)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>1D</strong></p></td>
+<td><p>une rivière</p></td>
+<td><p>vecteur <code class="docutils literal notranslate"><span class="pre">T[i]</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(100\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2D</strong></p></td>
+<td><p>un polluant dans un lac</p></td>
+<td><p>matrice <code class="docutils literal notranslate"><span class="pre">T[j,</span> <span class="pre">i]</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(10\,000\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3D</strong></p></td>
+<td><p>le lac avec sa profondeur</p></td>
+<td><p>tableau <code class="docutils literal notranslate"><span class="pre">T[k,</span> <span class="pre">j,</span> <span class="pre">i]</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(1\,000\,000\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>→ Une dimension de plus : <strong>plus réaliste</strong>, mais <strong>plus de mémoire et de calcul</strong>.
+→ On choisit la <strong>plus petite dimension</strong> qui décrit le phénomène.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="discretisation-d-un-domaine-rectangulaire">
 <h1>Discrétisation d’un domaine rectangulaire<a class="headerlink" href="#discretisation-d-un-domaine-rectangulaire" title="Link to this heading">#</a></h1>
-<p>Toutes les modélisations 2D de ce cours se font dans un domaine rectangulaire :</p>
-<div class="math notranslate nohighlight">
-\[[0,Lx] \times [0,Ly].\]</div>
-<p>Comme dans le cas 1D, nous pouvons définir la discrétisation spatiale selon x et y:</p>
+<p>Domaine <span class="math notranslate nohighlight">\([0,L_x] \times [0,L_y]\)</span>, discrétisé comme en 1D, dans chaque direction :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="n">Lx</span> <span class="o">/</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># pas d&#39;espace en x</span>
 <span class="n">dy</span> <span class="o">=</span> <span class="n">Ly</span> <span class="o">/</span> <span class="p">(</span><span class="n">ny</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># pas d&#39;espace en y</span>
 
@@ -676,17 +728,16 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="grille-2d-noeuds-et-intervalles">
 <h1>Grille 2D : nœuds et intervalles<a class="headerlink" href="#grille-2d-noeuds-et-intervalles" title="Link to this heading">#</a></h1>
-<p><img alt="height:480px" src="../_images/discretisation_2d_s7.svg" /></p>
+<p><img alt="height:600px" src="../_images/discretisation_2d_s7.svg" /></p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="matrice-representant-un-champ-2d-t-ou-c">
 <h1>Matrice représentant un champ 2D (<span class="math notranslate nohighlight">\(T\)</span> ou <span class="math notranslate nohighlight">\(C\)</span>)<a class="headerlink" href="#matrice-representant-un-champ-2d-t-ou-c" title="Link to this heading">#</a></h1>
 <p><img alt="width:450px" src="../_images/convention2d.png" /></p>
-<p><strong>Conventions:</strong></p>
-<ol class="arabic simple">
-<li><p>Nous travaillerons dans un repère dont l’origine est le coin Sud-Ouest.</p></li>
-<li><p>Les lignes varient selon l’axe 0 (ordonnée <span class="math notranslate nohighlight">\(y\)</span>), les colonnes selon l’axe 1 (abscisse <span class="math notranslate nohighlight">\(x\)</span>).</p></li>
-</ol>
+<ul class="simple">
+<li><p>Origine : coin <strong>Sud-Ouest</strong></p></li>
+<li><p><strong>Lignes</strong> ↔ axe 0 ↔ <span class="math notranslate nohighlight">\(y\)</span>  ·  <strong>Colonnes</strong> ↔ axe 1 ↔ <span class="math notranslate nohighlight">\(x\)</span></p></li>
+</ul>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="matrice-ou-carte-l-affichage-avec-imshow">
@@ -696,42 +747,63 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="equation-de-diffusion-en-2d">
 <h1>Équation de diffusion en 2D<a class="headerlink" href="#equation-de-diffusion-en-2d" title="Link to this heading">#</a></h1>
-<p>Le modèle de diffusion en 1D se généralise en 2D (ici pour la diffusion thermique):</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial T}{\partial t} = - \left( \frac{\partial q_x}{\partial x} + \frac{\partial q_y}{\partial y} \right),\]</div>
 <div class="math notranslate nohighlight">
 \[q_x = -D \frac{\partial T}{\partial x}, \qquad q_y = -D \frac{\partial T}{\partial y}.\]</div>
-<p>À l’instar du modèle 1D, le modèle 2D fait intervenir les dérivées par rapport à <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> des flux dans les directions <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>, respectivement, obtenues en dérivant par rapport à ces deux directions.</p>
+<p>→ Comme en 1D, mais avec <strong>deux flux</strong> : <span class="math notranslate nohighlight">\(q_x\)</span> dérivé selon <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(q_y\)</span> selon <span class="math notranslate nohighlight">\(y\)</span>.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="approximation-des-derivees-partielles-en-2d">
 <h1>Approximation des dérivées partielles en 2D<a class="headerlink" href="#approximation-des-derivees-partielles-en-2d" title="Link to this heading">#</a></h1>
-<p>Dans l’équation de diffusion 2D, il y a 2 types de dérivées partielles selon que l’on dérive par rapport à <span class="math notranslate nohighlight">\(y\)</span> (l’axe 0) ou à <span class="math notranslate nohighlight">\(x\)</span> (l’axe 1) :</p>
-<ul class="simple">
-<li><p>On peut dériver selon x, et approcher <span class="math notranslate nohighlight">\(\frac{\partial T}{\partial x}\)</span> ainsi</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dTdx</span> <span class="o">=</span> <span class="p">(</span> <span class="n">T</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">T</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
-</pre></div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dérivée</p></th>
+<th class="head"><p>Code</p></th>
+<th class="head"><p>Taille</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\partial T / \partial x\)</span> (axe 1, colonnes)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(T[:,1:]</span> <span class="pre">-</span> <span class="pre">T[:,:-1])</span> <span class="pre">/</span> <span class="pre">dx</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(ny,</span> <span class="pre">nx-1)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\partial T / \partial y\)</span> (axe 0, lignes)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(T[1:,:]</span> <span class="pre">-</span> <span class="pre">T[:-1,:])</span> <span class="pre">/</span> <span class="pre">dy</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(ny-1,</span> <span class="pre">nx)</span></code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>la matrice résultante <code class="docutils literal notranslate"><span class="pre">dTdx</span></code> aura la dimension <code class="docutils literal notranslate"><span class="pre">(ny,nx-1)</span></code>.</p>
-<ul class="simple">
-<li><p>On peut dériver selon y, et approcher <span class="math notranslate nohighlight">\(\frac{\partial T}{\partial y}\)</span> ainsi</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dTdy</span> <span class="o">=</span> <span class="p">(</span> <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">T</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dy</span>
-</pre></div>
-</div>
-<p>la matrice résultante <code class="docutils literal notranslate"><span class="pre">dTdy</span></code> aura la dimension <code class="docutils literal notranslate"><span class="pre">(ny-1,nx)</span></code>.</p>
-<p><strong>Notons</strong> la différence des dimensions selon le type de dérivation.</p>
+<p>→ Chaque dérivée <strong>perd un nœud dans sa direction</strong> : les deux tailles diffèrent.</p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="discretisation-des-flux-q-x-et-q-y">
-<h1>Discrétisation des flux <span class="math notranslate nohighlight">\(q_x\)</span> et <span class="math notranslate nohighlight">\(q_y\)</span><a class="headerlink" href="#discretisation-des-flux-q-x-et-q-y" title="Link to this heading">#</a></h1>
-<p>→ Avec 2 flux en 2D (contre 1 en 1D), le point crucial sera de gérer les dimensions des tableaux dans le directions <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> afin qu’elles soient compatibles:
-<code class="docutils literal notranslate"><span class="pre">qx</span></code> et <code class="docutils literal notranslate"><span class="pre">qy</span></code> sont de dimensions <code class="docutils literal notranslate"><span class="pre">(ny,nx-1)</span></code> et <code class="docutils literal notranslate"><span class="pre">(ny-1,nx)</span></code>.</p>
-<p>→ Dériver une fois encore les flux fait perdre une cellule supplémentaire, soit deux au total depuis <span class="math notranslate nohighlight">\(T\)</span>, dans la direction de la dérivation. Les matrices résultantes n’ont alors pas les même tailles:
-<code class="docutils literal notranslate"><span class="pre">dqxdx</span></code> et <code class="docutils literal notranslate"><span class="pre">dqydy</span></code> sont de dimensions <code class="docutils literal notranslate"><span class="pre">(ny,nx-2)</span></code> et <code class="docutils literal notranslate"><span class="pre">(ny-2,nx)</span></code>.</p>
-<p>Pour s’assurer que les tailles des matrices soient compatibles, il faut ignorer les première et dernière lignes ou colonnes pour obtenir la dimension <code class="docutils literal notranslate"><span class="pre">(ny-2,nx-2)</span></code>.</p>
-<p>→ Une unique matrice de changement, de taille <code class="docutils literal notranslate"><span class="pre">(ny-2,nx-2)</span></code>, peut ainsi être assemblée et utilisée pour la règle de mise à jour.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="discretisation-des-flux-q-x-et-q-y-suivre-les-tailles">
+<h1>Discrétisation des flux <span class="math notranslate nohighlight">\(q_x\)</span> et <span class="math notranslate nohighlight">\(q_y\)</span> : suivre les tailles<a class="headerlink" href="#discretisation-des-flux-q-x-et-q-y-suivre-les-tailles" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tableau</p></th>
+<th class="head"><p>Taille</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">T</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(ny,</span> <span class="pre">nx)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qx</span></code>, <code class="docutils literal notranslate"><span class="pre">qy</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(ny,</span> <span class="pre">nx-1)</span></code>, <code class="docutils literal notranslate"><span class="pre">(ny-1,</span> <span class="pre">nx)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dqxdx</span></code>, <code class="docutils literal notranslate"><span class="pre">dqydy</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(ny,</span> <span class="pre">nx-2)</span></code>, <code class="docutils literal notranslate"><span class="pre">(ny-2,</span> <span class="pre">nx)</span></code> ✗ incompatibles</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dTdt</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(ny-2,</span> <span class="pre">nx-2)</span></code> ✓ après troncature</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>→ Couper la 1re et la dernière <strong>ligne</strong> de <code class="docutils literal notranslate"><span class="pre">dqxdx</span></code>, <strong>colonne</strong> de <code class="docutils literal notranslate"><span class="pre">dqydy</span></code>.
+→ <code class="docutils literal notranslate"><span class="pre">dTdt</span></code> met à jour les <strong>nœuds intérieurs</strong> <code class="docutils literal notranslate"><span class="pre">T[1:-1,</span> <span class="pre">1:-1]</span></code>.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="illustration-graphique">
@@ -763,8 +835,7 @@ document.write(`
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="condition-de-stabilite">
 <h1>Condition de stabilité<a class="headerlink" href="#condition-de-stabilite" title="Link to this heading">#</a></h1>
-<p>La méthode numérique est stable seulement si le pas de temps est assez petit.</p>
-<p>En 2D, la contrainte fait intervenir <strong>le plus petit des deux pas d’espace</strong>, et le facteur passe de 2.1 (1D) à 4.1 (2D):</p>
+<p>Stable seulement si <span class="math notranslate nohighlight">\(dt\)</span> est assez petit. En 2D : <strong>le plus petit pas d’espace</strong>, et <strong>4.1</strong> au lieu de 2.1.</p>
 <div class="math notranslate nohighlight">
 \[ dt_\mathrm{diff} = \frac{\min(dx,dy)^2}{4.1 \times D}, \qquad
 dt = \min \left( dt_\mathrm{max}, \ dt_\mathrm{diff} \right)\]</div>
@@ -772,14 +843,12 @@ dt = \min \left( dt_\mathrm{max}, \ dt_\mathrm{diff} \right)\]</div>
 <span class="n">dt</span>      <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dt_max</span><span class="p">,</span> <span class="n">dt_diff</span><span class="p">)</span>        <span class="c1"># pas de temps retenu</span>
 </pre></div>
 </div>
-<p>Notons que plus le pas d’espace est petit, plus le pas de temps devra l’être aussi.</p>
+<p>→ Grille 2 × plus fine ⇒ <span class="math notranslate nohighlight">\(dt\)</span> 4 × plus petit.</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="conditions-aux-bords-de-dirichlet">
 <h1>Conditions aux bords de Dirichlet<a class="headerlink" href="#conditions-aux-bords-de-dirichlet" title="Link to this heading">#</a></h1>
-<p>Comme en 1D, il est nécessaire d’implémenter les conditions aux bords.
-En 2D, nous modélisons un rectangle, ce qui implique de prendre en compte les quatre côtés.</p>
-<p>Le code suivant applique des conditions de Dirichlet aux quatre bords (Bas, Haut, Gauche et Droit), qui ont été définis auparavant.</p>
+<p>Un rectangle : <strong>quatre bords</strong> à imposer, dans la boucle, après la mise à jour.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>  <span class="o">=</span> <span class="n">T_bas</span>     <span class="c1"># 1er ligne</span>
 <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">T_haut</span>    <span class="c1"># derniere ligne</span>
 <span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="n">T_gauche</span>  <span class="c1"># 1er colonne</span>
@@ -790,11 +859,14 @@ En 2D, nous modélisons un rectangle, ce qui implique de prendre en compte les q
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="tracer-une-ligne-de-niveau">
 <h1>Tracer une ligne de niveau<a class="headerlink" href="#tracer-une-ligne-de-niveau" title="Link to this heading">#</a></h1>
-<p>Sur un champ 2D, il est souvent parlant de faire ressortir <strong>une valeur particulière</strong> : l’isotherme <span class="math notranslate nohighlight">\(0\)</span>°C qui sépare la roche gelée de la roche dégelée, par exemple. La commande <code class="docutils literal notranslate"><span class="pre">ax.contour</span></code> trace la ou les lignes de niveau demandées par <code class="docutils literal notranslate"><span class="pre">levels</span></code> :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>   <span class="c1"># la ligne T = 0 degC, en noir</span>
+<p><img alt="height:330px" src="../_images/contour_s7.svg" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>   <span class="c1"># isotherme 0 °C</span>
 </pre></div>
 </div>
-<p>où <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> sont les vecteurs de coordonnées déjà construits avec <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code>. <code class="docutils literal notranslate"><span class="pre">levels</span></code> attend une <strong>liste</strong> : <code class="docutils literal notranslate"><span class="pre">levels=[0]</span></code> ne trace qu’une ligne, <code class="docutils literal notranslate"><span class="pre">levels=[-5,</span> <span class="pre">0,</span> <span class="pre">5]</span></code> en trace trois. On peut superposer plusieurs <code class="docutils literal notranslate"><span class="pre">contour</span></code> de couleurs différentes, par exemple l’état initial et l’état courant, pour visualiser le déplacement de la limite.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">levels</span></code> est une <strong>liste</strong> : <code class="docutils literal notranslate"><span class="pre">[0]</span></code> → une ligne, <code class="docutils literal notranslate"><span class="pre">[-5,</span> <span class="pre">0,</span> <span class="pre">5]</span></code> → trois</p></li>
+<li><p>Superposer deux <code class="docutils literal notranslate"><span class="pre">contour</span></code> (initial / courant) → voir la limite <strong>se déplacer</strong></p></li>
+</ul>
 <hr class="docutils" />
 <!-- _class: invert pratique -->
 </section>
@@ -879,14 +951,15 @@ En 2D, nous modélisons un rectangle, ce qui implique de prendre en compte les q
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cours 7</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-du-cours">Objectifs du cours</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-modeliser-en-2d">Pourquoi modéliser en 2D?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#coder-pas-a-pas">Coder pas à pas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-modeliser-en-2d">Pourquoi modéliser en 2D ?</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-d-un-domaine-rectangulaire">Discrétisation d’un domaine rectangulaire</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#grille-2d-noeuds-et-intervalles">Grille 2D : nœuds et intervalles</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-representant-un-champ-2d-t-ou-c">Matrice représentant un champ 2D (<span class="math notranslate nohighlight">\(T\)</span> ou <span class="math notranslate nohighlight">\(C\)</span>)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-ou-carte-l-affichage-avec-imshow">Matrice ou carte ? L’affichage avec <code class="docutils literal notranslate"><span class="pre">imshow</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-de-diffusion-en-2d">Équation de diffusion en 2D</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-des-derivees-partielles-en-2d">Approximation des dérivées partielles en 2D</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-des-flux-q-x-et-q-y">Discrétisation des flux <span class="math notranslate nohighlight">\(q_x\)</span> et <span class="math notranslate nohighlight">\(q_y\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-des-flux-q-x-et-q-y-suivre-les-tailles">Discrétisation des flux <span class="math notranslate nohighlight">\(q_x\)</span> et <span class="math notranslate nohighlight">\(q_y\)</span> : suivre les tailles</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-graphique">Illustration graphique</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#troncature-pour-assurer-la-compatibilite">Troncature pour assurer la compatibilité</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-de-stabilite">Condition de stabilité</a></li>
