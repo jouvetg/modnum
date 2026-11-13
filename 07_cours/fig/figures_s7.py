@@ -21,7 +21,7 @@ DOSSIER = os.path.dirname(os.path.abspath(__file__))
 DEST = {
     '7.2_matrice_carte': ['matrice_carte_s7.svg', '../../07_tutoriel/fig/matrice_carte_s7.svg'],
     '7.3_discretisation': ['discretisation_2d_s7.svg'],
-    '7.4_contour': ['contour_s7.svg'],
+    '7.4_contour': ['../../07_tutoriel/fig/contour_s7.svg'],
 }
 
 CX = "#e660aa"   # direction x : colonnes, axe 1, qx, dx

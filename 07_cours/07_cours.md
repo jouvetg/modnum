@@ -172,7 +172,7 @@ $$q_x = -D \frac{\partial T}{\partial x}, \qquad q_y = -D \frac{\partial T}{\par
 ![](fig/taille_matrice_s9.png)
 
 ```python
-qx = -D * (A[:,1:] - A[:,:-1]) / dx        qy = -D * (A[1:,:] - A[:-1,:]) / dy
+qx = -D * (T[:,1:] - T[:,:-1]) / dx        qy = -D * (T[1:,:] - T[:-1,:]) / dy
 dqxdx = (qx[:,1:] - qx[:,:-1]) / dx        dqydy = (qy[1:,:] - qy[:-1,:]) / dy
 ```
 
@@ -185,18 +185,18 @@ taille        (ny,nx-2)                               (ny-2,nx)
 # Troncature pour assurer la compatibilité
 
 ```python
-qx = -D * (A[:,1:] - A[:,:-1]) / dx            qy = -D * (A[1:,:] - A[:-1,:]) / dy
+qx = -D * (T[:,1:] - T[:,:-1]) / dx            qy = -D * (T[1:,:] - T[:-1,:]) / dy
 dqxdx = (qx[:,1:] - qx[:,:-1]) / dx            dqydy = (qy[1:,:] - qy[:-1,:]) / dy
 
 taille        (ny,nx-2)                               (ny-2,nx)
 ```
 
 
-![width:450px](./fig/taille_matrice_sol_s9.png)
+![width:350px](./fig/taille_matrice_sol_s9.png)
 
 ```python
 dTdt = - ( dqxdx[1:-1,:] + dqydy[:,1:-1] )     # taille (ny-2,nx-2)
-A[1:-1, 1:-1] += dTdt * dt                     # mise à jour
+T[1:-1, 1:-1] += dTdt * dt                     # mise à jour
 ```
 
 ---
@@ -231,19 +231,6 @@ T[:, -1] = T_droit   # derniere colonne
 
 ---
 
-# Tracer une ligne de niveau
-
-![height:330px](./fig/contour_s7.svg)
-
-```python
-ax.contour(x, y, T, levels=[0], colors='k')   # isotherme 0 °C
-```
-
-- `levels` est une **liste** : `[0]` → une ligne, `[-5, 0, 5]` → trois
-- Superposer deux `contour` (initial / courant) → voir la limite **se déplacer**
-
----
-
 <!-- _class: invert pratique -->
 
 # La séance pratique
@@ -260,4 +247,4 @@ ax.contour(x, y, T, levels=[0], colors='k')   # isotherme 0 °C
 
 **L'exercice** — suivre la migration de l'isotherme $0\,°$C, et en déduire l'étendue des pentes qui se déstabilisent.
 
-**Le tutoriel** — une figure 2D interactive, et le piège classique après `ax.cla()`.
+**Le tutoriel** — une figure 2D interactive, le piège classique après `ax.cla()`, et les lignes de niveau avec `contour`.
