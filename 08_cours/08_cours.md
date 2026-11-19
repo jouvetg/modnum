@@ -59,7 +59,7 @@ On perd des cellules en faisant une dérivée (- 1 cellule) ou en tronquant (- 2
 
 # Condition initiale
 
-Il est souvent nécessaire d'initialiser un champ de concentration ou de température. Si celui-ci est constant, cela est facile, par exemple :
+Il est souvent nécessaire d'initialiser un champ, p.e. si celui-ci est constant:
 
 
 ```python
@@ -72,11 +72,9 @@ Sinon, il est pratique d'utiliser la fonction `np.meshgrid` afin de générer de
 X,Y = np.meshgrid(x,y)
 ```
 
-Par commodité, nous utilisons des lettres minuscules pour désigner des vecteurs (c.-à-d. des tableaux 1D) et des lettres majuscules pour des matrices (c.-à-d. des tableaux 2D).
-
 ---
 
-# `np.meshgrid` : des coordonnées en chaque point
+# `np.meshgrid`: coordonnées en chaque point
 
 ![height:480px](./fig/meshgrid_s8.svg)
 
@@ -84,15 +82,13 @@ Par commodité, nous utilisons des lettres minuscules pour désigner des vecteur
 
 # Équation d'advection-diffusion en 2D
 
-Nous pouvons introduire des termes d'advection à côté de ceux de diffusion. Cela peut servir notamment à modéliser la propagation d'un polluant par diffusion et advection dans un espace 2D.
-
-L'équation d'advection-diffusion en 2D s'écrit ainsi :
+On peut modéliser la propagation d'un polluant dans un espace 2D par l'équation d'advection-diffusion:
 
 $$ \frac{\partial C}{\partial t} = -\frac{\partial q_x}{\partial x} -\frac{\partial q_y}{\partial y} - V_x \frac{\partial C}{\partial x} - V_y \frac{\partial C}{\partial y} $$
 
 $$ \textrm{où} \quad q_x = - D \frac{\partial C}{\partial x} \: ; \: \: q_y = - D \frac{\partial C}{\partial y} $$
 
-où $(V_x, V_y)$ est un champ de vitesse en 2D, que nous supposerons constant. Dans le cours suivant, il sera variable.
+où $(V_x, V_y)$ est un champ de vitesse en 2D (ici supposé constant).
 
 Comme en 1D, les termes d'advection ne font intervenir qu'une dérivée première.
 
@@ -100,7 +96,7 @@ Comme en 1D, les termes d'advection ne font intervenir qu'une dérivée premièr
 
 # Résolution numérique de l'advection-diffusion
 
-Parce que les deux termes (diffusion et advection) de mise à jour n'ont pas la même taille (voir ci-dessous), nous traiterons les deux termes séparément grâce à la méthode de splitting.
+Parce que les termes de mise à jour de la diffusion et de l'advection n'ont pas la même taille (voir ci-dessous), on traite les deux termes séparément par "splitting".
 
 ![width:500px](./fig/diffusion_2D_s10.png) ![width:500px](./fig/adv_2D_s10.png)
 
@@ -116,8 +112,6 @@ Similaire au cas 1D, si $V_x>0$, alors la mise à jour avec un schéma upwind s'
 dAdx_a  = - Vx * (A[:,1:] - A[:,:-1]) / dx  # taille ny,nx-1
 A[:,1:] += dAdx_a * dt                      # taille ny,nx-1
 ```
-Notons que ces matrices ont une dimension `ny,nx-1`
-
 Dans le cas inverse, si $V_x<0$, alors la mise à jour avec un schéma upwind s'écrit
 
 ```python
@@ -140,15 +134,13 @@ Si `Vy>0` alors  `A[1:,:]  += dAdy_a * dt` sinon `A[:-1,:] += dAdy_a * dt`.
 
 ---
 
-# Condition aux bords de Neumann
+# Condition aux bords
 
-Sur les bords de notre domaine de modélisation rectangulaire, nous pouvons implémenter des conditions aux bords du type **Dirichlet**:
-$$C({\rm bord}) = {\rm valeur}$$
-ou de **Neumann** comme nous l'avons vu en 1D. En 2D, cela s'écrit:
+Sur les bords de notre domaine de modélisation rectangulaire, nous pouvons avoir des conditions de **Dirichlet** $C({\rm bord}) = {\rm valeur}$ ou de **Neumann**:
 
 $$\frac{\partial C}{\partial x} ({\rm bord \; E/W}) = \alpha, \qquad \frac{\partial C}{\partial y} ({\rm bord \; N/S}) = \beta$$
 
-Le code suivant applique des conditions de Neumann aux quatre bords:
+En 2D, le code suivant applique des conditions de Neumann aux quatre bords:
 
 ```python
 T[:, 0]  = T[:, 1]  - dx * alpha  # bord W , 1er colonne
@@ -156,8 +148,6 @@ T[:, -1] = T[:, -2] + dx * alpha  # bord E , derniere colonne
 T[0, :]  = T[1, :]  - dy * beta   # bord S , 1er ligne
 T[-1, :] = T[-2, :] + dy * beta   # bord N , derniere ligne
 ```
-
-**Attention:** comme en 1D, c'est le **pas d'espace** ($dx$ ou $dy$) qui intervient, et le **signe change** entre le bord de gauche/bas et celui de droite/haut.
 
 ---
 
@@ -186,8 +176,7 @@ T[:, 1] ||                                                   || * alpha
 
 # Condition de flux nul ($\alpha=\beta=0$)
 
-Dans le cas où $\alpha = \beta = 0$, cela revient à imposer un flux nul, c'est-à-dire une dérivée nulle de la solution dans la direction de pénétration du bord.
-Cela revient à interdire tout échange avec l'extérieur.
+Dans le cas où $\alpha = \beta = 0$, cela revient à imposer un flux nul, qui revient à interdire tout échange avec l'extérieur:
 
 
 $$ \frac{\partial C}{\partial x} ({\rm bord \; E/W}) = 0 $$
